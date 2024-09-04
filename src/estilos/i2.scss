@@ -1,10 +1,15 @@
+// Variables
 :root{
+
+    //TEMA PREDETERMINADO
     --c1:#eeddd3;
     --c2:#cf7225;
     --c3:#e8d1c5;
     --c4:#9d3208bc;
     --c5:#fff1e6;
 
+
+    //TEMA OSCURO
     --o1:#192229;
     --o2:#212E36;
     --o3:#2A3B47;
@@ -42,6 +47,7 @@ img{
     text-align: center;
 }
 
+//Estilos del Sidebar
 .sidebar{
     grid-area: sidebar;
     background-color: var(--c1);
@@ -245,11 +251,13 @@ img{
     
 }
 
+//Estilos de las paginas
 .info{
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
 }
 
+//Aplicar tema oscuro a la sidebar
 .sidebar.active{
     background-color: var(--o1);
     box-shadow: -1px 1px 6px 0px var(--o3);
@@ -344,13 +352,15 @@ img{
     }
 }
 
+//Aplicar tema oscuro a las paginas
 .info.active{
     grid-area: main;
     background-color: var(--o3);
     box-shadow: -1px 1px 6px 0px var(--o3);
-    
-    
+
+    color: var(--o5);
 }
+
 
 .grid-container{
     display: grid;
@@ -361,7 +371,7 @@ img{
         "sidebar main";
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px){
 
     *{
         box-sizing: border-box;
@@ -722,6 +732,7 @@ img{
             ; 
     }
 }
+
 @media (max-width: 290px) {
 
     .info{
@@ -798,7 +809,8 @@ img{
     }
 }
 
-@media(min-height: 480px){
+
+@media(min-height: 480px ) and (max-width: 500px){
 
     img{
         width: auto;
@@ -822,7 +834,7 @@ img{
     }
 }
 
-@media(min-height: 625px){
+@media(min-height: 625px)and (max-width: 500px){
 
     img{
         width: auto;
@@ -846,7 +858,7 @@ img{
     }
 }
 
-@media(min-height: 725px){
+@media(min-height: 725px)and (max-width: 500px){
 
     img{
         width: auto;
@@ -871,7 +883,7 @@ img{
 
 }
 
-@media(min-height: 900px){
+@media(min-height: 900px)and (max-width: 500px){
 
     img{
         width: auto;

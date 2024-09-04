@@ -268,6 +268,7 @@ img {
   grid-area: main;
   background-color: var(--o3);
   box-shadow: -1px 1px 6px 0px var(--o3);
+  color: var(--o5);
 }
 
 .grid-container {
@@ -604,7 +605,7 @@ img {
     grid-template: "main" auto "sidebar" 3rem;
   }
 }
-@media (min-height: 480px) {
+@media (min-height: 480px) and (max-width: 500px) {
   img {
     width: auto;
     height: 6.5vh;
@@ -621,7 +622,7 @@ img {
     grid-template: "main" auto "sidebar" 3rem;
   }
 }
-@media (min-height: 625px) {
+@media (min-height: 625px) and (max-width: 500px) {
   img {
     width: auto;
     height: 6.5vh;
@@ -638,7 +639,7 @@ img {
     grid-template: "main" auto "sidebar" 3rem;
   }
 }
-@media (min-height: 725px) {
+@media (min-height: 725px) and (max-width: 500px) {
   img {
     width: auto;
     height: 6.5vh;
@@ -655,7 +656,7 @@ img {
     grid-template: "main" auto "sidebar" 3rem;
   }
 }
-@media (min-height: 900px) {
+@media (min-height: 900px) and (max-width: 500px) {
   img {
     width: auto;
     height: 6vh;
