@@ -1,0 +1,221 @@
+
+:root{
+    --c1:#eeddd3;
+    --c2:#cf7225;
+    --c3:#e8d1c5;
+    --c4:#9d3208bc;
+    --c5:#fff1e6;
+
+    --o1:#192229;
+    --o2:#212E36;
+    --o3:#2A3B47;
+    --o4:#A0A7AD;
+    --o5:#C8CDD0;
+}
+
+body{
+  font-family: "Mukta", sans-serif;
+  background-color: rgb(236, 243, 243);
+  font-size: 1rem;
+  min-height: 100%;
+  margin: 0;
+}
+
+.container-custom {
+  background-color: #ecf1f585; /* Gris claro */
+  padding: 20px; 
+  border-radius: 8px;
+  overflow: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  max-height: 100%; /* Opcional: Bordes redondeados */
+  
+}
+
+.btn-general {
+  background-color: #dddddd; /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+  border-radius: 25px;
+}
+
+.btn-select {
+  background-color: var(--c3); /* Color de fondo por defecto */
+  color: rgb(0, 0, 0);
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-color: var(--c5);
+  border-radius: 150px;
+
+}
+
+.btn-emotion{
+  background-color: #dddddd; /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+  border-radius: 25px;
+  white-space: nowrap;
+}
+
+.btn-general:hover, .btn-select:hover , .btn-emotion:hover{
+  border-color: black;
+  background-color: var(--c2); /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
+}
+
+.btn-general:focus, .btn-select:focus, .btn-emotion:focus {
+  background-color: var(--c2);
+  border-color: none; /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2); /* Opcional: agrega un contorno negro cuando está enfocado */
+}
+
+.btn-general.active, .btn-select.active, .btn-emotion.active {
+  background-color: var(--c2); /* Fondo rojo cuando está activo */
+  color: black;
+  border-color: #ffd5ce; /* Borde rojo para coincidir con el fondo */
+}
+
+
+.img-fluid {
+  width: 50px; /* Ajusta el ancho según tus necesidades */
+  height: 50px; /* Ajusta la altura para que sea igual al ancho */
+  object-fit: cover; /* Asegura que la imagen se ajuste dentro del contenedor sin distorsión */
+  max-width: none; /* Elimina la restricción del ancho máximo de .img-fluid */
+  height: auto;/* Mantiene la proporción de la imagen */
+  margin-right: 10px
+}
+
+.icon {
+  color: var(--c4); /* Color de texto atenuado */
+  width: 25px;
+}
+
+
+.row-create-post{
+  background-color: var(--c3); /* Ajusta el color de fondo según tus necesidades */
+  padding: 10px; /* Opcional: añade un poco de relleno alrededor del contenido */
+  border-radius: 25px;
+  display: flex; /* Ajusta el ancho al contenido */
+  align-items: center;
+  max-width: 150vh; /* Alinea verticalmente el contenido */
+}
+
+.row-create-post .d-flex {
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay suficiente espacio */
+}
+
+textarea.custom-textarea {
+  background-color: transparent; /* Fondo transparente para que coincida con el fondo del div */
+  border: none; /* Eliminar el borde */
+  width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
+  padding: 10px; /* Añadir un poco de padding para mejorar el espacio */
+  color: inherit; /* Mantener el color del texto igual que el div */
+  font-size: 1rem; /* Tamaño de fuente consistente */
+  resize: none; /* Desactivar la opción de redimensionar */
+  outline: none; /* Eliminar el borde cuando el textarea está enfocado */
+}
+
+textarea.custom-textarea:focus {
+  background-color: transparent; /* Fondo transparente incluso cuando se enfoca */
+  border: none; /* Mantener sin borde al enfocarse */
+  box-shadow: none; /* Sin sombra */
+}
+
+.bg-posts {
+  min-height: 200px; /* Ajusta la altura mínima según sea necesario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-top: 20px; /* Espacio arriba de la sección */
+}
+
+.bg-posts img {
+  width: 180px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 10px; /* Espacio entre el texto y la imagen */
+  opacity: 0.5;
+}
+
+.bg-posts span {
+  font-size: 24px; /* Ajusta el tamaño del texto según sea necesario */
+  font-weight: bold; /* Hace que el texto sea negrita */
+  margin-bottom: 10px; /* Espacio entre el texto y la imagen */
+}
+
+.custom-div-post {
+  width: 100%;
+}
+
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%; /* Espacio debajo de la imagen del usuario */
+}
+
+.user-name {
+  font-size: 1.25rem; /* Tamaño del texto del nombre del usuario */
+  font-weight: bold; /* Fuente en negrita */
+}
+
+.emotion-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Espacio entre botones */
+  width: 100%;
+}
+
+.btn-emotion {
+  flex: 1 1 auto; /* Permite que los botones se ajusten al tamaño del contenedor */
+  max-width: calc(33.333% - 1rem); /* Ajusta según el número de botones por fila */
+  white-space: nowrap; /* Asegura que el texto dentro del botón no se envuelva */
+  text-align: center;
+}
+
+.btn-cancel {
+  background-color: #af1919af; /* Color de fondo (ajustar según tus necesidades) */
+  color: #000000; /* Color del texto (ajustar según tus necesidades) */
+  border: 1px solid #ccc; /* Borde del botón */
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel.active, .btn-cancel:hover{
+  background-color: #af1919af;
+  border-color: #af1919af;
+}
+
+.btn-publish{
+  background-color: #dddddd; /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+}
+
+.btn-publish:active, .btn-publish:hover{
+  background-color: #ff6c52;
+  border-color: #ff6c52;
+}
+
+.w-100{
+  display: flex;
+  height: 2rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn{
+  padding: 0.2rem;
+}
+@media (max-width: 500px){
+
+  .container-custom {
+    overflow: hidden;
+
+  }
+}
+
+

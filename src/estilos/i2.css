@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --c1:#eeddd3;
   --c2:#cf7225;
@@ -41,6 +42,14 @@ img {
   text-align: center;
 }
 
+.info {
+  grid-area: main;
+  background-color: rgba(128, 128, 128, 0.114);
+  width: 100%; /* Ajusta el ancho restando el tamaño de la barra lateral */
+  min-height: 100vh;
+  box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
 .sidebar {
   grid-area: sidebar;
   background-color: var(--c1);
@@ -69,6 +78,7 @@ img {
   font-weight: 700;
   line-height: 1;
   text-align: left;
+  font-size: 1.45rem;
 }
 .sidebar .rachaContainer {
   grid-area: a2;
@@ -108,6 +118,7 @@ img {
   font-weight: 700;
   line-height: 1;
   color: var(--c2);
+  font-size: 1.5rem;
 }
 .sidebar .burgerContainer {
   grid-area: a3;
@@ -201,11 +212,6 @@ img {
   padding: 0 0 0 1rem;
 }
 
-.info {
-  grid-area: main;
-  background-color: rgba(128, 128, 128, 0.114);
-}
-
 .sidebar.active {
   background-color: var(--o1);
   box-shadow: -1px 1px 6px 0px var(--o3);
@@ -274,7 +280,7 @@ img {
 .grid-container {
   display: grid;
   gap: 15px;
-  grid-template-columns: 11rem auto;
+  grid-template-columns: 13.5rem auto;
   grid-template-rows: 100vh;
   grid-template-areas: "sidebar main";
 }
@@ -296,6 +302,10 @@ img {
     margin: 0;
   }
   .sidebar {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    width: 100%;
     grid-area: sidebar;
     background-color: var(--c1);
     display: grid;

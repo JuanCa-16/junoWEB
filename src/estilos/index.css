@@ -11,8 +11,8 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   font-family: "Mukta", sans-serif;
   background-color: rgb(236, 243, 243);
   text-transform: capitalize;
@@ -350,6 +350,7 @@ h1 {
   flex: 1; /* Ocupa el espacio restante */
   padding: 1rem; /* Añadir espacio alrededor del contenido */
   background-color: green;
+  max-height: 100%;
 }
 
 @media (max-width: 680px) {
@@ -516,6 +517,8 @@ h1 {
   .info {
     flex: 1; /* Ocupa el espacio restante */
     --padding: 1rem; /* Añadir espacio alrededor del contenido */
-    background-color: green;
+    min-height: 100vh;
+    height: auto;
+    background-color: rgba(128, 128, 128, 0.114);
   }
 }/*# sourceMappingURL=index.css.map */

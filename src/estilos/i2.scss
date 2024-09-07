@@ -47,10 +47,19 @@ img{
     text-align: center;
 }
 
+.info{
+    grid-area: main;
+    background-color: rgba(128, 128, 128, 0.114);
+    width: 100%; /* Ajusta el ancho restando el tamaño de la barra lateral */
+    min-height: 100vh;
+    box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
 //Estilos del Sidebar
 .sidebar{
     grid-area: sidebar;
     background-color: var(--c1);
+    
 
     display: grid;
     grid-template-rows: 3.5vh 11vh 2vh 15vh 55vh 10vh;
@@ -82,7 +91,7 @@ img{
                 font-weight: 700;
                 line-height: 1;
                 text-align: left;
-                
+                font-size: 1.45rem;
             }
         }
         
@@ -128,6 +137,7 @@ img{
                 font-weight: 700;
                 line-height: 1;
                 color: var(--c2);
+                font-size: 1.5rem;
             }
         }
         
@@ -251,12 +261,6 @@ img{
     
 }
 
-//Estilos de las paginas
-.info{
-    grid-area: main;
-    background-color: rgba(128, 128, 128, 0.114);
-}
-
 //Aplicar tema oscuro a la sidebar
 .sidebar.active{
     background-color: var(--o1);
@@ -361,11 +365,10 @@ img{
     color: var(--o5);
 }
 
-
 .grid-container{
     display: grid;
     gap: 15px;
-    grid-template-columns: 11rem auto;
+    grid-template-columns: 13.5rem auto;
     grid-template-rows: 100vh;
     grid-template-areas: 
         "sidebar main";
@@ -392,6 +395,10 @@ img{
     }
 
     .sidebar{
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        width: 100%;
         grid-area: sidebar;
         background-color: var(--c1);
         display: grid;
