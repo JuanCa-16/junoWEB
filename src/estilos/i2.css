@@ -10,12 +10,12 @@
   --o3: #2A3B47;
   --o4: #A0A7AD;
   --o5: #C8CDD0;
-  --feliz:#e7efa2;
-  --triste:#9fd0e2;
-  --enojado:#c13434;
-  --ansioso:#de9c3f;
+  --feliz: #e7efa2;
+  --triste: #9fd0e2;
+  --enojado: #c13434;
+  --ansioso: #de9c3f;
   --motivado: #b6efa2;
-  --aburrido:#a677ad;
+  --aburrido: #a677ad;
 }
 
 * {
@@ -498,6 +498,42 @@ img {
   color: var(--o4);
   /* Color de texto atenuado */
   width: 25px;
+}
+.info.active .app {
+  padding: 20px;
+  background-color: rgba(127, 128, 128, 0.146);
+  overflow: auto;
+  flex-direction: column;
+  max-height: 100%;
+  border-radius: 10px;
+}
+.info.active .app h2 {
+  background-color: var(--o1);
+}
+.info.active .app .friends-section,
+.info.active .app .requests-section {
+  margin-bottom: 20px;
+}
+.info.active .app .friend-item,
+.info.active .app .request-item {
+  background-color: var(--o4);
+  color: black;
+}
+.info.active .app .eliminar-button:hover,
+.info.active .app .no-button:hover {
+  background-color: #a85d4a;
+}
+.info.active .app .yes-button:hover {
+  background-color: #c89332;
+}
+.info.active .app .yes-button {
+  background-color: #d4b06e;
+}
+.info.active .app .no-button {
+  background-color: #c6765e;
+}
+.info.active .app .empty-message {
+  color: var(--o5);
 }
 
 .grid-container {

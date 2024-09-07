@@ -16,12 +16,12 @@
     --o4: #A0A7AD;
     --o5: #C8CDD0;
 
-    --feliz:#e7efa2;
-    --triste:#9fd0e2;
-    --enojado:#c13434;
-    --ansioso:#de9c3f;
+    --feliz: #e7efa2;
+    --triste: #9fd0e2;
+    --enojado: #c13434;
+    --ansioso: #de9c3f;
     --motivado: #b6efa2;
-    --aburrido:#a677ad;
+    --aburrido: #a677ad;
 }
 
 * {
@@ -640,6 +640,61 @@ img {
         color: var(--o4);
         /* Color de texto atenuado */
         width: 25px;
+    }
+
+
+
+    .app {
+
+        padding: 20px;
+        background-color: rgba(127, 128, 128, 0.146);
+        overflow: auto;
+        flex-direction: column;
+        max-height: 100%;
+        border-radius: 10px;
+
+        h2 {
+            background-color: var(--o1);
+        }
+
+        .friends-section,
+        .requests-section {
+            margin-bottom: 20px;
+        }
+
+        .friend-item,
+        .request-item {
+
+            background-color: var(--o4);
+            color: black;
+
+        }
+
+
+        .eliminar-button:hover,
+        .no-button:hover {
+            background-color: #a85d4a;
+        }
+
+        .yes-button:hover {
+            background-color: #c89332;
+            ;
+        }
+
+        .yes-button {
+            background-color: #d4b06e;
+        }
+
+        .no-button {
+            background-color: #c6765e;
+        }
+
+        .empty-message {
+
+            color: var(--o5);
+
+        }
+
     }
 }
 
