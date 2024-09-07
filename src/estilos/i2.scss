@@ -1,33 +1,40 @@
 // Variables
-:root{
+:root {
 
     //TEMA PREDETERMINADO
-    --c1:#eeddd3;
-    --c2:#cf7225;
-    --c3:#e8d1c5;
-    --c4:#9d3208bc;
-    --c5:#fff1e6;
+    --c1: #eeddd3;
+    --c2: #cf7225;
+    --c3: #e8d1c5;
+    --c4: #9d3208bc;
+    --c5: #fff1e6;
 
 
     //TEMA OSCURO
-    --o1:#192229;
-    --o2:#212E36;
-    --o3:#2A3B47;
-    --o4:#A0A7AD;
-    --o5:#C8CDD0;
+    --o1: #192229;
+    --o2: #212E36;
+    --o3: #2A3B47;
+    --o4: #A0A7AD;
+    --o5: #C8CDD0;
+
+    --feliz:#e7efa2;
+    --triste:#9fd0e2;
+    --enojado:#c13434;
+    --ansioso:#de9c3f;
+    --motivado: #b6efa2;
+    --aburrido:#a677ad;
 }
 
-*{
+* {
     box-sizing: border-box;
     --margin: 0;
     --padding: 0;
 }
 
-html{
+html {
     height: 100%;
 }
 
-body{
+body {
     font-family: "Mukta", sans-serif;
     background-color: rgb(236, 243, 243);
     font-size: 1rem;
@@ -35,44 +42,45 @@ body{
     margin: 0;
 }
 
-img{
+img {
     width: auto;
     height: 8vh;
 }
 
-.grid-container > *{
+.grid-container>* {
     box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.212);
     border-radius: 4px;
     padding: 10px;
     text-align: center;
 }
 
-.info{
+.info {
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
-    width: 100%; /* Ajusta el ancho restando el tamaño de la barra lateral */
+    width: 100%;
+    /* Ajusta el ancho restando el tamaño de la barra lateral */
     min-height: 100vh;
     box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
 
 //Estilos del Sidebar
-.sidebar{
+.sidebar {
     grid-area: sidebar;
     background-color: var(--c1);
-    
+
 
     display: grid;
     grid-template-rows: 3.5vh 11vh 2vh 15vh 55vh 10vh;
-    grid-template-areas: 
-        "a3" 
-        "a1" 
+    grid-template-areas:
+        "a3"
+        "a1"
         "."
         "a2"
         "a4"
         "a5";
     grid-template-columns: 100%;
-    
-    .profileContainer{
+
+    .profileContainer {
         grid-area: a1;
         background-color: var(--c3);
         display: flex;
@@ -81,23 +89,26 @@ img{
         margin: 0 0.5rem;
         border-radius: 30px;
         box-shadow: 1px 1px 6px 0px var(--c4);
-        img{
+
+        img {
             margin-left: 0.7rem;
         }
-        .profileContents{
-            
+
+        .profileContents {
+
             padding-left: 0.5rem;
-            h3.name{
+
+            h3.name {
                 font-weight: 700;
                 line-height: 1;
                 text-align: left;
                 font-size: 1.45rem;
             }
         }
-        
+
     }
 
-    .rachaContainer{
+    .rachaContainer {
         grid-area: a2;
         display: flex;
         align-items: center;
@@ -106,55 +117,58 @@ img{
         border-radius: 2rem;
         margin: 0.5rem;
         box-shadow: 1px 1px 6px 0px var(--c4);
-        
-        img{
+
+        img {
             margin-left: 0.2rem;
         }
 
-        .profileContents{
+        .profileContents {
             padding: 1rem 0 0 .5rem;
-            
-            .dias{
+
+            .dias {
                 display: flex;
-                gap:0.4rem;
+                gap: 0.4rem;
             }
-            p.texto1{
+
+            p.texto1 {
                 margin: 0;
                 padding: 0;
                 font-weight: 500;
                 line-height: 1;
             }
-            p.texto2{
+
+            p.texto2 {
                 margin: 0;
                 padding: 0;
                 font-weight: 500;
                 line-height: 1;
             }
-            h3.texto3{
+
+            h3.texto3 {
                 margin: 0;
                 padding: 0 0 0.7rem 0;
-                
+
                 font-weight: 700;
                 line-height: 1;
                 color: var(--c2);
                 font-size: 1.5rem;
             }
         }
-        
+
     }
 
-    .burgerContainer{
+    .burgerContainer {
         grid-area: a3;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         padding: 0;
         margin: 0;
-        
-        .burgerTrigger{
-            
-            .img{
-                
+
+        .burgerTrigger {
+
+            .img {
+
                 width: 1rem;
                 height: 1.5rem;
                 cursor: pointer;
@@ -162,19 +176,19 @@ img{
                 margin: 0;
                 color: var(--c4);
             }
-            
+
         }
 
-    
+
     }
 
-    .contentsContainer{
+    .contentsContainer {
         grid-area: a4;
         display: flex;
         justify-content: center;
         align-items: center;
-        
-        ul{
+
+        ul {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -187,11 +201,11 @@ img{
             height: 85%;
             width: 100%;
             box-shadow: 1px 1px 6px 0px var(--c4);
-            
-            li{
+
+            li {
                 background-color: var(--c1);
                 border-radius: 1rem;
-                display: flex; 
+                display: flex;
                 align-items: center;
                 justify-content: flex-start;
                 flex-direction: row;
@@ -199,9 +213,9 @@ img{
                 padding: 0.3rem;
                 width: 100%;
                 height: 6.5vh;
-                
 
-                .icono{
+
+                .icono {
                     padding-right: 0.3rem;
                     width: auto;
                     height: 1rem;
@@ -209,7 +223,7 @@ img{
                     color: var(--c4);
                 }
 
-                a{
+                a {
                     display: flex;
                     text-decoration: none;
                     color: black;
@@ -219,174 +233,438 @@ img{
                     margin: 0 0 0 0.5rem;
                 }
 
-                span{
+                span {
                     font-size: 1rem;
                     padding: 0 .3rem 0 0;
                 }
             }
 
-            li.active{
+            li.active {
                 background-color: var(--c5);
 
-                a{
+                a {
                     color: var(--c4);
-                    
+
                 }
             }
 
-            li:hover{
+            li:hover {
                 background-color: var(--c5);
                 transition: 0.25s all;
-                a{
+
+                a {
                     color: var(--c4);
                 }
             }
-            
+
         }
     }
 
-    .logoContainer{
+    .logoContainer {
         grid-area: a5;
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        h2.title{
+
+        h2.title {
             font-size: 25.42px;
             padding: 0 0 0 1rem;
         }
-        
+
     }
 
-    
+
 }
 
 //Aplicar tema oscuro a la sidebar
-.sidebar.active{
+.sidebar.active {
     background-color: var(--o1);
     box-shadow: -1px 1px 6px 0px var(--o3);
 
-    .profileContainer{
+    .profileContainer {
         background-color: var(--o3);
         box-shadow: 1px 1px 4px 0px var(--o3);
 
-        h3{
+        h3 {
             color: var(--o5);
         }
     }
 
-    .rachaContainer{
+    .rachaContainer {
 
         background-color: var(--o3);
 
         box-shadow: 1px 1px 4px 0px var(--o3);
 
-        .profileContents{
+        .profileContents {
             padding: 1rem 0 0 .5rem;
-            
-            .dias{
+
+            .dias {
                 color: var(--o5);
             }
-            h3.texto3{
+
+            h3.texto3 {
                 color: var(--c2);
             }
         }
-        
+
     }
 
-    .burgerContainer{
-        
-        .burgerTrigger{
-            
-            .img{
+    .burgerContainer {
+
+        .burgerTrigger {
+
+            .img {
                 width: 1rem;
                 color: var(--o5);
             }
-            
+
         }
 
-    
+
     }
 
-    .contentsContainer{
+    .contentsContainer {
 
-        ul{
-            
+        ul {
+
             background-color: var(--o3);
             box-shadow: 1px 1px 6px 0px var(--o3);
-            
-            li{
+
+            li {
                 background-color: var(--o4);
-                
-                a{
+
+                a {
                     color: var(--o2);
                 }
 
-                .icono{
+                .icono {
                     color: var(--o1);
                 }
             }
 
-            li.active{
+            li.active {
                 background-color: var(--o5);
 
-                a{
+                a {
                     color: var(--o3);
-                    
+
                 }
             }
 
-            li:hover{
+            li:hover {
                 background-color: var(--o5);
                 transition: 0.25s all;
-                a{
+
+                a {
                     color: var(--o3);
                 }
             }
-            
+
         }
     }
 
-    .logoContainer{
-        
-        h2.title{
+    .logoContainer {
+
+        h2.title {
             color: var(--o5);
         }
-        
+
     }
 }
 
 //Aplicar tema oscuro a las paginas
-.info.active{
+.info.active {
     grid-area: main;
     background-color: var(--o3);
     box-shadow: -1px 1px 6px 0px var(--o3);
 
     color: var(--o5);
+
+    .btn-select {
+        background-color: var(--o3);
+        /* Color de fondo por defecto */
+        border-color: var(--o3);
+        color: var(--o4);
+    }
+
+    .row-create-post {
+        background-color: var(--o1);
+    }
+
+    .btn-select {
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Deshabilita el color azul predeterminado al hacer clic */
+    .btn-select:hover,
+    .btn-select:focus:hover,
+    .btn-select:active:hover {
+        background-color: var(--c2, #ddd);
+        /* Color personalizado para hover */
+        border-color: var(--c2, #ddd);
+        /* Borde personalizado para hover */
+    }
+
+
+    /*Botones -> EMOCIONES CLASIFICACION*/
+    .btn-general {
+        background-color: #dddddd;
+        /* Color personalizado */
+        color: rgb(0, 0, 0);
+        border-color: #e6e6e6;
+        border-radius: 25px;
+        border: none;
+    }
+
+    .btn-general.general.active {
+        background-color: var(--c2);
+        /* Color para el botón "General" */
+        color: black;
+        border: none;
+    }
+
+    .btn-general.general:hover,
+    .btn-general.general:focus:hover,
+    .btn-general.general:active:hover {
+        background-color: var(--c2);
+        color: black;
+        border-color: #000000;
+        border: none;
+    }
+
+    .btn-general.feliz.active {
+        background-color: var(--feliz);
+        color: black;
+    }
+
+    .btn-general.feliz:hover,
+    .btn-general.feliz:focus,
+    .btn-general.feliz.active {
+        background-color: var(--feliz);
+        color: black;
+    }
+
+    .btn-general.triste.active {
+        background-color: var(--triste);
+        color: white;
+    }
+
+
+    .btn-general.triste:hover,
+    .btn-general.triste:focus,
+    .btn-general.triste.active {
+        background-color: var(--triste);
+        color: black;
+    }
+
+    .btn-general.enojado.active {
+        background-color: var(--enojado);
+        color: white;
+    }
+
+    .btn-general.enojado:hover,
+    .btn-general.enojado:focus,
+    .btn-general.enojado.active {
+        background-color: var(--enojado);
+        color: black;
+    }
+
+    .btn-general.ansioso.active {
+        background-color: var(--ansioso);
+        color: white;
+    }
+
+    .btn-general.ansioso:hover,
+    .btn-general.ansioso:focus,
+    .btn-general.ansioso.active {
+        background-color: var(--ansioso);
+        color: black;
+    }
+
+    .btn-general.motivado.active {
+        background-color: var(--motivado);
+        color: black;
+    }
+
+    .btn-general.motivado:hover,
+    .btn-general.motivado:focus,
+    .btn-general.motivado.active {
+        background-color: var(--motivado);
+        color: black;
+    }
+
+    .btn-general.aburrido.active {
+        background-color: var(--aburrido);
+        color: white;
+    }
+
+    .btn-general.aburrido:hover,
+    .btn-general.aburrido:focus,
+    .btn-general.aburrido.active {
+        background-color: var(--aburrido);
+        color: black;
+    }
+
+    .btn-general {
+        transition: background-color 0.3s ease;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+
+    .btn-emotion {
+        background-color: #dddddd;
+        /* Color personalizado */
+        color: rgb(0, 0, 0);
+        border-color: #e6e6e6;
+        border-radius: 25px;
+        white-space: nowrap;
+        /* Asegura que el texto dentro del botón no se envuelva */
+        text-align: left;
+        border: none;
+    }
+
+    .btn-emotion.feliz.active {
+        background-color: var(--feliz);
+        color: black;
+    }
+
+    .btn-emotion.feliz:hover,
+    .btn-emotion.feliz:focus,
+    .btn-emotion.feliz.active {
+        background-color: var(--feliz);
+        color: black;
+    }
+
+    .btn-emotion.triste.active {
+        background-color: var(--triste);
+        color: white;
+    }
+
+    .btn-emotion.triste:hover,
+    .btn-emotion.triste:focus,
+    .btn-emotion.triste.active {
+        background-color: var(--triste);
+        color: white;
+    }
+
+    .btn-emotion.enojado.active {
+        background-color: var(--enojado);
+        color: white;
+    }
+
+    .btn-emotion.enojado:hover,
+    .btn-emotion.enojado:focus,
+    .btn-emotion.enojado.active {
+        background-color: var(--enojado);
+        color: white;
+    }
+
+    .btn-emotion.ansioso.active {
+        background-color: var(--ansioso);
+        color: white;
+    }
+
+    .btn-emotion.ansioso:hover,
+    .btn-emotion.ansioso:focus,
+    .btn-emotion.ansioso.active {
+        background-color: var(--ansioso);
+        color: white;
+    }
+
+    .btn-emotion.motivado.active {
+        background-color: var(--motivado);
+        color: black;
+    }
+
+    .btn-emotion.motivado:hover,
+    .btn-emotion.motivado:focus,
+    .btn-emotion.motivado.active {
+        background-color: var(--motivado);
+        color: white;
+    }
+
+    .btn-emotion.aburrido.active {
+        background-color: var(--aburrido);
+        color: white;
+    }
+
+    .btn-emotion.aburrido:hover,
+    .btn-emotion.aburrido:focus,
+    .btn-emotion.aburrido.active {
+        background-color: var(--aburrido);
+        color: white;
+    }
+
+
+    .btn-emotion {
+        transition: background-color 0.3s ease;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+
+    .btn-general:hover,
+    .btn-select:hover,
+    .btn-emotion:hover {
+        border-color: black;
+        background-color: var(--c2);
+        /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
+    }
+
+    .btn-general:focus,
+    .btn-select:focus,
+    .btn-emotion:focus {
+        background-color: var(--c2);
+        border-color: none;
+        /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
+        box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
+        /* Opcional: agrega un contorno negro cuando está enfocado */
+    }
+
+    .btn-general.active,
+    .btn-select.active,
+    .btn-emotion.active {
+        background-color: var(--c2);
+        /* Fondo rojo cuando está activo */
+        color: black;
+        border-color: #ffd5ce;
+        /* Borde rojo para coincidir con el fondo */
+        box-shadow: none;
+    }
+
+
+
+    .icon {
+        color: var(--o4);
+        /* Color de texto atenuado */
+        width: 25px;
+    }
 }
 
-.grid-container{
+.grid-container {
     display: grid;
     gap: 15px;
     grid-template-columns: 13.5rem auto;
     grid-template-rows: 100vh;
-    grid-template-areas: 
+    grid-template-areas:
         "sidebar main";
 }
 
-@media (max-width: 500px){
+@media (max-width: 500px) {
 
-    *{
+    * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
     }
-    
-    html{
+
+    html {
         height: 100%;
     }
-    
-    body{
+
+    body {
         font-family: "Mukta", sans-serif;
         background-color: rgb(236, 243, 243);
         font-size: 1.2rem;
@@ -394,7 +672,7 @@ img{
         margin: 0;
     }
 
-    .sidebar{
+    .sidebar {
         position: fixed;
         z-index: 1000;
         bottom: 0;
@@ -404,18 +682,18 @@ img{
         display: grid;
         grid-template-columns: 4% 10% 2% 10% 65% 6%;
         grid-template-rows: 3rem;
-        grid-template-areas: 
+        grid-template-areas:
             "a3 a1 . a2 a4 a5";
-        
-        img{
+
+        img {
             width: auto;
             height: 1.5rem;
         }
 
         margin: 0;
         padding: 0.5rem 0;
-    
-        .profileContainer{
+
+        .profileContainer {
             grid-area: a1;
             background-color: var(--c3);
             display: flex;
@@ -427,13 +705,16 @@ img{
             box-shadow: 1px 1px 6px 0px var(--c4);
             height: 2rem;
             width: 100%;
-            img{
+
+            img {
                 margin-left: 0;
             }
-            .profileContents{
-                
+
+            .profileContents {
+
                 padding-left: 0.5rem;
-                h3.name{
+
+                h3.name {
                     font-weight: 700;
                     line-height: 1;
                     text-align: left;
@@ -442,11 +723,11 @@ img{
                     display: none;
                 }
             }
-            
+
         }
-    
-        .rachaContainer{
-            
+
+        .rachaContainer {
+
             grid-area: a2;
             display: flex;
             flex-direction: column;
@@ -458,40 +739,44 @@ img{
             box-shadow: 1px 1px 6px 0px var(--c4);
             height: 2rem;
             width: 100%;
-            img{
+
+            img {
                 margin-left: 0;
                 margin-top: 0.2rem;
                 width: auto;
                 height: 1rem;
 
             }
-    
-            .profileContents{
+
+            .profileContents {
                 padding: 0;
-                
-                .dias{
+
+                .dias {
                     display: flex;
-                    gap:0.4rem;
+                    gap: 0.4rem;
                     padding: 0;
                     font-size: 0.8rem;
                 }
-                p.texto1{
+
+                p.texto1 {
                     margin: 0;
                     padding: 0;
                     font-weight: 500;
                     line-height: 1;
                 }
-                p.texto2{
+
+                p.texto2 {
                     margin: 0;
                     padding: 0;
                     font-weight: 500;
                     line-height: 1;
                     display: none;
                 }
-                h3.texto3{
+
+                h3.texto3 {
                     margin: 0;
                     padding: 0 0.6rem 0.7rem 0;
-                    
+
                     font-weight: 700;
                     line-height: 1;
                     color: var(--c2);
@@ -499,11 +784,11 @@ img{
                 }
             }
 
-            
+
         }
-    
-        .burgerContainer{
-            
+
+        .burgerContainer {
+
             grid-area: a3;
             display: flex;
             justify-content: center;
@@ -512,10 +797,10 @@ img{
             margin: 0;
             height: 2.5rem;
             width: 100%;
-            
-            .burgerTrigger{
-                .img{
-                    
+
+            .burgerTrigger {
+                .img {
+
                     width: 1rem;
                     height: 1rem;
                     cursor: pointer;
@@ -523,20 +808,20 @@ img{
                     margin: 0;
                     color: var(--c4);
                 }
-                
+
             }
-    
+
         }
-    
-        .contentsContainer{
+
+        .contentsContainer {
             grid-area: a4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 2rem;
             width: 100%;
-            
-            ul{
+
+            ul {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -550,11 +835,11 @@ img{
                 width: 100%;
                 box-shadow: 1px 1px 6px 0px var(--c4);
                 gap: 5px;
-                
-                li{
+
+                li {
                     background-color: var(--c1);
                     border-radius: 1rem;
-                    display: flex; 
+                    display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
@@ -562,17 +847,17 @@ img{
                     padding: 0.3rem;
                     max-width: 20%;
                     height: 1.2rem;
-                    
-    
-                    .icono{
+
+
+                    .icono {
                         padding-right: 0;
                         width: auto;
                         height: 0.8rem;
                         margin-left: 0;
                         color: var(--c4);
                     }
-    
-                    a{
+
+                    a {
                         display: flex;
                         text-decoration: none;
                         color: black;
@@ -581,335 +866,339 @@ img{
                         justify-content: center;
                         margin: 0 0 0 0;
                     }
-    
-                    span{
+
+                    span {
                         display: none;
                     }
                 }
-    
-                li.active{
+
+                li.active {
                     background-color: var(--c5);
-    
-                    a{
+
+                    a {
                         color: var(--c4);
-                        
+
                     }
                 }
-    
-                li:hover{
+
+                li:hover {
                     background-color: var(--c5);
                     transition: 0.25s all;
-                    a{
+
+                    a {
                         color: var(--c4);
                     }
                 }
-                
+
             }
 
 
         }
-    
-        .logoContainer{
+
+        .logoContainer {
             grid-area: a5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
 
-            img{
+            img {
                 width: auto;
                 height: 1.5rem;
-            }   
-            h2.title{
+            }
+
+            h2.title {
                 padding: 0 0 0 0;
                 font-size: 0.5rem;
             }
-            
+
         }
-    
-        
+
+
     }
 
-    .sidebar.active{
+    .sidebar.active {
         background-color: var(--o1);
-    
-        .profileContainer{
+
+        .profileContainer {
             background-color: var(--o3);
             box-shadow: 1px 1px 4px 0px var(--o3);
-    
-            h3{
+
+            h3 {
                 color: var(--o5);
             }
         }
-    
-        .rachaContainer{
-    
+
+        .rachaContainer {
+
             background-color: var(--o3);
-    
+
             box-shadow: 1px 1px 4px 0px var(--o3);
-    
-            .profileContents{
+
+            .profileContents {
                 padding: 0;
-                
-                .dias{
+
+                .dias {
                     color: var(--o5);
                 }
-                h3.texto3{
+
+                h3.texto3 {
                     color: var(--c2);
                 }
             }
-            
+
         }
-    
-        .burgerContainer{
-            
-            .burgerTrigger{
-                
-                .img{
+
+        .burgerContainer {
+
+            .burgerTrigger {
+
+                .img {
                     width: 1rem;
                     color: var(--o5);
                 }
-                
+
             }
-    
-        
+
+
         }
-    
-        .contentsContainer{
-    
-            ul{
-                
+
+        .contentsContainer {
+
+            ul {
+
                 background-color: var(--o3);
                 box-shadow: 1px 1px 6px 0px var(--o3);
-                
-                li{
+
+                li {
                     background-color: var(--o4);
-                    
-                    a{
+
+                    a {
                         color: var(--o2);
                     }
-    
-                    .icono{
+
+                    .icono {
                         color: var(--o1);
                     }
                 }
-    
-                li.active{
+
+                li.active {
                     background-color: var(--o5);
-    
-                    a{
+
+                    a {
                         color: var(--o3);
-                        
+
                     }
                 }
-    
-                li:hover{
+
+                li:hover {
                     background-color: var(--o5);
                     transition: 0.25s all;
-                    a{
+
+                    a {
                         color: var(--o3);
                     }
                 }
-                
+
             }
         }
-    
-        .logoContainer{
-            
-            h2.title{
+
+        .logoContainer {
+
+            h2.title {
                 color: var(--o5);
             }
-            
+
         }
     }
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 79vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
 @media (max-width: 290px) {
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 93vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
 @media (max-width: 275px) {
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 99vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
 @media (max-width: 250px) {
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 112vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
 @media (max-width: 230px) {
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 120vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
 
-@media(min-height: 480px ) and (max-width: 500px){
+@media(min-height: 480px) and (max-width: 500px) {
 
-    img{
+    img {
         width: auto;
         height: 6.5vh;
     }
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 74vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
-@media(min-height: 625px)and (max-width: 500px){
+@media(min-height: 625px)and (max-width: 500px) {
 
-    img{
+    img {
         width: auto;
         height: 6.5vh;
     }
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 84vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }
 
-@media(min-height: 725px)and (max-width: 500px){
+@media(min-height: 725px)and (max-width: 500px) {
 
-    img{
+    img {
         width: auto;
         height: 6.5vh;
     }
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 86vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 
 }
 
-@media(min-height: 900px)and (max-width: 500px){
+@media(min-height: 900px)and (max-width: 500px) {
 
-    img{
+    img {
         width: auto;
         height: 6vh;
     }
 
-    .info{
+    .info {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
         height: 87vh;
     }
 
-    .grid-container{
+    .grid-container {
         display: grid;
         gap: 15px;
-        grid-template: 
+        grid-template:
             "main" auto
             "sidebar" 3rem
-            ; 
+        ;
     }
 }

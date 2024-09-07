@@ -11,6 +11,13 @@
     --o3:#2A3B47;
     --o4:#A0A7AD;
     --o5:#C8CDD0;
+
+    --feliz:#e7efa2;
+    --triste:#9fd0e2;
+    --enojado:#c13434;
+    --ansioso:#de9c3f;
+    --motivado: #b6efa2;
+    --aburrido:#a677ad;
 }
 
 body{
@@ -42,10 +49,8 @@ body{
   font-weight: bold;
   border-color: var(--c5);
   border-radius: 150px;
-
+  border: none;
 }
-
-
 
 /* Efecto de transición suave entre estados */
 .btn-select {
@@ -67,77 +72,81 @@ body{
   color: rgb(0, 0, 0);
   border-color: #e6e6e6;
   border-radius: 25px;
+  border: none;
 }
-.btn-general.general {
+.btn-general.general.active {
   background-color: var(--c2); /* Color para el botón "General" */
   color: black;
+  border: none;
 }
 
 .btn-general.general:hover, 
 .btn-general.general:focus:hover, 
 .btn-general.general:active:hover{
-  background-color: #c97a04;
+  background-color: var(--c2);
   color: black;
   border-color: #000000;
+  border: none;
 }
 
-.btn-general.feliz {
-  background-color: #e7efa2;
+.btn-general.feliz.active {
+  background-color: var(--feliz);
   color: black;
 }
 
 .btn-general.feliz:hover, .btn-general.feliz:focus, .btn-general.feliz.active{
-  background-color: #e7efa2;
+  background-color: var(--feliz);
   color: black;
 }
 
-.btn-general.triste {
-  background-color: #9fd0e2;
+.btn-general.triste.active {
+  background-color: var(--triste);
   color: white;
 }
 
+
 .btn-general.triste:hover, .btn-general.triste:focus, .btn-general.triste.active{
-  background-color: #9fd0e2;
+  background-color: var(--triste);
   color: black;
 }
 
-.btn-general.enojado {
-  background-color: #c55f19;
+.btn-general.enojado.active {
+  background-color: var(--enojado);
   color: white;
 }
 
 .btn-general.enojado:hover, .btn-general.enojado:focus, .btn-general.enojado.active{
-  background-color: #c55f19;
+  background-color: var(--enojado);
   color: black;
 }
 
-.btn-general.ansioso {
-  background-color: #de9c3f;
+.btn-general.ansioso.active {
+  background-color: var(--ansioso);
   color: white;
 }
 
 .btn-general.ansioso:hover, .btn-general.ansioso:focus, .btn-general.ansioso.active{
-  background-color: #de9c3f;
+  background-color: var(--ansioso);
   color: black;
 }
 
-.btn-general.motivado {
-  background-color: #b6efa2;
+.btn-general.motivado.active {
+  background-color: var(--motivado);
   color: black;
 }
 
 .btn-general.motivado:hover, .btn-general.motivado:focus, .btn-general.motivado.active{
-  background-color: #b6efa2;
+  background-color:  var(--motivado);
   color: black;
 }
 
-.btn-general.aburrido {
-  background-color: #a677ad;
+.btn-general.aburrido.active {
+  background-color: var(--aburrido);
   color: white;
 }
 
 .btn-general.aburrido:hover, .btn-general.aburrido:focus, .btn-general.aburrido.active{
-  background-color: #a677ad;
+  background-color:var(--aburrido);
   color: black;
 }
 
@@ -147,7 +156,6 @@ body{
   padding: 0.5rem;
 }
 
-
 .btn-emotion{
   background-color: #dddddd; /* Color personalizado */
   color: rgb(0, 0, 0);
@@ -155,65 +163,66 @@ body{
   border-radius: 25px;
   white-space: nowrap; /* Asegura que el texto dentro del botón no se envuelva */
   text-align: left;
+  border: none;
 }
 
-.btn-emotion.feliz {
-  background-color: #e7efa2;
+.btn-emotion.feliz.active {
+  background-color: var(--feliz);
   color: black;
 }
 
 .btn-emotion.feliz:hover, .btn-emotion.feliz:focus, .btn-emotion.feliz.active{
-  background-color: #e7efa2;
+  background-color:var(--feliz);
   color: black;
 }
 
-.btn-emotion.triste {
-  background-color: #9fd0e2;
+.btn-emotion.triste.active {
+  background-color: var(--triste);
   color: white;
 }
 
 .btn-emotion.triste:hover, .btn-emotion.triste:focus, .btn-emotion.triste.active{
-  background-color: #9fd0e2;
+  background-color: var(--triste);
   color: white;
 }
 
-.btn-emotion.enojado {
-  background-color: #c55f19;
+.btn-emotion.enojado.active {
+  background-color: var(--enojado);
   color: white;
 }
 
 .btn-emotion.enojado:hover, .btn-emotion.enojado:focus, .btn-emotion.enojado.active{
-  background-color: #c55f19;
+  background-color:var(--enojado);
   color: white;
 }
 
-.btn-emotion.ansioso {
-  background-color: #de9c3f;
+.btn-emotion.ansioso.active {
+  background-color:var(--ansioso);
   color: white;
 }
 
 .btn-emotion.ansioso:hover, .btn-emotion.ansioso:focus, .btn-emotion.ansioso.active{
-  background-color: #de9c3f;
+  background-color: var(--ansioso);
   color: white;
 }
 
-.btn-emotion.motivado {
-  background-color: #b6efa2;
+.btn-emotion.motivado.active {
+  background-color:  var(--motivado);
   color: black;
 }
 
 .btn-emotion.motivado:hover, .btn-emotion.motivado:focus, .btn-emotion.motivado.active{
-  background-color: #b6efa2;
+  background-color:  var(--motivado);
   color: white;
 }
 
-.btn-emotion.aburrido {
-  background-color: #a677ad;
+.btn-emotion.aburrido.active {
+  background-color:var(--aburrido);
   color: white;
 }
 
 .btn-emotion.aburrido:hover, .btn-emotion.aburrido:focus, .btn-emotion.aburrido.active{
-  background-color: #a677ad;
+  background-color: var(--aburrido);
   color: white;
 }
 
@@ -303,7 +312,7 @@ textarea.custom-textarea:focus {
   width: 180px; /* Ajusta el tamaño de la imagen según sea necesario */
   height: auto; /* Mantiene la proporción de la imagen */
   margin-top: 10px; /* Espacio entre el texto y la imagen */
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .bg-posts span {
@@ -333,7 +342,7 @@ textarea.custom-textarea:focus {
 .btn-cancel {
   background-color: #af1919af; /* Color de fondo (ajustar según tus necesidades) */
   color: #000000; /* Color del texto (ajustar según tus necesidades) */
-  border: 1px solid #ccc; /* Borde del botón */
+  border: none; /* Borde del botón */
   transition: background-color 0.3s ease;
 }
 
@@ -345,12 +354,10 @@ textarea.custom-textarea:focus {
 .btn-publish{
   background-color: #dddddd; /* Color personalizado */
   color: rgb(0, 0, 0);
-  border-color: #e6e6e6;
 }
 
 .btn-publish:active, .btn-publish:hover{
-  background-color: #ff6c52;
-  border-color: #ff6c52;
+  background-color: var(--c2);
 }
 
 .w-100{
@@ -363,7 +370,10 @@ textarea.custom-textarea:focus {
 
 .btn{
   padding: 0.2rem;
+  border: none;
 }
+
+
 @media (max-width: 500px){
 
   .container-custom {

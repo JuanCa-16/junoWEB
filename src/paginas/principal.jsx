@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Button, ButtonGroup, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../estilos/i2.scss';
 import "../estilos/Principal.css";
 import { FaPencil } from "react-icons/fa6";
+
+import avatar1 from '../imagenes/ava1.png';
 
 const principal = () => {
   const [selectedBtnSelect, setSelectedBtnSelect] = useState("Todos");
@@ -31,17 +34,15 @@ const principal = () => {
       <Row className="mb-3">
         <ButtonGroup aria-label="Basic example" className="w-100">
           <Button
-            className={`btn-select rounded-md ${
-              selectedBtnSelect === "Todos" ? "active" : ""
-            }`}
+            className={`btn-select rounded-md ${selectedBtnSelect === "Todos" ? "active" : ""
+              }`}
             onClick={() => handleSelectClick("Todos")}
           >
             Todos
           </Button>
           <Button
-            className={`btn-select ${
-              selectedBtnSelect === "Amigos" ? "active" : ""
-            }`}
+            className={`btn-select ${selectedBtnSelect === "Amigos" ? "active" : ""
+              }`}
             onClick={() => handleSelectClick("Amigos")}
           >
             Amigos
@@ -61,9 +62,8 @@ const principal = () => {
           ].map((label) => (
             <Col className="d-flex justify-content-center m-2" key={label}>
               <Button
-                className={`btn-general w-100 ${
-                  selectedBtnGeneral === label ? label.toLowerCase() : ""
-                }`}
+                className={`btn-general w-100 ${label.toLowerCase()} ${selectedBtnGeneral === label ? "active" : ""
+                  }`}
                 onClick={() => handleGeneralClick(label)}
               >
                 {label}
@@ -72,6 +72,7 @@ const principal = () => {
           ))}
         </div>
       </Row>
+
 
       <Row className="mt-4 ms-3">
         <Col xs={12} className="d-flex justify-content-start">
@@ -82,7 +83,7 @@ const principal = () => {
             >
               <div className="d-flex align-items-center flex-nowrap">
                 <img
-                  src="/perfil.webp" // Ruta desde la carpeta public
+                  src={avatar1} // Ruta desde la carpeta public
                   alt="Logo"
                   className="img-fluid rounded-circle"
                 />
@@ -116,8 +117,8 @@ const principal = () => {
                     ].map((emotion) => (
                       <Col className="d-flex justify-content-strart m-2" key={emotion}>
                         <Button
-                          className={`btn-emotion w-100 ${
-                            selectedEmotionPost === emotion ? emotion.toLowerCase(): ""
+                          className={`btn-emotion w-100 ${emotion.toLowerCase()}
+                            ${selectedEmotionPost === emotion ? "active" : ""
                           }`}
                           onClick={() => handleEmotionClick(emotion)}
                         >

@@ -1,15 +1,21 @@
 @charset "UTF-8";
 :root {
-  --c1:#eeddd3;
-  --c2:#cf7225;
-  --c3:#e8d1c5;
-  --c4:#9d3208bc;
-  --c5:#fff1e6;
-  --o1:#192229;
-  --o2:#212E36;
-  --o3:#2A3B47;
-  --o4:#A0A7AD;
-  --o5:#C8CDD0;
+  --c1: #eeddd3;
+  --c2: #cf7225;
+  --c3: #e8d1c5;
+  --c4: #9d3208bc;
+  --c5: #fff1e6;
+  --o1: #192229;
+  --o2: #212E36;
+  --o3: #2A3B47;
+  --o4: #A0A7AD;
+  --o5: #C8CDD0;
+  --feliz:#e7efa2;
+  --triste:#9fd0e2;
+  --enojado:#c13434;
+  --ansioso:#de9c3f;
+  --motivado: #b6efa2;
+  --aburrido:#a677ad;
 }
 
 * {
@@ -45,7 +51,8 @@ img {
 .info {
   grid-area: main;
   background-color: rgba(128, 128, 128, 0.114);
-  width: 100%; /* Ajusta el ancho restando el tamaño de la barra lateral */
+  width: 100%;
+  /* Ajusta el ancho restando el tamaño de la barra lateral */
   min-height: 100vh;
   box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
@@ -275,6 +282,222 @@ img {
   background-color: var(--o3);
   box-shadow: -1px 1px 6px 0px var(--o3);
   color: var(--o5);
+  /* Deshabilita el color azul predeterminado al hacer clic */
+  /*Botones -> EMOCIONES CLASIFICACION*/
+}
+.info.active .btn-select {
+  background-color: var(--o3);
+  /* Color de fondo por defecto */
+  border-color: var(--o3);
+  color: var(--o4);
+}
+.info.active .row-create-post {
+  background-color: var(--o1);
+}
+.info.active .btn-select {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.info.active .btn-select:hover,
+.info.active .btn-select:focus:hover,
+.info.active .btn-select:active:hover {
+  background-color: var(--c2, #ddd);
+  /* Color personalizado para hover */
+  border-color: var(--c2, #ddd);
+  /* Borde personalizado para hover */
+}
+.info.active .btn-general {
+  background-color: #dddddd;
+  /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+  border-radius: 25px;
+  border: none;
+}
+.info.active .btn-general.general.active {
+  background-color: var(--c2);
+  /* Color para el botón "General" */
+  color: black;
+  border: none;
+}
+.info.active .btn-general.general:hover,
+.info.active .btn-general.general:focus:hover,
+.info.active .btn-general.general:active:hover {
+  background-color: var(--c2);
+  color: black;
+  border-color: #000000;
+  border: none;
+}
+.info.active .btn-general.feliz.active {
+  background-color: var(--feliz);
+  color: black;
+}
+.info.active .btn-general.feliz:hover,
+.info.active .btn-general.feliz:focus,
+.info.active .btn-general.feliz.active {
+  background-color: var(--feliz);
+  color: black;
+}
+.info.active .btn-general.triste.active {
+  background-color: var(--triste);
+  color: white;
+}
+.info.active .btn-general.triste:hover,
+.info.active .btn-general.triste:focus,
+.info.active .btn-general.triste.active {
+  background-color: var(--triste);
+  color: black;
+}
+.info.active .btn-general.enojado.active {
+  background-color: var(--enojado);
+  color: white;
+}
+.info.active .btn-general.enojado:hover,
+.info.active .btn-general.enojado:focus,
+.info.active .btn-general.enojado.active {
+  background-color: var(--enojado);
+  color: black;
+}
+.info.active .btn-general.ansioso.active {
+  background-color: var(--ansioso);
+  color: white;
+}
+.info.active .btn-general.ansioso:hover,
+.info.active .btn-general.ansioso:focus,
+.info.active .btn-general.ansioso.active {
+  background-color: var(--ansioso);
+  color: black;
+}
+.info.active .btn-general.motivado.active {
+  background-color: var(--motivado);
+  color: black;
+}
+.info.active .btn-general.motivado:hover,
+.info.active .btn-general.motivado:focus,
+.info.active .btn-general.motivado.active {
+  background-color: var(--motivado);
+  color: black;
+}
+.info.active .btn-general.aburrido.active {
+  background-color: var(--aburrido);
+  color: white;
+}
+.info.active .btn-general.aburrido:hover,
+.info.active .btn-general.aburrido:focus,
+.info.active .btn-general.aburrido.active {
+  background-color: var(--aburrido);
+  color: black;
+}
+.info.active .btn-general {
+  transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 0.5rem;
+}
+.info.active .btn-emotion {
+  background-color: #dddddd;
+  /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+  border-radius: 25px;
+  white-space: nowrap;
+  /* Asegura que el texto dentro del botón no se envuelva */
+  text-align: left;
+  border: none;
+}
+.info.active .btn-emotion.feliz.active {
+  background-color: var(--feliz);
+  color: black;
+}
+.info.active .btn-emotion.feliz:hover,
+.info.active .btn-emotion.feliz:focus,
+.info.active .btn-emotion.feliz.active {
+  background-color: var(--feliz);
+  color: black;
+}
+.info.active .btn-emotion.triste.active {
+  background-color: var(--triste);
+  color: white;
+}
+.info.active .btn-emotion.triste:hover,
+.info.active .btn-emotion.triste:focus,
+.info.active .btn-emotion.triste.active {
+  background-color: var(--triste);
+  color: white;
+}
+.info.active .btn-emotion.enojado.active {
+  background-color: var(--enojado);
+  color: white;
+}
+.info.active .btn-emotion.enojado:hover,
+.info.active .btn-emotion.enojado:focus,
+.info.active .btn-emotion.enojado.active {
+  background-color: var(--enojado);
+  color: white;
+}
+.info.active .btn-emotion.ansioso.active {
+  background-color: var(--ansioso);
+  color: white;
+}
+.info.active .btn-emotion.ansioso:hover,
+.info.active .btn-emotion.ansioso:focus,
+.info.active .btn-emotion.ansioso.active {
+  background-color: var(--ansioso);
+  color: white;
+}
+.info.active .btn-emotion.motivado.active {
+  background-color: var(--motivado);
+  color: black;
+}
+.info.active .btn-emotion.motivado:hover,
+.info.active .btn-emotion.motivado:focus,
+.info.active .btn-emotion.motivado.active {
+  background-color: var(--motivado);
+  color: white;
+}
+.info.active .btn-emotion.aburrido.active {
+  background-color: var(--aburrido);
+  color: white;
+}
+.info.active .btn-emotion.aburrido:hover,
+.info.active .btn-emotion.aburrido:focus,
+.info.active .btn-emotion.aburrido.active {
+  background-color: var(--aburrido);
+  color: white;
+}
+.info.active .btn-emotion {
+  transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 0.5rem;
+}
+.info.active .btn-general:hover,
+.info.active .btn-select:hover,
+.info.active .btn-emotion:hover {
+  border-color: black;
+  background-color: var(--c2);
+  /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
+}
+.info.active .btn-general:focus,
+.info.active .btn-select:focus,
+.info.active .btn-emotion:focus {
+  background-color: var(--c2);
+  border-color: none;
+  /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
+  /* Opcional: agrega un contorno negro cuando está enfocado */
+}
+.info.active .btn-general.active,
+.info.active .btn-select.active,
+.info.active .btn-emotion.active {
+  background-color: var(--c2);
+  /* Fondo rojo cuando está activo */
+  color: black;
+  border-color: #ffd5ce;
+  /* Borde rojo para coincidir con el fondo */
+  box-shadow: none;
+}
+.info.active .icon {
+  color: var(--o4);
+  /* Color de texto atenuado */
+  width: 25px;
 }
 
 .grid-container {
