@@ -5,8 +5,8 @@ import "../estilos/Principal.css";
 import { FaPencil } from "react-icons/fa6";
 
 const principal = () => {
-  const [selectedBtnSelect, setSelectedBtnSelect] = useState(null);
-  const [selectedBtnGeneral, setSelectedBtnGeneral] = useState(null);
+  const [selectedBtnSelect, setSelectedBtnSelect] = useState("Todos");
+  const [selectedBtnGeneral, setSelectedBtnGeneral] = useState("General");
   const [showPostSection, setShowPostSection] = useState(false);
   const [selectedEmotionPost, setSelectedEmotionPost] = useState(null);
 
@@ -62,7 +62,7 @@ const principal = () => {
             <Col className="d-flex justify-content-center m-2" key={label}>
               <Button
                 className={`btn-general w-100 ${
-                  selectedBtnGeneral === label ? "active" : ""
+                  selectedBtnGeneral === label ? label.toLowerCase() : ""
                 }`}
                 onClick={() => handleGeneralClick(label)}
               >
@@ -80,7 +80,7 @@ const principal = () => {
               className="row-create-post"
               onClick={() => setShowPostSection(true)}
             >
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center flex-nowrap">
                 <img
                   src="/perfil.webp" // Ruta desde la carpeta public
                   alt="Logo"
@@ -104,26 +104,29 @@ const principal = () => {
               <div className="custom-div-post d-flex flex-column align-items-start m-2">
                 <span className="user-name ms-2 mb-2">Nombre usuario</span>
                 <span className="ms-2">Hoy me siento</span>
-                <div className="emotion-buttons-container my-2">
-                  {[
-                    "Feliz",
-                    "Triste",
-                    "Enojado",
-                    "Ansioso",
-                    "Motivado",
-                    "Aburrido",
-                  ].map((emotion) => (
-                    <Button
-                      className={`btn-emotion ${
-                        selectedEmotionPost === emotion ? "active" : ""
-                      }`}
-                      onClick={() => handleEmotionClick(emotion)}
-                      key={emotion}
-                    >
-                      {emotion}
-                    </Button>
-                  ))}
-                </div>
+                <Row className="justify-content-start align-items-start">
+                  <div className="d-flex flex-wrap justify-content-start align-items-center m-2">
+                    {[
+                      "Feliz",
+                      "Triste",
+                      "Enojado",
+                      "Ansioso",
+                      "Motivado",
+                      "Aburrido",
+                    ].map((emotion) => (
+                      <Col className="d-flex justify-content-strart m-2" key={emotion}>
+                        <Button
+                          className={`btn-emotion w-100 ${
+                            selectedEmotionPost === emotion ? emotion.toLowerCase(): ""
+                          }`}
+                          onClick={() => handleEmotionClick(emotion)}
+                        >
+                          {emotion}
+                        </Button>
+                      </Col>
+                    ))}
+                  </div>
+                </Row>
                 <span className="ms-2">Porque...</span>
                 <textarea
                   className="form-control custom-textarea"
