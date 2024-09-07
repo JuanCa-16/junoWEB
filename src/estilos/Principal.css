@@ -38,7 +38,12 @@ body{
   flex-direction: column;
   justify-content: top;
   max-height: 100%; /* Opcional: Bordes redondeados */
-  
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer y Edge */
+}
+
+.app::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
 }
 
 /*Botones -> TODOS - AMIGOS */
