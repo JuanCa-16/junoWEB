@@ -97,7 +97,7 @@ const principal = () => {
             <div className="row-create-post">
               <div className="user-info d-flex flex-column align-items-start">
                 <img
-                  src="/perfil.webp"
+                  src={avatar1}
                   alt="Logo"
                   className="img-fluid rounded-circle user-image"
                 />

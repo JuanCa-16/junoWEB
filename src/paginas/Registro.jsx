@@ -136,9 +136,9 @@ const registro = () => {
                 </div>
               </form>
               <div className="text-center mt-3">
-                <a href="/login" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Mukta' }}>
+                <Link to="/usuario/login" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Mukta' }}>
                   ¿Ya tienes una cuenta? Inicia sesión
-                </a>
+                </Link>
               </div>
             </div>
           </div>
