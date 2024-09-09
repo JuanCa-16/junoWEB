@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Mukta", sans-serif;
+}
+
+.auth-container {
+
+
+    .card {
+        border: none;
+        margin-right: 20px;
+    }
+
+    .form-control {
+        border: none;
+    }
+
+    .text-center a {
+        font-family: "Mukta", sans-serif;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .btn-primary {
+        background-color: #D04B24;
+        border: none;
+        font-family: "Mukta", sans-serif;
+    }
+
+    .background {
+        background-image: url('/public/fondocute.jpg');
+    }
+
+    .carousel-container {
+        width: 100%;
+        background-color: #f8f8f8;
+    }
+
+    .carousel-item img {
+        max-height: 100vh
+    }
+
+    .App-header {
+        background-color: #282c34;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        color: white;
+    }
+
+
+    @keyframes App-logo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

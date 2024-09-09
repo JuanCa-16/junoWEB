@@ -4,7 +4,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { FaCalendar } from "react-icons/fa";
 import { HiMiniDocumentChartBar } from "react-icons/hi2";
 import { AiFillSetting } from "react-icons/ai";
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import racha from '../imagenes/racha.png';
 import avatar1 from '../imagenes/ava1.png';
 
@@ -51,34 +51,34 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
             <div className="contentsContainer a4">
                 <ul>
                     <li className={location.pathname === '/' ? 'active' : ''}>
-                        <a href='/'>
+                        <Link to='/'>
                             <IoHome className='icono'/>
                             <span>Principal</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className={location.pathname === '/amigos' ? 'active' : ''}>
-                        <a href='/amigos'>
+                        <Link to='/amigos'>
                             <BsFillPeopleFill className='icono'/>
                             <span>Amigos</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className={location.pathname === '/calendario' ? 'active' : ''}>
-                        <a href='/calendario'>
+                        <Link to='/calendario'>
                             <FaCalendar className='icono'/>
                             <span>Calendario</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className={location.pathname === '/analisis' ? 'active' : ''}>
-                        <a href='/analisis'>
+                        <Link to='/analisis'>
                             <HiMiniDocumentChartBar className='icono'/>
                             <span>Análisis</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className={location.pathname === '/perfil' ? 'active' : ''}>
-                        <a href='/perfil'>
+                        <Link to='/perfil'>
                             <AiFillSetting className='icono'/>
                             <span>Perfil</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>

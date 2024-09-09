@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {Link} from 'react-router-dom';
-import '../estilos/login.css';
+import '../estilos/loginUsuario.css';
 
 const login = () => {
   const [email, setEmail] = useState('');
@@ -34,18 +34,18 @@ const login = () => {
     <div className="d-flex justify-content-center align-items-center vh-100 background">
       <div className="container d-flex shadow-lg" style={{ borderRadius: '20px', overflow: 'hidden' }}>
         <div className="p-5" style={{ backgroundColor: '#fff', width: '50%' }}>
-          <h3 className="text-center mb-4" style={{ fontFamily: 'Comic Sans MS', color: '#D04B24' }}>Bienvenido a JUNO!</h3>
+          <h3 className="text-center mb-4" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>Bienvenido a JUNO!</h3>
 
           <form onSubmit={handleSubmit}>
-              <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Comic Sans MS', color: '#D04B24' }}>
+              <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>
                 <span>¿Aún no tienes una cuenta?&nbsp;</span> 
-                <Link to="/registro" style={{ color: '#D04B24', textDecoration: 'underline' }}>
+                <Link to="/usuario/registro" style={{ color: '#D04B24', textDecoration: 'underline' }}>
                   Regístrate
                 </Link>
             </div>
 
             <div className="mb-3 position-relative">
-              <label htmlFor="email" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Comic Sans MS' }}>
+              <label htmlFor="email" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta'}}>
                 Correo electrónico
               </label>
               <div className="input-group">
@@ -54,7 +54,7 @@ const login = () => {
                   className={`form-control ${alertField === 'email' ? 'border-danger' : ''}`}
                   id="email"
                   placeholder="nombre@ejemplo.com"
-                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Comic Sans MS' }}
+                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta' }}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -70,7 +70,7 @@ const login = () => {
             </div>
 
             <div className="mb-4 position-relative">
-              <label htmlFor="password" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Comic Sans MS' }}>
+              <label htmlFor="password" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta' }}>
                 Contraseña
               </label>
               <div className="input-group">
@@ -79,7 +79,7 @@ const login = () => {
                   className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
                   id="password"
                   placeholder="Contraseña"
-                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Comic Sans MS' }}
+                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta'}}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -103,14 +103,14 @@ const login = () => {
               <button
                 type="submit"
                 className="btn btn-primary d-flex align-items-center justify-content-center"
-                style={{ backgroundColor: '#D04B24', border: 'none', borderRadius: '15px', fontFamily: 'Comic Sans MS' }}
+                style={{ backgroundColor: '#D04B24', border: 'none', borderRadius: '15px', fontFamily: 'Mukta' }}
               >
                 <i className="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión
               </button>
             </div>
           </form>
           <div className="text-center mt-3">
-            <a href="/" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Comic Sans MS' }}>
+            <a href="/" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Mukta' }}>
               ¿Olvidaste tu contraseña?
             </a>
           </div>
