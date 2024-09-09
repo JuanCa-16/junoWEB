@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-function Register() {
+
+const registro = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -147,4 +148,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default registro;
