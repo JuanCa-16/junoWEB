@@ -6,7 +6,7 @@ import Analisis from './paginas/analisis';
 import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
-import Registro from './paginas/registro';
+import Registro from './paginas/Registro';
 import { useState } from 'react';
 
 // Layout para las páginas principales con Sidebar
