@@ -4,6 +4,7 @@ import Amigos from './paginas/amigos';
 import Calendario from './paginas/calendario';
 import Analisis from './paginas/analisis';
 import Perfil from './paginas/perfil';
+import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -18,6 +19,7 @@ function App() {
   return (
     <Router>
       <div className="App principal grid-container">
+      
         <Sidebar closeMenu={closeMenu} setCloseMenu={setCloseMenu}/>
         <div className={closeMenu == false? "info" : "info active"}>
           <Routes>
@@ -26,6 +28,7 @@ function App() {
               <Route path="/calendario" element={<Calendario />}></Route>
               <Route path="/analisis" element={<Analisis />}></Route>
               <Route path="/perfil" element={<Perfil />}></Route>
+              <Route path="/login" element={<Login />}></Route>
           </Routes>
         </div>
       </div>

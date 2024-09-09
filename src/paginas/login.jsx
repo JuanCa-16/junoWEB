@@ -1,0 +1,152 @@
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import {Link} from 'react-router-dom';
+import '../estilos/login.css';
+
+const login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [alertField, setAlertField] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!email.includes('@')) {
+      setAlertField('email');
+      setTimeout(() => setAlertField(''), 3000); // Elimina alerta después de 3 segundos
+      return;
+    }
+
+    if (!password) {
+      setAlertField('password');
+      setTimeout(() => setAlertField(''), 3000); // Elimina alerta después de 3 segundos
+      return;
+    }
+
+    setAlertField('');
+    alert(`Correo: ${email}\nContraseña: ${password}`);
+  };
+  console.log('login');
+  return (
+
+    <div className="d-flex justify-content-center align-items-center vh-100 background">
+      <div className="container d-flex shadow-lg" style={{ borderRadius: '20px', overflow: 'hidden' }}>
+        <div className="p-5" style={{ backgroundColor: '#fff', width: '50%' }}>
+          <h3 className="text-center mb-4" style={{ fontFamily: 'Comic Sans MS', color: '#D04B24' }}>Bienvenido a JUNO!</h3>
+
+          <form onSubmit={handleSubmit}>
+              <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Comic Sans MS', color: '#D04B24' }}>
+                <span>¿Aún no tienes una cuentaaa?&nbsp;</span> 
+                <Link to="/registro" style={{ color: '#D04B24', textDecoration: 'underline' }}>
+                  Regístrate
+                </Link>
+            </div>
+
+            <div className="mb-3 position-relative">
+              <label htmlFor="email" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Comic Sans MS' }}>
+                Correo electrónico
+              </label>
+              <div className="input-group">
+                <input
+                  type="email"
+                  className={`form-control ${alertField === 'email' ? 'border-danger' : ''}`}
+                  id="email"
+                  placeholder="nombre@ejemplo.com"
+                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Comic Sans MS' }}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <span className="input-group-text" style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3' }}>
+                  <i className="bi bi-envelope-fill"></i>
+                </span>
+              </div>
+              {alertField === 'email' && (
+                <div className="alert alert-danger p-1 mt-3 position-relative" role="alert" style={{ fontSize: '0.875rem' }}>
+                  Por favor, ingresa tu correo.
+                </div>
+              )}
+            </div>
+
+            <div className="mb-4 position-relative">
+              <label htmlFor="password" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Comic Sans MS' }}>
+                Contraseña
+              </label>
+              <div className="input-group">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
+                  id="password"
+                  placeholder="Contraseña"
+                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Comic Sans MS' }}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3', borderColor: '#F3E1D3', color: '#D04B24' }}
+                >
+                  <i className={`bi ${showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'}`}></i>
+                </button>
+              </div>
+              {alertField === 'password' && (
+                <div className="alert alert-danger p-1 mt-3 position-relative" role="alert" style={{ fontSize: '0.875rem' }}>
+                  Por favor, ingresa tu contraseña.
+                </div>
+              )}
+            </div>
+
+            <div className="d-grid">
+              <button
+                type="submit"
+                className="btn btn-primary d-flex align-items-center justify-content-center"
+                style={{ backgroundColor: '#D04B24', border: 'none', borderRadius: '15px', fontFamily: 'Comic Sans MS' }}
+              >
+                <i className="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión
+              </button>
+            </div>
+          </form>
+          <div className="text-center mt-3">
+            <a href="/" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Comic Sans MS' }}>
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+        </div>
+
+        {/* parte imagen derecha */}
+        
+        <div className="d-flex justify-content-center align-items-center carousel-container">
+        <div id="carouselExampleCaptions" className="carousel slide">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+
+              <img src="/junologo.png" className="d-block w-100" alt="Slide 1" />
+              <div className="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src="/gato.png" className="d-block w-100" alt="Slide 2" />
+              <div className="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+  );
+}
+
+export default login;
