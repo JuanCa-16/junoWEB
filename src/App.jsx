@@ -29,8 +29,9 @@ function App() {
               <Route path="/calendario" element={<Calendario />}></Route>
               <Route path="/analisis" element={<Analisis />}></Route>
               <Route path="/perfil" element={<Perfil />}></Route>
-              <Route path="/login" element={<Login />}></Route>
               <Route path="/registro" element={<Registro />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+        
           </Routes>
         </div>
       </div>
