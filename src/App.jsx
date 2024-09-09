@@ -27,17 +27,6 @@ function MainLayout({ closeMenu, setCloseMenu }) {
   );
 }
 
-// Layout para Login y Registro sin Sidebar
-function AuthLayout() {
-  return (
-    <div className="auth-container">
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/registro" element={<Registro />} />
-      </Routes>
-    </div>
-  );
-}
 
 function App() {
   const [closeMenu, setCloseMenu] = useState(() => {
@@ -49,8 +38,8 @@ function App() {
     <Router>
       <Routes>
         {/* Rutas de autenticación sin Sidebar */}
-        <Route path="/usuario/*" element={<AuthLayout />} />
-        <Route path="/usuario/*" element={<AuthLayout />} />
+        <Route path="/login" element={<div className="auth-container"><Login /></div>} />
+        <Route path="/registro" element={<div className="auth-container"><Registro/></div>} />
 
         {/* Rutas principales con Sidebar */}
         <Route path="/*" element={<MainLayout closeMenu={closeMenu} setCloseMenu={setCloseMenu} />} />
