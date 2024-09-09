@@ -39,7 +39,7 @@ const login = () => {
           <form onSubmit={handleSubmit}>
               <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>
                 <span>¿Aún no tienes una cuenta?&nbsp;</span> 
-                <Link to="/usuario/registro" style={{ color: '#D04B24', textDecoration: 'underline' }}>
+                <Link to="/usuario/nuevo" style={{ color: '#D04B24', textDecoration: 'underline' }}>
                   Regístrate
                 </Link>
             </div>
