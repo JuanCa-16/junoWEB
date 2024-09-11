@@ -4,6 +4,7 @@ body {
   font-family: "Mukta", sans-serif;
 }
 
+
 .auth-container .card {
   border: none;
   margin-right: 20px;
@@ -26,11 +27,34 @@ body {
   background-image: url("/public/fondocute.jpg");
 }
 .auth-container .carousel-container {
+  
   width: 100%;
+  height: 100%;
   background-color: #f8f8f8;
+  max-width: 50%; 
+  margin: auto; 
 }
 .auth-container .carousel-item img {
-  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 400px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; 
+}
+.carousel-control-prev,
+.carousel-control-next {
+  display: block; /* Asegura que los botones sean visibles */
+  z-index: 10; /* Asegura que estén por encima del contenido del carrusel */
+}
+.carousel-item {
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 .auth-container .App-header {
   background-color: #282c34;
@@ -49,4 +73,4 @@ body {
   to {
     transform: rotate(360deg);
   }
-}/*# sourceMappingURL=loginUsuario.css.map */
+}
