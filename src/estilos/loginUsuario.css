@@ -1,9 +1,9 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
   font-family: "Mukta", sans-serif;
 }
-
 
 .auth-container .card {
   border: none;
@@ -18,6 +18,29 @@ body {
 .auth-container .card-body {
   padding: 2rem;
 }
+.auth-container .input-group {
+  display: flex;
+  align-items: center;
+}
+.auth-container .form-control {
+  border-radius: 15px 0 0 15px;
+  background-color: #F3E1D3;
+  font-family: "Mukta";
+}
+.auth-container .input-group-text, .auth-container button.input-group-text {
+  border-radius: 0 15px 15px 0;
+  background-color: #F3E1D3;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  border: none;
+  font-size: inherit;
+}
+.auth-container i {
+  font-size: 1rem; /* Ajusta el tamaño del ícono según sea necesario */
+}
 .auth-container .btn-primary {
   background-color: #D04B24;
   border: none;
@@ -27,34 +50,27 @@ body {
   background-image: url("/public/fondocute.jpg");
 }
 .auth-container .carousel-container {
-  
   width: 100%;
   height: 100%;
   background-color: #f8f8f8;
-  max-width: 50%; 
-  margin: auto; 
+  max-width: 50%;
+  margin: auto;
 }
-.auth-container .carousel-item img {
+.auth-container .carousel-inner img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  max-height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 500px;
 }
-.carousel-control-prev,
-.carousel-control-next {
-  width: 5%; 
+.auth-container .carousel-control-prev,
+.auth-container .carousel-control-next {
+  width: 5%; /* Ajusta el tamaño de los controles */
 }
-.carousel-control-prev,
-.carousel-control-next {
+.auth-container .carousel-control-prev,
+.auth-container .carousel-control-next {
   display: block; /* Asegura que los botones sean visibles */
   z-index: 10; /* Asegura que estén por encima del contenido del carrusel */
-}
-.carousel-item {
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
 }
 .auth-container .App-header {
   background-color: #282c34;
@@ -73,4 +89,4 @@ body {
   to {
     transform: rotate(360deg);
   }
-}
+}/*# sourceMappingURL=loginUsuario.css.map */

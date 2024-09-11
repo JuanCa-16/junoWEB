@@ -34,17 +34,25 @@ body {
         background-color: #F3E1D3;
         font-family: 'Mukta';
       }
-        .input-group,
-        .input-group-text,
-        .form-control {
-        box-sizing: border-box;
-    }
+
 
       
-      .input-group-text {
+    .input-group-text,button.input-group-text{
         border-radius: 0 15px 15px 0;
         background-color: #F3E1D3;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 100%;
+        border: none;
+        font-size: inherit;
+
       }
+    
+    i {
+        font-size: 1rem; /* Ajusta el tamaño del ícono según sea necesario */
+    }
       
     .btn-primary {
         background-color: #D04B24;

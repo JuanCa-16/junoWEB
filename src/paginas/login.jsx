@@ -4,6 +4,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import {Link} from 'react-router-dom';
 import '../estilos/loginUsuario.css';
 import '../estilos/loginUsuario.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 const login = () => {
@@ -46,7 +48,7 @@ const login = () => {
                 </Link>
             </div>
 
-            <div className="mb-3 position-relative">
+            <div className="mb-3 ">
               <label htmlFor="email" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta'}}>
                 Correo electrónico
               </label>
@@ -76,25 +78,24 @@ const login = () => {
                 Contraseña
               </label>
               <div className="input-group">
-               
-  <input
-    type={showPassword ? 'text' : 'password'}
-    className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
-    id="password"
-    placeholder="Contraseña"
-    style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta'}}
-    value={password}
-    onChange={(e) => setPassword(e.target.value)}
-  />
-  <button
-    type="button"
-    className="input-group-text"
-    onClick={() => setShowPassword(!showPassword)}
-    style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3', borderColor: '#F3E1D3', color: '#D04B24' }}
-  >
-    <i className={`bi ${showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'}`}></i>
-  </button>
-</div>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
+                  id="password"
+                  placeholder="Contraseña"
+                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta'}}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="input-group-text"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3', borderColor: '#F3E1D3', color: '#D04B24' }}
+                >
+                  <i className={`bi ${showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'}`}></i>
+                </button>
+              </div>
 
               {alertField === 'password' && (
                 <div className="alert alert-danger p-1 mt-3 position-relative" role="alert" style={{ fontSize: '0.875rem' }}>
@@ -125,32 +126,27 @@ const login = () => {
 
         
         <div className="d-flex justify-content-center align-items-center carousel-container">
-        <div id="carouselExampleCaptions" className="carousel slide">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-
-              <img src="/junologo.png" className="d-block w-100" alt="Slide 1" />
-              <div className="carousel-caption d-none d-md-block">
+          <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img src="../../public/gato.png" className="d-block w-100" alt="Slide 1" />
+              </div>
+              <div className="carousel-item">
+                <img src="../../public/junologo.png" className="d-block w-100" alt="Slide 2" />
               </div>
             </div>
-            <div className="carousel-item">
-              <img src="/gato.png" className="d-block w-100" alt="Slide 2" />
-              <div className="carousel-caption d-none d-md-block">
-              </div>
-            </div>
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden"></span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden"></span>
-          </button>
-        </div> 
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div> 
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
     
   );
 }
