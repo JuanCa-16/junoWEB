@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {Link} from 'react-router-dom';
 import '../estilos/loginUsuario.css';
+import '../estilos/loginUsuario.scss';
+
 
 const login = () => {
   const [email, setEmail] = useState('');
@@ -34,7 +36,7 @@ const login = () => {
     <div className="d-flex justify-content-center align-items-center vh-100 background">
       <div className="container d-flex shadow-lg" style={{ borderRadius: '20px', overflow: 'hidden' }}>
         <div className="p-5" style={{ backgroundColor: '#fff', width: '50%' }}>
-          <h3 className="text-center mb-4" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>Bienvenido a JUNO!</h3>
+          <h3 className="text-center mb-4" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>¡Bienvenido a JUNO!</h3>
 
           <form onSubmit={handleSubmit}>
               <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>
@@ -74,24 +76,26 @@ const login = () => {
                 Contraseña
               </label>
               <div className="input-group">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
-                  id="password"
-                  placeholder="Contraseña"
-                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta'}}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                  type="button"
-                  className="btn btn-outline-secondary"
-                  onClick={() => setShowPassword(!showPassword)}
-                  style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3', borderColor: '#F3E1D3', color: '#D04B24' }}
-                >
-                  <i className={`bi ${showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'}`}></i>
-                </button>
-              </div>
+               
+  <input
+    type={showPassword ? 'text' : 'password'}
+    className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
+    id="password"
+    placeholder="Contraseña"
+    style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta'}}
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+  <button
+    type="button"
+    className="input-group-text"
+    onClick={() => setShowPassword(!showPassword)}
+    style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3', borderColor: '#F3E1D3', color: '#D04B24' }}
+  >
+    <i className={`bi ${showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'}`}></i>
+  </button>
+</div>
+
               {alertField === 'password' && (
                 <div className="alert alert-danger p-1 mt-3 position-relative" role="alert" style={{ fontSize: '0.875rem' }}>
                   Por favor, ingresa tu contraseña.
@@ -116,7 +120,9 @@ const login = () => {
           </div>
         </div>
 
-        {/* parte imagen derecha */}
+        {/* parte carrusel derecha */}
+        
+
         
         <div className="d-flex justify-content-center align-items-center carousel-container">
         <div id="carouselExampleCaptions" className="carousel slide">
@@ -135,16 +141,16 @@ const login = () => {
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
+            <span className="visually-hidden"></span>
           </button>
           <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
+            <span className="visually-hidden"></span>
           </button>
-        </div>
+        </div> 
       </div>
       </div>
-    </div>
+      </div>
     
   );
 }

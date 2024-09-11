@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-const registroU = () => {
+import '../estilos/registro.css'; 
+import '../estilos/registro.scss'; 
+
+const RegistroU = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -41,13 +44,14 @@ const registroU = () => {
     };
 
     return (
-        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: '#f8f8f8' }}>
+        <div className="registro-container">
             <div className="row w-100 justify-content-center">
                 <div className="col-lg-6 col-md-8 col-sm-10">
-                    <div className="card shadow-lg" style={{ borderRadius: '20px', padding: '30px', backgroundColor: '#fff' }}>
+                    <div className="card shadow-lg">
                         <div className="card-body">
                             <h3 className="text-center mb-4" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>¡Regístrate en JUNO!</h3>
                             <form onSubmit={handleSubmit}>
+
                                 <div className="mb-3 position-relative">
                                     <label htmlFor="name" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta' }}>
                                         Nombre completo
@@ -90,6 +94,7 @@ const registroU = () => {
                                     <label htmlFor="password" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta' }}>
                                         Contraseña
                                     </label>
+                                    
                                     <input
                                         type="password"
                                         className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
@@ -133,11 +138,16 @@ const registroU = () => {
                                         <i className="bi bi-box-arrow-in-right me-2"></i>Registrarse
                                     </button>
                                 </div>
-                            </form>
+                            </form >
+                 
+                            
                             <div className="text-center mt-3">
+                            <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>
+                            <span>¿Ya tienes una cuenta?&nbsp;</span> 
                                 <Link to="/usuario/login" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Mukta' }}>
-                                    ¿Ya tienes una cuenta? Inicia sesión
+                                     Inicia sesión
                                 </Link>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -147,4 +157,4 @@ const registroU = () => {
     );
 }
 
-export default registroU
+export default RegistroU;
