@@ -129,10 +129,10 @@ const login = () => {
           <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="../../public/gato.png" className="d-block w-100" alt="Slide 1" />
+                <img src="/gato.png" className="d-block w-100" alt="Slide 1" />
               </div>
               <div className="carousel-item">
-                <img src="../../public/junologo.png" className="d-block w-100" alt="Slide 2" />
+                <img src="/junologo.png" className="d-block w-100" alt="Slide 2" />
               </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
