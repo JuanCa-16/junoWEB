@@ -3,7 +3,7 @@ import Principal from './paginas/principal';
 import Amigos from './paginas/amigos';
 import Calendario from './paginas/calendario';
 import Analisis from './paginas/analisis';
-
+import PerfilPer from './paginas/perfilPersonal';
 import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
@@ -21,7 +21,7 @@ function MainLayout({ closeMenu, setCloseMenu }) {
           <Route path="/amigos" element={<Amigos />} />
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/analisis" element={<Analisis />} />
-          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/perfil" element={<PerfilPer/>} />
         </Routes>
       </div>
     </div>

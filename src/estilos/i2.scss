@@ -381,268 +381,266 @@ img {
 
     color: var(--o5);
 
-    .btn-select {
-        background-color: var(--o3);
-        /* Color de fondo por defecto */
-        border-color: var(--o3);
-        color: var(--o4);
+    .container-custom {
+        .btn-select {
+            background-color: var(--o3);
+            /* Color de fondo por defecto */
+            border-color: var(--o3);
+            color: var(--o4);
+        }
+
+        .row-create-post {
+            background-color: var(--o1);
+        }
+
+        .btn-select {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Deshabilita el color azul predeterminado al hacer clic */
+        .btn-select:hover,
+        .btn-select:focus:hover,
+        .btn-select:active:hover {
+            background-color: var(--c2, #ddd);
+            /* Color personalizado para hover */
+            border-color: var(--c2, #ddd);
+            /* Borde personalizado para hover */
+        }
+
+
+        /*Botones -> EMOCIONES CLASIFICACION*/
+        .btn-general {
+            background-color: #dddddd;
+            /* Color personalizado */
+            color: rgb(0, 0, 0);
+            border-color: #e6e6e6;
+            border-radius: 25px;
+            border: none;
+        }
+
+        .btn-general.general.active {
+            background-color: var(--c2);
+            /* Color para el botón "General" */
+            color: black;
+            border: none;
+        }
+
+        .btn-general.general:hover,
+        .btn-general.general:focus:hover,
+        .btn-general.general:active:hover {
+            background-color: var(--c2);
+            color: black;
+            border-color: #000000;
+            border: none;
+        }
+
+        .btn-general.feliz.active {
+            background-color: var(--feliz);
+            color: black;
+        }
+
+        .btn-general.feliz:hover,
+        .btn-general.feliz:focus,
+        .btn-general.feliz.active {
+            background-color: var(--feliz);
+            color: black;
+        }
+
+        .btn-general.triste.active {
+            background-color: var(--triste);
+            color: white;
+        }
+
+
+        .btn-general.triste:hover,
+        .btn-general.triste:focus,
+        .btn-general.triste.active {
+            background-color: var(--triste);
+            color: black;
+        }
+
+        .btn-general.enojado.active {
+            background-color: var(--enojado);
+            color: white;
+        }
+
+        .btn-general.enojado:hover,
+        .btn-general.enojado:focus,
+        .btn-general.enojado.active {
+            background-color: var(--enojado);
+            color: black;
+        }
+
+        .btn-general.ansioso.active {
+            background-color: var(--ansioso);
+            color: white;
+        }
+
+        .btn-general.ansioso:hover,
+        .btn-general.ansioso:focus,
+        .btn-general.ansioso.active {
+            background-color: var(--ansioso);
+            color: black;
+        }
+
+        .btn-general.motivado.active {
+            background-color: var(--motivado);
+            color: black;
+        }
+
+        .btn-general.motivado:hover,
+        .btn-general.motivado:focus,
+        .btn-general.motivado.active {
+            background-color: var(--motivado);
+            color: black;
+        }
+
+        .btn-general.aburrido.active {
+            background-color: var(--aburrido);
+            color: white;
+        }
+
+        .btn-general.aburrido:hover,
+        .btn-general.aburrido:focus,
+        .btn-general.aburrido.active {
+            background-color: var(--aburrido);
+            color: black;
+        }
+
+        .btn-general {
+            transition: background-color 0.3s ease;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+
+        .btn-emotion {
+            background-color: #dddddd;
+            /* Color personalizado */
+            color: rgb(0, 0, 0);
+            border-color: #e6e6e6;
+            border-radius: 25px;
+            white-space: nowrap;
+            /* Asegura que el texto dentro del botón no se envuelva */
+            text-align: left;
+            border: none;
+        }
+
+        .btn-emotion.feliz.active {
+            background-color: var(--feliz);
+            color: black;
+        }
+
+        .btn-emotion.feliz:hover,
+        .btn-emotion.feliz:focus,
+        .btn-emotion.feliz.active {
+            background-color: var(--feliz);
+            color: black;
+        }
+
+        .btn-emotion.triste.active {
+            background-color: var(--triste);
+            color: white;
+        }
+
+        .btn-emotion.triste:hover,
+        .btn-emotion.triste:focus,
+        .btn-emotion.triste.active {
+            background-color: var(--triste);
+            color: white;
+        }
+
+        .btn-emotion.enojado.active {
+            background-color: var(--enojado);
+            color: white;
+        }
+
+        .btn-emotion.enojado:hover,
+        .btn-emotion.enojado:focus,
+        .btn-emotion.enojado.active {
+            background-color: var(--enojado);
+            color: white;
+        }
+
+        .btn-emotion.ansioso.active {
+            background-color: var(--ansioso);
+            color: white;
+        }
+
+        .btn-emotion.ansioso:hover,
+        .btn-emotion.ansioso:focus,
+        .btn-emotion.ansioso.active {
+            background-color: var(--ansioso);
+            color: white;
+        }
+
+        .btn-emotion.motivado.active {
+            background-color: var(--motivado);
+            color: black;
+        }
+
+        .btn-emotion.motivado:hover,
+        .btn-emotion.motivado:focus,
+        .btn-emotion.motivado.active {
+            background-color: var(--motivado);
+            color: white;
+        }
+
+        .btn-emotion.aburrido.active {
+            background-color: var(--aburrido);
+            color: white;
+        }
+
+        .btn-emotion.aburrido:hover,
+        .btn-emotion.aburrido:focus,
+        .btn-emotion.aburrido.active {
+            background-color: var(--aburrido);
+            color: white;
+        }
+
+
+        .btn-emotion {
+            transition: background-color 0.3s ease;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+
+        .btn-general:hover,
+        .btn-select:hover,
+        .btn-emotion:hover {
+            border-color: black;
+            background-color: var(--c2);
+            /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
+        }
+
+        .btn-general:focus,
+        .btn-select:focus,
+        .btn-emotion:focus {
+            background-color: var(--c2);
+            border-color: none;
+            /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
+            box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
+            /* Opcional: agrega un contorno negro cuando está enfocado */
+        }
+
+        .btn-general.active,
+        .btn-select.active,
+        .btn-emotion.active {
+            background-color: var(--c2);
+            /* Fondo rojo cuando está activo */
+            color: black;
+            border-color: #ffd5ce;
+            /* Borde rojo para coincidir con el fondo */
+            box-shadow: none;
+        }
     }
-
-    .row-create-post {
-        background-color: var(--o1);
-    }
-
-    .btn-select {
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* Deshabilita el color azul predeterminado al hacer clic */
-    .btn-select:hover,
-    .btn-select:focus:hover,
-    .btn-select:active:hover {
-        background-color: var(--c2, #ddd);
-        /* Color personalizado para hover */
-        border-color: var(--c2, #ddd);
-        /* Borde personalizado para hover */
-    }
-
-
-    /*Botones -> EMOCIONES CLASIFICACION*/
-    .btn-general {
-        background-color: #dddddd;
-        /* Color personalizado */
-        color: rgb(0, 0, 0);
-        border-color: #e6e6e6;
-        border-radius: 25px;
-        border: none;
-    }
-
-    .btn-general.general.active {
-        background-color: var(--c2);
-        /* Color para el botón "General" */
-        color: black;
-        border: none;
-    }
-
-    .btn-general.general:hover,
-    .btn-general.general:focus:hover,
-    .btn-general.general:active:hover {
-        background-color: var(--c2);
-        color: black;
-        border-color: #000000;
-        border: none;
-    }
-
-    .btn-general.feliz.active {
-        background-color: var(--feliz);
-        color: black;
-    }
-
-    .btn-general.feliz:hover,
-    .btn-general.feliz:focus,
-    .btn-general.feliz.active {
-        background-color: var(--feliz);
-        color: black;
-    }
-
-    .btn-general.triste.active {
-        background-color: var(--triste);
-        color: white;
-    }
-
-
-    .btn-general.triste:hover,
-    .btn-general.triste:focus,
-    .btn-general.triste.active {
-        background-color: var(--triste);
-        color: black;
-    }
-
-    .btn-general.enojado.active {
-        background-color: var(--enojado);
-        color: white;
-    }
-
-    .btn-general.enojado:hover,
-    .btn-general.enojado:focus,
-    .btn-general.enojado.active {
-        background-color: var(--enojado);
-        color: black;
-    }
-
-    .btn-general.ansioso.active {
-        background-color: var(--ansioso);
-        color: white;
-    }
-
-    .btn-general.ansioso:hover,
-    .btn-general.ansioso:focus,
-    .btn-general.ansioso.active {
-        background-color: var(--ansioso);
-        color: black;
-    }
-
-    .btn-general.motivado.active {
-        background-color: var(--motivado);
-        color: black;
-    }
-
-    .btn-general.motivado:hover,
-    .btn-general.motivado:focus,
-    .btn-general.motivado.active {
-        background-color: var(--motivado);
-        color: black;
-    }
-
-    .btn-general.aburrido.active {
-        background-color: var(--aburrido);
-        color: white;
-    }
-
-    .btn-general.aburrido:hover,
-    .btn-general.aburrido:focus,
-    .btn-general.aburrido.active {
-        background-color: var(--aburrido);
-        color: black;
-    }
-
-    .btn-general {
-        transition: background-color 0.3s ease;
-        width: 100%;
-        padding: 0.5rem;
-    }
-
-
-    .btn-emotion {
-        background-color: #dddddd;
-        /* Color personalizado */
-        color: rgb(0, 0, 0);
-        border-color: #e6e6e6;
-        border-radius: 25px;
-        white-space: nowrap;
-        /* Asegura que el texto dentro del botón no se envuelva */
-        text-align: left;
-        border: none;
-    }
-
-    .btn-emotion.feliz.active {
-        background-color: var(--feliz);
-        color: black;
-    }
-
-    .btn-emotion.feliz:hover,
-    .btn-emotion.feliz:focus,
-    .btn-emotion.feliz.active {
-        background-color: var(--feliz);
-        color: black;
-    }
-
-    .btn-emotion.triste.active {
-        background-color: var(--triste);
-        color: white;
-    }
-
-    .btn-emotion.triste:hover,
-    .btn-emotion.triste:focus,
-    .btn-emotion.triste.active {
-        background-color: var(--triste);
-        color: white;
-    }
-
-    .btn-emotion.enojado.active {
-        background-color: var(--enojado);
-        color: white;
-    }
-
-    .btn-emotion.enojado:hover,
-    .btn-emotion.enojado:focus,
-    .btn-emotion.enojado.active {
-        background-color: var(--enojado);
-        color: white;
-    }
-
-    .btn-emotion.ansioso.active {
-        background-color: var(--ansioso);
-        color: white;
-    }
-
-    .btn-emotion.ansioso:hover,
-    .btn-emotion.ansioso:focus,
-    .btn-emotion.ansioso.active {
-        background-color: var(--ansioso);
-        color: white;
-    }
-
-    .btn-emotion.motivado.active {
-        background-color: var(--motivado);
-        color: black;
-    }
-
-    .btn-emotion.motivado:hover,
-    .btn-emotion.motivado:focus,
-    .btn-emotion.motivado.active {
-        background-color: var(--motivado);
-        color: white;
-    }
-
-    .btn-emotion.aburrido.active {
-        background-color: var(--aburrido);
-        color: white;
-    }
-
-    .btn-emotion.aburrido:hover,
-    .btn-emotion.aburrido:focus,
-    .btn-emotion.aburrido.active {
-        background-color: var(--aburrido);
-        color: white;
-    }
-
-
-    .btn-emotion {
-        transition: background-color 0.3s ease;
-        width: 100%;
-        padding: 0.5rem;
-    }
-
-
-    .btn-general:hover,
-    .btn-select:hover,
-    .btn-emotion:hover {
-        border-color: black;
-        background-color: var(--c2);
-        /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
-    }
-
-    .btn-general:focus,
-    .btn-select:focus,
-    .btn-emotion:focus {
-        background-color: var(--c2);
-        border-color: none;
-        /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
-        box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
-        /* Opcional: agrega un contorno negro cuando está enfocado */
-    }
-
-    .btn-general.active,
-    .btn-select.active,
-    .btn-emotion.active {
-        background-color: var(--c2);
-        /* Fondo rojo cuando está activo */
-        color: black;
-        border-color: #ffd5ce;
-        /* Borde rojo para coincidir con el fondo */
-        box-shadow: none;
-    }
-
-
 
     .icon {
         color: var(--o4);
         /* Color de texto atenuado */
         width: 25px;
     }
-
-
 
     .app {
 
@@ -696,6 +694,28 @@ img {
         }
 
     }
+
+    .gridPersonal{
+        .rachaContainer {
+
+            background-color: var(--o1);
+    
+            box-shadow: 1px 1px 4px 0px var(--o4);
+    
+            .profileContents {
+                padding: 1rem 0 0 .5rem;
+    
+                .dias {
+                    color: var(--o5);
+                }
+    
+                h3.texto3 {
+                    color: var(--c2);
+                }
+            }
+    
+        }
+    }
 }
 
 .grid-container {
@@ -707,7 +727,7 @@ img {
         "sidebar main";
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
 
     * {
         box-sizing: border-box;
@@ -1160,99 +1180,99 @@ img {
     }
 }
 
-@media(min-height: 480px) and (max-width: 500px) {
+// @media(min-height: 480px) and (max-width: 500px) {
 
-    img {
-        width: auto;
-        height: 6.5vh;
-    }
+//     img {
+//         width: auto;
+//         height: 6.5vh;
+//     }
 
-    .info {
-        grid-area: main;
-        background-color: rgba(128, 128, 128, 0.114);
-        width: 100%;
-        height: 74vh;
-    }
+//     .info {
+//         grid-area: main;
+//         background-color: rgba(128, 128, 128, 0.114);
+//         width: 100%;
+//         height: 74vh;
+//     }
 
-    .grid-container {
-        display: grid;
-        gap: 15px;
-        grid-template:
-            "main" auto
-            "sidebar" 3rem
-        ;
-    }
-}
+//     .grid-container {
+//         display: grid;
+//         gap: 15px;
+//         grid-template:
+//             "main" auto
+//             "sidebar" 3rem
+//         ;
+//     }
+// }
 
-@media(min-height: 625px)and (max-width: 500px) {
+// @media(min-height: 625px)and (max-width: 500px) {
 
-    img {
-        width: auto;
-        height: 6.5vh;
-    }
+//     img {
+//         width: auto;
+//         height: 6.5vh;
+//     }
 
-    .info {
-        grid-area: main;
-        background-color: rgba(128, 128, 128, 0.114);
-        width: 100%;
-        height: 84vh;
-    }
+//     .info {
+//         grid-area: main;
+//         background-color: rgba(128, 128, 128, 0.114);
+//         width: 100%;
+//         height: 84vh;
+//     }
 
-    .grid-container {
-        display: grid;
-        gap: 15px;
-        grid-template:
-            "main" auto
-            "sidebar" 3rem
-        ;
-    }
-}
+//     .grid-container {
+//         display: grid;
+//         gap: 15px;
+//         grid-template:
+//             "main" auto
+//             "sidebar" 3rem
+//         ;
+//     }
+// }
 
-@media(min-height: 725px)and (max-width: 500px) {
+// @media(min-height: 725px)and (max-width: 500px) {
 
-    img {
-        width: auto;
-        height: 6.5vh;
-    }
+//     img {
+//         width: auto;
+//         height: 6.5vh;
+//     }
 
-    .info {
-        grid-area: main;
-        background-color: rgba(128, 128, 128, 0.114);
-        width: 100%;
-        height: 86vh;
-    }
+//     .info {
+//         grid-area: main;
+//         background-color: rgba(128, 128, 128, 0.114);
+//         width: 100%;
+//         height: 86vh;
+//     }
 
-    .grid-container {
-        display: grid;
-        gap: 15px;
-        grid-template:
-            "main" auto
-            "sidebar" 3rem
-        ;
-    }
+//     .grid-container {
+//         display: grid;
+//         gap: 15px;
+//         grid-template:
+//             "main" auto
+//             "sidebar" 3rem
+//         ;
+//     }
 
-}
+// }
 
-@media(min-height: 900px)and (max-width: 500px) {
+// @media(min-height: 900px)and (max-width: 500px) {
 
-    img {
-        width: auto;
-        height: 6vh;
-    }
+//     img {
+//         width: auto;
+//         height: 6vh;
+//     }
 
-    .info {
-        grid-area: main;
-        background-color: rgba(128, 128, 128, 0.114);
-        width: 100%;
-        height: 87vh;
-    }
+//     .info {
+//         grid-area: main;
+//         background-color: rgba(128, 128, 128, 0.114);
+//         width: 100%;
+//         height: 87vh;
+//     }
 
-    .grid-container {
-        display: grid;
-        gap: 15px;
-        grid-template:
-            "main" auto
-            "sidebar" 3rem
-        ;
-    }
-}
+//     .grid-container {
+//         display: grid;
+//         gap: 15px;
+//         grid-template:
+//             "main" auto
+//             "sidebar" 3rem
+//         ;
+//     }
+// }
