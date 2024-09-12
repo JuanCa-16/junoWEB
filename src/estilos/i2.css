@@ -143,6 +143,9 @@ img {
   margin: 0;
   color: var(--c4);
 }
+.sidebar .burgerContainer .burgerTrigger .sun {
+  display: none;
+}
 .sidebar .contentsContainer {
   grid-area: a4;
   display: flex;
@@ -246,6 +249,12 @@ img {
 .sidebar.active .burgerContainer .burgerTrigger .img {
   width: 1rem;
   color: var(--o5);
+}
+.sidebar.active .burgerContainer .burgerTrigger .sun {
+  display: flex;
+}
+.sidebar.active .burgerContainer .burgerTrigger .moon {
+  display: none;
 }
 .sidebar.active .contentsContainer ul {
   background-color: var(--o3);
@@ -549,6 +558,40 @@ img {
 }
 .info.active .gridPersonal .rachaContainer .profileContents h3.texto3 {
   color: var(--c2);
+}
+.info.active .gridPersonal .infoPer {
+  background-color: var(--o2);
+  box-shadow: 1px 1px 6px 0px var(--o4);
+}
+.info.active .gridPersonal .infoPer h2 {
+  background-color: var(--o1);
+  box-shadow: 1px 1px 6px 0px var(--o1);
+}
+.info.active .gridPersonal .infoPer .general {
+  background-color: var(--o1);
+  box-shadow: 1px 1px 6px 0px var(--o1);
+}
+.info.active .gridPersonal .infoPer .general .emotions-container {
+  background-color: var(--o2);
+  box-shadow: 1px 1px 6px 0px var(--o2);
+}
+.info.active .gridPersonal .infoPer .general .emotions-container .emotion {
+  background-color: var(--o4);
+  /* Espacio entre los círculos */
+}
+.info.active .gridPersonal .infoPer .general .emotions-container .emotion:hover {
+  background-color: var(--o5);
+}
+.info.active .gridPersonal .infoPer .general .emotions-container .active {
+  background-color: var(--c2); /* Color diferente para el emoji activo */
+}
+.info.active .gridPersonal .infoPer .ubicacion {
+  background-color: var(--o1);
+  box-shadow: 1px 1px 6px 0px var(--o1);
+}
+.info.active .gridPersonal .publicaciones {
+  background-color: var(--o1);
+  box-shadow: 1px 1px 6px 0px var(--o4);
 }
 
 .grid-container {

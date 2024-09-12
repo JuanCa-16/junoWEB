@@ -7,7 +7,8 @@ import { AiFillSetting } from "react-icons/ai";
 import { useLocation, Link } from 'react-router-dom';
 import racha from '../imagenes/racha.png';
 import avatar1 from '../imagenes/ava1.png';
-
+import { FaMoon } from "react-icons/fa6";
+import { IoMdSunny } from "react-icons/io";
 const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
 
     const location = useLocation();
@@ -44,7 +45,8 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
 
             <div className={closeMenu ? "burgerContainer active a3" : "burgerContainer a3"}>
                 <div className="burgerTrigger" onClick={handleCloseMenu}>
-                    <IoCloseCircle className='img'/>
+                    <FaMoon  className='img moon'/>
+                    <IoMdSunny className='img sun'/>
                 </div>
             </div>
 

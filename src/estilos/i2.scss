@@ -177,6 +177,10 @@ img {
                 color: var(--c4);
             }
 
+            .sun{
+                display: none;
+            }
+
         }
 
 
@@ -317,6 +321,13 @@ img {
             .img {
                 width: 1rem;
                 color: var(--o5);
+            }
+
+            .sun{
+                display: flex;
+            }
+            .moon{
+                display: none;
             }
 
         }
@@ -715,6 +726,50 @@ img {
             }
     
         }
+
+        .infoPer {
+            background-color: var(--o2);
+            box-shadow: 1px 1px 6px 0px var(--o4);
+            h2 {
+                background-color: var(--o1);
+                box-shadow: 1px 1px 6px 0px var(--o1);
+            }
+            .general{
+                background-color: var(--o1);
+                box-shadow: 1px 1px 6px 0px var(--o1);
+                .emotions-container{
+                    background-color: var(--o2);
+                    box-shadow: 1px 1px 6px 0px var(--o2);
+                    .emotion {
+                        background-color: var(--o4);
+                        
+                        /* Espacio entre los círculos */
+                    }
+
+                    .emotion:hover {
+                        background-color: var(--o5);
+                    }
+
+                    .active {
+                        background-color: var(--c2); /* Color diferente para el emoji activo */
+                    }
+                }
+            }
+
+            .ubicacion {
+                background-color: var(--o1);
+                box-shadow: 1px 1px 6px 0px var(--o1);
+            }
+            
+        }
+
+        .publicaciones {
+            
+            background-color: var(--o1);
+            box-shadow: 1px 1px 6px 0px var(--o4);
+            
+        }
+        
     }
 }
 
