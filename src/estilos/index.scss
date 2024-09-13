@@ -401,6 +401,8 @@ h1{
     padding: 1rem; /* Añadir espacio alrededor del contenido */
     background-color: green;
     max-height: 100%;
+    max-width: 100%;
+    width: 100%;
     
 }
 
@@ -609,6 +611,8 @@ h1{
         min-height: 100vh;
         height: auto;
         background-color: rgba(128, 128, 128, 0.114);
+        width: 100%;
+        max-width: 100%;
         
     }
 }
