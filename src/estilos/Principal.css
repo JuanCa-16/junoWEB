@@ -40,6 +40,7 @@ body{
   max-height: 100%; /* Opcional: Bordes redondeados */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer y Edge */
+  width: 100%;
 }
 
 .app::-webkit-scrollbar {
@@ -55,19 +56,27 @@ body{
   border-color: var(--c5);
   border-radius: 150px;
   border: none;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  
 }
 
-/* Efecto de transición suave entre estados */
-.btn-select {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+.btn-select.active{
+  background-color: var(--c2, #ddd); /* Color personalizado para hover */
+  border-color: var(--c2, #ddd); /* Borde personalizado para hover */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0,3);
 }
+
 
 /* Deshabilita el color azul predeterminado al hacer clic */
 .btn-select:hover,
+.btn-select:focus,
+.btn-select:active,
 .btn-select:focus:hover,
 .btn-select:active:hover {
   background-color: var(--c2, #ddd); /* Color personalizado para hover */
   border-color: var(--c2, #ddd); /* Borde personalizado para hover */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -78,11 +87,14 @@ body{
   border-color: #e6e6e6;
   border-radius: 25px;
   border: none;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
 }
+
 .btn-general.general.active {
   background-color: var(--c2); /* Color para el botón "General" */
   color: black;
   border: none;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn-general.general:hover, 
@@ -91,6 +103,7 @@ body{
   background-color: var(--c2);
   color: black;
   border-color: #000000;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
   border: none;
 }
 
@@ -241,17 +254,21 @@ body{
 
 .btn-general:hover, .btn-select:hover , .btn-emotion:hover{
   border-color: black;
-  background-color: var(--c2); /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
+  background-color: var(--c2);
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3); /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
 }
 
 .btn-general:focus, .btn-select:focus, .btn-emotion:focus {
   background-color: var(--c2);
   border-color: none; /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
-  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2); /* Opcional: agrega un contorno negro cuando está enfocado */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3); /* Opcional: agrega un contorno negro cuando está enfocado */
 }
 
-.btn-general.active, .btn-select.active, .btn-emotion.active {
+AQIUIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+.btn-emotion.active {
   background-color: var(--c2); /* Fondo rojo cuando está activo */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
   color: black;
   border-color: #ffd5ce; /* Borde rojo para coincidir con el fondo */
   box-shadow: none;
@@ -280,6 +297,7 @@ body{
   display: flex; /* Ajusta el ancho al contenido */
   align-items: center;
   max-width: 150vh; /* Alinea verticalmente el contenido */
+  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
 }
 
 .row-create-post .d-flex {
@@ -287,7 +305,7 @@ body{
 }
 
 textarea.custom-textarea {
-  background-color: transparent; /* Fondo transparente para que coincida con el fondo del div */
+  background-color:  #e6beb6; /* Fondo transparente para que coincida con el fondo del div */
   border: none; /* Eliminar el borde */
   width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
   padding: 10px; /* Añadir un poco de padding para mejorar el espacio */
@@ -295,10 +313,11 @@ textarea.custom-textarea {
   font-size: 1rem; /* Tamaño de fuente consistente */
   resize: none; /* Desactivar la opción de redimensionar */
   outline: none; /* Eliminar el borde cuando el textarea está enfocado */
+  box-shadow: 0px 2px 30px rgba(157, 50, 8, 0.2);
 }
 
 textarea.custom-textarea:focus {
-  background-color: transparent; /* Fondo transparente incluso cuando se enfoca */
+  background-color:  #e6beb6; /* Fondo transparente incluso cuando se enfoca */
   border: none; /* Mantener sin borde al enfocarse */
   box-shadow: none; /* Sin sombra */
 }
@@ -351,7 +370,11 @@ textarea.custom-textarea:focus {
   transition: background-color 0.3s ease;
 }
 
-.btn-cancel.active, .btn-cancel:hover{
+.btn-cancel.active, .btn-cancel:hover,
+.btn-cancel:focus:hover,
+.btn-cancel:active:hover,
+.btn-cancel:active, 
+.btn-cancel:hover{
   background-color: #af1919af;
   border-color: #af1919af;
 }
@@ -361,7 +384,11 @@ textarea.custom-textarea:focus {
   color: rgb(0, 0, 0);
 }
 
-.btn-publish:active, .btn-publish:hover{
+.btn-publish:hover,
+.btn-publish:focus:hover,
+.btn-publish:active:hover ,
+.btn-publish:active, 
+.btn-publish:hover{
   background-color: var(--c2);
 }
 
@@ -377,6 +404,54 @@ textarea.custom-textarea:focus {
   padding: 0.2rem;
   border: none;
 }
+
+.post-display-col{
+  background-color: var(--c3);
+  padding: 10px; /* Opcional: añade un poco de relleno alrededor del contenido */
+  border-radius: 25px;
+  align-items: center;
+  max-width: 150vh;
+  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+}
+
+.user-name-post {
+  font-size: 1.25rem; /* Tamaño del texto del nombre del usuario */
+  font-weight: bold; /* Fuente en negrita */
+}
+
+.emotion-badge {
+  border-radius: 15px; 
+  padding: 5px 10px; /* Ajusta el espaciado interno */
+  font-size: 14px; /* Ajusta el tamaño del texto si es necesario */
+  color: #333; /* Color del texto */
+  font-weight: bold; /* Texto en negrita para destacar la emoción */
+  display: inline-block; /* Para que el fondo se ajuste al contenido */
+}
+
+.emotion-badge.feliz {
+  background-color: var(--feliz); /* Color para Feliz */
+}
+
+.emotion-badge.triste {
+  background-color: var(--triste); /* Color para Triste */
+}
+
+.emotion-badge.enojado {
+  background-color: var(--enojado); /* Color para Enojado */
+}
+
+.emotion-badge.ansioso {
+  background-color: var(--ansioso); /* Color para Ansioso */
+}
+
+.emotion-badge.motivado {
+  background-color: var(--motivado); /* Color para Motivado */
+}
+
+.emotion-badge.aburrido {
+  background-color: var(--aburrido); /* Color para Aburrido */
+}
+
 
 
 @media (max-width: 500px){
