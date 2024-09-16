@@ -20,17 +20,16 @@
 
 * {
   box-sizing: border-box;
-  --margin: 0;
-  --padding: 0;
 }
 
 html {
   height: 100%;
+  background-color: rgba(128, 128, 128, 0.237);
 }
 
 body {
   font-family: "Mukta", sans-serif;
-  background-color: rgb(236, 243, 243);
+  --background-color: rgb(236, 243, 243);
   font-size: 1rem;
   min-height: 100%;
   margin: 0;
@@ -43,7 +42,7 @@ img {
 
 .grid-container > * {
   box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.212);
-  border-radius: 4px;
+  border-radius: 0px;
   padding: 10px;
   text-align: center;
 }
@@ -52,7 +51,6 @@ img {
   grid-area: main;
   background-color: rgba(128, 128, 128, 0.114);
   width: 100%;
-  /* Ajusta el ancho restando el tamaño de la barra lateral */
   min-height: 100vh;
   box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
@@ -525,7 +523,7 @@ img {
 .info.active .app .requests-section {
   margin-bottom: 20px;
 }
-.info.active .app .friend-item,
+.info.active .app .user-item, .info.active .app .friend-item,
 .info.active .app .request-item {
   background-color: var(--o4);
   color: black;
@@ -545,6 +543,10 @@ img {
 }
 .info.active .app .empty-message {
   color: var(--o5);
+}
+.info.active .app .search-bar {
+  background-color: var(--o5);
+  border: 2px solid var(--o3);
 }
 .info.active .gridPersonal .rachaContainer {
   background-color: var(--o1);
@@ -583,7 +585,7 @@ img {
   background-color: var(--o5);
 }
 .info.active .gridPersonal .infoPer .general .emotions-container .active {
-  background-color: var(--c2); /* Color diferente para el emoji activo */
+  background-color: var(--o5); /* Color diferente para el emoji activo */
 }
 .info.active .gridPersonal .infoPer .ubicacion {
   background-color: var(--o1);
@@ -596,7 +598,7 @@ img {
 
 .grid-container {
   display: grid;
-  gap: 15px;
+  gap: 0px;
   grid-template-columns: 13.5rem auto;
   grid-template-rows: 100vh;
   grid-template-areas: "sidebar main";

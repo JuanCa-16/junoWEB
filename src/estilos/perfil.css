@@ -170,10 +170,34 @@ body {
 }
 .gridPersonal .estadisticas {
   grid-area: a4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
   background-color: #d4b06e;
   border-radius: 1.3rem;
-  height: 15rem;
   box-shadow: 1px 1px 6px 0px #c89332;
+  display: flex;
+  flex-direction: column;
+}
+.gridPersonal .estadisticas .filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.gridPersonal .estadisticas .filter {
+  padding: 8px 12px;
+  background-color: #F1EDE8;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+.gridPersonal .estadisticas .filter.selected {
+  background-color: #C8B9A6;
+}
+.gridPersonal .estadisticas .filter:hover {
+  background-color: #D4C5A8;
 }
 .gridPersonal .publicaciones {
   grid-area: a5;

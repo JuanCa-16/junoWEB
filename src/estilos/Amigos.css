@@ -46,6 +46,16 @@ body{
   display: none; /* Chrome, Safari y Opera */
 }
 
+.search-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-list-section, .friends-section, .requests-section {
+  margin-bottom: 20px;
+}
+
+
 .app h2{
 
     background-color: var(--c3);
@@ -60,7 +70,7 @@ body{
 }
 
 
-.friend-item, .request-item {
+.user-item, .friend-item, .request-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,11 +80,11 @@ body{
   border-radius: 20px;
 }
 
-.friend-name, .request-name {
+.user-item,.friend-name, .request-name {
   font-size: 1.2em;
 }
 
-.eliminar-button, .yes-button, .no-button {
+.add-button,.eliminar-button, .yes-button, .no-button {
   background-color: #c6765e;
   color: white;
   border: none;
@@ -83,7 +93,7 @@ body{
   cursor: pointer;
 }
 
-.eliminar-button:hover, .no-button:hover {
+.add-button,.eliminar-button:hover, .no-button:hover {
   background-color: #a85d4a;
 }
 
@@ -109,4 +119,17 @@ body{
   color: var(--c4);
   font-size: 1.2em;
   margin-top: 10px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #c6765e;
+  font-family: "Mukta", sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.App, .user-name {
+  font-weight: normal; /* Fuente en negrita */
 }

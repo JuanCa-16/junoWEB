@@ -4,9 +4,14 @@ import racha from '../imagenes/racha.png';
 import '../estilos/perfil.scss';
 import { useState } from 'react';
 import { MdLocationOn } from "react-icons/md";
+import BarChartComponent from '../componentes/BarChart';
 const perfilPersonal = () => {
     const [selectedEmotion, setSelectedEmotion] = useState('Feliz');
-
+    const [selectedEmotionAge, setSelectedEmotionAge] = useState('Todas');
+    const emotionsText = ['Todas', 'Feliz', 'Triste', 'Enojado', 'Ansioso', 'Motivado', 'Aburrido'];
+    const handleEmotionClickAge = (emotion) => {
+        setSelectedEmotionAge(emotion);
+    };
     const emotions = [
         { emoji: '😊', label: 'Feliz' },
         { emoji: '😢', label: 'Triste' },
@@ -32,6 +37,8 @@ const perfilPersonal = () => {
                         <h3 className='texto3'>FELICES</h3>
                     </div>
                 </div>
+
+                
             </div>
 
             <div className="infoPer a3">
@@ -60,7 +67,21 @@ const perfilPersonal = () => {
                 </div>
             </div>
 
-            <div className="estadisticas a4"></div>
+            <div className="estadisticas a4">
+                <h2>Análisis por Edades</h2>
+                <div className="filter-container">
+                    {emotionsText.map((emotion) => (
+                        <button
+                            key={emotion}
+                            className={`filter ${selectedEmotionAge === emotion ? 'selected' : ''}`}
+                            onClick={() => handleEmotionClickAge(emotion)}
+                        >
+                            {emotion}
+                        </button>
+                    ))}
+                </div>
+                <BarChartComponent selectedEmotion={selectedEmotionAge} />
+            </div>
 
             <div className="publicaciones a5"></div>
         </div>
