@@ -1,154 +1,251 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Link} from 'react-router-dom';
+import Select from 'react-select';
+import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/loginUsuario.css';
 import '../estilos/loginUsuario.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+const genderOptions = [
+  { value: 'Masculino', label: 'Masculino' },
+  { value: 'Femenino', label: 'Femenino' },
+  { value: 'Otro', label: 'Otro' },
+];
 
-const login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [alertField, setAlertField] = useState('');
+const Login = () => {
+  const [signUpMode, setsignUpMode] = useState(false); // Estado para controlar el modo
+  const [showPassword, setShowPassword] = useState(false); // Visibilidad de contra
+  const [email, setEmail] = useState(''); // Estado para el email
+  const [password, setPassword] = useState(''); // Estado para la contraseña
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [registerName, setRegisterName] = useState(''); // Estado para el nombre
+  const [registerEmail, setRegisterEmail] = useState(''); // Estado para el email de registro
+  const [registerPassword, setRegisterPassword] = useState(''); // Estado para la contraseña de registro
+  const [registerDate, setRegisterDate] = useState(''); // Estado para la fecha de nacimiento
+  const [registerPhone, setRegisterPhone] = useState(''); // Estado para el teléfono
+  const [registerGender, setRegisterGender] = useState(null); // Estado para el género
+  const [registerCity, setRegisterCity] = useState(''); // Estado para la ciudad
 
-    if (!email.includes('@')) {
-      setAlertField('email');
-      setTimeout(() => setAlertField(''), 3000); // Elimina alerta después de 3 segundos
-      return;
-    }
-
-    if (!password) {
-      setAlertField('password');
-      setTimeout(() => setAlertField(''), 3000); // Elimina alerta después de 3 segundos
-      return;
-    }
-
-    setAlertField('');
-    alert(`Correo: ${email}\nContraseña: ${password}`);
+  const handleSignUpClick = () => {
+    setsignUpMode(true); // Activa modo Sign Up
   };
-  console.log('login');
+
+  const handleSignInClick = () => {
+    setsignUpMode(false); // Vuelve a modo Sign In
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Función para mostrar alerta con Toaster
+  const showToast = (message) => {
+    toast.error(message, {
+      duration: 4000, // Tiempo que dura el toast
+      style: {
+        border: '1px solid #ff4d4d',
+        padding: '16px',
+        color: '#b30000',
+        background: '#ffe6e6',
+      },
+    });
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      showToast('Por favor, completa todos los campos antes de iniciar sesión.');
+    } else {
+      console.log('Iniciar sesión:', email, password);
+    }
+  };
+
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    if (!registerName || !registerEmail || !registerPassword || !registerDate || !registerPhone || !registerGender || !registerCity) {
+      showToast('Por favor, completa todos los campos antes de registrarte.');
+    } else {
+      console.log('Registrarse:', registerName, registerEmail, registerPassword, registerDate, registerPhone, registerGender, registerCity);
+    }
+  };
+
   return (
+    <div className={`container ${signUpMode ? 'sign-up-mode' : ''}`}>
+      
+      <Toaster position="bottom-center" reverseOrder={false} />
 
-    <div className="d-flex justify-content-center align-items-center vh-100 background">
-      <div className="container d-flex shadow-lg" style={{ borderRadius: '20px', overflow: 'hidden' }}>
-        <div className="p-5" style={{ backgroundColor: '#fff', width: '50%' }}>
-          <h3 className="text-center mb-4" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>¡Bienvenido a JUNO!</h3>
-
-          <form onSubmit={handleSubmit}>
-              <div className="d-flex justify-content-center mb-3" style={{ fontFamily: 'Mukta', color: '#D04B24' }}>
-                <span>¿Aún no tienes una cuenta?&nbsp;</span> 
-                <Link to="/usuario/nuevo" style={{ color: '#D04B24', textDecoration: 'underline' }}>
-                  Regístrate
-                </Link>
+      <div className="forms-container">
+        <div className="signin-signup">
+          {/* Formulario de inicio de sesión */}
+          <form onSubmit={handleLoginSubmit} className="sign-in-form">
+            <h2 className="title">¡Bienvenido de nuevo!</h2>
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="email"
+                placeholder="Correo electrónico"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-
-            <div className="mb-3 ">
-              <label htmlFor="email" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta'}}>
-                Correo electrónico
-              </label>
-              <div className="input-group">
-                <input
-                  type="email"
-                  className={`form-control ${alertField === 'email' ? 'border-danger' : ''}`}
-                  id="email"
-                  placeholder="nombre@ejemplo.com"
-                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta' }}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <span className="input-group-text" style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3' }}>
-                  <i className="bi bi-envelope-fill"></i>
-                </span>
-              </div>
-              {alertField === 'email' && (
-                <div className="alert alert-danger p-1 mt-3 position-relative" role="alert" style={{ fontSize: '0.875rem' }}>
-                  Por favor, ingresa tu correo.
-                </div>
-              )}
+            <div className="input-field" style={{ position: 'relative' }}>
+              <i className="fas fa-lock"></i>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <i
+                className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}
+                style={{
+                  position: 'absolute',
+                  right: '15px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                }}
+                onClick={togglePasswordVisibility}
+              ></i>
             </div>
+            <input type="submit" value="Inicia sesión" className="btn solid" />
 
-            <div className="mb-4 position-relative">
-              <label htmlFor="password" className="form-label" style={{ color: '#D04B24', fontWeight: 'bold', fontFamily: 'Mukta' }}>
-                Contraseña
-              </label>
-              <div className="input-group">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  className={`form-control ${alertField === 'password' ? 'border-danger' : ''}`}
-                  id="password"
-                  placeholder="Contraseña"
-                  style={{ borderRadius: '15px 0 0 15px', backgroundColor: '#F3E1D3', fontFamily: 'Mukta'}}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                  type="button"
-                  className="input-group-text"
-                  onClick={() => setShowPassword(!showPassword)}
-                  style={{ borderRadius: '0 15px 15px 0', backgroundColor: '#F3E1D3', borderColor: '#F3E1D3', color: '#D04B24' }}
-                >
-                  <i className={`bi ${showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'}`}></i>
-                </button>
-              </div>
-
-              {alertField === 'password' && (
-                <div className="alert alert-danger p-1 mt-3 position-relative" role="alert" style={{ fontSize: '0.875rem' }}>
-                  Por favor, ingresa tu contraseña.
-                </div>
-              )}
-            </div>
-
-            <div className="d-grid">
-              <button
-                type="submit"
-                className="btn btn-primary d-flex align-items-center justify-content-center"
-                style={{ backgroundColor: '#D04B24', border: 'none', borderRadius: '15px', fontFamily: 'Mukta' }}
-              >
-                <i className="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión
-              </button>
+            <div className="text-center mt-3">
+              <a href="/" className="forgot-password-link">
+                ¿Olvidaste tu contraseña?
+              </a>
             </div>
           </form>
-          <div className="text-center mt-3">
-            <a href="/" style={{ color: '#D04B24', textDecoration: 'underline', fontFamily: 'Mukta' }}>
-              ¿Olvidaste tu contraseña?
-            </a>
+
+          {/* Formulario de registro */}
+          <form onSubmit={handleRegisterSubmit} className="sign-up-form">
+            <h2 className="title">¡Bienvenido a JUNO!</h2>
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="Nombre completo"
+                value={registerName}
+                onChange={(e) => setRegisterName(e.target.value)}
+              />
+            </div>
+
+            <div className="input-field">
+              <i className="fas fa-calendar"></i>
+              <input
+                type="date"
+                placeholder="Fecha de nacimiento"
+                value={registerDate}
+                onChange={(e) => setRegisterDate(e.target.value)}
+              />
+            </div>
+
+            <div className="input-field">
+              <i className="fas fa-phone"></i>
+              <input
+                type="tel"
+                placeholder="Teléfono"
+                value={registerPhone}
+                onChange={(e) => setRegisterPhone(e.target.value)}
+              />
+            </div>
+
+            {/* Campo personalizado para género */}
+            <div className="input-field">
+              <i className="fas fa-venus-mars"></i>
+              <Select
+                options={genderOptions}
+                placeholder="Selecciona tu género"
+                value={registerGender}
+                onChange={(option) => setRegisterGender(option)}
+                classNamePrefix="custom-select"
+              />
+            </div>
+
+            <div className="input-field">
+              <i className="fas fa-city"></i>
+              <input
+                type="text"
+                placeholder="Ciudad, País"
+                value={registerCity}
+                onChange={(e) => setRegisterCity(e.target.value)}
+              />
+            </div>
+
+            <div className="input-field">
+              <i className="fas fa-envelope"></i>
+              <input
+                type="email"
+                placeholder="Correo electrónico"
+                value={registerEmail}
+                onChange={(e) => setRegisterEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="input-field" style={{ position: 'relative' }}>
+              <i className="fas fa-lock"></i>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Contraseña"
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
+              />
+              <i
+                className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}
+                style={{
+                  position: 'absolute',
+                  right: '15px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                }}
+                onClick={togglePasswordVisibility}
+              ></i>
+            </div>
+
+            <input type="submit" value="Registrarme" className="btn solid" />
+          </form>
+        </div>
+      </div>
+
+      <div className="panels-container">
+        <div className="panel left-panel">
+          <div className="content">
+            <h3>¿Eres nuevo en JUNO?</h3>
+            <p>
+              JUNO es un diario en línea diseñado para registrar emociones y
+              promover el bienestar mental, ofreciendo un espacio personal para
+              la reflexión y el crecimiento emocional.
+            </p>
+            <button
+              className="btn transparent"
+              id="sign-up-button"
+              onClick={handleSignUpClick}
+            >
+              Regístrate
+            </button>
           </div>
+          <img src="/pandaoto.png" className="image" alt="" />
         </div>
 
-        {/* parte carrusel derecha */}
-        
-
-        
-        <div className="d-flex justify-content-center align-items-center carousel-container">
-          <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img src="/gato.png" className="d-block w-100" alt="Slide 1" />
-              </div>
-              <div className="carousel-item">
-                <img src="/junologo.png" className="d-block w-100" alt="Slide 2" />
-              </div>
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
+        <div className="panel right-panel">
+          <div className="content">
+            <h3>¿Ya eres parte de JUNO?</h3>
+            <p>
+              Inicia sesión para acceder a tu diario emocional y continuar tu
+              viaje hacia el bienestar mental
+            </p>
+            <button
+              className="btn transparent"
+              id="sign-in-button"
+              onClick={handleSignInClick}
+            >
+              Inicia sesión
             </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div> 
+          </div>
+          <img src="/panda2.png" className="image" alt="" />
         </div>
       </div>
     </div>
-    
   );
-}
+};
 
-export default login;
+export default Login;
