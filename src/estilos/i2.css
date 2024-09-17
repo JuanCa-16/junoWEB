@@ -612,6 +612,14 @@ img {
   grid-template-areas: "sidebar main";
 }
 
+.auth-container {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0rem;
+  background-color: red;
+}
+
 @media (max-width: 700px) {
   * {
     box-sizing: border-box;

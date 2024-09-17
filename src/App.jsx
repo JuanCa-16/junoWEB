@@ -7,7 +7,6 @@ import PerfilPer from './paginas/perfilPersonal';
 import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
-import Registro from './paginas/registroU';
 import { useState } from 'react';
 
 // Layout para las páginas principales con Sidebar
@@ -32,7 +31,6 @@ function AuthLayout() {
     <div className="auth-container">
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/nuevo" element={<Registro />} />
       </Routes>
     </div>
   );
