@@ -47,7 +47,7 @@ body, input{
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  background: linear-gradient(-45deg, #ff7d38, #ffc609); /*color forma de fondo*/
+  background: linear-gradient(-45deg, #ff7d38, #ffc609); /color forma de fondo/
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
@@ -98,8 +98,8 @@ form.sign-up-form{
 
 
 .title{
-  font-size: 2.2rem; /*tamaño letra bienvenido*/
-  color: #cf7225; /*color letra bienvenido*/
+  font-size: 2.2rem; /tamaño letra bienvenido/
+  color: #cf7225; /color letra bienvenido/
   margin-bottom: 10px;
 }
 
@@ -107,7 +107,7 @@ form.sign-up-form{
   max-width: 380px;
   width: 100%;
   height: 55px;
-  background-color: beige; /*color cuadro donde dice gmail y contra*/
+  background-color: beige; /color cuadro donde dice gmail y contra/
   margin: 10px 0;
   border-radius: 55px;
   display: grid;
@@ -117,7 +117,7 @@ form.sign-up-form{
 }
 
 .input-field i{
-  text-align: center; /*ajusta iconos de correo y contra*/
+  text-align: center; /ajusta iconos de correo y contra/
   line-height: 55px;
   color: #cf7225;
   font-size: 1.1rem;
@@ -130,7 +130,7 @@ form.sign-up-form{
   line-height: 1;
   font-weight: 500;
   font-size: 1.1rem;
-  color: #464646; /*color letra de correo y contra*/
+  color: #464646; /color letra de correo y contra/
 }
 
 .input-field input::placeholder{
@@ -145,7 +145,7 @@ form.sign-up-form{
   outline: none;
   border-radius: 49px;
   cursor: pointer;
-  color: #cf7225;  /*color letras de login y registro*/
+  color: #cf7225;  /color letras de login y registro/
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
@@ -169,7 +169,7 @@ form.sign-up-form{
 .social-icon{
   height: 44px;
   width: 44px;
-  border: 1.7px solid #cf7225; /*color borde de aplicaciones de login*/
+  border: 1.7px solid #cf7225; /color borde de aplicaciones de login/
   margin: 0 0.45rem;
   /* display: flex;  hace que logos de app queden en vertical nsp*/  
   justify-content: center;
@@ -187,7 +187,7 @@ form.sign-up-form{
 }
 
 .panels-container{
-  position: absolute;   /*contenedor de texto con imagenes*/
+  position: absolute;   /contenedor de texto con imagenes/
   width: 100%;
   height: 100%;
   top: 0;
@@ -216,7 +216,7 @@ form.sign-up-form{
 }
 
 .panel .content{
-  color: #ffffff; /*color letras de informacion*/
+  color: #ffffff; /color letras de informacion/
   transition: .9s .6s ease-in-out;
 }
 
@@ -242,17 +242,17 @@ form.sign-up-form{
 }
 
 .image{
-  width: 100%;  /*imagen zorros*/
+  width: 100%;  /imagen zorros/
   height: 60%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 }
 
 .right-panel .content, .right-panel .image{
-  transform: translateX(800px);  /*traslada lo de la parte derecha fuera de la pantalla*/
+  transform: translateX(800px);  /traslada lo de la parte derecha fuera de la pantalla/
 }
 
-/*ANIMACION*/
+/ANIMACION/
 
 .container.sign-up-mode::before{
   transform: translate(100%, -50%);
@@ -261,12 +261,12 @@ form.sign-up-form{
 
 .container.sign-up-mode .left-panel .image,
 .container.sign-up-mode .left-panel .content{
-  transform: translateX(-800px);  /*al darle en registrarse, la imagen y la infromacion se mueven*/
+  transform: translateX(-800px);  /al darle en registrarse, la imagen y la infromacion se mueven/
 }
 
 .container.sign-up-mode .right-panel .content, 
 .container.sign-up-mode .right-panel .image{
-  transform: translateX(0px);  /*hace que la imagen del login salga despues de dar click en registro*/
+  transform: translateX(0px);  /hace que la imagen del login salga despues de dar click en registro/
 }
 
 .container.sign-up-mode .left-panel{
@@ -366,7 +366,7 @@ form.sign-up-form{
   }
 
   .right-panel .content, .right-panel .image{
-    transform: translateY(300px); /*translada la imagen caundo da click*/
+    transform: translateY(300px); /translada la imagen caundo da click/
   }
 
   .container.sign-up-mode:before{
@@ -377,7 +377,7 @@ form.sign-up-form{
 
   .container.sign-up-mode .left-panel .image,
   .container.sign-up-mode .left-panel .content{
-    transform: translateX(700px); /*translada la imagen caundo da click*/
+    transform: translateX(700px); /translada la imagen caundo da click/
   }
 
   .container.sign-up-mode .signin-signup{
@@ -415,4 +415,3 @@ form.sign-up-form{
     left: 50%;
   }
 }
-
