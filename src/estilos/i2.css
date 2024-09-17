@@ -294,6 +294,10 @@ img {
   /* Deshabilita el color azul predeterminado al hacer clic */
   /*Botones -> EMOCIONES CLASIFICACION*/
 }
+.info.active .container-custom .post-display-col {
+  background-color: var(--o1);
+  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+}
 .info.active .container-custom .btn-select {
   background-color: var(--o3);
   /* Color de fondo por defecto */
@@ -594,6 +598,10 @@ img {
 .info.active .gridPersonal .publicaciones {
   background-color: var(--o1);
   box-shadow: 1px 1px 6px 0px var(--o4);
+}
+.info.active .gridPersonal .post-display-col {
+  background-color: var(--o1);
+  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
 }
 
 .grid-container {

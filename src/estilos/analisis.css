@@ -56,9 +56,10 @@ body {
   color: #4A3C31;
 }
 .container .filter-container {
-  display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .container .filter {
   padding: 8px 12px;

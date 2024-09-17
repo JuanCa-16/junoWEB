@@ -58,10 +58,10 @@ body {
 
     /* Filtros de análisis por edades */
     .filter-container {
-        display: flex;
-        
         gap: 10px;
         margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .filter {
