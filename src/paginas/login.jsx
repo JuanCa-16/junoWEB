@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/loginUsuario.css';
-import '../estilos/loginUsuario.scss';
 
 const genderOptions = [
   { value: 'Masculino', label: 'Masculino' },
@@ -223,7 +222,7 @@ const Login = () => {
               Regístrate
             </button>
           </div>
-          <img src="/pandaoto.png" className="image" alt="" />
+          <img src="/pandaoto.jpg" className="image" alt="" />
         </div>
 
         <div className="panel right-panel">
@@ -241,7 +240,7 @@ const Login = () => {
               Inicia sesión
             </button>
           </div>
-          <img src="/panda2.png" className="image" alt="" />
+          <img src="/panda2.jpg" className="image" alt="" />
         </div>
       </div>
     </div>
