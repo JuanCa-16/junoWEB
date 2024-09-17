@@ -46,7 +46,7 @@ body{
   -ms-overflow-style: none; /* Internet Explorer y Edge */
 }
 
-.app::-webkit-scrollbar {
+.container-custom::-webkit-scrollbar {
   display: none; /* Chrome, Safari y Opera */
 }
 
@@ -462,6 +462,7 @@ textarea.custom-textarea:focus {
   .container-custom {
     overflow: auto;
 
+  
   }
 }
 
