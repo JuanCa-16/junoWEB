@@ -1,7 +1,6 @@
 import React from 'react'
 import perfil from '../imagenes/ava1.png';
 import racha from '../imagenes/racha.png';
-import '../estilos/perfil.scss';
 import { useState } from 'react';
 import { MdLocationOn } from "react-icons/md";
 import BarChartComponent from '../componentes/BarChart';
@@ -9,7 +8,8 @@ import { Button, ButtonGroup, Container, Row, Col } from "react-bootstrap";
 import avatar1 from '../imagenes/ava1.png';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../estilos/Principal.css";
-
+import '../estilos/perfil.scss';
+import '../estilos/analisis.css';
 const perfilPersonal = () => {
     const [selectedEmotion, setSelectedEmotion] = useState('Feliz');
     const [selectedEmotionAge, setSelectedEmotionAge] = useState('Todas');
