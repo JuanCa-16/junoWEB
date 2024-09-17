@@ -56,9 +56,10 @@ body {
   color: #4A3C31;
 }
 .container .filter-container {
-  display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .container .filter {
   padding: 8px 12px;
@@ -67,12 +68,15 @@ body {
   cursor: pointer;
   border: none;
   transition: background-color 0.3s;
+  color: #192229; /* Texto negro en el botón */
 }
 .container .filter.selected {
   background-color: #C8B9A6;
+  color: #192229; /* Texto negro en el botón seleccionado */
 }
 .container .filter:hover {
   background-color: #D4C5A8;
+  color: #192229; /* Texto negro en el botón al pasar el mouse */
 }
 .container .bar-chart {
   background-color: #F7DACD;
@@ -103,10 +107,13 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   border: none;
+  color: #192229; /* Texto negro en el botón de ciudades */
 }
 .container .city.selected {
   background-color: #C8B9A6;
+  color: #192229; /* Texto negro en el botón de ciudad seleccionado */
 }
 .container .city:hover {
   background-color: #D4C5A8;
+  color: #192229; /* Texto negro en el botón de ciudad al pasar el mouse */
 }/*# sourceMappingURL=analisis.css.map */
