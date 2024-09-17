@@ -71,14 +71,17 @@ body {
         cursor: pointer;
         border: none;
         transition: background-color 0.3s;
+        color: #192229; /* Texto negro en el botón */
     }
 
     .filter.selected {
         background-color: #C8B9A6;
+        color: #192229; /* Texto negro en el botón seleccionado */
     }
 
     .filter:hover {
         background-color: #D4C5A8;
+        color: #192229; /* Texto negro en el botón al pasar el mouse */
     }
 
     /* Gráficos de barras */
@@ -116,13 +119,16 @@ body {
         cursor: pointer;
         transition: background-color 0.3s;
         border: none;
+        color: #192229; /* Texto negro en el botón de ciudades */
     }
 
     .city.selected {
         background-color: #C8B9A6;
+        color: #192229; /* Texto negro en el botón de ciudad seleccionado */
     }
 
     .city:hover {
         background-color: #D4C5A8;
+        color: #192229; /* Texto negro en el botón de ciudad al pasar el mouse */
     }
 }
