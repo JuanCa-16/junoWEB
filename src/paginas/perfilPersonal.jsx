@@ -20,10 +20,10 @@ const perfilPersonal = () => {
     };
     const emotions = [
         { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
-        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Triste' },
-        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Enojado' },
-        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Ansioso' },
-        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Motivado' },
+        { emoji:<img src={felizM} alt="Feliz2" className="emoji-img" />, label: 'Triste' },
+        { emoji:<img src={felizM} alt="Feliz3" className="emoji-img" />, label: 'Enojado' },
+        { emoji:<img src={felizM} alt="Feliz4" className="emoji-img" />, label: 'Ansioso' },
+        { emoji:<img src={felizM} alt="Feliz5" className="emoji-img" />, label: 'Motivado' },
     ];
     
 
@@ -103,7 +103,7 @@ const perfilPersonal = () => {
                     {emotionsText.map((emotion) => (
                         <button
                             key={emotion}
-                            className={`filter ${selectedEmotionAge === emotion ? 'selected' : ''}`}
+                            className={`filter ${emotion} ${selectedEmotionAge === emotion ? 'selected' : ''}`}
                             onClick={() => handleEmotionClickAge(emotion)}
                         >
                             {emotion}

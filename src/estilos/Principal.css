@@ -1,21 +1,45 @@
 @charset "UTF-8";
 :root {
-  --c1: #eeddd3;
-  --c2: #cf7225;
-  --c3: #e8d1c5;
-  --c4: #9d3208bc;
-  --c5: #fff1e6;
-  --o1: #192229;
-  --o2: #212e36;
-  --o3: #2a3b47;
-  --o4: #a0a7ad;
-  --o5: #c8cdd0;
-  --feliz: #e7efa2;
-  --triste: #9fd0e2;
-  --enojado: #c13434;
-  --ansioso: #de9c3f;
-  --motivado: #b6efa2;
-  --aburrido: #a677ad;
+  --border: 20px;
+  --border2: 1rem;
+  --shadow: 1px 1px 3px .5px;
+  /* Colores de fondo claros */
+  --c1: #46313d;
+  --c2: #5f404d;
+  --c3: #845d5f;
+  --c4: #b77e78;
+  --c5: #dcae8f;
+  /* Colores de fondo oscuros */
+  --o1: #1a0e15;
+  --o2: #2d1a22;
+  --o3: #4e2f30;
+  --o4: #6e4b3b;
+  --o5: #8f6c4f;
+  /* Colores de texto ajustados */
+  --textc1: #dcae8f;
+  --textc2: #dcae8f;
+  --textc3: #dcae8f;
+  --textc4: #46313d;
+  --textc5: #46313d;
+  --textoO1: #8f6c4f;
+  --textoO2: #8f6c4f;
+  --textoO3: #8f6c4f;
+  --textoO4: #1a0e15;
+  --textoO5: #1a0e15;
+  --feliz: #f4d35e;
+  --triste: #7289da;
+  --enojado: #d9534f;
+  --ansioso: #e9967a;
+  --motivado: #88c399;
+  --aburrido: #495057;
+  --txtfeliz: #654e04;
+  --txttriste: #092380;
+  --txtenojado: #5b1209;
+  --txtansioso: #532407;
+  --txtmotivado: #072505;
+  --txtaburrido: #0e1a27;
+  --eliminar: #d9534f;
+  --aceptar: #856f2a;
 }
 
 body {
@@ -52,22 +76,27 @@ body {
   border-color: var(--c5);
   border-radius: 150px;
   border: none;
-  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow) rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .container-custom .btn-select.active {
-  background-color: var(--c2);
-  border-color: var(--c2);
-  color: white;
-  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  background-color: var(--c1);
+  border-color: var(--c1);
+  color: var(--textc1);
+  box-shadow: var(--shadow) rgba(0, 0, 0, 0.3);
 }
 .container-custom .btn-select:hover, .container-custom .btn-select:focus, .container-custom .btn-select:active {
-  background-color: var(--c2);
-  border-color: var(--c2);
-  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  background-color: var(--c1);
+  border-color: var(--c1);
+  color: var(--textc1);
+  box-shadow: var(--shadow) rgba(0, 0, 0, 0.3);
+}
+.container-custom .divB {
+  display: flex;
+  flex-wrap: wrap;
 }
 .container-custom .btn-general {
-  background-color: #dddddd; /* Color personalizado */
+  background-color: rgba(221, 221, 221, 0.6470588235); /* Color personalizado */
   color: rgb(0, 0, 0);
   border-color: #e6e6e6;
   border-radius: 25px;
@@ -76,71 +105,71 @@ body {
   text-align: left;
   transition: background-color 0.3s ease;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 .container-custom .btn-general.general.active, .container-custom .btn-general.general:hover, .container-custom .btn-general.general:focus, .container-custom .btn-general.general:active {
-  background-color: var(--c2); /* Color específico para el botón "General" en estados activos */
-  color: black;
+  background-color: var(--c1); /* Color específico para el botón "General" en estados activos */
+  color: var(--textc1);
 }
 .container-custom .btn-general.feliz.active, .container-custom .btn-general.feliz:hover, .container-custom .btn-general.feliz:focus, .container-custom .btn-general.feliz:active {
   background-color: var(--feliz);
-  color: black;
+  color: var(--txtfeliz);
 }
 .container-custom .btn-general.triste.active, .container-custom .btn-general.triste:hover, .container-custom .btn-general.triste:focus, .container-custom .btn-general.triste:active {
   background-color: var(--triste);
-  color: white;
+  color: var(--txttriste);
 }
 .container-custom .btn-general.enojado.active, .container-custom .btn-general.enojado:hover, .container-custom .btn-general.enojado:focus, .container-custom .btn-general.enojado:active {
   background-color: var(--enojado);
-  color: white;
+  color: var(--txtenojado);
 }
 .container-custom .btn-general.ansioso.active, .container-custom .btn-general.ansioso:hover, .container-custom .btn-general.ansioso:focus, .container-custom .btn-general.ansioso:active {
   background-color: var(--ansioso);
-  color: white;
+  color: var(--txtansioso);
 }
 .container-custom .btn-general.motivado.active, .container-custom .btn-general.motivado:hover, .container-custom .btn-general.motivado:focus, .container-custom .btn-general.motivado:active {
   background-color: var(--motivado);
-  color: black;
+  color: var(--txtmotivado);
 }
 .container-custom .btn-general.aburrido.active, .container-custom .btn-general.aburrido:hover, .container-custom .btn-general.aburrido:focus, .container-custom .btn-general.aburrido:active {
   background-color: var(--aburrido);
-  color: white;
+  color: var(--txtaburrido);
 }
 .container-custom .btn-emotion {
-  background-color: #dddddd;
+  background-color: rgba(221, 221, 221, 0.5803921569);
   color: rgb(0, 0, 0);
   border-color: #e6e6e6;
-  border-radius: 25px;
+  border-radius: var(--border2);
   border: none;
   white-space: nowrap;
   text-align: left;
   transition: background-color 0.3s ease;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 .container-custom .btn-emotion.feliz.active, .container-custom .btn-emotion.feliz:hover, .container-custom .btn-emotion.feliz:focus, .container-custom .btn-emotion.feliz:active {
   background-color: var(--feliz);
-  color: black;
+  color: var(--txtfeliz);
 }
 .container-custom .btn-emotion.triste.active, .container-custom .btn-emotion.triste:hover, .container-custom .btn-emotion.triste:focus, .container-custom .btn-emotion.triste:active {
   background-color: var(--triste);
-  color: white;
+  color: var(--txttriste);
 }
 .container-custom .btn-emotion.enojado.active, .container-custom .btn-emotion.enojado:hover, .container-custom .btn-emotion.enojado:focus, .container-custom .btn-emotion.enojado:active {
   background-color: var(--enojado);
-  color: white;
+  color: var(--txtenojado);
 }
 .container-custom .btn-emotion.ansioso.active, .container-custom .btn-emotion.ansioso:hover, .container-custom .btn-emotion.ansioso:focus, .container-custom .btn-emotion.ansioso:active {
   background-color: var(--ansioso);
-  color: white;
+  color: var(--txtansioso);
 }
 .container-custom .btn-emotion.motivado.active, .container-custom .btn-emotion.motivado:hover, .container-custom .btn-emotion.motivado:focus, .container-custom .btn-emotion.motivado:active {
   background-color: var(--motivado);
-  color: black;
+  color: var(--txtmotivado);
 }
 .container-custom .btn-emotion.aburrido.active, .container-custom .btn-emotion.aburrido:hover, .container-custom .btn-emotion.aburrido:focus, .container-custom .btn-emotion.aburrido:active {
   background-color: var(--aburrido);
-  color: white;
+  color: var(--txtaburrido);
 }
 .container-custom .img-fluid {
   width: 50px;
@@ -158,17 +187,17 @@ body {
 .container-custom .row-create-post {
   background-color: var(--c3);
   padding: 10px;
-  border-radius: 25px;
+  border-radius: var(--border);
   display: flex;
   align-items: center;
   max-width: 150vh;
-  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+  box-shadow: var(--shadow) rgba(157, 50, 8, 0.6);
 }
 .container-custom .row-create-post .d-flex {
   flex-wrap: wrap;
 }
 .container-custom textarea.custom-textarea {
-  background-color: #e6beb6;
+  background-color: var(--c5);
   border: none;
   width: 100%;
   padding: 10px;
@@ -176,10 +205,10 @@ body {
   font-size: 1rem;
   resize: none;
   outline: none;
-  box-shadow: 0px 2px 30px rgba(157, 50, 8, 0.2);
+  box-shadow: var(--shadow) rgba(157, 50, 8, 0.2);
 }
 .container-custom textarea.custom-textarea:focus {
-  background-color: #e6beb6;
+  background-color: var(--c4);
   border: none;
   box-shadow: none;
 }
@@ -189,7 +218,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: var(--border2);
   margin-top: 20px;
 }
 .container-custom .bg-posts img {
@@ -217,21 +246,21 @@ body {
   font-weight: bold;
 }
 .container-custom .btn-cancel {
-  background-color: rgba(175, 25, 25, 0.6862745098);
+  background-color: var(--eliminar);
   color: #000000;
   border: none;
   transition: background-color 0.3s ease;
 }
 .container-custom .btn-cancel:hover, .container-custom .btn-cancel:focus, .container-custom .btn-cancel:active {
-  background-color: rgba(175, 25, 25, 0.6862745098);
-  border-color: rgba(175, 25, 25, 0.6862745098);
+  background-color: #a03a37;
+  border-color: #a03a37;
 }
 .container-custom .btn-publish {
   background-color: #dddddd;
   color: rgb(0, 0, 0);
 }
 .container-custom .btn-publish:hover, .container-custom .btn-publish:focus, .container-custom .btn-publish:active {
-  background-color: var(--c2);
+  background-color: #d0bfbf;
 }
 .container-custom .w-100 {
   display: flex;
@@ -245,19 +274,20 @@ body {
   border: none;
 }
 .container-custom .post-display-col {
-  background-color: var(--c3);
+  background-color: var(--c1);
+  color: var(--textc1);
   padding: 10px;
-  border-radius: 25px;
+  border-radius: var(--border);
   align-items: center;
   max-width: 100%;
-  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+  box-shadow: var(--shadow) rgba(157, 50, 8, 0.6);
 }
 .container-custom .user-name-post {
   font-size: 1.25rem;
   font-weight: bold;
 }
 .container-custom .emotion-badge {
-  border-radius: 15px;
+  border-radius: var(--border2);
   padding: 5px 10px;
   font-size: 14px;
   color: #333;

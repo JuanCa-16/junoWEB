@@ -90,7 +90,7 @@ img {
 
 .info {
     grid-area: main;
-    background-color: rgba(128, 128, 128, 0.26);
+    background-color: var(--c5);
     width: 100%;
     min-height: 100vh;
 }
@@ -749,6 +749,81 @@ img {
 
         }
 
+        .estadisticas{
+            background-color: var(--o2);
+            box-shadow: var(--shadow) var(--o4);
+
+            .filter.selected {
+                background-color: var(--o4);
+                color: var(--textoO4); /* Texto negro en el botón seleccionado */
+            }
+        
+            .filter:hover {
+                background-color: var(--c5);
+                color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+            }
+        
+            .Feliz.selected{
+                background-color: var(--feliz);
+                color: var(--txtfeliz);
+            }
+        
+            .Feliz:hover{
+                background-color: var(--feliz);
+                color: var(--txtfeliz);
+            }
+        
+            .Triste.selected{
+                background-color: var(--triste);
+                color: var(--txttriste);
+            }
+        
+            .Triste:hover {
+                background-color: var(--triste);
+                color: var(--txttriste);
+            }
+        
+            .Enojado.selected{
+                background-color: var(--enojado);
+                color: var(--txtenojado);
+            }
+        
+            .Enojado:hover {
+                background-color: var(--enojado);
+                color: var(--txtenojado);
+            }
+        
+            .Ansioso.selected {
+                background-color: var(--ansioso);
+                color: var(--txtansioso);
+            }
+        
+            .Ansioso:hover {
+                background-color: var(--ansioso);
+                color: var(--txtansioso);
+            }
+        
+            .Motivado.selected {
+                background-color: var(--motivado);
+                color: var(--txtmotivado);
+            }
+        
+            .Motivado:hover {
+                background-color: var(--motivado);
+                color: var(--txtmotivado);
+            }
+        
+            .Aburrido.selected{
+                background-color: var(--aburrido);
+                color: var(--txtaburrido);
+            }
+        
+            .Aburrido:hover{
+                background-color: var(--aburrido);
+                color: var(--txtaburrido);
+            }
+        }
+
         .publicaciones {
             background-color: transparent;
             box-shadow: none
@@ -758,6 +833,87 @@ img {
             background-color: var(--o1);
             box-shadow: var(--shadow) var(--o4);
         }
+
+    }
+
+    .container-analisis{
+        .section {
+            background-color: var(--o1);
+        }
+        h2 {
+            color: var(--textoO1);
+        }
+
+        .filter.selected {
+            background-color: var(--o4);
+            color: var(--textoO4); /* Texto negro en el botón seleccionado */
+        }
+
+        .filter:hover {
+            background-color: var(--c5);
+            color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+        }
+    
+        .Feliz.selected{
+            background-color: var(--feliz);
+            color: var(--txtfeliz);
+        }
+    
+        .Feliz:hover{
+            background-color: var(--feliz);
+            color: var(--txtfeliz);
+        }
+    
+        .Triste.selected{
+            background-color: var(--triste);
+            color: var(--txttriste);
+        }
+    
+        .Triste:hover {
+            background-color: var(--triste);
+            color: var(--txttriste);
+        }
+    
+        .Enojado.selected{
+            background-color: var(--enojado);
+            color: var(--txtenojado);
+        }
+    
+        .Enojado:hover {
+            background-color: var(--enojado);
+            color: var(--txtenojado);
+        }
+    
+        .Ansioso.selected {
+            background-color: var(--ansioso);
+            color: var(--txtansioso);
+        }
+    
+        .Ansioso:hover {
+            background-color: var(--ansioso);
+            color: var(--txtansioso);
+        }
+    
+        .Motivado.selected {
+            background-color: var(--motivado);
+            color: var(--txtmotivado);
+        }
+    
+        .Motivado:hover {
+            background-color: var(--motivado);
+            color: var(--txtmotivado);
+        }
+    
+        .Aburrido.selected{
+            background-color: var(--aburrido);
+            color: var(--txtaburrido);
+        }
+    
+        .Aburrido:hover{
+            background-color: var(--aburrido);
+            color: var(--txtaburrido);
+        }
+
 
     }
 }

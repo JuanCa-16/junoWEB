@@ -1,5 +1,57 @@
 @charset "UTF-8";
 
+:root {
+    --border: 20px;
+    --border2: 1rem;
+    --shadow: 1px 1px 3px .5px;
+
+    /* Colores de fondo claros */
+    --c1: #46313d;
+    --c2: #5f404d;
+    --c3: #845d5f;
+    --c4: #b77e78;
+    --c5: #dcae8f;
+
+    /* Colores de fondo oscuros */
+    --o1: #1a0e15;
+    --o2: #2d1a22;
+    --o3: #4e2f30;
+    --o4: #6e4b3b;
+    --o5: #8f6c4f;
+
+    /* Colores de texto ajustados */
+    --textc1: #dcae8f;
+    --textc2: #dcae8f;
+    --textc3: #dcae8f;
+    --textc4: #46313d;
+    --textc5: #46313d;
+
+    --textoO1: #8f6c4f;
+    --textoO2: #8f6c4f;
+    --textoO3: #8f6c4f;
+    --textoO4: #1a0e15;
+    --textoO5: #1a0e15;
+
+    --feliz: #f4d35e;
+    --triste: #7289da;
+    --enojado: #d9534f;
+    --ansioso: #e9967a;
+    --motivado: #88c399;
+    --aburrido: #495057;
+
+    --txtfeliz: #654e04;
+    --txttriste: #092380;
+    --txtenojado: #5b1209;
+    --txtansioso: #532407;
+    --txtmotivado: #072505;
+    --txtaburrido: #0e1a27;
+
+    --eliminar: #d9534f;
+    --aceptar: #856f2a;
+
+
+}
+
 * {
     margin: 0;
     padding: 0%;
@@ -75,9 +127,15 @@ body {
         /* Fondo de la opción seleccionada */
     }
 
+    .custom-select {
+        &__placeholder {
+          color: var(--c4); // Cambia este valor por el color que prefieras
+        }
+    }
+
 
     .forgot-password-link {
-        color: #cf7225;
+        color: var(--c2);
         text-decoration: underline;
         font-family: "Mukta", sans-serif;
     }
@@ -88,7 +146,7 @@ body {
         width: 2000px;
         height: 2000px;
         border-radius: 50%;
-        background: linear-gradient(-45deg, #ff7d38, #ffc609);
+        background: linear-gradient(-45deg, var(--c1), var(--c4));
         // /color forma de fondo/
         top: -10%;
         right: 48%;
@@ -142,7 +200,7 @@ body {
     .title {
         font-size: 2.2rem;
         // /tamaño letra bienvenido/ 
-        color: #cf7225;
+        color: var(--c1);
         // /color letra bienvenido/ 
         margin-bottom: 10px;
     }
@@ -151,7 +209,7 @@ body {
         max-width: 380px;
         width: 100%;
         height: 42px;
-        background-color: beige; // /color cuadro donde dice gmail y contra/ 
+        background-color: var(--c3); // /color cuadro donde dice gmail y contra/ 
         margin: 10px 0;
         border-radius: 55px;
         display: grid;
@@ -160,12 +218,12 @@ body {
         position: relative;
 
         i {
-            text-align: center;// /ajusta iconos de correo y contra/ 
+            text-align: center; // /ajusta iconos de correo y contra/ 
             line-height: 45px;
-            color: #cf7225;
+            color: var(--c5);
             font-size: 1.1rem;
         }
-        
+
 
         input {
             background: none;
@@ -174,11 +232,11 @@ body {
             line-height: 1;
             font-weight: 500;
             font-size: 1.1rem;
-            color: #464646;
+            color: c4;
             // /color letra de correo y contra/
 
             &::placeholder {
-                color: #7b7a7a;
+                color: var(--c4);
                 font-weight: 500;
             }
         }
@@ -191,7 +249,7 @@ body {
         outline: none;
         border-radius: 49px;
         cursor: pointer;
-        color: #cf7225;
+        color: var(--c2);
         // /color letras de login y registro/ 
         text-transform: uppercase;
         font-weight: 600;
@@ -199,7 +257,7 @@ body {
         transition: .4s;
 
         &:hover {
-            background-color: #cf7225;
+            background-color: var(--c5);
             color: #ffffff;
         }
     }
@@ -236,7 +294,7 @@ body {
     }
 
     .panels-container {
-        position: absolute;// /contenedor de texto con imagenes/ 
+        position: absolute; // /contenedor de texto con imagenes/ 
         width: 100%;
         height: 100%;
         top: 0;
@@ -299,16 +357,26 @@ body {
 
 
         &:hover {
-            background-color: #ffffff;
-            color: #cf7225;
+            background-color: var(--c5);
+            color: var(--textc5);
+            border: none;
         }
     }
 
     .image {
-        width: 90%;// /imagen zorros/ 
+        width: 90%; // /imagen zorros/ 
         height: 60%;
         transition: transform 1.1s ease-in-out;
         transition-delay: 0.4s;
+    }
+
+    .input-field input[type="date"] {
+        color: var(--c4); /* Cambia este valor por el color que prefieras */
+    }
+    
+    /* Estilo para el placeholder (texto inicial) */
+    .input-field input[type="date"]::placeholder {
+        color: var(--c4); /* Cambia este valor por el color que prefieras */
     }
 
 }
@@ -436,6 +504,7 @@ body {
             // /translada la imagen caundo da click/
         }
     }
+
     .containerLoginUsuario.sign-up-mode:before {
         transform: translate(-50%, 100%);
         bottom: 32%;
@@ -478,7 +547,7 @@ body {
         }
 
     }
-    
+
     .containerLoginUsuario.sign-up-mode::before {
         bottom: 28%;
         left: 50%;

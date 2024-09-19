@@ -58,26 +58,21 @@
 
     --eliminar: #d9534f;
     --aceptar: #856f2a;
-
-
 }
+
 body {
     font-family: "Mukta", sans-serif;
     background-color: rgb(236, 243, 243);
     font-size: 1rem;
-    min-height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    overflow: auto;
+.container-analisis {
+    display: flex;
     flex-direction: column;
-    max-height: 100%;
-    border-radius: 10px;
+    width: 100%;
+    overflow: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; 
 
@@ -86,16 +81,21 @@ body {
     }
 
     .section {
-        background-color: #F7DACD;
-        padding: 20px;
-        border-radius: 10px;
+        background-color: var(--c1);
+        border-radius: var(--border);
         margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: .5rem;
+        margin-bottom: 20px;
+        padding: 1rem;
     }
 
     h2 {
         font-size: 24px;
         margin-bottom: 15px;
-        color: #4A3C31;
+        color: var(--textc1);
     }
 
     /* Filtros de análisis por edades */
@@ -104,33 +104,93 @@ body {
         margin-bottom: 20px;
         display: flex;
         flex-wrap: wrap;
+        
     }
 
     .filter {
         padding: 8px 12px;
-        background-color: #F1EDE8;
-        border-radius: 20px;
+        background-color: #f1ede89e;
+        border-radius: var(--border2);
         cursor: pointer;
         border: none;
         transition: background-color 0.3s;
-        color: #192229; /* Texto negro en el botón */
     }
 
     .filter.selected {
-        background-color: #C8B9A6;
-        color: #192229; /* Texto negro en el botón seleccionado */
+        background-color: var(--c5);
+        color: var(--textc5); /* Texto negro en el botón seleccionado */
     }
 
     .filter:hover {
-        background-color: #D4C5A8;
-        color: #192229; /* Texto negro en el botón al pasar el mouse */
+        background-color: var(--c5);
+        color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+    }
+
+    .Feliz.selected{
+        background-color: var(--feliz);
+        color: var(--txtfeliz);
+    }
+
+    .Feliz:hover{
+        background-color: var(--feliz);
+        color: var(--txtfeliz);
+    }
+
+    .Triste.selected{
+        background-color: var(--triste);
+        color: var(--txttriste);
+    }
+
+    .Triste:hover {
+        background-color: var(--triste);
+        color: var(--txttriste);
+    }
+
+    .Enojado.selected{
+        background-color: var(--enojado);
+        color: var(--txtenojado);
+    }
+
+    .Enojado:hover {
+        background-color: var(--enojado);
+        color: var(--txtenojado);
+    }
+
+    .Ansioso.selected {
+        background-color: var(--ansioso);
+        color: var(--txtansioso);
+    }
+
+    .Ansioso:hover {
+        background-color: var(--ansioso);
+        color: var(--txtansioso);
+    }
+
+    .Motivado.selected {
+        background-color: var(--motivado);
+        color: var(--txtmotivado);
+    }
+
+    .Motivado:hover {
+        background-color: var(--motivado);
+        color: var(--txtmotivado);
+    }
+
+    .Aburrido.selected{
+        background-color: var(--aburrido);
+        color: var(--txtaburrido);
+    }
+
+    .Aburrido:hover{
+        background-color: var(--aburrido);
+        color: var(--txtaburrido);
     }
 
     /* Gráficos de barras */
     .bar-chart {
         background-color: #F7DACD;
         padding: 30px;
-        border-radius: 10px;
+        border-radius: var(--border2);
     }
 
     .bar-chart-placeholder {
@@ -139,38 +199,67 @@ body {
         justify-content: center;
         align-items: center;
         border: 2px dashed #C8B9A6;
-        border-radius: 10px;
+        border-radius: var(--border2);
         color: #4A3C31;
     }
 
     /* Ciudades */
     .cities {
-        background-color: #ECE1BF;
+        background-color: var(--c3);
+        color: var(--textc3);
     }
 
     .city-container {
         display: flex;
         gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        margin-bottom: 20px;
     }
 
     .city {
-        background-color: #F1EDE8;
+        background-color: #d9d8d6da;
         padding: 10px 20px;
-        border-radius: 15px;
+        border-radius: var(--border);
         font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        cursor: default;
         border: none;
         color: #192229; /* Texto negro en el botón de ciudades */
     }
 
-    .city.selected {
-        background-color: #C8B9A6;
-        color: #192229; /* Texto negro en el botón de ciudad seleccionado */
+    .city-container .city:first-child {
+        background-color: #f0e68c;
+        font-weight: bold;
+
+        &.Feliz{
+            background-color: var(--feliz);
+        }
+        &.Triste{
+            background-color: var(--triste);
+        }
+        &.Enojado{
+            background-color: var(--enojado);
+        }
+        &.Ansioso{
+            background-color: var(--ansioso);
+        }
+        &.Motivado{
+            background-color: var(--motivado);
+        }
+        &.Aburrido{
+            background-color: var(--aburrido);
+        }
     }
 
-    .city:hover {
-        background-color: #D4C5A8;
-        color: #192229; /* Texto negro en el botón de ciudad al pasar el mouse */
-    }
+    // .city.selected {
+    //     background-color: #C8B9A6;
+    //     color: #192229; /* Texto negro en el botón de ciudad seleccionado */
+    // }
+
+    // .city:hover {
+    //     background-color: #D4C5A8;
+    //     color: #192229; /* Texto negro en el botón de ciudad al pasar el mouse */
+    // }
 }
+

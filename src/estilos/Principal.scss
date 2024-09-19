@@ -1,23 +1,67 @@
 :root {
-  --c1: #eeddd3;
-  --c2: #cf7225;
-  --c3: #e8d1c5;
-  --c4: #9d3208bc;
-  --c5: #fff1e6;
+  // --c1: #eeddd3;
+  // --c2: #cf7225;
+  // --c3: #e8d1c5;
+  // --c4: #9d3208bc;
+  // --c5: #fff1e6;
 
-  --o1: #192229;
-  --o2: #212e36;
-  --o3: #2a3b47;
-  --o4: #a0a7ad;
-  --o5: #c8cdd0;
+  // --o1: #192229;
+  // --o2: #212E36;
+  // --o3: #2A3B47;
+  // --o4: #A0A7AD;
+  // --o5: #C8CDD0;
 
-  --feliz: #e7efa2;
-  --triste: #9fd0e2;
-  --enojado: #c13434;
-  --ansioso: #de9c3f;
-  --motivado: #b6efa2;
-  --aburrido: #a677ad;
+  --border: 20px;
+  --border2: 1rem;
+  --shadow: 1px 1px 3px .5px;
+
+  /* Colores de fondo claros */
+  --c1: #46313d;
+  --c2: #5f404d;
+  --c3: #845d5f;
+  --c4: #b77e78;
+  --c5: #dcae8f;
+
+  /* Colores de fondo oscuros */
+  --o1: #1a0e15;
+  --o2: #2d1a22;
+  --o3: #4e2f30;
+  --o4: #6e4b3b;
+  --o5: #8f6c4f;
+
+  /* Colores de texto ajustados */
+  --textc1: #dcae8f;
+  --textc2: #dcae8f;
+  --textc3: #dcae8f;
+  --textc4: #46313d;
+  --textc5: #46313d;
+
+  --textoO1: #8f6c4f;
+  --textoO2: #8f6c4f;
+  --textoO3: #8f6c4f;
+  --textoO4: #1a0e15;
+  --textoO5: #1a0e15;
+
+  --feliz: #f4d35e;
+  --triste: #7289da;
+  --enojado: #d9534f;
+  --ansioso: #e9967a;
+  --motivado: #88c399;
+  --aburrido: #495057;
+
+  --txtfeliz: #654e04;
+  --txttriste: #092380;
+  --txtenojado: #5b1209;
+  --txtansioso: #532407;
+  --txtmotivado: #072505;
+  --txtaburrido: #0e1a27;
+
+  --eliminar: #d9534f;
+  --aceptar: #856f2a;
+
+
 }
+
 
 body {
   font-family: "Mukta", sans-serif;
@@ -54,27 +98,32 @@ body {
     border-color: var(--c5);
     border-radius: 150px;
     border: none;
-    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow) rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
     &.active {
-      background-color: var(--c2);
-      border-color: var(--c2);
-      color: white;
-      box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+      background-color: var(--c1);
+      border-color: var(--c1);
+      color: var(--textc1);
+      box-shadow: var(--shadow) rgba(0, 0, 0, 0.3);
     }
 
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--c2);
-      border-color: var(--c2);
-      box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+      background-color: var(--c1);
+      border-color: var(--c1);
+      color: var(--textc1);
+      box-shadow: var(--shadow) rgba(0, 0, 0, 0.3);
     }
+  }
+  .divB{
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .btn-general {
-    background-color: #dddddd; /* Color personalizado */
+    background-color: #dddddda5; /* Color personalizado */
     color: rgb(0, 0, 0);
     border-color: #e6e6e6;
     border-radius: 25px;
@@ -83,15 +132,15 @@ body {
     text-align: left;
     transition: background-color 0.3s ease;
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
   
     &.general {
       &.active,
       &:hover,
       &:focus,
       &:active {
-        background-color: var(--c2); /* Color específico para el botón "General" en estados activos */
-        color: black;
+        background-color: var(--c1); /* Color específico para el botón "General" en estados activos */
+        color: var(--textc1);
       }
     }
   
@@ -101,7 +150,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--feliz);
-        color: black;
+        color: var(--txtfeliz);
       }
     }
   
@@ -111,7 +160,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--triste);
-        color: white;
+        color: var(--txttriste);
       }
     }
   
@@ -121,7 +170,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--enojado);
-        color: white;
+        color: var(--txtenojado);
       }
     }
   
@@ -131,7 +180,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--ansioso);
-        color: white;
+        color: var(--txtansioso);
       }
     }
   
@@ -141,7 +190,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--motivado);
-        color: black;
+        color: var(--txtmotivado);
       }
     }
   
@@ -151,23 +200,23 @@ body {
       &:focus,
       &:active {
         background-color: var(--aburrido);
-        color: white;
+        color: var(--txtaburrido);
       }
     }
   }
   
 
   .btn-emotion {
-    background-color: #dddddd;
+    background-color: #dddddd94;
     color: rgb(0, 0, 0);
     border-color: #e6e6e6;
-    border-radius: 25px;
+    border-radius: var(--border2);
     border: none;
     white-space: nowrap;
     text-align: left;
     transition: background-color 0.3s ease;
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
 
     &.feliz {
       &.active,
@@ -175,7 +224,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--feliz);
-        color: black;
+        color: var(--txtfeliz);
       }
     }
 
@@ -185,7 +234,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--triste);
-        color: white;
+        color: var(--txttriste);
       }
     }
 
@@ -195,7 +244,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--enojado);
-        color: white;
+        color: var(--txtenojado);
       }
     }
 
@@ -205,7 +254,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--ansioso);
-        color: white;
+        color: var(--txtansioso);
       }
     }
 
@@ -215,7 +264,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--motivado);
-        color: black;
+        color: var(--txtmotivado);
       }
     }
 
@@ -225,7 +274,7 @@ body {
       &:focus,
       &:active {
         background-color: var(--aburrido);
-        color: white;
+        color: var(--txtaburrido);
       }
     }
   }
@@ -247,11 +296,11 @@ body {
   .row-create-post {
     background-color: var(--c3);
     padding: 10px;
-    border-radius: 25px;
+    border-radius: var(--border);
     display: flex;
     align-items: center;
     max-width: 150vh;
-    box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+    box-shadow:var(--shadow) rgba(157, 50, 8, 0.6);
 
     .d-flex {
       flex-wrap: wrap;
@@ -259,7 +308,7 @@ body {
   }
 
   textarea.custom-textarea {
-    background-color: #e6beb6;
+    background-color: var(--c5);
     border: none;
     width: 100%;
     padding: 10px;
@@ -267,10 +316,10 @@ body {
     font-size: 1rem;
     resize: none;
     outline: none;
-    box-shadow: 0px 2px 30px rgba(157, 50, 8, 0.2);
+    box-shadow: var(--shadow) rgba(157, 50, 8, 0.2);
 
     &:focus {
-      background-color: #e6beb6;
+      background-color: var(--c4);
       border: none;
       box-shadow: none;
     }
@@ -282,7 +331,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
+    border-radius: var(--border2);
     margin-top: 20px;
 
     img {
@@ -316,7 +365,7 @@ body {
   }
 
   .btn-cancel {
-    background-color: #af1919af;
+    background-color: var(--eliminar);
     color: #000000;
     border: none;
     transition: background-color 0.3s ease;
@@ -324,8 +373,8 @@ body {
     &:hover,
     &:focus,
     &:active {
-      background-color: #af1919af;
-      border-color: #af1919af;
+      background-color: #a03a37;
+      border-color: #a03a37;
     }
   }
 
@@ -336,7 +385,7 @@ body {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--c2);
+      background-color:  #d0bfbf;
     }
   }
 
@@ -354,12 +403,14 @@ body {
   }
 
   .post-display-col {
-    background-color: var(--c3);
+    background-color: var(--c1);
+    color: var(--textc1);
     padding: 10px;
-    border-radius: 25px;
+    border-radius: var(--border);
     align-items: center;
     max-width: 100%;
-    box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+    box-shadow: var(--shadow) rgba(157, 50, 8, 0.6);
+
   }
 
   .user-name-post {
@@ -368,7 +419,7 @@ body {
   }
 
   .emotion-badge {
-    border-radius: 15px;
+    border-radius: var(--border2);
     padding: 5px 10px;
     font-size: 14px;
     color: #333;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --border: 20px;
   --border2: 1rem;
@@ -69,7 +70,7 @@ img {
 
 .info {
   grid-area: main;
-  background-color: rgba(128, 128, 128, 0.26);
+  background-color: var(--c5);
   width: 100%;
   min-height: 100vh;
 }
@@ -571,6 +572,66 @@ img {
   background-color: var(--o1);
   box-shadow: 1px 1px 6px 0px var(--o1);
 }
+.info.active .gridPersonal .estadisticas {
+  background-color: var(--o2);
+  box-shadow: var(--shadow) var(--o4);
+}
+.info.active .gridPersonal .estadisticas .filter.selected {
+  background-color: var(--o4);
+  color: var(--textoO4); /* Texto negro en el botón seleccionado */
+}
+.info.active .gridPersonal .estadisticas .filter:hover {
+  background-color: var(--c5);
+  color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+}
+.info.active .gridPersonal .estadisticas .Feliz.selected {
+  background-color: var(--feliz);
+  color: var(--txtfeliz);
+}
+.info.active .gridPersonal .estadisticas .Feliz:hover {
+  background-color: var(--feliz);
+  color: var(--txtfeliz);
+}
+.info.active .gridPersonal .estadisticas .Triste.selected {
+  background-color: var(--triste);
+  color: var(--txttriste);
+}
+.info.active .gridPersonal .estadisticas .Triste:hover {
+  background-color: var(--triste);
+  color: var(--txttriste);
+}
+.info.active .gridPersonal .estadisticas .Enojado.selected {
+  background-color: var(--enojado);
+  color: var(--txtenojado);
+}
+.info.active .gridPersonal .estadisticas .Enojado:hover {
+  background-color: var(--enojado);
+  color: var(--txtenojado);
+}
+.info.active .gridPersonal .estadisticas .Ansioso.selected {
+  background-color: var(--ansioso);
+  color: var(--txtansioso);
+}
+.info.active .gridPersonal .estadisticas .Ansioso:hover {
+  background-color: var(--ansioso);
+  color: var(--txtansioso);
+}
+.info.active .gridPersonal .estadisticas .Motivado.selected {
+  background-color: var(--motivado);
+  color: var(--txtmotivado);
+}
+.info.active .gridPersonal .estadisticas .Motivado:hover {
+  background-color: var(--motivado);
+  color: var(--txtmotivado);
+}
+.info.active .gridPersonal .estadisticas .Aburrido.selected {
+  background-color: var(--aburrido);
+  color: var(--txtaburrido);
+}
+.info.active .gridPersonal .estadisticas .Aburrido:hover {
+  background-color: var(--aburrido);
+  color: var(--txtaburrido);
+}
 .info.active .gridPersonal .publicaciones {
   background-color: transparent;
   box-shadow: none;
@@ -578,6 +639,68 @@ img {
 .info.active .gridPersonal .post-display-col {
   background-color: var(--o1);
   box-shadow: var(--shadow) var(--o4);
+}
+.info.active .container-analisis .section {
+  background-color: var(--o1);
+}
+.info.active .container-analisis h2 {
+  color: var(--textoO1);
+}
+.info.active .container-analisis .filter.selected {
+  background-color: var(--o4);
+  color: var(--textoO4); /* Texto negro en el botón seleccionado */
+}
+.info.active .container-analisis .filter:hover {
+  background-color: var(--c5);
+  color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+}
+.info.active .container-analisis .Feliz.selected {
+  background-color: var(--feliz);
+  color: var(--txtfeliz);
+}
+.info.active .container-analisis .Feliz:hover {
+  background-color: var(--feliz);
+  color: var(--txtfeliz);
+}
+.info.active .container-analisis .Triste.selected {
+  background-color: var(--triste);
+  color: var(--txttriste);
+}
+.info.active .container-analisis .Triste:hover {
+  background-color: var(--triste);
+  color: var(--txttriste);
+}
+.info.active .container-analisis .Enojado.selected {
+  background-color: var(--enojado);
+  color: var(--txtenojado);
+}
+.info.active .container-analisis .Enojado:hover {
+  background-color: var(--enojado);
+  color: var(--txtenojado);
+}
+.info.active .container-analisis .Ansioso.selected {
+  background-color: var(--ansioso);
+  color: var(--txtansioso);
+}
+.info.active .container-analisis .Ansioso:hover {
+  background-color: var(--ansioso);
+  color: var(--txtansioso);
+}
+.info.active .container-analisis .Motivado.selected {
+  background-color: var(--motivado);
+  color: var(--txtmotivado);
+}
+.info.active .container-analisis .Motivado:hover {
+  background-color: var(--motivado);
+  color: var(--txtmotivado);
+}
+.info.active .container-analisis .Aburrido.selected {
+  background-color: var(--aburrido);
+  color: var(--txtaburrido);
+}
+.info.active .container-analisis .Aburrido:hover {
+  background-color: var(--aburrido);
+  color: var(--txtaburrido);
 }
 
 .grid-container {

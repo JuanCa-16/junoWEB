@@ -103,7 +103,7 @@ const Principal = () => {
       <Row>
         <div className="d-flex flex-wrap justify-content-center align-items-center m-2">
           {["General", "Feliz", "Triste", "Enojado", "Ansioso", "Motivado", "Aburrido"].map((label) => (
-            <Col className="d-flex justify-content-center m-2" key={label}>
+            <Col className="d-flex justify-content-center m-2 divB" key={label}>
               <Button
                 className={`btn-general w-100 ${label.toLowerCase()} ${selectedBtnGeneral === label ? "active" : ""}`}
                 onClick={() => handleGeneralClick(label)}
@@ -139,7 +139,7 @@ const Principal = () => {
             <div className="row-create-post">
               <div className="user-info d-flex flex-column align-items-start">
                 <img
-                  src="/perfil.webp"
+                  src={avatar1}
                   alt="Logo"
                   className="img-fluid rounded-circle user-image"
                 />
@@ -150,9 +150,9 @@ const Principal = () => {
                 <Row className="justify-content-start align-items-start">
                   <div className="d-flex flex-wrap justify-content-start align-items-center m-2">
                     {["Feliz", "Triste", "Enojado", "Ansioso", "Motivado", "Aburrido"].map((emotion) => (
-                      <Col className="d-flex justify-content-start m-2" key={emotion}>
+                      <Col className="d-flex justify-content-start m-2 divB" key={emotion}>
                         <Button
-                          className={`btn-emotion w-100 ${emotion.toLowerCase()} ${selectedEmotionPost === emotion ? "active" : ""}`}
+                          className={`btn-emotion w-100 divB ${emotion.toLowerCase()} ${selectedEmotionPost === emotion ? "active" : ""}`}
                           onClick={() => handleEmotionClick(emotion)}
                         >
                           {emotion}

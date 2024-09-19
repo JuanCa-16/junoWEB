@@ -21,22 +21,22 @@ function BarChartComponent({ selectedEmotion }) {
                 <Legend />
                 {/* Muestra solo la barra de la emoción seleccionada */}
                 {(selectedEmotion === 'Todas' || selectedEmotion === 'Feliz') && (
-                    <Bar dataKey="Feliz" fill="#FFD97D" />
+                    <Bar dataKey="Feliz" fill="#f4d35e" />
                 )}
                 {(selectedEmotion === 'Todas' || selectedEmotion === 'Triste') && (
-                    <Bar dataKey="Triste" fill="#90A1E5" />
+                    <Bar dataKey="Triste" fill="#7289da" />
                 )}
                 {(selectedEmotion === 'Todas' || selectedEmotion === 'Enojado') && (
-                    <Bar dataKey="Enojado" fill="#E76F51" />
+                    <Bar dataKey="Enojado" fill="#d9534f" />
                 )}
                 {(selectedEmotion === 'Todas' || selectedEmotion === 'Ansioso') && (
-                    <Bar dataKey="Ansioso" fill="#A8DADC" />
+                    <Bar dataKey="Ansioso" fill="#e9967a" />
                 )}
                 {(selectedEmotion === 'Todas' || selectedEmotion === 'Motivado') && (
-                    <Bar dataKey="Motivado" fill="#457B9D" />
+                    <Bar dataKey="Motivado" fill="#88c399" />
                 )}
                 {(selectedEmotion === 'Todas' || selectedEmotion === 'Aburrido') && (
-                    <Bar dataKey="Aburrido" fill="#C3A484" />
+                    <Bar dataKey="Aburrido" fill="#495057" />
                 )}
             </BarChart>
         </ResponsiveContainer>

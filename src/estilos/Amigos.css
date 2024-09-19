@@ -1,27 +1,58 @@
 :root {
-  --c1: #eeddd3;
-  --c2: #cf7225;
-  --c3: #e8d1c5;
-  --c4: #9d3208bc;
-  --c5: #fff1e6;
+  --border: 20px;
+  --border2: 1rem;
+  --shadow: 1px 1px 3px .5px;
 
-  --o1: #192229;
-  --o2: #212E36;
-  --o3: #2A3B47;
-  --o4: #A0A7AD;
-  --o5: #C8CDD0;
+  /* Colores de fondo claros */
+  --c1: #46313d;
+  --c2: #5f404d;
+  --c3: #845d5f;
+  --c4: #b77e78;
+  --c5: #dcae8f;
 
-  --feliz: #e7efa2;
-  --triste: #9fd0e2;
-  --enojado: #c13434;
-  --ansioso: #de9c3f;
-  --motivado: #b6efa2;
-  --aburrido: #a677ad;
+  /* Colores de fondo oscuros */
+  --o1: #1a0e15;
+  --o2: #2d1a22;
+  --o3: #4e2f30;
+  --o4: #6e4b3b;
+  --o5: #8f6c4f;
+
+  /* Colores de texto ajustados */
+  --textc1: #dcae8f;
+  --textc2: #dcae8f;
+  --textc3: #dcae8f;
+  --textc4: #46313d;
+  --textc5: #46313d;
+
+  --textoO1: #8f6c4f;
+  --textoO2: #8f6c4f;
+  --textoO3: #8f6c4f;
+  --textoO4: #1a0e15;
+  --textoO5: #1a0e15;
+
+  --feliz: #f4d35e;
+  --triste: #7289da;
+  --enojado: #d9534f;
+  --ansioso: #e9967a;
+  --motivado: #88c399;
+  --aburrido: #495057;
+
+  --txtfeliz: #654e04;
+  --txttriste: #092380;
+  --txtenojado: #5b1209;
+  --txtansioso: #532407;
+  --txtmotivado: #072505;
+  --txtaburrido: #0e1a27;
+
+  --eliminar: #d9534f;
+  --aceptar: #856f2a;
+
+
 }
+
 
 body {
   font-family: "Mukta", sans-serif;
-  background-color: rgb(236, 243, 243);
   font-size: 1rem;
   min-height: 100%;
   margin: 0;
@@ -29,7 +60,7 @@ body {
 
 .app {
   padding: 20px;
-  background-color: rgb(236, 243, 243);
+  background-color: var(--c3);
   overflow: auto;
   flex-direction: column;
   max-height: 100%;
@@ -37,6 +68,7 @@ body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer y Edge */
 }
+
 
 .app::-webkit-scrollbar {
   display: none; /* Chrome, Safari y Opera */
@@ -77,17 +109,19 @@ body {
   border-radius: 20px;
 }
 
-.app .user-item,
-.app .friend-name,
-.app .request-name {
-  font-size: 1.2em;
+.app .add-button{
+  background-color: var(--c3);
+  color: var(--textc3);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.app .add-button,
 .app .eliminar-button,
 .app .yes-button,
 .app .no-button {
-  background-color: #c6765e;
+  background-color: var(--eliminar);
   color: white;
   border: none;
   border-radius: 20px;
@@ -98,19 +132,19 @@ body {
 .app .add-button:hover,
 .app .eliminar-button:hover,
 .app .no-button:hover {
-  background-color: #a85d4a;
+  background-color: var(--c1);
 }
 
 .app .yes-button:hover {
-  background-color: #c89332;
+  background-color: var(--c3);
 }
 
 .app .yes-button {
-  background-color: #d4b06e;
+  background-color: var(--c5);
 }
 
 .app .no-button {
-  background-color: #c6765e;
+  background-color: var(--eliminar);
 }
 
 .app .buttons {
@@ -120,7 +154,7 @@ body {
 
 .app .empty-message {
   text-align: center;
-  color: var(--c4);
+  color: var(--c1);
   font-size: 1.2em;
   margin-top: 10px;
 }
@@ -132,8 +166,22 @@ body {
   border: 2px solid #c6765e;
   font-family: "Mukta", sans-serif;
   margin-bottom: 0.5rem;
+  background-color: var(--c5);
+  border-color: var(--c5);
 }
 
 .app .user-name {
   font-weight: normal;
+}
+
+.app h2 {
+  background-color: var(--c1);
+  color: var(--textc1);
+}
+.app .user-item,
+.app .friend-item,
+.app .request-item {
+  font-size: 1.2em;
+  background-color: var(--c4);
+  color: var(--textc5);
 }

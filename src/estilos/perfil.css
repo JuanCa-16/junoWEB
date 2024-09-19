@@ -63,17 +63,12 @@ body {
   overflow: auto;
   height: none;
   max-height: 100%;
-  /* Opcional: Bordes redondeados */
   scrollbar-width: none;
-  /* Firefox */
   -ms-overflow-style: none;
-  /* Internet Explorer y Edge */
 }
-.gridPersonal .emoji-img {
-  width: 80%;
-  max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+.gridPersonal .emoji-img img {
+  width: 100%;
+  height: auto;
 }
 .gridPersonal .img {
   width: 70%;
@@ -100,8 +95,8 @@ body {
   align-items: center;
   justify-content: flex-start;
   background-color: var(--c3);
-  border-radius: 1.4rem;
-  box-shadow: 1px 1px 6px 0px var(--c4);
+  border-radius: var(--border2);
+  box-shadow: var(--shadow) var(--c4);
 }
 .gridPersonal .containerPerfil .rachaContainer img {
   margin-top: 0.5rem;
@@ -134,7 +129,7 @@ body {
   padding: 0 0 0.7rem 0;
   font-weight: 700;
   line-height: 1;
-  color: var(--c2);
+  color: var(--textc3);
 }
 .gridPersonal .infoPer {
   grid-area: a3;
@@ -151,15 +146,16 @@ body {
 }
 .gridPersonal .infoPer .parte1 h2 {
   background-color: var(--c1);
-  border-radius: 1rem;
+  border-radius: var(--border2);
   padding: 0.5rem 1.5rem;
-  box-shadow: 1px 1px 6px 0px var(--c1);
+  box-shadow: var(--shadow) var(--c1);
+  color: var(--textc3);
 }
 .gridPersonal .infoPer .parte1 .general {
   background-color: var(--c1);
-  border-radius: 2rem;
+  border-radius: var(--border2);
   padding: 0.5rem 1.5rem;
-  box-shadow: 1px 1px 6px 0px var(--c1);
+  box-shadow: var(--shadow) var(--c1);
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -173,30 +169,32 @@ body {
   background-color: var(--c3);
   min-width: 85%;
   max-width: 90%;
-  border-radius: 2rem;
   padding: 0.5rem 1.5rem;
-  box-shadow: 1px 1px 6px 0px var(--c3);
+  box-shadow: var(--shadow) var(--c3);
   flex-wrap: wrap;
+  border-radius: var(--border2);
+  gap: 1px;
+  margin-top: 0.5rem;
 }
 .gridPersonal .infoPer .parte1 .general .emotions-container .emotion {
   background-color: var(--c1);
-  border-radius: 40%;
+  border-radius: var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 3rem;
   /* Espacio entre los círculos */
 }
 .gridPersonal .infoPer .parte1 .general .emotions-container .emotion:hover {
   background-color: var(--c4);
 }
 .gridPersonal .infoPer .parte1 .general .emotions-container .active {
-  background-color: var(--c2);
-  /* Color diferente para el emoji activo */
+  background-color: var(--c4);
 }
 .gridPersonal .infoPer .parte1 .general #emotion-text {
   padding: 0.5rem 0;
+  color: var(--textc3);
 }
 .gridPersonal .infoPer .ubicacion {
   display: flex;
@@ -206,51 +204,104 @@ body {
   width: 100%;
   max-width: 100%;
   height: 25%;
-  border-radius: 2rem;
-  box-shadow: 1px 1px 6px 0px var(--c1);
+  border-radius: var(--border);
+  box-shadow: var(--shadow) --c1;
   padding: 0.3rem;
 }
 .gridPersonal .infoPer .ubicacion .icono {
-  color: var(--c2);
+  color: var(--c4);
   width: 3rem;
   height: 3rem;
+}
+.gridPersonal .infoPer .ubicacion span {
+  color: var(--textc3);
 }
 .gridPersonal .estadisticas {
   grid-area: a4;
   padding: 20px;
-  border-radius: 10px;
+  margin-top: 30px;
   margin-bottom: 30px;
-  background-color: #d4b06e;
-  border-radius: 1.3rem;
-  box-shadow: 1px 1px 6px 0px #c89332;
+  background-color: var(--c4);
+  border-radius: var(--border);
+  box-shadow: var(--shadow) var(--c4);
   display: flex;
   flex-direction: column;
 }
 .gridPersonal .estadisticas .filter-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.5rem;
   margin-bottom: 20px;
 }
 .gridPersonal .estadisticas .filter {
   padding: 8px 12px;
-  background-color: #F1EDE8;
-  border-radius: 20px;
+  background-color: rgba(241, 237, 232, 0.6196078431);
+  border-radius: var(--border2);
   cursor: pointer;
   border: none;
   transition: background-color 0.3s;
 }
 .gridPersonal .estadisticas .filter.selected {
-  background-color: #C8B9A6;
+  background-color: var(--c1);
+  color: var(--textc1); /* Texto negro en el botón seleccionado */
 }
 .gridPersonal .estadisticas .filter:hover {
   background-color: #D4C5A8;
+  color: #192229; /* Texto negro en el botón al pasar el mouse */
+}
+.gridPersonal .estadisticas .Feliz.selected {
+  background-color: var(--feliz);
+  color: var(--txtfeliz);
+}
+.gridPersonal .estadisticas .Feliz:hover {
+  background-color: var(--feliz);
+  color: var(--txtfeliz);
+}
+.gridPersonal .estadisticas .Triste.selected {
+  background-color: var(--triste);
+  color: var(--txttriste);
+}
+.gridPersonal .estadisticas .Triste:hover {
+  background-color: var(--triste);
+  color: var(--txttriste);
+}
+.gridPersonal .estadisticas .Enojado.selected {
+  background-color: var(--enojado);
+  color: var(--txtenojado);
+}
+.gridPersonal .estadisticas .Enojado:hover {
+  background-color: var(--enojado);
+  color: var(--txtenojado);
+}
+.gridPersonal .estadisticas .Ansioso.selected {
+  background-color: var(--ansioso);
+  color: var(--txtansioso);
+}
+.gridPersonal .estadisticas .Ansioso:hover {
+  background-color: var(--ansioso);
+  color: var(--txtansioso);
+}
+.gridPersonal .estadisticas .Motivado.selected {
+  background-color: var(--motivado);
+  color: var(--txtmotivado);
+}
+.gridPersonal .estadisticas .Motivado:hover {
+  background-color: var(--motivado);
+  color: var(--txtmotivado);
+}
+.gridPersonal .estadisticas .Aburrido.selected {
+  background-color: var(--aburrido);
+  color: var(--txtaburrido);
+}
+.gridPersonal .estadisticas .Aburrido:hover {
+  background-color: var(--aburrido);
+  color: var(--txtaburrido);
 }
 .gridPersonal .publicaciones {
   grid-area: a5;
-  border-radius: 1.4rem;
-  background-color: var(--c4);
-  box-shadow: 1px 1px 6px 0px var(--c4);
+  border-radius: var(--border);
+  background-color: transparent;
+  box-shadow: none;
   margin-bottom: 1rem;
   padding: 2rem;
 }
@@ -313,62 +364,6 @@ body {
     background-color: var(--c1);
     border-radius: 1rem;
     padding: 0.5rem 1.5rem;
-    box-shadow: 1px 1px 6px 0px var(--c1);
-  }
-  .gridPersonal .infoPer .parte1 .general {
-    background-color: var(--c1);
-    border-radius: 2rem;
-    padding: 0.5rem 1.5rem;
-    box-shadow: 1px 1px 6px 0px var(--c1);
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .gridPersonal .infoPer .parte1 .general .emotions-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 0.2rem;
-    background-color: var(--c3);
-    min-width: 85%;
-    max-width: 90%;
-    border-radius: 2rem;
-    padding: 0.5rem 1.5rem;
-    box-shadow: 1px 1px 6px 0px var(--c3);
-    flex-wrap: wrap;
-  }
-  .gridPersonal .infoPer .parte1 .general .emotions-container .emotion {
-    background-color: var(--c1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 2.5rem;
-    /* Espacio entre los círculos */
-  }
-  .gridPersonal .infoPer .parte1 .general .emotions-container .emotion:hover {
-    background-color: var(--c4);
-  }
-  .gridPersonal .infoPer .parte1 .general .emotions-container .active {
-    background-color: var(--c2);
-    /* Color diferente para el emoji activo */
-  }
-  .gridPersonal .infoPer .parte1 .general #emotion-text {
-    padding: 0.5rem 0;
-  }
-  .gridPersonal .infoPer .ubicacion {
-    background-color: var(--c1);
-    width: 100%;
-    border-radius: 2rem;
-    box-shadow: 1px 1px 6px 0px var(--c1);
-    padding: 0.3rem;
-  }
-  .gridPersonal .infoPer .ubicacion .icono {
-    color: var(--c2);
-    width: 2rem;
-    height: 2rem;
+    box-shadow: shadow var(--c1);
   }
 }/*# sourceMappingURL=perfil.css.map */

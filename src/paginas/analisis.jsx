@@ -22,7 +22,7 @@ function analisis() {
     };
 
     return (
-        <div className="container">
+        <div className="container-analisis">
             {/* Análisis por Edades */}
             <div className="section">
                 <h2>Análisis por Edades</h2>
@@ -30,7 +30,7 @@ function analisis() {
                     {emotions.map((emotion) => (
                         <button
                             key={emotion}
-                            className={`filter ${selectedEmotionAge === emotion ? 'selected' : ''}`}
+                            className={`filter ${emotion} ${selectedEmotionAge === emotion ? 'selected' : ''}`}
                             onClick={() => handleEmotionClickAge(emotion)}
                         >
                             {emotion}
@@ -47,7 +47,7 @@ function analisis() {
                     {emotions.map((emotion) => (
                         <button
                             key={emotion}
-                            className={`filter ${selectedEmotionCity === emotion ? 'selected' : ''}`}
+                            className={`filter ${emotion} ${selectedEmotionCity === emotion ? 'selected' : ''}`}
                             onClick={() => handleEmotionClickCity(emotion)}
                         >
                             {emotion}
@@ -58,7 +58,7 @@ function analisis() {
                     {cities.map((city) => (
                         <button
                             key={city}
-                            className={`city ${selectedCity === city ? 'selected' : ''}`}
+                            className={`city ${selectedEmotionCity} ${selectedCity === city ? 'selected' : ''}`}
                             onClick={() => handleCityClick(city)}
                         >
                             {city}
