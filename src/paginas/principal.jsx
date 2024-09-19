@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, ButtonGroup, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../estilos/i2.scss';
-import "../estilos/Principal.css";
+import "../estilos/Principal.scss";
 import { FaPencil } from "react-icons/fa6";
 import avatar1 from '../imagenes/ava1.png';
 import { Snackbar, Alert } from "@mui/material";

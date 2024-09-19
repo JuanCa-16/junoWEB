@@ -1,0 +1,402 @@
+:root {
+  --c1: #eeddd3;
+  --c2: #cf7225;
+  --c3: #e8d1c5;
+  --c4: #9d3208bc;
+  --c5: #fff1e6;
+
+  --o1: #192229;
+  --o2: #212e36;
+  --o3: #2a3b47;
+  --o4: #a0a7ad;
+  --o5: #c8cdd0;
+
+  --feliz: #e7efa2;
+  --triste: #9fd0e2;
+  --enojado: #c13434;
+  --ansioso: #de9c3f;
+  --motivado: #b6efa2;
+  --aburrido: #a677ad;
+}
+
+body {
+  font-family: "Mukta", sans-serif;
+  background-color: rgb(236, 243, 243);
+  font-size: 1rem;
+  min-height: 100%;
+  margin: 0;
+}
+
+.container-custom {
+  background-color: #ecf1f585;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  max-height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .btn-select {
+    background-color: var(--c3);
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-color: var(--c5);
+    border-radius: 150px;
+    border: none;
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &.active {
+      background-color: var(--c2);
+      border-color: var(--c2);
+      color: white;
+      box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--c2);
+      border-color: var(--c2);
+      box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .btn-general {
+    background-color: #dddddd; /* Color personalizado */
+    color: rgb(0, 0, 0);
+    border-color: #e6e6e6;
+    border-radius: 25px;
+    border: none;
+    white-space: nowrap; /* Asegura que el texto dentro del botón no se envuelva */
+    text-align: left;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    padding: 0.5rem;
+  
+    &.general {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--c2); /* Color específico para el botón "General" en estados activos */
+        color: black;
+      }
+    }
+  
+    &.feliz {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--feliz);
+        color: black;
+      }
+    }
+  
+    &.triste {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--triste);
+        color: white;
+      }
+    }
+  
+    &.enojado {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--enojado);
+        color: white;
+      }
+    }
+  
+    &.ansioso {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--ansioso);
+        color: white;
+      }
+    }
+  
+    &.motivado {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--motivado);
+        color: black;
+      }
+    }
+  
+    &.aburrido {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--aburrido);
+        color: white;
+      }
+    }
+  }
+  
+
+  .btn-emotion {
+    background-color: #dddddd;
+    color: rgb(0, 0, 0);
+    border-color: #e6e6e6;
+    border-radius: 25px;
+    border: none;
+    white-space: nowrap;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    padding: 0.5rem;
+
+    &.feliz {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--feliz);
+        color: black;
+      }
+    }
+
+    &.triste {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--triste);
+        color: white;
+      }
+    }
+
+    &.enojado {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--enojado);
+        color: white;
+      }
+    }
+
+    &.ansioso {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--ansioso);
+        color: white;
+      }
+    }
+
+    &.motivado {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--motivado);
+        color: black;
+      }
+    }
+
+    &.aburrido {
+      &.active,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--aburrido);
+        color: white;
+      }
+    }
+  }
+
+  .img-fluid {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    max-width: none;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  .icon {
+    color: var(--c4);
+    width: 25px;
+  }
+
+  .row-create-post {
+    background-color: var(--c3);
+    padding: 10px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    max-width: 150vh;
+    box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+
+    .d-flex {
+      flex-wrap: wrap;
+    }
+  }
+
+  textarea.custom-textarea {
+    background-color: #e6beb6;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    color: inherit;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    box-shadow: 0px 2px 30px rgba(157, 50, 8, 0.2);
+
+    &:focus {
+      background-color: #e6beb6;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  .bg-posts {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 20px;
+
+    img {
+      width: 180px;
+      height: auto;
+      margin-top: 10px;
+      opacity: 0.2;
+    }
+
+    span {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+
+  .custom-div-post {
+    width: 100%;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+  }
+
+  .user-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .btn-cancel {
+    background-color: #af1919af;
+    color: #000000;
+    border: none;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #af1919af;
+      border-color: #af1919af;
+    }
+  }
+
+  .btn-publish {
+    background-color: #dddddd;
+    color: rgb(0, 0, 0);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--c2);
+    }
+  }
+
+  .w-100 {
+    display: flex;
+    height: 2rem;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn {
+    padding: 0.2rem;
+    border: none;
+  }
+
+  .post-display-col {
+    background-color: var(--c3);
+    padding: 10px;
+    border-radius: 25px;
+    align-items: center;
+    max-width: 100%;
+    box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+  }
+
+  .user-name-post {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .emotion-badge {
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .emotion-badge.feliz {
+    background-color: var(--feliz);
+  }
+
+  .emotion-badge.triste {
+    background-color: var(--triste);
+  }
+
+  .emotion-badge.enojado {
+    background-color: var(--enojado);
+  }
+
+  .emotion-badge.ansioso {
+    background-color: var(--ansioso);
+  }
+
+  .emotion-badge.motivado {
+    background-color: var(--motivado);
+  }
+
+  .emotion-badge.aburrido {
+    background-color: var(--aburrido);
+  }
+}

@@ -7,7 +7,7 @@ import BarChartComponent from '../componentes/BarChart';
 import { Button, ButtonGroup, Container, Row, Col } from "react-bootstrap";
 import avatar1 from '../imagenes/ava1.png';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../estilos/Principal.css";
+import "../estilos/respaldoPrincipal.css";
 import '../estilos/perfil.scss';
 import '../estilos/analisis.css';
 const perfilPersonal = () => {

@@ -296,7 +296,7 @@ img {
 }
 .info.active .container-custom .post-display-col {
   background-color: var(--o1);
-  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+  box-shadow: 0px 3px 5px rgb(6, 44, 98);
 }
 .info.active .container-custom .btn-select {
   background-color: var(--o3);
@@ -306,6 +306,7 @@ img {
 }
 .info.active .container-custom .row-create-post {
   background-color: var(--o1);
+  box-shadow: 0px 3px 5px rgb(6, 44, 98);
 }
 .info.active .container-custom .btn-select {
   transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -313,9 +314,10 @@ img {
 .info.active .container-custom .btn-select:hover,
 .info.active .container-custom .btn-select:focus:hover,
 .info.active .container-custom .btn-select:active:hover {
-  background-color: var(--c2, #ddd);
+  background-color: var(--o1, #ddd);
   /* Color personalizado para hover */
-  border-color: var(--c2, #ddd);
+  border-color: var(--o1, #ddd);
+  color: var(--o4);
   /* Borde personalizado para hover */
 }
 .info.active .container-custom .btn-general {
@@ -327,16 +329,16 @@ img {
   border: none;
 }
 .info.active .container-custom .btn-general.general.active {
-  background-color: var(--c2);
+  background-color: var(--o1);
   /* Color para el botón "General" */
-  color: black;
+  color: var(--o4);
   border: none;
 }
 .info.active .container-custom .btn-general.general:hover,
 .info.active .container-custom .btn-general.general:focus:hover,
 .info.active .container-custom .btn-general.general:active:hover {
-  background-color: var(--c2);
-  color: black;
+  background-color: var(--o1);
+  color: var(--o4);
   border-color: #000000;
   border: none;
 }
@@ -485,13 +487,14 @@ img {
 .info.active .container-custom .btn-select:hover,
 .info.active .container-custom .btn-emotion:hover {
   border-color: black;
-  background-color: var(--c2);
+  background-color: var(--o1);
+  color: var(--o4);
   /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
 }
 .info.active .container-custom .btn-general:focus,
 .info.active .container-custom .btn-select:focus,
 .info.active .container-custom .btn-emotion:focus {
-  background-color: var(--c2);
+  background-color: var(--o1);
   border-color: none;
   /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
   box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
@@ -500,12 +503,28 @@ img {
 .info.active .container-custom .btn-general.active,
 .info.active .container-custom .btn-select.active,
 .info.active .container-custom .btn-emotion.active {
-  background-color: var(--c2);
+  background-color: var(--o1);
   /* Fondo rojo cuando está activo */
-  color: black;
+  color: var(--o4);
   border-color: #ffd5ce;
   /* Borde rojo para coincidir con el fondo */
   box-shadow: none;
+}
+.info.active .container-custom textarea.custom-textarea {
+  background-color: var(--o4); /* Fondo transparente para que coincida con el fondo del div */
+  border: none; /* Eliminar el borde */
+  width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
+  padding: 10px; /* Añadir un poco de padding para mejorar el espacio */
+  color: inherit; /* Mantener el color del texto igual que el div */
+  font-size: 1rem; /* Tamaño de fuente consistente */
+  resize: none; /* Desactivar la opción de redimensionar */
+  outline: none; /* Eliminar el borde cuando el textarea está enfocado */
+  box-shadow: 0px 2px 30px rgba(172, 169, 255, 0.318);
+}
+.info.active .container-custom textarea.custom-textarea:focus {
+  background-color: var(--o4); /* Fondo transparente incluso cuando se enfoca */
+  border: none; /* Mantener sin borde al enfocarse */
+  box-shadow: none; /* Sin sombra */
 }
 .info.active .icon {
   color: var(--o4);

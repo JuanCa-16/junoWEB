@@ -1,0 +1,468 @@
+
+:root{
+    --c1:#eeddd3;
+    --c2:#cf7225;
+    --c3:#e8d1c5;
+    --c4:#9d3208bc;
+    --c5:#fff1e6;
+
+    --o1:#192229;
+    --o2:#212E36;
+    --o3:#2A3B47;
+    --o4:#A0A7AD;
+    --o5:#C8CDD0;
+
+    --feliz:#e7efa2;
+    --triste:#9fd0e2;
+    --enojado:#c13434;
+    --ansioso:#de9c3f;
+    --motivado: #b6efa2;
+    --aburrido:#a677ad;
+}
+
+body{
+  font-family: "Mukta", sans-serif;
+  background-color: rgb(236, 243, 243);
+  font-size: 1rem;
+  min-height: 100%;
+  margin: 0;
+}
+
+.container-custom {
+  background-color: #ecf1f585; /* Gris claro */
+  padding: 20px; 
+  border-radius: 8px;
+  overflow: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  max-height: 100%; /* Opcional: Bordes redondeados */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer y Edge */
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer y Edge */
+}
+
+.container-custom::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}
+
+/*Botones -> TODOS - AMIGOS */
+.btn-select {
+  background-color: var(--c3); /* Color de fondo por defecto */
+  color: rgb(0, 0, 0);
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-color: var(--c5);
+  border-radius: 150px;
+  border: none;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.btn-select.active{
+  background-color: var(--c2, #ddd); /* Color personalizado para hover */
+  border-color: var(--c2, #ddd); /* Borde personalizado para hover */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0,3);
+}
+
+
+/* Deshabilita el color azul predeterminado al hacer clic */
+.btn-select:hover,
+.btn-select:focus,
+.btn-select:active,
+.btn-select:focus:hover,
+.btn-select:active:hover {
+  background-color: var(--c2, #ddd); /* Color personalizado para hover */
+  border-color: var(--c2, #ddd); /* Borde personalizado para hover */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/*Botones -> EMOCIONES CLASIFICACION*/
+.btn-general {
+  background-color: #dddddd; /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-general.general.active {
+  background-color: var(--c2); /* Color para el botón "General" */
+  color: black;
+  border: none;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-general.general:hover, 
+.btn-general.general:focus:hover, 
+.btn-general.general:active:hover{
+  background-color: var(--c2);
+  color: black;
+  border-color: #000000;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.btn-general.feliz.active {
+  background-color: var(--feliz);
+  color: black;
+}
+
+.btn-general.feliz:hover, .btn-general.feliz:focus, .btn-general.feliz.active{
+  background-color: var(--feliz);
+  color: black;
+}
+
+.btn-general.triste.active {
+  background-color: var(--triste);
+  color: white;
+}
+
+
+.btn-general.triste:hover, .btn-general.triste:focus, .btn-general.triste.active{
+  background-color: var(--triste);
+  color: black;
+}
+
+.btn-general.enojado.active {
+  background-color: var(--enojado);
+  color: white;
+}
+
+.btn-general.enojado:hover, .btn-general.enojado:focus, .btn-general.enojado.active{
+  background-color: var(--enojado);
+  color: black;
+}
+
+.btn-general.ansioso.active {
+  background-color: var(--ansioso);
+  color: white;
+}
+
+.btn-general.ansioso:hover, .btn-general.ansioso:focus, .btn-general.ansioso.active{
+  background-color: var(--ansioso);
+  color: black;
+}
+
+.btn-general.motivado.active {
+  background-color: var(--motivado);
+  color: black;
+}
+
+.btn-general.motivado:hover, .btn-general.motivado:focus, .btn-general.motivado.active{
+  background-color:  var(--motivado);
+  color: black;
+}
+
+.btn-general.aburrido.active {
+  background-color: var(--aburrido);
+  color: white;
+}
+
+.btn-general.aburrido:hover, .btn-general.aburrido:focus, .btn-general.aburrido.active{
+  background-color:var(--aburrido);
+  color: black;
+}
+
+.btn-general {
+  transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.btn-emotion{
+  background-color: #dddddd; /* Color personalizado */
+  color: rgb(0, 0, 0);
+  border-color: #e6e6e6;
+  border-radius: 25px;
+  white-space: nowrap; /* Asegura que el texto dentro del botón no se envuelva */
+  text-align: left;
+  border: none;
+}
+
+.btn-emotion.feliz.active {
+  background-color: var(--feliz);
+  color: black;
+}
+
+.btn-emotion.feliz:hover, .btn-emotion.feliz:focus, .btn-emotion.feliz.active{
+  background-color:var(--feliz);
+  color: black;
+}
+
+.btn-emotion.triste.active {
+  background-color: var(--triste);
+  color: white;
+}
+
+.btn-emotion.triste:hover, .btn-emotion.triste:focus, .btn-emotion.triste.active{
+  background-color: var(--triste);
+  color: white;
+}
+
+.btn-emotion.enojado.active {
+  background-color: var(--enojado);
+  color: white;
+}
+
+.btn-emotion.enojado:hover, .btn-emotion.enojado:focus, .btn-emotion.enojado.active{
+  background-color:var(--enojado);
+  color: white;
+}
+
+.btn-emotion.ansioso.active {
+  background-color:var(--ansioso);
+  color: white;
+}
+
+.btn-emotion.ansioso:hover, .btn-emotion.ansioso:focus, .btn-emotion.ansioso.active{
+  background-color: var(--ansioso);
+  color: white;
+}
+
+.btn-emotion.motivado.active {
+  background-color:  var(--motivado);
+  color: black;
+}
+
+.btn-emotion.motivado:hover, .btn-emotion.motivado:focus, .btn-emotion.motivado.active{
+  background-color:  var(--motivado);
+  color: white;
+}
+
+.btn-emotion.aburrido.active {
+  background-color:var(--aburrido);
+  color: white;
+}
+
+.btn-emotion.aburrido:hover, .btn-emotion.aburrido:focus, .btn-emotion.aburrido.active{
+  background-color: var(--aburrido);
+  color: white;
+}
+
+
+.btn-emotion {
+  transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+
+.btn-general:hover, .btn-select:hover , .btn-emotion:hover{
+  border-color: black;
+  background-color: var(--c2);
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3); /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
+}
+
+.btn-general:focus, .btn-select:focus, .btn-emotion:focus {
+  background-color: var(--c2);
+  border-color: none; /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3); /* Opcional: agrega un contorno negro cuando está enfocado */
+}
+
+
+.btn-emotion.active {
+  background-color: var(--c2); /* Fondo rojo cuando está activo */
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.3);
+  color: black;
+  border-color: #ffd5ce; /* Borde rojo para coincidir con el fondo */
+  box-shadow: none;
+}
+
+
+.img-fluid {
+  width: 50px; /* Ajusta el ancho según tus necesidades */
+  height: 50px; /* Ajusta la altura para que sea igual al ancho */
+  object-fit: cover; /* Asegura que la imagen se ajuste dentro del contenedor sin distorsión */
+  max-width: none; /* Elimina la restricción del ancho máximo de .img-fluid */
+  height: auto;/* Mantiene la proporción de la imagen */
+  margin-right: 10px
+}
+
+.icon {
+  color: var(--c4); /* Color de texto atenuado */
+  width: 25px;
+}
+
+
+.row-create-post{
+  background-color: var(--c3); /* Ajusta el color de fondo según tus necesidades */
+  padding: 10px; /* Opcional: añade un poco de relleno alrededor del contenido */
+  border-radius: 25px;
+  display: flex; /* Ajusta el ancho al contenido */
+  align-items: center;
+  max-width: 150vh; /* Alinea verticalmente el contenido */
+  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+}
+
+.row-create-post .d-flex {
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay suficiente espacio */
+}
+
+textarea.custom-textarea {
+  background-color:  #e6beb6; /* Fondo transparente para que coincida con el fondo del div */
+  border: none; /* Eliminar el borde */
+  width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
+  padding: 10px; /* Añadir un poco de padding para mejorar el espacio */
+  color: inherit; /* Mantener el color del texto igual que el div */
+  font-size: 1rem; /* Tamaño de fuente consistente */
+  resize: none; /* Desactivar la opción de redimensionar */
+  outline: none; /* Eliminar el borde cuando el textarea está enfocado */
+  box-shadow: 0px 2px 30px rgba(157, 50, 8, 0.2);
+}
+
+textarea.custom-textarea:focus {
+  background-color:  #e6beb6; /* Fondo transparente incluso cuando se enfoca */
+  border: none; /* Mantener sin borde al enfocarse */
+  box-shadow: none; /* Sin sombra */
+}
+
+.bg-posts {
+  min-height: 200px; /* Ajusta la altura mínima según sea necesario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-top: 20px; /* Espacio arriba de la sección */
+}
+
+.bg-posts img {
+  width: 180px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 10px; /* Espacio entre el texto y la imagen */
+  opacity: 0.2;
+}
+
+.bg-posts span {
+  font-size: 24px; /* Ajusta el tamaño del texto según sea necesario */
+  font-weight: bold; /* Hace que el texto sea negrita */
+  margin-bottom: 10px; /* Espacio entre el texto y la imagen */
+}
+
+.custom-div-post {
+  width: 100%;
+}
+
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%; /* Espacio debajo de la imagen del usuario */
+}
+
+.user-name {
+  font-size: 1.25rem; /* Tamaño del texto del nombre del usuario */
+  font-weight: bold; /* Fuente en negrita */
+}
+
+
+.btn-cancel {
+  background-color: #af1919af; /* Color de fondo (ajustar según tus necesidades) */
+  color: #000000; /* Color del texto (ajustar según tus necesidades) */
+  border: none; /* Borde del botón */
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel.active, .btn-cancel:hover,
+.btn-cancel:focus:hover,
+.btn-cancel:active:hover,
+.btn-cancel:active, 
+.btn-cancel:hover{
+  background-color: #af1919af;
+  border-color: #af1919af;
+}
+
+.btn-publish{
+  background-color: #dddddd; /* Color personalizado */
+  color: rgb(0, 0, 0);
+}
+
+.btn-publish:hover,
+.btn-publish:focus:hover,
+.btn-publish:active:hover ,
+.btn-publish:active, 
+.btn-publish:hover{
+  background-color: var(--c2);
+}
+
+.w-100{
+  display: flex;
+  height: 2rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn{
+  padding: 0.2rem;
+  border: none;
+}
+
+.post-display-col{
+  background-color: var(--c3);
+  padding: 10px; /* Opcional: añade un poco de relleno alrededor del contenido */
+  border-radius: 25px;
+  align-items: center;
+  max-width: 100%;
+  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+}
+
+.user-name-post {
+  font-size: 1.25rem; /* Tamaño del texto del nombre del usuario */
+  font-weight: bold; /* Fuente en negrita */
+}
+
+.emotion-badge {
+  border-radius: 15px; 
+  padding: 5px 10px; /* Ajusta el espaciado interno */
+  font-size: 14px; /* Ajusta el tamaño del texto si es necesario */
+  color: #333; /* Color del texto */
+  font-weight: bold; /* Texto en negrita para destacar la emoción */
+  display: inline-block; /* Para que el fondo se ajuste al contenido */
+}
+
+.emotion-badge.feliz {
+  background-color: var(--feliz); /* Color para Feliz */
+}
+
+.emotion-badge.triste {
+  background-color: var(--triste); /* Color para Triste */
+}
+
+.emotion-badge.enojado {
+  background-color: var(--enojado); /* Color para Enojado */
+}
+
+.emotion-badge.ansioso {
+  background-color: var(--ansioso); /* Color para Ansioso */
+}
+
+.emotion-badge.motivado {
+  background-color: var(--motivado); /* Color para Motivado */
+}
+
+.emotion-badge.aburrido {
+  background-color: var(--aburrido); /* Color para Aburrido */
+}
+
+
+
+@media (max-width: 500px){
+
+  .container-custom {
+    overflow: auto;
+
+  
+  }
+}
+
+
