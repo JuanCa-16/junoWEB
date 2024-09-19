@@ -378,6 +378,13 @@ body {
         box-shadow:none;
         margin-bottom: 1rem;
         padding: 2rem;
+        color: var(--textc1);
+
+        //fondo POSTS
+        .post-display-col {
+            background-color: var(--c1);
+            box-shadow: var(--shadow) var(--c2);
+        }
     }
 
 }

@@ -85,6 +85,7 @@ body {
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  color: var(--c1);
 }
 .container-analisis .filter {
   padding: 8px 12px;
@@ -93,6 +94,7 @@ body {
   cursor: pointer;
   border: none;
   transition: background-color 0.3s;
+  color: var(--c1);
 }
 .container-analisis .filter.selected {
   background-color: var(--c5);
@@ -175,6 +177,7 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 20px;
+  color: var(--textc3);
 }
 .container-analisis .city {
   background-color: rgba(217, 216, 214, 0.8549019608);
@@ -188,6 +191,7 @@ body {
 .container-analisis .city-container .city:first-child {
   background-color: #f0e68c;
   font-weight: bold;
+  color: var(--c1);
 }
 .container-analisis .city-container .city:first-child.Feliz {
   background-color: var(--feliz);

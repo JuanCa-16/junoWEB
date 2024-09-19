@@ -304,6 +304,11 @@ body {
   box-shadow: none;
   margin-bottom: 1rem;
   padding: 2rem;
+  color: var(--textc1);
+}
+.gridPersonal .publicaciones .post-display-col {
+  background-color: var(--c1);
+  box-shadow: var(--shadow) var(--c2);
 }
 
 @media (max-width: 750px) {
