@@ -3,10 +3,10 @@ import Select from 'react-select';
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/inicioU.scss';
 
+
 const genderOptions = [
   { value: 'Masculino', label: 'Masculino' },
   { value: 'Femenino', label: 'Femenino' },
-  { value: 'Otro', label: 'Otro' },
 ];
 
 const Login = () => {
