@@ -108,7 +108,7 @@ const Login = () => {
             <input type="submit" value="Inicia sesión" className="btn solid" />
 
             <div className="text-center mt-3">
-              <a href="/" className="forgot-password-link">
+              <a href="/principal" className="forgot-password-link">
                 ¿Olvidaste tu contraseña?
               </a>
             </div>

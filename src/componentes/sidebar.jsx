@@ -52,8 +52,8 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
 
             <div className="contentsContainer a4">
                 <ul>
-                    <li className={location.pathname === '/' ? 'active' : ''}>
-                        <Link to='/'>
+                    <li className={location.pathname === '/principal' ? 'active' : ''}>
+                        <Link to='/principal'>
                             <IoHome className='icono'/>
                             <span>Principal</span>
                         </Link>

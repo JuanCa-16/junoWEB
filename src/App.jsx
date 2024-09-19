@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 import Principal from './paginas/principal';
 import Amigos from './paginas/amigos';
 import Calendario from './paginas/calendario';
@@ -16,7 +17,7 @@ function MainLayout({ closeMenu, setCloseMenu }) {
       <Sidebar closeMenu={closeMenu} setCloseMenu={setCloseMenu} />
       <div className={closeMenu === false ? "info" : "info active"}>
         <Routes>
-          <Route path="/" element={<Principal />} />
+          <Route path="/principal" element={<Principal />} />
           <Route path="/amigos" element={<Amigos />} />
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/analisis" element={<Analisis />} />
@@ -45,8 +46,12 @@ function App() {
   return (
     <Router>
       <Routes>
+
+        {/* Redirige a /login al cargar la página */}
+        <Route path="/" element={<Navigate to="/usuario/login" replace />} />
+
         {/* Rutas de autenticación sin Sidebar */}
-        <Route path="/usuario/*" element={<AuthLayout/>} />
+        <Route path="/usuario*" element={<AuthLayout/>} />
 
         {/* Rutas principales con Sidebar */}
         <Route path="/*" element={<MainLayout closeMenu={closeMenu} setCloseMenu={setCloseMenu} />} />
