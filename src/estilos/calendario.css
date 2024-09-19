@@ -1,0 +1,19 @@
+.calendar-container {
+    width: 100%;
+    height: 80vh;
+    margin: 0 auto;
+    max-width: 1920px; /* Máximo ancho en pantallas grandes */
+}
+
+@media (max-width: 768px) {
+    .calendar-container {
+      width: 100%;  /* Ocupa todo el ancho en pantallas pequeñas */
+      height: 70vh; /* Ajusta la altura */
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container {
+      height: 60vh;  /* Menor altura en dispositivos móviles */
+    }
+}
