@@ -618,15 +618,15 @@ img {
     grid-area: sidebar;
     background-color: var(--c1);
     display: grid;
-    grid-template-columns: 4% 10% 2% 10% auto;
+    grid-template-columns: 4% 10% 2% auto 10% 3%;
     grid-template-rows: 3rem;
-    grid-template-areas: "a3 a1 . a2 a4";
+    grid-template-areas: "a3 a1 . a4 a2 .";
     margin: 0;
     padding: 0.5rem 0;
   }
   .sidebar img {
     width: auto;
-    height: 2rem;
+    height: 2.5rem;
   }
   .sidebar .profileContainer {
     grid-area: a1;
@@ -635,13 +635,14 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-items: center;
     margin: 0;
     height: auto;
     width: 100%;
     box-shadow: none;
   }
   .sidebar .profileContainer img {
-    margin-left: 0.1rem;
+    margin-left: 0;
   }
   .sidebar .profileContainer .profileContents {
     padding-left: 0;
@@ -722,6 +723,7 @@ img {
     padding: 0.5rem;
     border-radius: var(--border2);
     margin: 0.7rem;
+    margin-left: 0;
     background-color: var(--c3);
     height: 100%;
     width: 100%;
