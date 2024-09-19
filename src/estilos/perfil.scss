@@ -1,25 +1,66 @@
 :root {
-    --c1: #eeddd3;
-    --c2: #cf7225;
-    --c3: #e8d1c5;
-    --c4: #9d3208bc;
-    --c5: #fff1e6;
+    // --c1: #eeddd3;
+    // --c2: #cf7225;
+    // --c3: #e8d1c5;
+    // --c4: #9d3208bc;
+    // --c5: #fff1e6;
 
-    --o1: #192229;
-    --o2: #212E36;
-    --o3: #2A3B47;
-    --o4: #A0A7AD;
-    --o5: #C8CDD0;
+    // --o1: #192229;
+    // --o2: #212E36;
+    // --o3: #2A3B47;
+    // --o4: #A0A7AD;
+    // --o5: #C8CDD0;
 
-    --feliz: #e7efa2;
-    --triste: #9fd0e2;
-    --enojado: #c13434;
-    --ansioso: #de9c3f;
-    --motivado: #b6efa2;
-    --aburrido: #a677ad;
+    --border: 20px;
+    --border2: 1rem;
+    --shadow: 1px 1px 3px .5px;
+
+    /* Colores de fondo claros */
+    --c1: #46313d;
+    --c2: #5f404d;
+    --c3: #845d5f;
+    --c4: #b77e78;
+    --c5: #dcae8f;
+
+    /* Colores de fondo oscuros */
+    --o1: #1a0e15;
+    --o2: #2d1a22;
+    --o3: #4e2f30;
+    --o4: #6e4b3b;
+    --o5: #8f6c4f;
+
+    /* Colores de texto ajustados */
+    --textc1: #dcae8f;
+    --textc2: #dcae8f;
+    --textc3: #dcae8f;
+    --textc4: #46313d;
+    --textc5: #46313d;
+
+    --textoO1: #8f6c4f;
+    --textoO2: #8f6c4f;
+    --textoO3: #8f6c4f;
+    --textoO4: #1a0e15;
+    --textoO5: #1a0e15;
+
+    --feliz: #f4d35e;
+    --triste: #7289da;
+    --enojado: #d9534f;
+    --ansioso: #e9967a;
+    --motivado: #88c399;
+    --aburrido: #495057;
+
+    --txtfeliz: #654e04;
+    --txttriste: #092380;
+    --txtenojado: #5b1209;
+    --txtansioso: #532407;
+    --txtmotivado: #072505;
+    --txtaburrido: #0e1a27;
+
+    --eliminar: #d9534f;
+    --aceptar: #856f2a;
+
+
 }
-
-
 body {
     font-family: "Mukta", sans-serif;
     background-color: rgb(236, 243, 243);
@@ -32,42 +73,62 @@ body {
 
 .gridPersonal {
 
+    .emoji-img {
+        width: 80%;
+        //height: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
     .img {
-        width: auto;
-        height: 4.6rem;
+        width: 70%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
     }
 
     display: grid;
-    grid-template-columns: 8rem auto;
+    grid-template-columns: 14rem auto;
     grid-template-rows: auto;
     grid-template-areas: "a1 a3"
     "a4 a4"
     "a5 a5";
 
     width: 100%;
-    gap: 10px;
+    max-width: 100%;
+    gap: 0;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0;
     overflow: auto;
-    height: auto;
-    max-height: 100%; /* Opcional: Bordes redondeados */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer y Edge */
+    height: none;
+    max-height: 100%;
+    /* Opcional: Bordes redondeados */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer y Edge */
+
     .containerPerfil {
+        //background-color: green;
         grid-area: a1;
         width: 100%;
+        max-width: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        padding: 1rem;
+        gap: 1rem;
 
         .rachaContainer {
             display: flex;
+            width: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             background-color: var(--c3);
             border-radius: 1.4rem;
-            margin: 0.5rem;
+            //margin: 0.5rem;
             box-shadow: 1px 1px 6px 0px var(--c4);
 
             img {
@@ -77,6 +138,11 @@ body {
 
             .profileContents {
                 padding: 0.3rem 0 0 .5rem;
+
+                p {
+                    font-size: 1.5rem;
+                }
+
 
                 .dias {
                     display: flex;
@@ -97,14 +163,14 @@ body {
                     line-height: 1;
                 }
 
-                h3.texto3 {
+                h1.texto3 {
                     margin: 0;
                     padding: 0 0 0.7rem 0;
 
                     font-weight: 700;
                     line-height: 1;
                     color: var(--c2);
-                    font-size: 1.4rem;
+
                 }
             }
 
@@ -114,14 +180,18 @@ body {
     .infoPer {
         grid-area: a3;
         width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin-top: 0.2rem;
-        background-color: var(--c3);
-        border-radius: 1.4rem;
-        padding: 0.5rem 1.5rem;
-        box-shadow: 1px 1px 6px 0px var(--c4);
+        //margin-top: 0.2rem;
+        //background-color: var(--c3);
+        //border-radius: 1.4rem;
+        //padding: 0.5rem 1.5rem;
+        //box-shadow: 1px 1px 6px 0px var(--c4);
+
         .parte1 {
 
             width: 100%;
@@ -158,12 +228,12 @@ body {
 
                     .emotion {
                         background-color: var(--c1);
-                        border-radius: 50%;
+                        border-radius: 40%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         cursor: pointer;
-                        font-size: 1.5rem;
+                        font-size: 2rem;
                         /* Espacio entre los círculos */
                     }
 
@@ -172,7 +242,8 @@ body {
                     }
 
                     .active {
-                        background-color: var(--c2); /* Color diferente para el emoji activo */
+                        background-color: var(--c2);
+                        /* Color diferente para el emoji activo */
                     }
                 }
 
@@ -183,16 +254,21 @@ body {
         }
 
         .ubicacion {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: var(--c1);
             width: 100%;
+            max-width: 100%;
+            height: 25%;
             border-radius: 2rem;
             box-shadow: 1px 1px 6px 0px var(--c1);
             padding: 0.3rem;
 
             .icono {
                 color: var(--c2);
-                width: 2rem;
-                height: 2rem;
+                width: 3rem;
+                height: 3rem;
             }
 
         }
@@ -208,7 +284,7 @@ body {
         box-shadow: 1px 1px 6px 0px #c89332;
         display: flex;
         flex-direction: column;
-        
+
 
         .filter-container {
             display: flex;
@@ -216,7 +292,7 @@ body {
             gap: 10px;
             margin-bottom: 20px;
         }
-    
+
         .filter {
             padding: 8px 12px;
             background-color: #F1EDE8;
@@ -225,11 +301,11 @@ body {
             border: none;
             transition: background-color 0.3s;
         }
-    
+
         .filter.selected {
             background-color: #C8B9A6;
         }
-    
+
         .filter:hover {
             background-color: #D4C5A8;
         }
@@ -246,40 +322,62 @@ body {
 
 }
 
-@media (max-width: 490px){
-    .gridPersonal{
+@media (max-width: 750px) {
+
+    .gridPersonal {
+
+        .imgDiv {
+            width: 80%;
+        }
+
+        .img {
+            width: 40%;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        display: grid;
         grid-template-columns: auto;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "a1"
+        grid-template-areas: "a1"
         "a3"
         "a4"
         "a5";
         justify-content: center;
         align-items: center;
+
         .containerPerfil {
+
             grid-area: a1;
             width: 100%;
+            max-width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            ;
+
             .rachaContainer {
-                display: flex;
                 flex-direction: row;
+                width: 100%;
+                height: 100%;
+                display: flex;
                 padding: 0.5rem;
+
                 img {
                     margin-top: 0;
-                    height: 3rem;
+                    height: 4rem;
                 }
-    
+
                 .profileContents {
-                    h3.texto3 {
+                    h1.texto3 {
                         margin: 0;
                         padding: 0 0.5rem 0 0;
                     }
                 }
-    
+
             }
 
         }
@@ -290,17 +388,18 @@ body {
             width: 100%;
             padding: 1.5rem;
             flex-direction: column;
+
             .parte1 {
-    
+
                 width: 100%;
-    
+
                 h2 {
                     background-color: var(--c1);
                     border-radius: 1rem;
                     padding: 0.5rem 1.5rem;
                     box-shadow: 1px 1px 6px 0px var(--c1);
                 }
-    
+
                 .general {
                     background-color: var(--c1);
                     border-radius: 2rem;
@@ -311,11 +410,12 @@ body {
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-    
+
                     .emotions-container {
                         display: flex;
-                        justify-content: space-around;
+                        justify-content: space-evenly;
                         align-items: center;
+                        gap: 0.2rem;
                         background-color: var(--c3);
                         min-width: 85%;
                         max-width: 90%;
@@ -323,7 +423,7 @@ body {
                         padding: 0.5rem 1.5rem;
                         box-shadow: 1px 1px 6px 0px var(--c3);
                         flex-wrap: wrap;
-    
+
                         .emotion {
                             background-color: var(--c1);
                             border-radius: 50%;
@@ -331,41 +431,42 @@ body {
                             align-items: center;
                             justify-content: center;
                             cursor: pointer;
-                            font-size: 1.5rem;
+                            font-size: 2.5rem;
                             /* Espacio entre los círculos */
                         }
-    
+
                         .emotion:hover {
                             background-color: var(--c4);
                         }
-    
+
                         .active {
-                            background-color: var(--c2); /* Color diferente para el emoji activo */
+                            background-color: var(--c2);
+                            /* Color diferente para el emoji activo */
                         }
                     }
-    
+
                     #emotion-text {
                         padding: 0.5rem 0;
                     }
                 }
             }
-    
+
             .ubicacion {
                 background-color: var(--c1);
                 width: 100%;
                 border-radius: 2rem;
                 box-shadow: 1px 1px 6px 0px var(--c1);
                 padding: 0.3rem;
-    
+
                 .icono {
                     color: var(--c2);
                     width: 2rem;
                     height: 2rem;
                 }
-    
+
             }
         }
     }
 
-    
+
 }

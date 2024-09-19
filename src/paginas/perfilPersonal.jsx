@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../estilos/respaldoPrincipal.css";
 import '../estilos/perfil.scss';
 import '../estilos/analisis.css';
+import felizM from '../imagenes/felizMujer.png';
 const perfilPersonal = () => {
     const [selectedEmotion, setSelectedEmotion] = useState('Feliz');
     const [selectedEmotionAge, setSelectedEmotionAge] = useState('Todas');
@@ -18,12 +19,13 @@ const perfilPersonal = () => {
         setSelectedEmotionAge(emotion);
     };
     const emotions = [
-        { emoji: '😊', label: 'Feliz' },
-        { emoji: '😢', label: 'Triste' },
-        { emoji: '😠', label: 'Enojado' },
-        { emoji: '😨', label: 'Ansioso' },
-        { emoji: '💪', label: 'Motivado' },
+        { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
+        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Triste' },
+        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Enojado' },
+        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Ansioso' },
+        { emoji:<img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Motivado' },
     ];
+    
 
     const [posts, setPosts] = useState([
         {
@@ -51,7 +53,7 @@ const perfilPersonal = () => {
         <div className='gridPersonal'>
 
             <div className="containerPerfil a1">
-                <div>
+                <div className='imgDiv'>
                     <img src={perfil} alt="perfil" className='img' />
                 </div>
 
@@ -62,7 +64,7 @@ const perfilPersonal = () => {
                             <p className='texto1'>7</p>
                             <p className='texto2'>días</p>
                         </div>
-                        <h3 className='texto3'>FELICES</h3>
+                        <h1 className='texto3'>FELICES</h1>
                     </div>
                 </div>
 

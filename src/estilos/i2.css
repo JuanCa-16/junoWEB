@@ -1,21 +1,44 @@
-@charset "UTF-8";
 :root {
-  --c1: #eeddd3;
-  --c2: #cf7225;
-  --c3: #e8d1c5;
-  --c4: #9d3208bc;
-  --c5: #fff1e6;
-  --o1: #192229;
-  --o2: #212E36;
-  --o3: #2A3B47;
-  --o4: #A0A7AD;
-  --o5: #C8CDD0;
-  --feliz: #e7efa2;
-  --triste: #9fd0e2;
-  --enojado: #c13434;
-  --ansioso: #de9c3f;
-  --motivado: #b6efa2;
-  --aburrido: #a677ad;
+  --border: 20px;
+  --border2: 1rem;
+  --shadow: 1px 1px 3px .5px;
+  /* Colores de fondo claros */
+  --c1: #46313d;
+  --c2: #5f404d;
+  --c3: #845d5f;
+  --c4: #b77e78;
+  --c5: #dcae8f;
+  /* Colores de fondo oscuros */
+  --o1: #1a0e15;
+  --o2: #2d1a22;
+  --o3: #4e2f30;
+  --o4: #6e4b3b;
+  --o5: #8f6c4f;
+  /* Colores de texto ajustados */
+  --textc1: #dcae8f;
+  --textc2: #dcae8f;
+  --textc3: #dcae8f;
+  --textc4: #46313d;
+  --textc5: #46313d;
+  --textoO1: #8f6c4f;
+  --textoO2: #8f6c4f;
+  --textoO3: #8f6c4f;
+  --textoO4: #1a0e15;
+  --textoO5: #1a0e15;
+  --feliz: #f4d35e;
+  --triste: #7289da;
+  --enojado: #d9534f;
+  --ansioso: #e9967a;
+  --motivado: #88c399;
+  --aburrido: #495057;
+  --txtfeliz: #654e04;
+  --txttriste: #092380;
+  --txtenojado: #5b1209;
+  --txtansioso: #532407;
+  --txtmotivado: #072505;
+  --txtaburrido: #0e1a27;
+  --eliminar: #d9534f;
+  --aceptar: #856f2a;
 }
 
 * {
@@ -29,7 +52,6 @@ html {
 
 body {
   font-family: "Mukta", sans-serif;
-  --background-color: rgb(236, 243, 243);
   font-size: 1rem;
   min-height: 100%;
   margin: 0;
@@ -41,18 +63,15 @@ img {
 }
 
 .grid-container > * {
-  box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.212);
-  border-radius: 0px;
   padding: 10px;
   text-align: center;
 }
 
 .info {
   grid-area: main;
-  background-color: rgba(128, 128, 128, 0.114);
+  background-color: rgba(128, 128, 128, 0.26);
   width: 100%;
   min-height: 100vh;
-  box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
@@ -70,8 +89,8 @@ img {
   align-items: center;
   justify-content: flex-start;
   margin: 0 0.5rem;
-  border-radius: 30px;
-  box-shadow: 1px 1px 6px 0px var(--c4);
+  border-radius: var(--border);
+  box-shadow: var(--shadow) var(--c4);
 }
 .sidebar .profileContainer img {
   margin-left: 0.7rem;
@@ -80,10 +99,12 @@ img {
   padding-left: 0.5rem;
 }
 .sidebar .profileContainer .profileContents h3.name {
+  margin: 0;
   font-weight: 700;
   line-height: 1;
   text-align: left;
-  font-size: 1.45rem;
+  font-size: 1.7rem;
+  color: var(--textc3);
 }
 .sidebar .rachaContainer {
   grid-area: a2;
@@ -91,9 +112,9 @@ img {
   align-items: center;
   justify-content: flex-start;
   background-color: var(--c3);
-  border-radius: 2rem;
+  border-radius: var(--border);
   margin: 0.5rem;
-  box-shadow: 1px 1px 6px 0px var(--c4);
+  box-shadow: var(--shadow) var(--c4);
 }
 .sidebar .rachaContainer img {
   margin-left: 0.2rem;
@@ -104,14 +125,9 @@ img {
 .sidebar .rachaContainer .profileContents .dias {
   display: flex;
   gap: 0.4rem;
+  font-size: 1.3rem;
 }
-.sidebar .rachaContainer .profileContents p.texto1 {
-  margin: 0;
-  padding: 0;
-  font-weight: 500;
-  line-height: 1;
-}
-.sidebar .rachaContainer .profileContents p.texto2 {
+.sidebar .rachaContainer .profileContents p {
   margin: 0;
   padding: 0;
   font-weight: 500;
@@ -122,8 +138,8 @@ img {
   padding: 0 0 0.7rem 0;
   font-weight: 700;
   line-height: 1;
-  color: var(--c2);
-  font-size: 1.5rem;
+  color: var(--textc3);
+  font-size: 1.8rem;
 }
 .sidebar .burgerContainer {
   grid-area: a3;
@@ -134,7 +150,7 @@ img {
   margin: 0;
 }
 .sidebar .burgerContainer .burgerTrigger .img {
-  width: 1rem;
+  width: 0.8rem;
   height: 1.5rem;
   cursor: pointer;
   padding: 0;
@@ -157,16 +173,16 @@ img {
   flex-direction: column;
   list-style: none;
   padding: 1rem;
-  border-radius: 20px;
-  margin: 1rem;
+  margin: 0.6rem;
+  border-radius: var(--border);
   background-color: var(--c3);
   height: 85%;
   width: 100%;
-  box-shadow: 1px 1px 6px 0px var(--c4);
+  box-shadow: var(--shadow) var(--c4);
 }
 .sidebar .contentsContainer ul li {
   background-color: var(--c1);
-  border-radius: 1rem;
+  border-radius: var(--border2);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -177,16 +193,16 @@ img {
   height: 6.5vh;
 }
 .sidebar .contentsContainer ul li .icono {
-  padding-right: 0.3rem;
+  padding-right: 0.4rem;
   width: auto;
-  height: 1rem;
+  height: 1.2rem;
   margin-left: 0.2rem;
   color: var(--c4);
 }
 .sidebar .contentsContainer ul li a {
   display: flex;
   text-decoration: none;
-  color: black;
+  color: var(--textc1);
   font-weight: 500;
   align-items: center;
   justify-content: center;
@@ -200,14 +216,20 @@ img {
   background-color: var(--c5);
 }
 .sidebar .contentsContainer ul li.active a {
-  color: var(--c4);
+  color: var(--textc5);
+}
+.sidebar .contentsContainer ul li.active .icono {
+  color: var(--textc5);
 }
 .sidebar .contentsContainer ul li:hover {
   background-color: var(--c5);
   transition: 0.25s all;
 }
 .sidebar .contentsContainer ul li:hover a {
-  color: var(--c4);
+  color: var(--textc5);
+}
+.sidebar .contentsContainer ul li:hover .icono {
+  color: var(--textc5);
 }
 .sidebar .logoContainer {
   grid-area: a5;
@@ -218,31 +240,29 @@ img {
 .sidebar .logoContainer h2.title {
   font-size: 25.42px;
   padding: 0 0 0 1rem;
+  color: var(--textc1);
+  font-weight: 700;
 }
 
 .sidebar.active {
   background-color: var(--o1);
-  box-shadow: -1px 1px 6px 0px var(--o3);
 }
 .sidebar.active .profileContainer {
   background-color: var(--o3);
-  box-shadow: 1px 1px 4px 0px var(--o3);
+  box-shadow: var(--shadow) var(--o4);
 }
-.sidebar.active .profileContainer h3 {
-  color: var(--o5);
+.sidebar.active .profileContainer .profileContents h3.name {
+  color: var(--textoO3);
 }
 .sidebar.active .rachaContainer {
   background-color: var(--o3);
-  box-shadow: 1px 1px 4px 0px var(--o3);
-}
-.sidebar.active .rachaContainer .profileContents {
-  padding: 1rem 0 0 0.5rem;
+  box-shadow: var(--shadow) var(--o4);
 }
 .sidebar.active .rachaContainer .profileContents .dias {
-  color: var(--o5);
+  color: var(--textoO4);
 }
 .sidebar.active .rachaContainer .profileContents h3.texto3 {
-  color: var(--c2);
+  color: var(--textoO3);
 }
 .sidebar.active .burgerContainer .burgerTrigger .img {
   width: 1rem;
@@ -256,7 +276,7 @@ img {
 }
 .sidebar.active .contentsContainer ul {
   background-color: var(--o3);
-  box-shadow: 1px 1px 6px 0px var(--o3);
+  box-shadow: var(--shadow) var(--o4);
 }
 .sidebar.active .contentsContainer ul li {
   background-color: var(--o4);
@@ -265,20 +285,26 @@ img {
   color: var(--o2);
 }
 .sidebar.active .contentsContainer ul li .icono {
-  color: var(--o1);
+  color: var(--o2);
 }
 .sidebar.active .contentsContainer ul li.active {
   background-color: var(--o5);
 }
 .sidebar.active .contentsContainer ul li.active a {
-  color: var(--o3);
+  color: var(--o1);
+}
+.sidebar.active .contentsContainer ul li.active .icono {
+  color: var(--o1);
 }
 .sidebar.active .contentsContainer ul li:hover {
   background-color: var(--o5);
   transition: 0.25s all;
 }
 .sidebar.active .contentsContainer ul li:hover a {
-  color: var(--o3);
+  color: var(--o1);
+}
+.sidebar.active .contentsContainer ul li:hover .icono {
+  color: var(--o1);
 }
 .sidebar.active .logoContainer h2.title {
   color: var(--o5);
@@ -287,314 +313,245 @@ img {
 .info.active {
   grid-area: main;
   background-color: var(--o3);
-  box-shadow: -1px 1px 6px 0px var(--o3);
-  color: var(--o5);
-}
-.info.active .container-custom {
-  /* Deshabilita el color azul predeterminado al hacer clic */
-  /*Botones -> EMOCIONES CLASIFICACION*/
+  color: var(--textoO3);
 }
 .info.active .container-custom .post-display-col {
-  background-color: var(--o1);
-  box-shadow: 0px 3px 5px rgb(6, 44, 98);
+  background-color: var(--o2);
+  box-shadow: var(--shadow) var(--o3);
+}
+.info.active .container-custom .btn-general.active,
+.info.active .container-custom .btn-select.active,
+.info.active .container-custom .btn-emotion.active {
+  background-color: var(--o2);
+  color: var(--textoO2);
 }
 .info.active .container-custom .btn-select {
   background-color: var(--o3);
-  /* Color de fondo por defecto */
   border-color: var(--o3);
-  color: var(--o4);
+  color: var(--textoO4);
 }
 .info.active .container-custom .row-create-post {
-  background-color: var(--o1);
-  box-shadow: 0px 3px 5px rgb(6, 44, 98);
-}
-.info.active .container-custom .btn-select {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-.info.active .container-custom .btn-select:hover,
-.info.active .container-custom .btn-select:focus:hover,
-.info.active .container-custom .btn-select:active:hover {
-  background-color: var(--o1, #ddd);
-  /* Color personalizado para hover */
-  border-color: var(--o1, #ddd);
-  color: var(--o4);
-  /* Borde personalizado para hover */
+  background-color: var(--o3);
 }
 .info.active .container-custom .btn-general {
-  background-color: #dddddd;
-  /* Color personalizado */
-  color: rgb(0, 0, 0);
-  border-color: #e6e6e6;
-  border-radius: 25px;
-  border: none;
+  background-color: rgba(193, 187, 187, 0.717);
+  color: #000000;
 }
 .info.active .container-custom .btn-general.general.active {
-  background-color: var(--o1);
-  /* Color para el botón "General" */
-  color: var(--o4);
-  border: none;
+  background-color: var(--o2);
+  color: var(--textoO2);
 }
 .info.active .container-custom .btn-general.general:hover,
 .info.active .container-custom .btn-general.general:focus:hover,
 .info.active .container-custom .btn-general.general:active:hover {
-  background-color: var(--o1);
-  color: var(--o4);
-  border-color: #000000;
-  border: none;
+  background-color: var(--o2);
+  color: var(--textoO2);
 }
 .info.active .container-custom .btn-general.feliz.active {
   background-color: var(--feliz);
-  color: black;
+  color: var(--txtfeliz);
 }
 .info.active .container-custom .btn-general.feliz:hover,
 .info.active .container-custom .btn-general.feliz:focus,
 .info.active .container-custom .btn-general.feliz.active {
   background-color: var(--feliz);
-  color: black;
+  color: var(--txtfeliz);
 }
 .info.active .container-custom .btn-general.triste.active {
   background-color: var(--triste);
-  color: white;
+  color: var(--txttriste);
 }
 .info.active .container-custom .btn-general.triste:hover,
 .info.active .container-custom .btn-general.triste:focus,
 .info.active .container-custom .btn-general.triste.active {
   background-color: var(--triste);
-  color: black;
+  color: var(--txttriste);
 }
 .info.active .container-custom .btn-general.enojado.active {
   background-color: var(--enojado);
-  color: white;
+  color: var(--txtenojado);
 }
 .info.active .container-custom .btn-general.enojado:hover,
 .info.active .container-custom .btn-general.enojado:focus,
 .info.active .container-custom .btn-general.enojado.active {
   background-color: var(--enojado);
-  color: black;
+  color: var(--txtenojado);
 }
 .info.active .container-custom .btn-general.ansioso.active {
   background-color: var(--ansioso);
-  color: white;
+  color: var(--txtansioso);
 }
 .info.active .container-custom .btn-general.ansioso:hover,
 .info.active .container-custom .btn-general.ansioso:focus,
 .info.active .container-custom .btn-general.ansioso.active {
   background-color: var(--ansioso);
-  color: black;
+  color: var(--txtansioso);
 }
 .info.active .container-custom .btn-general.motivado.active {
   background-color: var(--motivado);
-  color: black;
+  color: var(--txtmotivado);
 }
 .info.active .container-custom .btn-general.motivado:hover,
 .info.active .container-custom .btn-general.motivado:focus,
 .info.active .container-custom .btn-general.motivado.active {
   background-color: var(--motivado);
-  color: black;
+  color: var(--txtmotivado);
 }
 .info.active .container-custom .btn-general.aburrido.active {
   background-color: var(--aburrido);
-  color: white;
+  color: var(--txtaburrido);
 }
 .info.active .container-custom .btn-general.aburrido:hover,
 .info.active .container-custom .btn-general.aburrido:focus,
 .info.active .container-custom .btn-general.aburrido.active {
   background-color: var(--aburrido);
-  color: black;
+  color: var(--txtaburrido);
 }
 .info.active .container-custom .btn-general {
   transition: background-color 0.3s ease;
   width: 100%;
-  padding: 0.5rem;
-}
-.info.active .container-custom .btn-emotion {
-  background-color: #dddddd;
-  /* Color personalizado */
-  color: rgb(0, 0, 0);
-  border-color: #e6e6e6;
-  border-radius: 25px;
-  white-space: nowrap;
-  /* Asegura que el texto dentro del botón no se envuelva */
-  text-align: left;
-  border: none;
+  padding: 1rem;
 }
 .info.active .container-custom .btn-emotion.feliz.active {
   background-color: var(--feliz);
-  color: black;
+  color: var(--txtfeliz);
 }
 .info.active .container-custom .btn-emotion.feliz:hover,
 .info.active .container-custom .btn-emotion.feliz:focus,
 .info.active .container-custom .btn-emotion.feliz.active {
   background-color: var(--feliz);
-  color: black;
+  color: var(--txtfeliz);
 }
 .info.active .container-custom .btn-emotion.triste.active {
   background-color: var(--triste);
-  color: white;
+  color: var(--txttriste);
 }
 .info.active .container-custom .btn-emotion.triste:hover,
 .info.active .container-custom .btn-emotion.triste:focus,
 .info.active .container-custom .btn-emotion.triste.active {
   background-color: var(--triste);
-  color: white;
+  color: var(--txttriste);
 }
 .info.active .container-custom .btn-emotion.enojado.active {
   background-color: var(--enojado);
-  color: white;
+  color: var(--txtenojado);
 }
 .info.active .container-custom .btn-emotion.enojado:hover,
 .info.active .container-custom .btn-emotion.enojado:focus,
 .info.active .container-custom .btn-emotion.enojado.active {
   background-color: var(--enojado);
-  color: white;
+  color: var(--txtenojado);
 }
 .info.active .container-custom .btn-emotion.ansioso.active {
   background-color: var(--ansioso);
-  color: white;
+  color: var(--txtansioso);
 }
 .info.active .container-custom .btn-emotion.ansioso:hover,
 .info.active .container-custom .btn-emotion.ansioso:focus,
 .info.active .container-custom .btn-emotion.ansioso.active {
   background-color: var(--ansioso);
-  color: white;
+  color: var(--txtansioso);
 }
 .info.active .container-custom .btn-emotion.motivado.active {
   background-color: var(--motivado);
-  color: black;
+  color: var(--txtmotivado);
 }
 .info.active .container-custom .btn-emotion.motivado:hover,
 .info.active .container-custom .btn-emotion.motivado:focus,
 .info.active .container-custom .btn-emotion.motivado.active {
   background-color: var(--motivado);
-  color: white;
+  color: var(--txtmotivado);
 }
 .info.active .container-custom .btn-emotion.aburrido.active {
   background-color: var(--aburrido);
-  color: white;
+  color: var(--txtaburrido);
 }
 .info.active .container-custom .btn-emotion.aburrido:hover,
 .info.active .container-custom .btn-emotion.aburrido:focus,
 .info.active .container-custom .btn-emotion.aburrido.active {
   background-color: var(--aburrido);
-  color: white;
+  color: var(--txtaburrido);
 }
 .info.active .container-custom .btn-emotion {
   transition: background-color 0.3s ease;
   width: 100%;
-  padding: 0.5rem;
-}
-.info.active .container-custom .btn-general:hover,
-.info.active .container-custom .btn-select:hover,
-.info.active .container-custom .btn-emotion:hover {
-  border-color: black;
-  background-color: var(--o1);
-  color: var(--o4);
-  /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
-}
-.info.active .container-custom .btn-general:focus,
-.info.active .container-custom .btn-select:focus,
-.info.active .container-custom .btn-emotion:focus {
-  background-color: var(--o1);
-  border-color: none;
-  /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
-  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
-  /* Opcional: agrega un contorno negro cuando está enfocado */
-}
-.info.active .container-custom .btn-general.active,
-.info.active .container-custom .btn-select.active,
-.info.active .container-custom .btn-emotion.active {
-  background-color: var(--o1);
-  /* Fondo rojo cuando está activo */
-  color: var(--o4);
-  border-color: #ffd5ce;
-  /* Borde rojo para coincidir con el fondo */
-  box-shadow: none;
+  padding: 1rem;
 }
 .info.active .container-custom textarea.custom-textarea {
-  background-color: var(--o4); /* Fondo transparente para que coincida con el fondo del div */
-  border: none; /* Eliminar el borde */
-  width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
-  padding: 10px; /* Añadir un poco de padding para mejorar el espacio */
-  color: inherit; /* Mantener el color del texto igual que el div */
-  font-size: 1rem; /* Tamaño de fuente consistente */
-  resize: none; /* Desactivar la opción de redimensionar */
-  outline: none; /* Eliminar el borde cuando el textarea está enfocado */
-  box-shadow: 0px 2px 30px rgba(172, 169, 255, 0.318);
+  background-color: var(--o5);
+  color: var(--textoO4);
 }
 .info.active .container-custom textarea.custom-textarea:focus {
-  background-color: var(--o4); /* Fondo transparente incluso cuando se enfoca */
-  border: none; /* Mantener sin borde al enfocarse */
-  box-shadow: none; /* Sin sombra */
+  background-color: var(--o2);
+  color: var(--textoO1);
 }
 .info.active .icon {
-  color: var(--o4);
-  /* Color de texto atenuado */
+  color: var(--o5);
   width: 25px;
 }
 .info.active .app {
-  padding: 20px;
-  background-color: rgba(127, 128, 128, 0.146);
-  overflow: auto;
-  flex-direction: column;
-  max-height: 100%;
-  border-radius: 10px;
+  background-color: var(--o2);
 }
 .info.active .app h2 {
   background-color: var(--o1);
+  color: var(--textoO1);
 }
-.info.active .app .friends-section,
-.info.active .app .requests-section {
-  margin-bottom: 20px;
-}
-.info.active .app .user-item, .info.active .app .friend-item,
+.info.active .app .user-item,
+.info.active .app .friend-item,
 .info.active .app .request-item {
-  background-color: var(--o4);
-  color: black;
+  background-color: var(--o3);
+  color: var(--textoO3);
 }
 .info.active .app .eliminar-button:hover,
 .info.active .app .no-button:hover {
-  background-color: #a85d4a;
+  background-color: var(--eliminar);
 }
 .info.active .app .yes-button:hover {
-  background-color: #c89332;
+  background-color: var(--aceptar);
 }
 .info.active .app .yes-button {
-  background-color: #d4b06e;
+  background-color: var(--o5);
+}
+.info.active .app .add-button {
+  background-color: var(--o5);
 }
 .info.active .app .no-button {
-  background-color: #c6765e;
+  background-color: var(--o1);
+}
+.info.active .app .eliminar-button {
+  background-color: var(--o1);
 }
 .info.active .app .empty-message {
-  color: var(--o5);
+  color: var(--textoO1);
 }
 .info.active .app .search-bar {
   background-color: var(--o5);
   border: 2px solid var(--o3);
+  color: var(--textoO5);
+}
+.info.active .app input::-moz-placeholder {
+  color: var(--o1);
+}
+.info.active .app input::placeholder {
+  color: var(--o1);
 }
 .info.active .gridPersonal .rachaContainer {
   background-color: var(--o1);
-  box-shadow: 1px 1px 4px 0px var(--o4);
-}
-.info.active .gridPersonal .rachaContainer .profileContents {
-  padding: 1rem 0 0 0.5rem;
+  box-shadow: var(--shadow) var(--o4);
 }
 .info.active .gridPersonal .rachaContainer .profileContents .dias {
-  color: var(--o5);
+  color: var(--textoO1);
 }
 .info.active .gridPersonal .rachaContainer .profileContents h3.texto3 {
-  color: var(--c2);
-}
-.info.active .gridPersonal .infoPer {
-  background-color: var(--o2);
-  box-shadow: 1px 1px 6px 0px var(--o4);
+  color: var(--textoO3);
 }
 .info.active .gridPersonal .infoPer h2 {
   background-color: var(--o1);
-  box-shadow: 1px 1px 6px 0px var(--o1);
+  box-shadow: var(--shadow) var(--o1);
 }
 .info.active .gridPersonal .infoPer .general {
   background-color: var(--o1);
-  box-shadow: 1px 1px 6px 0px var(--o1);
+  box-shadow: var(--shadow) var(--o1);
 }
 .info.active .gridPersonal .infoPer .general .emotions-container {
   background-color: var(--o2);
@@ -602,25 +559,25 @@ img {
 }
 .info.active .gridPersonal .infoPer .general .emotions-container .emotion {
   background-color: var(--o4);
-  /* Espacio entre los círculos */
 }
 .info.active .gridPersonal .infoPer .general .emotions-container .emotion:hover {
   background-color: var(--o5);
 }
 .info.active .gridPersonal .infoPer .general .emotions-container .active {
-  background-color: var(--o5); /* Color diferente para el emoji activo */
+  background-color: var(--o5);
+  /* Color diferente para el emoji activo */
 }
 .info.active .gridPersonal .infoPer .ubicacion {
   background-color: var(--o1);
   box-shadow: 1px 1px 6px 0px var(--o1);
 }
 .info.active .gridPersonal .publicaciones {
-  background-color: var(--o1);
-  box-shadow: 1px 1px 6px 0px var(--o4);
+  background-color: transparent;
+  box-shadow: none;
 }
 .info.active .gridPersonal .post-display-col {
   background-color: var(--o1);
-  box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+  box-shadow: var(--shadow) var(--o4);
 }
 
 .grid-container {
@@ -636,7 +593,6 @@ img {
   width: 100vw;
   min-height: 100vh;
   padding: 0rem;
-  background-color: red;
 }
 
 @media (max-width: 700px) {
@@ -650,7 +606,6 @@ img {
   }
   body {
     font-family: "Mukta", sans-serif;
-    background-color: rgb(236, 243, 243);
     font-size: 1.2rem;
     min-height: 100%;
     margin: 0;
@@ -663,41 +618,35 @@ img {
     grid-area: sidebar;
     background-color: var(--c1);
     display: grid;
-    grid-template-columns: 4% 10% 2% 10% 65% 6%;
+    grid-template-columns: 4% 10% 2% 10% auto;
     grid-template-rows: 3rem;
-    grid-template-areas: "a3 a1 . a2 a4 a5";
+    grid-template-areas: "a3 a1 . a2 a4";
     margin: 0;
     padding: 0.5rem 0;
   }
   .sidebar img {
     width: auto;
-    height: 1.5rem;
+    height: 2rem;
   }
   .sidebar .profileContainer {
     grid-area: a1;
-    background-color: var(--c3);
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 0.5rem;
-    border-radius: 15px;
-    box-shadow: 1px 1px 6px 0px var(--c4);
-    height: 2rem;
+    margin: 0;
+    height: auto;
     width: 100%;
+    box-shadow: none;
   }
   .sidebar .profileContainer img {
-    margin-left: 0;
+    margin-left: 0.1rem;
   }
   .sidebar .profileContainer .profileContents {
-    padding-left: 0.5rem;
+    padding-left: 0;
   }
   .sidebar .profileContainer .profileContents h3.name {
-    font-weight: 700;
-    line-height: 1;
-    text-align: left;
-    padding-right: 0.8rem;
-    margin: 0;
     display: none;
   }
   .sidebar .rachaContainer {
@@ -705,48 +654,37 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: var(--c3);
-    border-radius: 15px;
-    margin: 0 0.5rem;
-    box-shadow: 1px 1px 6px 0px var(--c4);
-    height: 2rem;
+    border-radius: var(--border2);
+    margin: 0;
+    box-shadow: var(--shadow) var(--c4);
+    height: auto;
     width: 100%;
   }
   .sidebar .rachaContainer img {
     margin-left: 0;
-    margin-top: 0.2rem;
+    margin-top: 0;
     width: auto;
-    height: 1rem;
+    height: 1.6rem;
   }
   .sidebar .rachaContainer .profileContents {
     padding: 0;
   }
   .sidebar .rachaContainer .profileContents .dias {
     display: flex;
-    gap: 0.4rem;
-    padding: 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .sidebar .rachaContainer .profileContents p.texto1 {
     margin: 0;
     padding: 0;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1;
   }
   .sidebar .rachaContainer .profileContents p.texto2 {
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    line-height: 1;
     display: none;
   }
   .sidebar .rachaContainer .profileContents h3.texto3 {
-    margin: 0;
-    padding: 0 0.6rem 0.7rem 0;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--c2);
     display: none;
   }
   .sidebar .burgerContainer {
@@ -756,7 +694,7 @@ img {
     align-items: center;
     padding: 0;
     margin: 0;
-    height: 2.5rem;
+    height: auto;
     width: 100%;
   }
   .sidebar .burgerContainer .burgerTrigger .img {
@@ -772,7 +710,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2rem;
+    height: auto;
     width: 100%;
   }
   .sidebar .contentsContainer ul {
@@ -781,31 +719,31 @@ img {
     justify-content: space-between;
     flex-direction: row;
     list-style: none;
-    padding: 1rem;
-    border-radius: 20px;
-    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: var(--border2);
+    margin: 0.7rem;
     background-color: var(--c3);
     height: 100%;
     width: 100%;
-    box-shadow: 1px 1px 6px 0px var(--c4);
+    box-shadow: var(--shadow) var(--c4);
     gap: 5px;
   }
   .sidebar .contentsContainer ul li {
     background-color: var(--c1);
-    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 0.1rem 0 0.1rem 0rem;
-    padding: 0.3rem;
+    margin: 0;
+    padding: 0;
     max-width: 20%;
-    height: 1.2rem;
+    height: 2rem;
+    border-radius: var(--border2);
   }
   .sidebar .contentsContainer ul li .icono {
     padding-right: 0;
     width: auto;
-    height: 0.8rem;
+    height: 1.3rem;
     margin-left: 0;
     color: var(--c4);
   }
@@ -835,33 +773,21 @@ img {
     color: var(--c4);
   }
   .sidebar .logoContainer {
-    grid-area: a5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .sidebar .logoContainer img {
-    width: auto;
-    height: 1.5rem;
-  }
-  .sidebar .logoContainer h2.title {
-    padding: 0 0 0 0;
-    font-size: 0.5rem;
+    display: none;
   }
   .sidebar.active {
     background-color: var(--o1);
   }
   .sidebar.active .profileContainer {
-    background-color: var(--o3);
-    box-shadow: 1px 1px 4px 0px var(--o3);
+    background-color: transparent;
+    box-shadow: none;
   }
   .sidebar.active .profileContainer h3 {
     color: var(--o5);
   }
   .sidebar.active .rachaContainer {
     background-color: var(--o3);
-    box-shadow: 1px 1px 4px 0px var(--o3);
+    box-shadow: var(--shadow) var(--o3);
   }
   .sidebar.active .rachaContainer .profileContents {
     padding: 0;
@@ -878,7 +804,7 @@ img {
   }
   .sidebar.active .contentsContainer ul {
     background-color: var(--o3);
-    box-shadow: 1px 1px 6px 0px var(--o3);
+    box-shadow: var(--shadow) var(--o3);
   }
   .sidebar.active .contentsContainer ul li {
     background-color: var(--o4);
@@ -887,7 +813,7 @@ img {
     color: var(--o2);
   }
   .sidebar.active .contentsContainer ul li .icono {
-    color: var(--o1);
+    color: var(--o3);
   }
   .sidebar.active .contentsContainer ul li.active {
     background-color: var(--o5);
@@ -909,11 +835,11 @@ img {
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
     width: 100%;
-    height: 79vh;
+    height: 100%;
   }
   .grid-container {
     display: grid;
-    gap: 15px;
+    gap: 10px;
     grid-template: "main" auto "sidebar" 3rem;
   }
 }
@@ -922,7 +848,7 @@ img {
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
     width: 100%;
-    height: 93vh;
+    height: 100%;
   }
   .grid-container {
     display: grid;
@@ -935,7 +861,7 @@ img {
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
     width: 100%;
-    height: 99vh;
+    height: 100%;
   }
   .grid-container {
     display: grid;
@@ -948,7 +874,7 @@ img {
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
     width: 100%;
-    height: 112vh;
+    height: 100%;
   }
   .grid-container {
     display: grid;
@@ -961,7 +887,7 @@ img {
     grid-area: main;
     background-color: rgba(128, 128, 128, 0.114);
     width: 100%;
-    height: 120vh;
+    height: 100%;
   }
   .grid-container {
     display: grid;

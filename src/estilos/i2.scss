@@ -1,32 +1,69 @@
-// Variables
 :root {
+    // --c1: #eeddd3;
+    // --c2: #cf7225;
+    // --c3: #e8d1c5;
+    // --c4: #9d3208bc;
+    // --c5: #fff1e6;
 
-    //TEMA PREDETERMINADO
-    --c1: #eeddd3;
-    --c2: #cf7225;
-    --c3: #e8d1c5;
-    --c4: #9d3208bc;
-    --c5: #fff1e6;
+    // --o1: #192229;
+    // --o2: #212E36;
+    // --o3: #2A3B47;
+    // --o4: #A0A7AD;
+    // --o5: #C8CDD0;
+
+    --border: 20px;
+    --border2: 1rem;
+    --shadow: 1px 1px 3px .5px;
+
+    /* Colores de fondo claros */
+    --c1: #46313d;
+    --c2: #5f404d;
+    --c3: #845d5f;
+    --c4: #b77e78;
+    --c5: #dcae8f;
+
+    /* Colores de fondo oscuros */
+    --o1: #1a0e15;
+    --o2: #2d1a22;
+    --o3: #4e2f30;
+    --o4: #6e4b3b;
+    --o5: #8f6c4f;
+
+    /* Colores de texto ajustados */
+    --textc1: #dcae8f;
+    --textc2: #dcae8f;
+    --textc3: #dcae8f;
+    --textc4: #46313d;
+    --textc5: #46313d;
+
+    --textoO1: #8f6c4f;
+    --textoO2: #8f6c4f;
+    --textoO3: #8f6c4f;
+    --textoO4: #1a0e15;
+    --textoO5: #1a0e15;
+
+    --feliz: #f4d35e;
+    --triste: #7289da;
+    --enojado: #d9534f;
+    --ansioso: #e9967a;
+    --motivado: #88c399;
+    --aburrido: #495057;
+
+    --txtfeliz: #654e04;
+    --txttriste: #092380;
+    --txtenojado: #5b1209;
+    --txtansioso: #532407;
+    --txtmotivado: #072505;
+    --txtaburrido: #0e1a27;
+
+    --eliminar: #d9534f;
+    --aceptar: #856f2a;
 
 
-    //TEMA OSCURO
-    --o1: #192229;
-    --o2: #212E36;
-    --o3: #2A3B47;
-    --o4: #A0A7AD;
-    --o5: #C8CDD0;
-
-    --feliz: #e7efa2;
-    --triste: #9fd0e2;
-    --enojado: #c13434;
-    --ansioso: #de9c3f;
-    --motivado: #b6efa2;
-    --aburrido: #a677ad;
 }
 
 * {
     box-sizing: border-box;
-    
 }
 
 html {
@@ -36,7 +73,6 @@ html {
 
 body {
     font-family: "Mukta", sans-serif;
-    --background-color: rgb(236, 243, 243);
     font-size: 1rem;
     min-height: 100%;
     margin: 0;
@@ -48,26 +84,20 @@ img {
 }
 
 .grid-container>* {
-    box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.212);
-    border-radius: 0px;
     padding: 10px;
     text-align: center;
 }
 
 .info {
     grid-area: main;
-    background-color: rgba(128, 128, 128, 0.114);
+    background-color: rgba(128, 128, 128, 0.26);
     width: 100%;
     min-height: 100vh;
-    box-shadow: -1px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
 
-//Estilos del Sidebar
 .sidebar {
     grid-area: sidebar;
     background-color: var(--c1);
-
-
     display: grid;
     grid-template-rows: 3.5vh 11vh 2vh 15vh 55vh 10vh;
     grid-template-areas:
@@ -86,22 +116,23 @@ img {
         align-items: center;
         justify-content: flex-start;
         margin: 0 0.5rem;
-        border-radius: 30px;
-        box-shadow: 1px 1px 6px 0px var(--c4);
+        border-radius: var(--border);
+        box-shadow: var(--shadow) var(--c4);
 
         img {
             margin-left: 0.7rem;
         }
 
         .profileContents {
-
             padding-left: 0.5rem;
 
             h3.name {
+                margin: 0;
                 font-weight: 700;
                 line-height: 1;
                 text-align: left;
-                font-size: 1.45rem;
+                font-size: 1.7rem;
+                color: var(--textc3);
             }
         }
 
@@ -113,9 +144,9 @@ img {
         align-items: center;
         justify-content: flex-start;
         background-color: var(--c3);
-        border-radius: 2rem;
+        border-radius: var(--border);
         margin: 0.5rem;
-        box-shadow: 1px 1px 6px 0px var(--c4);
+        box-shadow: var(--shadow) var(--c4);
 
         img {
             margin-left: 0.2rem;
@@ -127,16 +158,10 @@ img {
             .dias {
                 display: flex;
                 gap: 0.4rem;
+                font-size: 1.3rem;
             }
 
-            p.texto1 {
-                margin: 0;
-                padding: 0;
-                font-weight: 500;
-                line-height: 1;
-            }
-
-            p.texto2 {
+            p {
                 margin: 0;
                 padding: 0;
                 font-weight: 500;
@@ -146,11 +171,10 @@ img {
             h3.texto3 {
                 margin: 0;
                 padding: 0 0 0.7rem 0;
-
                 font-weight: 700;
                 line-height: 1;
-                color: var(--c2);
-                font-size: 1.5rem;
+                color: var(--textc3);
+                font-size: 1.8rem;
             }
         }
 
@@ -167,8 +191,7 @@ img {
         .burgerTrigger {
 
             .img {
-
-                width: 1rem;
+                width: .8rem;
                 height: 1.5rem;
                 cursor: pointer;
                 padding: 0;
@@ -176,13 +199,11 @@ img {
                 color: var(--c4);
             }
 
-            .sun{
+            .sun {
                 display: none;
             }
 
         }
-
-
     }
 
     .contentsContainer {
@@ -198,16 +219,16 @@ img {
             flex-direction: column;
             list-style: none;
             padding: 1rem;
-            border-radius: 20px;
-            margin: 1rem;
+            margin: .6rem;
+            border-radius: var(--border);
             background-color: var(--c3);
             height: 85%;
             width: 100%;
-            box-shadow: 1px 1px 6px 0px var(--c4);
+            box-shadow: var(--shadow) var(--c4);
 
             li {
                 background-color: var(--c1);
-                border-radius: 1rem;
+                border-radius: var(--border2);
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
@@ -217,11 +238,10 @@ img {
                 width: 100%;
                 height: 6.5vh;
 
-
                 .icono {
-                    padding-right: 0.3rem;
+                    padding-right: 0.4rem;
                     width: auto;
-                    height: 1rem;
+                    height: 1.2rem;
                     margin-left: 0.2rem;
                     color: var(--c4);
                 }
@@ -229,7 +249,7 @@ img {
                 a {
                     display: flex;
                     text-decoration: none;
-                    color: black;
+                    color: var(--textc1);
                     font-weight: 500;
                     align-items: center;
                     justify-content: center;
@@ -246,8 +266,11 @@ img {
                 background-color: var(--c5);
 
                 a {
-                    color: var(--c4);
+                    color: var(--textc5);
+                }
 
+                .icono {
+                    color: var(--textc5);
                 }
             }
 
@@ -256,10 +279,13 @@ img {
                 transition: 0.25s all;
 
                 a {
-                    color: var(--c4);
+                    color: var(--textc5);
+                }
+
+                .icono {
+                    color: var(--textc5);
                 }
             }
-
         }
     }
 
@@ -272,51 +298,46 @@ img {
         h2.title {
             font-size: 25.42px;
             padding: 0 0 0 1rem;
+            color: var(--textc1);
+            font-weight: 700;
         }
 
     }
-
-
 }
 
 //Aplicar tema oscuro a la sidebar
 .sidebar.active {
 
-
     background-color: var(--o1);
-    box-shadow: -1px 1px 6px 0px var(--o3);
 
     .profileContainer {
         background-color: var(--o3);
-        box-shadow: 1px 1px 4px 0px var(--o3);
+        box-shadow: var(--shadow) var(--o4);
 
-        h3 {
-            color: var(--o5);
+        .profileContents {
+            h3.name {
+                color: var(--textoO3);
+            }
         }
     }
 
     .rachaContainer {
-
         background-color: var(--o3);
-
-        box-shadow: 1px 1px 4px 0px var(--o3);
+        box-shadow: var(--shadow) var(--o4);
 
         .profileContents {
-            padding: 1rem 0 0 .5rem;
 
             .dias {
-                color: var(--o5);
+                color: var(--textoO4);
             }
 
             h3.texto3 {
-                color: var(--c2);
+                color: var(--textoO3);
             }
         }
-
     }
 
     .burgerContainer {
-
         .burgerTrigger {
 
             .img {
@@ -324,24 +345,20 @@ img {
                 color: var(--o5);
             }
 
-            .sun{
+            .sun {
                 display: flex;
             }
-            .moon{
+
+            .moon {
                 display: none;
             }
-
         }
-
-
     }
 
     .contentsContainer {
-
         ul {
-
             background-color: var(--o3);
-            box-shadow: 1px 1px 6px 0px var(--o3);
+            box-shadow: var(--shadow) var(--o4);
 
             li {
                 background-color: var(--o4);
@@ -351,7 +368,7 @@ img {
                 }
 
                 .icono {
-                    color: var(--o1);
+                    color: var(--o2);
                 }
             }
 
@@ -359,8 +376,11 @@ img {
                 background-color: var(--o5);
 
                 a {
-                    color: var(--o3);
+                    color: var(--o1);
+                }
 
+                .icono {
+                    color: var(--o1);
                 }
             }
 
@@ -369,19 +389,20 @@ img {
                 transition: 0.25s all;
 
                 a {
-                    color: var(--o3);
+                    color: var(--o1);
+                }
+
+                .icono {
+                    color: var(--o1);
                 }
             }
-
         }
     }
 
     .logoContainer {
-
         h2.title {
             color: var(--o5);
         }
-
     }
 }
 
@@ -389,396 +410,325 @@ img {
 .info.active {
     grid-area: main;
     background-color: var(--o3);
-    box-shadow: -1px 1px 6px 0px var(--o3);
+    color: var(--textoO3);
 
-    color: var(--o5);
-
-    //Apartado de principal diario post
     .container-custom {
 
-        .post-display-col{
-            background-color: var(--o1);
-            box-shadow: 0px 3px 5px rgb(6, 44, 98);
+        //fondo POSTS
+        .post-display-col {
+            background-color: var(--o2);
+            box-shadow: var(--shadow) var(--o3);
         }
 
+        //barra seleccionada
+        .btn-general.active,
+        .btn-select.active,
+        .btn-emotion.active {
+            background-color: var(--o2);
+            color: var(--textoO2);
+        }
+
+        //barra no Selccionada
         .btn-select {
             background-color: var(--o3);
-            /* Color de fondo por defecto */
             border-color: var(--o3);
-            color: var(--o4);
+            color: var(--textoO4);
         }
 
+        //crear posts
         .row-create-post {
-            background-color: var(--o1);
-            box-shadow: 0px 3px 5px rgb(6, 44, 98);
+            background-color: var(--o3);
         }
 
-        .btn-select {
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        
-        /* Deshabilita el color azul predeterminado al hacer clic */
-        .btn-select:hover,
-        .btn-select:focus:hover,
-        .btn-select:active:hover {
-            background-color: var(--o1, #ddd);
-            /* Color personalizado para hover */
-            border-color: var(--o1, #ddd);
-            color: var(--o4);
-            /* Borde personalizado para hover */
-        }
-
-
-        /*Botones -> EMOCIONES CLASIFICACION*/
+        //botones emociones
         .btn-general {
-            background-color: #dddddd;
-            /* Color personalizado */
-            color: rgb(0, 0, 0);
-            border-color: #e6e6e6;
-            border-radius: 25px;
-            border: none;
+            background-color: rgba(193, 187, 187, 0.717);
+            color: #000000;
         }
 
         .btn-general.general.active {
-            background-color: var(--o1);
-            /* Color para el botón "General" */
-            color: var(--o4);
-            border: none;
+            background-color: var(--o2);
+            color: var(--textoO2);
         }
 
+
+        //hovers y selcciones de emociones
         .btn-general.general:hover,
         .btn-general.general:focus:hover,
         .btn-general.general:active:hover {
-            background-color: var(--o1);
-            color: var(--o4);
-            border-color: #000000;
-            border: none;
+            background-color: var(--o2);
+            color: var(--textoO2);
         }
 
         .btn-general.feliz.active {
             background-color: var(--feliz);
-            color: black;
+            color: var(--txtfeliz);
         }
 
         .btn-general.feliz:hover,
         .btn-general.feliz:focus,
         .btn-general.feliz.active {
             background-color: var(--feliz);
-            color: black;
+            color: var(--txtfeliz);
         }
 
         .btn-general.triste.active {
             background-color: var(--triste);
-            color: white;
+            color: var(--txttriste);
         }
-
 
         .btn-general.triste:hover,
         .btn-general.triste:focus,
         .btn-general.triste.active {
             background-color: var(--triste);
-            color: black;
+            color: var(--txttriste);
         }
 
         .btn-general.enojado.active {
             background-color: var(--enojado);
-            color: white;
+            color: var(--txtenojado);
         }
 
         .btn-general.enojado:hover,
         .btn-general.enojado:focus,
         .btn-general.enojado.active {
             background-color: var(--enojado);
-            color: black;
+            color: var(--txtenojado);
         }
 
         .btn-general.ansioso.active {
             background-color: var(--ansioso);
-            color: white;
+            color: var(--txtansioso);
         }
 
         .btn-general.ansioso:hover,
         .btn-general.ansioso:focus,
         .btn-general.ansioso.active {
             background-color: var(--ansioso);
-            color: black;
+            color: var(--txtansioso);
         }
 
         .btn-general.motivado.active {
             background-color: var(--motivado);
-            color: black;
+            color: var(--txtmotivado);
         }
 
         .btn-general.motivado:hover,
         .btn-general.motivado:focus,
         .btn-general.motivado.active {
             background-color: var(--motivado);
-            color: black;
+            color: var(--txtmotivado);
         }
 
         .btn-general.aburrido.active {
             background-color: var(--aburrido);
-            color: white;
+            color: var(--txtaburrido);
         }
 
         .btn-general.aburrido:hover,
         .btn-general.aburrido:focus,
         .btn-general.aburrido.active {
             background-color: var(--aburrido);
-            color: black;
+            color: var(--txtaburrido);
         }
 
         .btn-general {
             transition: background-color 0.3s ease;
             width: 100%;
-            padding: 0.5rem;
-        }
-
-
-        .btn-emotion {
-            background-color: #dddddd;
-            /* Color personalizado */
-            color: rgb(0, 0, 0);
-            border-color: #e6e6e6;
-            border-radius: 25px;
-            white-space: nowrap;
-            /* Asegura que el texto dentro del botón no se envuelva */
-            text-align: left;
-            border: none;
+            padding: 1rem;
         }
 
         .btn-emotion.feliz.active {
             background-color: var(--feliz);
-            color: black;
+            color: var(--txtfeliz);
         }
 
         .btn-emotion.feliz:hover,
         .btn-emotion.feliz:focus,
         .btn-emotion.feliz.active {
             background-color: var(--feliz);
-            color: black;
+            color: var(--txtfeliz);
         }
 
         .btn-emotion.triste.active {
             background-color: var(--triste);
-            color: white;
+            color: var(--txttriste);
         }
 
         .btn-emotion.triste:hover,
         .btn-emotion.triste:focus,
         .btn-emotion.triste.active {
             background-color: var(--triste);
-            color: white;
+            color: var(--txttriste);
         }
 
         .btn-emotion.enojado.active {
             background-color: var(--enojado);
-            color: white;
+            color: var(--txtenojado);
         }
 
         .btn-emotion.enojado:hover,
         .btn-emotion.enojado:focus,
         .btn-emotion.enojado.active {
             background-color: var(--enojado);
-            color: white;
+            color: var(--txtenojado);
         }
 
         .btn-emotion.ansioso.active {
             background-color: var(--ansioso);
-            color: white;
+            color: var(--txtansioso);
         }
 
         .btn-emotion.ansioso:hover,
         .btn-emotion.ansioso:focus,
         .btn-emotion.ansioso.active {
             background-color: var(--ansioso);
-            color: white;
+            color: var(--txtansioso);
         }
 
         .btn-emotion.motivado.active {
             background-color: var(--motivado);
-            color: black;
+            color: var(--txtmotivado);
         }
 
         .btn-emotion.motivado:hover,
         .btn-emotion.motivado:focus,
         .btn-emotion.motivado.active {
             background-color: var(--motivado);
-            color: white;
+            color: var(--txtmotivado);
         }
 
         .btn-emotion.aburrido.active {
             background-color: var(--aburrido);
-            color: white;
+            color: var(--txtaburrido);
         }
 
         .btn-emotion.aburrido:hover,
         .btn-emotion.aburrido:focus,
         .btn-emotion.aburrido.active {
             background-color: var(--aburrido);
-            color: white;
+            color: var(--txtaburrido);
         }
 
-
+        //emociones de adentro
         .btn-emotion {
             transition: background-color 0.3s ease;
             width: 100%;
-            padding: 0.5rem;
+            padding: 1rem;
         }
 
-
-        .btn-general:hover,
-        .btn-select:hover,
-        .btn-emotion:hover {
-            border-color: black;
-            background-color: var(--o1);
-            color: var(--o4);
-            /* Asegúrate de que el borde se mantenga negro al pasar el mouse */
-        }
-
-        .btn-general:focus,
-        .btn-select:focus,
-        .btn-emotion:focus {
-            background-color: var(--o1);
-            border-color: none;
-            /* Asegúrate de que el borde se mantenga negro cuando el botón está enfocado */
-            box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
-            /* Opcional: agrega un contorno negro cuando está enfocado */
-        }
-
-        .btn-general.active,
-        .btn-select.active,
-        .btn-emotion.active {
-            background-color: var(--o1);
-            /* Fondo rojo cuando está activo */
-            color: var(--o4);
-            border-color: #ffd5ce;
-            /* Borde rojo para coincidir con el fondo */
-            box-shadow: none;
-        }
 
         textarea.custom-textarea {
-            background-color: var(--o4); /* Fondo transparente para que coincida con el fondo del div */
-            border: none; /* Eliminar el borde */
-            width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
-            padding: 10px; /* Añadir un poco de padding para mejorar el espacio */
-            color: inherit; /* Mantener el color del texto igual que el div */
-            font-size: 1rem; /* Tamaño de fuente consistente */
-            resize: none; /* Desactivar la opción de redimensionar */
-            outline: none; /* Eliminar el borde cuando el textarea está enfocado */
-            box-shadow: 0px 2px 30px rgba(172, 169, 255, 0.318);
-          }
-          
-          textarea.custom-textarea:focus {
-            background-color:  var(--o4); /* Fondo transparente incluso cuando se enfoca */
-            border: none; /* Mantener sin borde al enfocarse */
-            box-shadow: none; /* Sin sombra */
-          }
+            background-color: var(--o5);
+            color: var(--textoO4);
+        }
+
+        textarea.custom-textarea:focus {
+            background-color: var(--o2);
+            color: var(--textoO1);
+        }
+
     }
 
     .icon {
-        color: var(--o4);
-        /* Color de texto atenuado */
+        color: var(--o5);
         width: 25px;
     }
 
     .app {
 
-        padding: 20px;
-        background-color: rgba(127, 128, 128, 0.146);
-        overflow: auto;
-        flex-direction: column;
-        max-height: 100%;
-        border-radius: 10px;
+        background-color: var(--o2);
 
         h2 {
             background-color: var(--o1);
+            color: var(--textoO1);
         }
 
-        .friends-section,
-        .requests-section {
-            margin-bottom: 20px;
-        }
-
-        .user-item,.friend-item,
+        .user-item,
+        .friend-item,
         .request-item {
-
-            background-color: var(--o4);
-            color: black;
-
+            background-color: var(--o3);
+            color: var(--textoO3);
         }
 
 
         .eliminar-button:hover,
         .no-button:hover {
-            background-color: #a85d4a;
+            background-color: var(--eliminar);
         }
 
         .yes-button:hover {
-            background-color: #c89332;
-            ;
+            background-color: var(--aceptar);
         }
 
         .yes-button {
-            background-color: #d4b06e;
+            background-color: var(--o5);
+        }
+
+        .add-button {
+            background-color: var(--o5);
         }
 
         .no-button {
-            background-color: #c6765e;
+            background-color: var(--o1);
+        }
+
+        .eliminar-button {
+            background-color: var(--o1);
         }
 
         .empty-message {
 
-            color: var(--o5);
+            color: var(--textoO1);
 
         }
 
         .search-bar {
             background-color: var(--o5);
             border: 2px solid var(--o3);
+            color: var(--textoO5);
+        }
+
+        input::placeholder {
+            color: var(--o1);
         }
 
     }
 
-    .gridPersonal{
+    .gridPersonal {
         .rachaContainer {
-
             background-color: var(--o1);
-    
-            box-shadow: 1px 1px 4px 0px var(--o4);
+            box-shadow: var(--shadow) var(--o4);
     
             .profileContents {
-                padding: 1rem 0 0 .5rem;
     
                 .dias {
-                    color: var(--o5);
+                    color: var(--textoO1);
                 }
     
                 h3.texto3 {
-                    color: var(--c2);
+                    color: var(--textoO3);
                 }
             }
-    
         }
 
         .infoPer {
-            background-color: var(--o2);
-            box-shadow: 1px 1px 6px 0px var(--o4);
+
             h2 {
                 background-color: var(--o1);
-                box-shadow: 1px 1px 6px 0px var(--o1);
+                box-shadow: var(--shadow) var(--o1);
             }
-            .general{
+
+            .general {
                 background-color: var(--o1);
-                box-shadow: 1px 1px 6px 0px var(--o1);
-                .emotions-container{
+                box-shadow: var(--shadow) var(--o1);
+
+                .emotions-container {
                     background-color: var(--o2);
                     box-shadow: 1px 1px 6px 0px var(--o2);
+
                     .emotion {
                         background-color: var(--o4);
-                        
-                        /* Espacio entre los círculos */
                     }
 
                     .emotion:hover {
@@ -786,7 +736,8 @@ img {
                     }
 
                     .active {
-                        background-color: var(--o5); /* Color diferente para el emoji activo */
+                        background-color: var(--o5);
+                        /* Color diferente para el emoji activo */
                     }
                 }
             }
@@ -795,21 +746,19 @@ img {
                 background-color: var(--o1);
                 box-shadow: 1px 1px 6px 0px var(--o1);
             }
-            
+
         }
 
         .publicaciones {
-            
-            background-color: var(--o1);
-            box-shadow: 1px 1px 6px 0px var(--o4);
-            
+            background-color: transparent;
+            box-shadow: none
         }
 
-        .post-display-col{
+        .post-display-col {
             background-color: var(--o1);
-            box-shadow: 0px 3px 5px rgba(157, 50, 8, 0.6);
+            box-shadow: var(--shadow) var(--o4);
         }
-        
+
     }
 }
 
@@ -822,12 +771,11 @@ img {
         "sidebar main";
 }
 
-.auth-container{
+.auth-container {
     display: flex;
     width: 100vw;
     min-height: 100vh;
     padding: 0rem;
-    background-color: red;
 }
 
 @media (max-width: 700px) {
@@ -844,7 +792,6 @@ img {
 
     body {
         font-family: "Mukta", sans-serif;
-        background-color: rgb(236, 243, 243);
         font-size: 1.2rem;
         min-height: 100%;
         margin: 0;
@@ -858,45 +805,40 @@ img {
         grid-area: sidebar;
         background-color: var(--c1);
         display: grid;
-        grid-template-columns: 4% 10% 2% 10% 65% 6%;
+        grid-template-columns: 4% 10% 2% 10% auto;
         grid-template-rows: 3rem;
         grid-template-areas:
-            "a3 a1 . a2 a4 a5";
+            "a3 a1 . a2 a4";
 
         margin: 0;
         padding: 0.5rem 0;
+
         img {
             width: auto;
-            height: 1.5rem;
+            height: 2rem;
         }
 
         .profileContainer {
             grid-area: a1;
-            background-color: var(--c3);
+            background-color: transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 0 0.5rem;
-            border-radius: 15px;
-            box-shadow: 1px 1px 6px 0px var(--c4);
-            height: 2rem;
+            margin: 0;
+            height: auto;
             width: 100%;
+            box-shadow: none;
 
             img {
-                margin-left: 0;
+                margin-left: .1rem;
             }
 
             .profileContents {
 
-                padding-left: 0.5rem;
+                padding-left: 0;
 
                 h3.name {
-                    font-weight: 700;
-                    line-height: 1;
-                    text-align: left;
-                    padding-right: 0.8rem;
-                    margin: 0;
                     display: none;
                 }
             }
@@ -904,24 +846,23 @@ img {
         }
 
         .rachaContainer {
-
             grid-area: a2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             background-color: var(--c3);
-            border-radius: 15px;
-            margin: 0 0.5rem;
-            box-shadow: 1px 1px 6px 0px var(--c4);
-            height: 2rem;
+            border-radius: var(--border2);
+            margin: 0;
+            box-shadow: var(--shadow) var(--c4);
+            height: auto;
             width: 100%;
 
             img {
                 margin-left: 0;
-                margin-top: 0.2rem;
+                margin-top: 0;
                 width: auto;
-                height: 1rem;
+                height: 1.6rem;
 
             }
 
@@ -930,49 +871,34 @@ img {
 
                 .dias {
                     display: flex;
-                    gap: 0.4rem;
-                    padding: 0;
-                    font-size: 0.8rem;
+                    font-size: 1rem;
                 }
 
                 p.texto1 {
                     margin: 0;
                     padding: 0;
-                    font-weight: 500;
+                    font-weight: 700;
                     line-height: 1;
                 }
 
                 p.texto2 {
-                    margin: 0;
-                    padding: 0;
-                    font-weight: 500;
-                    line-height: 1;
                     display: none;
                 }
 
                 h3.texto3 {
-                    margin: 0;
-                    padding: 0 0.6rem 0.7rem 0;
-
-                    font-weight: 700;
-                    line-height: 1;
-                    color: var(--c2);
                     display: none;
                 }
             }
-
-
         }
 
         .burgerContainer {
-
             grid-area: a3;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 0;
             margin: 0;
-            height: 2.5rem;
+            height: auto;
             width: 100%;
 
             .burgerTrigger {
@@ -984,7 +910,6 @@ img {
                     margin: 0;
                     color: var(--c4);
                 }
-
             }
 
         }
@@ -994,7 +919,7 @@ img {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 2rem;
+            height: auto;
             width: 100%;
 
             ul {
@@ -1003,32 +928,32 @@ img {
                 justify-content: space-between;
                 flex-direction: row;
                 list-style: none;
-                padding: 1rem;
-                border-radius: 20px;
-                margin: 1rem;
+                padding: .5rem;
+                border-radius: var(--border2);
+                margin: .7rem;
                 background-color: var(--c3);
                 height: 100%;
                 width: 100%;
-                box-shadow: 1px 1px 6px 0px var(--c4);
+                box-shadow: var(--shadow) var(--c4);
                 gap: 5px;
 
                 li {
                     background-color: var(--c1);
-                    border-radius: 1rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
-                    margin: 0.1rem 0 0.1rem 0rem;
-                    padding: 0.3rem;
+                    margin: 0;
+                    padding: 0;
                     max-width: 20%;
-                    height: 1.2rem;
+                    height: 2rem;
+                    border-radius: var(--border2);
 
 
                     .icono {
                         padding-right: 0;
                         width: auto;
-                        height: 0.8rem;
+                        height: 1.3rem;
                         margin-left: 0;
                         color: var(--c4);
                     }
@@ -1053,7 +978,6 @@ img {
 
                     a {
                         color: var(--c4);
-
                     }
                 }
 
@@ -1067,29 +991,11 @@ img {
                 }
 
             }
-
-
         }
 
-        .logoContainer {
-            grid-area: a5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-
-            img {
-                width: auto;
-                height: 1.5rem;
-            }
-
-            h2.title {
-                padding: 0 0 0 0;
-                font-size: 0.5rem;
-            }
-
+        .logoContainer{
+            display: none;
         }
-
 
     }
 
@@ -1097,8 +1003,8 @@ img {
         background-color: var(--o1);
 
         .profileContainer {
-            background-color: var(--o3);
-            box-shadow: 1px 1px 4px 0px var(--o3);
+            background-color: transparent;
+            box-shadow: none;
 
             h3 {
                 color: var(--o5);
@@ -1106,10 +1012,8 @@ img {
         }
 
         .rachaContainer {
-
             background-color: var(--o3);
-
-            box-shadow: 1px 1px 4px 0px var(--o3);
+            box-shadow: var(--shadow) var(--o3);
 
             .profileContents {
                 padding: 0;
@@ -1144,7 +1048,7 @@ img {
             ul {
 
                 background-color: var(--o3);
-                box-shadow: 1px 1px 6px 0px var(--o3);
+                box-shadow: var(--shadow) var(--o3);
 
                 li {
                     background-color: var(--o4);
@@ -1154,7 +1058,7 @@ img {
                     }
 
                     .icono {
-                        color: var(--o1);
+                        color: var(--o3);
                     }
                 }
 
@@ -1163,7 +1067,6 @@ img {
 
                     a {
                         color: var(--o3);
-
                     }
                 }
 
@@ -1192,12 +1095,13 @@ img {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
-        height: 79vh;
+        // height: 79vh;
+        height: 100%;
     }
 
     .grid-container {
         display: grid;
-        gap: 15px;
+        gap: 10px;
         grid-template:
             "main" auto
             "sidebar" 3rem
@@ -1211,7 +1115,8 @@ img {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
-        height: 93vh;
+        // height: 93vh;
+        height: 100%;
     }
 
     .grid-container {
@@ -1230,7 +1135,8 @@ img {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
-        height: 99vh;
+        // height: 99vh;
+        height: 100%;
     }
 
     .grid-container {
@@ -1249,7 +1155,8 @@ img {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
-        height: 112vh;
+        // height: 112vh;
+        height: 100%;
     }
 
     .grid-container {
@@ -1268,7 +1175,8 @@ img {
         grid-area: main;
         background-color: rgba(128, 128, 128, 0.114);
         width: 100%;
-        height: 120vh;
+        // height: 120vh;
+        height: 100%;
     }
 
     .grid-container {

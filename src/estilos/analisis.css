@@ -1,21 +1,45 @@
 @charset "UTF-8";
 :root {
-  --c1: #eeddd3;
-  --c2: #cf7225;
-  --c3: #e8d1c5;
-  --c4: #9d3208bc;
-  --c5: #fff1e6;
-  --o1: #192229;
-  --o2: #212E36;
-  --o3: #2A3B47;
-  --o4: #A0A7AD;
-  --o5: #C8CDD0;
-  --feliz: #e7efa2;
-  --triste: #9fd0e2;
-  --enojado: #c13434;
-  --ansioso: #de9c3f;
-  --motivado: #b6efa2;
-  --aburrido: #a677ad;
+  --border: 20px;
+  --border2: 1rem;
+  --shadow: 1px 1px 3px .5px;
+  /* Colores de fondo claros */
+  --c1: #46313d;
+  --c2: #5f404d;
+  --c3: #845d5f;
+  --c4: #b77e78;
+  --c5: #dcae8f;
+  /* Colores de fondo oscuros */
+  --o1: #1a0e15;
+  --o2: #2d1a22;
+  --o3: #4e2f30;
+  --o4: #6e4b3b;
+  --o5: #8f6c4f;
+  /* Colores de texto ajustados */
+  --textc1: #dcae8f;
+  --textc2: #dcae8f;
+  --textc3: #dcae8f;
+  --textc4: #46313d;
+  --textc5: #46313d;
+  --textoO1: #8f6c4f;
+  --textoO2: #8f6c4f;
+  --textoO3: #8f6c4f;
+  --textoO4: #1a0e15;
+  --textoO5: #1a0e15;
+  --feliz: #f4d35e;
+  --triste: #7289da;
+  --enojado: #d9534f;
+  --ansioso: #e9967a;
+  --motivado: #88c399;
+  --aburrido: #495057;
+  --txtfeliz: #654e04;
+  --txttriste: #092380;
+  --txtenojado: #5b1209;
+  --txtansioso: #532407;
+  --txtmotivado: #072505;
+  --txtaburrido: #0e1a27;
+  --eliminar: #d9534f;
+  --aceptar: #856f2a;
 }
 
 body {
