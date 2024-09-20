@@ -722,6 +722,19 @@ img {
     }
 
     .gridPersonal {
+
+        .containerPerfil{
+            button{
+                background-color: var(--o4);
+                color: var(--textoO4);
+                border-radius: var(--border2);
+                &:hover{
+                    background-color: var(--o5);
+                    color: var(--textoO5);
+                }
+            }
+        }
+        
         .rachaContainer {
             background-color: var(--o1);
             box-shadow: var(--shadow) var(--o4);
@@ -739,6 +752,19 @@ img {
         }
 
         .infoPer {
+
+            button{
+            background-color: var(--c1);
+            width: 100%;
+            border: none;
+            padding: .3rem 0;
+            color: var(--textc1);
+            border-radius: var(--border2);
+            &:hover{
+                background-color: var(--c2);
+                color: var(--textc2);
+            }
+        }
 
             h2 {
                 background-color: var(--o1);
@@ -953,6 +979,11 @@ img {
         button{
             background-color: var(--o5);
             color: var(--textoO5);
+            border-radius: var(--border2);
+            &:hover{
+                background-color: var(--o1);
+                color: var(--textoO1);
+            }
         }
         .editarPerfil {
             background-color: var(--o2);
@@ -1039,7 +1070,7 @@ img {
         grid-area: sidebar;
         background-color: var(--c1);
         display: grid;
-        grid-template-columns: 4% 10% 2% auto 10% 3%;
+        grid-template-columns: 10% 10% 2% auto 10% 3%;
         grid-template-rows: 3rem;
         grid-template-areas:
             "a3 a1 . a4 a2 .";
@@ -1129,7 +1160,7 @@ img {
         .burgerContainer {
             grid-area: a3;
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: center;
             justify-content: center;
             align-items: center;
             padding: 0;
@@ -1139,8 +1170,8 @@ img {
 
             .burgerTrigger {
                 display: flex;
-                flex-direction: column-reverse;
-                justify-content: space-between;
+                flex-direction: row-reverse;
+                justify-content: space-around;
                 align-items: center;
                 gap: 10px;
                 .img {
@@ -1152,8 +1183,14 @@ img {
                     color: var(--c4);
                 }
                 .exit{
-                    width: 1.2rem;
+                    width: 2rem;
+                    height: auto;
                     padding-left: .2rem;
+                }
+
+                .moon{
+                    width: 2rem;
+                    height: auto;
                 }
             }
 
@@ -1282,6 +1319,17 @@ img {
                 .img {
                     width: 1rem;
                     color: var(--o5);
+                }
+
+                .exit{
+                    width: 2rem;
+                    height: auto;
+                    padding-left: .2rem;
+                }
+
+                .sun{
+                    width: 2rem;
+                    height: auto;
                 }
 
             }
