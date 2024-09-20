@@ -424,7 +424,7 @@ img {
     color: var(--textoO3);
 
     .container-custom {
-
+        background-color: var(--o1);
         //fondo POSTS
         .post-display-col {
             background-color: var(--o2);
@@ -946,6 +946,53 @@ img {
         }
 
 
+    }
+
+    .conteiner-editar-perfil {
+
+        button{
+            background-color: var(--o5);
+            color: var(--textoO5);
+        }
+        .editarPerfil {
+            background-color: var(--o2);
+            box-shadow: var(--shadow) var(--o3);
+
+
+            input[type="date"] {
+                color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+            }
+            
+            /* Estilo para el placeholder (texto inicial) */
+            input[type="date"]::placeholder {
+                padding-left: .5rem;
+                color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+            }
+
+            p {
+                color: var(--textoO2);
+                margin: 0;
+            }
+    
+            input {
+                background-color: var(--o4);
+
+                &::placeholder {
+                    color: var(--texto4);
+                }
+            }
+    
+    
+            .txt {
+                grid-area: txt;
+                color: var(--textc2);
+                padding-top: .5rem;
+            }
+
+            
+        }
+        
+        
     }
 }
 

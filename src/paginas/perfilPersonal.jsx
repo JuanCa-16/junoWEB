@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import perfil from '../imagenes/ava1.png';
 import racha from '../imagenes/racha.png';
 import { useState } from 'react';
@@ -12,6 +13,8 @@ import '../estilos/perfil.scss';
 import '../estilos/analisis.css';
 import felizM from '../imagenes/felizMujer.png';
 const perfilPersonal = () => {
+
+    const navigate = useNavigate();
     const [selectedEmotion, setSelectedEmotion] = useState('Feliz');
     const [selectedEmotionAge, setSelectedEmotionAge] = useState('Todas');
     const emotionsText = ['Todas', 'Feliz', 'Triste', 'Enojado', 'Ansioso', 'Motivado', 'Aburrido'];
@@ -68,6 +71,9 @@ const perfilPersonal = () => {
                     </div>
                 </div>
 
+                <div className="editar">
+                    <button onClick={() => navigate('/editar-perfil')}>Editar Perfil</button>
+                </div>
 
             </div>
 
@@ -98,7 +104,7 @@ const perfilPersonal = () => {
             </div>
 
             <div className="estadisticas a4">
-                <h2>Análisis por Edades</h2>
+                <h2>Análisis Personal</h2>
                 <div className="filter-container">
                     {emotionsText.map((emotion) => (
                         <button

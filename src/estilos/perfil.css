@@ -131,6 +131,18 @@ body {
   line-height: 1;
   color: var(--textc3);
 }
+.gridPersonal .containerPerfil button {
+  background-color: var(--c1);
+  width: 100%;
+  border: none;
+  padding: 0.3rem 0;
+  color: var(--textc1);
+  border-radius: var(--border2);
+}
+.gridPersonal .containerPerfil button:hover {
+  background-color: var(--c2);
+  color: var(--textc2);
+}
 .gridPersonal .infoPer {
   grid-area: a3;
   width: 100%;
@@ -326,9 +338,9 @@ body {
     width: 80%;
   }
   .gridPersonal .img {
-    width: 40%;
+    width: 80%;
     height: auto;
-    max-width: 100%;
+    max-width: 50%;
     -o-object-fit: contain;
        object-fit: contain;
   }
@@ -344,7 +356,7 @@ body {
   }
   .gridPersonal .containerPerfil .rachaContainer {
     flex-direction: row;
-    width: 100%;
+    width: 120%;
     height: 100%;
     display: flex;
     padding: 0.5rem;
@@ -356,6 +368,14 @@ body {
   .gridPersonal .containerPerfil .rachaContainer .profileContents h1.texto3 {
     margin: 0;
     padding: 0 0.5rem 0 0;
+  }
+  .gridPersonal .containerPerfil .editar {
+    width: 70%;
+  }
+  .gridPersonal .containerPerfil .editar button {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
   }
   .gridPersonal .infoPer {
     display: flex;

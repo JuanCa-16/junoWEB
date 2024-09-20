@@ -330,6 +330,9 @@ img {
   background-color: var(--o3);
   color: var(--textoO3);
 }
+.info.active .container-custom {
+  background-color: var(--o1);
+}
 .info.active .container-custom .post-display-col {
   background-color: var(--o2);
   box-shadow: var(--shadow) var(--o3);
@@ -735,6 +738,44 @@ img {
 .info.active .container-analisis .Aburrido:hover {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
+}
+.info.active .conteiner-editar-perfil button {
+  background-color: var(--o5);
+  color: var(--textoO5);
+}
+.info.active .conteiner-editar-perfil .editarPerfil {
+  background-color: var(--o2);
+  box-shadow: var(--shadow) var(--o3);
+  /* Estilo para el placeholder (texto inicial) */
+}
+.info.active .conteiner-editar-perfil .editarPerfil input[type=date] {
+  color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+}
+.info.active .conteiner-editar-perfil .editarPerfil input[type=date]::-moz-placeholder {
+  padding-left: 0.5rem;
+  color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+}
+.info.active .conteiner-editar-perfil .editarPerfil input[type=date]::placeholder {
+  padding-left: 0.5rem;
+  color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+}
+.info.active .conteiner-editar-perfil .editarPerfil p {
+  color: var(--textoO2);
+  margin: 0;
+}
+.info.active .conteiner-editar-perfil .editarPerfil input {
+  background-color: var(--o4);
+}
+.info.active .conteiner-editar-perfil .editarPerfil input::-moz-placeholder {
+  color: var(--texto4);
+}
+.info.active .conteiner-editar-perfil .editarPerfil input::placeholder {
+  color: var(--texto4);
+}
+.info.active .conteiner-editar-perfil .editarPerfil .txt {
+  grid-area: txt;
+  color: var(--textc2);
+  padding-top: 0.5rem;
 }
 
 .grid-container {

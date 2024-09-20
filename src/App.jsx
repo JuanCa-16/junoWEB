@@ -8,6 +8,7 @@ import PerfilPer from './paginas/perfilPersonal';
 import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
+import Editar from './paginas/editarPerfil';
 import { useState } from 'react';
 
 // Layout para las páginas principales con Sidebar
@@ -22,6 +23,7 @@ function MainLayout({ closeMenu, setCloseMenu }) {
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/analisis" element={<Analisis />} />
           <Route path="/perfil" element={<PerfilPer/>} />
+          <Route path="/editar-perfil" element={<Editar/>} />
         </Routes>
       </div>
     </div>
