@@ -183,12 +183,15 @@ img {
     .burgerContainer {
         grid-area: a3;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         padding: 0;
         margin: 0;
 
         .burgerTrigger {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
 
             .img {
                 width: .8rem;
@@ -197,6 +200,10 @@ img {
                 padding: 0;
                 margin: 0;
                 color: var(--c4);
+            }
+
+            .exit{
+                width: 1.1rem;
             }
 
             .sun {
@@ -339,10 +346,14 @@ img {
 
     .burgerContainer {
         .burgerTrigger {
-
+            display: flex;
             .img {
                 width: 1rem;
                 color: var(--o5);
+            }
+
+            .exit{
+                width: 1.1rem;
             }
 
             .sun {
@@ -535,7 +546,7 @@ img {
         .btn-general {
             transition: background-color 0.3s ease;
             width: 100%;
-            padding: 1rem;
+            padding: .3rem;
         }
 
         .btn-emotion.feliz.active {
@@ -610,22 +621,37 @@ img {
             color: var(--txtaburrido);
         }
 
-        //emociones de adentro
-        .btn-emotion {
-            transition: background-color 0.3s ease;
-            width: 100%;
-            padding: 1rem;
-        }
+        .row-create-post {
+            background-color: var(--o2);
+            color: var(--textoO2);
+            padding: 10px;
+            border-radius: var(--border);
+            display: flex;
+            align-items: center;
+            max-width: 150vh;
+            box-shadow: var(--shadow) var(--o5);
 
+            .d-flex {
+                flex-wrap: wrap;
+            }
+        }
 
         textarea.custom-textarea {
             background-color: var(--o5);
-            color: var(--textoO4);
-        }
+            border: none;
+            width: 100%;
+            padding: 10px;
+            color: inherit;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+            box-shadow: var(--shadow) rgba(157, 50, 8, 0.2);
 
-        textarea.custom-textarea:focus {
-            background-color: var(--o2);
-            color: var(--textoO1);
+            &:focus {
+                background-color: var(--o4);
+                border: none;
+                box-shadow: none;
+            }
         }
 
     }
@@ -699,13 +725,13 @@ img {
         .rachaContainer {
             background-color: var(--o1);
             box-shadow: var(--shadow) var(--o4);
-    
+
             .profileContents {
-    
+
                 .dias {
                     color: var(--textoO1);
                 }
-    
+
                 h3.texto3 {
                     color: var(--textoO3);
                 }
@@ -749,76 +775,78 @@ img {
 
         }
 
-        .estadisticas{
+        .estadisticas {
             background-color: var(--o2);
             box-shadow: var(--shadow) var(--o4);
 
             .filter.selected {
                 background-color: var(--o4);
-                color: var(--textoO4); /* Texto negro en el botón seleccionado */
+                color: var(--textoO4);
+                /* Texto negro en el botón seleccionado */
             }
-        
+
             .filter:hover {
                 background-color: var(--c5);
-                color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+                color: var(--textc5);
+                /* Texto negro en el botón al pasar el mouse */
             }
-        
-            .Feliz.selected{
+
+            .Feliz.selected {
                 background-color: var(--feliz);
                 color: var(--txtfeliz);
             }
-        
-            .Feliz:hover{
+
+            .Feliz:hover {
                 background-color: var(--feliz);
                 color: var(--txtfeliz);
             }
-        
-            .Triste.selected{
+
+            .Triste.selected {
                 background-color: var(--triste);
                 color: var(--txttriste);
             }
-        
+
             .Triste:hover {
                 background-color: var(--triste);
                 color: var(--txttriste);
             }
-        
-            .Enojado.selected{
+
+            .Enojado.selected {
                 background-color: var(--enojado);
                 color: var(--txtenojado);
             }
-        
+
             .Enojado:hover {
                 background-color: var(--enojado);
                 color: var(--txtenojado);
             }
-        
+
             .Ansioso.selected {
                 background-color: var(--ansioso);
                 color: var(--txtansioso);
             }
-        
+
             .Ansioso:hover {
                 background-color: var(--ansioso);
                 color: var(--txtansioso);
             }
-        
+
             .Motivado.selected {
                 background-color: var(--motivado);
                 color: var(--txtmotivado);
             }
-        
+
             .Motivado:hover {
                 background-color: var(--motivado);
                 color: var(--txtmotivado);
             }
-        
-            .Aburrido.selected{
+
+            .Aburrido.selected {
                 background-color: var(--aburrido);
                 color: var(--txtaburrido);
             }
-        
-            .Aburrido:hover{
+
+            .Aburrido:hover {
                 background-color: var(--aburrido);
                 color: var(--txtaburrido);
             }
@@ -836,80 +864,83 @@ img {
 
     }
 
-    .container-analisis{
+    .container-analisis {
         .section {
             background-color: var(--o1);
         }
+
         h2 {
             color: var(--textoO1);
         }
 
         .filter.selected {
             background-color: var(--o4);
-            color: var(--textoO4); /* Texto negro en el botón seleccionado */
+            color: var(--textoO4);
+            /* Texto negro en el botón seleccionado */
         }
 
         .filter:hover {
             background-color: var(--c5);
-            color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+            color: var(--textc5);
+            /* Texto negro en el botón al pasar el mouse */
         }
-    
-        .Feliz.selected{
+
+        .Feliz.selected {
             background-color: var(--feliz);
             color: var(--txtfeliz);
         }
-    
-        .Feliz:hover{
+
+        .Feliz:hover {
             background-color: var(--feliz);
             color: var(--txtfeliz);
         }
-    
-        .Triste.selected{
+
+        .Triste.selected {
             background-color: var(--triste);
             color: var(--txttriste);
         }
-    
+
         .Triste:hover {
             background-color: var(--triste);
             color: var(--txttriste);
         }
-    
-        .Enojado.selected{
+
+        .Enojado.selected {
             background-color: var(--enojado);
             color: var(--txtenojado);
         }
-    
+
         .Enojado:hover {
             background-color: var(--enojado);
             color: var(--txtenojado);
         }
-    
+
         .Ansioso.selected {
             background-color: var(--ansioso);
             color: var(--txtansioso);
         }
-    
+
         .Ansioso:hover {
             background-color: var(--ansioso);
             color: var(--txtansioso);
         }
-    
+
         .Motivado.selected {
             background-color: var(--motivado);
             color: var(--txtmotivado);
         }
-    
+
         .Motivado:hover {
             background-color: var(--motivado);
             color: var(--txtmotivado);
         }
-    
-        .Aburrido.selected{
+
+        .Aburrido.selected {
             background-color: var(--aburrido);
             color: var(--txtaburrido);
         }
-    
-        .Aburrido:hover{
+
+        .Aburrido:hover {
             background-color: var(--aburrido);
             color: var(--txtaburrido);
         }
@@ -1051,6 +1082,7 @@ img {
         .burgerContainer {
             grid-area: a3;
             display: flex;
+            flex-direction: column-reverse;
             justify-content: center;
             align-items: center;
             padding: 0;
@@ -1059,6 +1091,11 @@ img {
             width: 100%;
 
             .burgerTrigger {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
                 .img {
                     width: 1rem;
                     height: 1rem;
@@ -1066,6 +1103,10 @@ img {
                     padding: 0;
                     margin: 0;
                     color: var(--c4);
+                }
+                .exit{
+                    width: 1.2rem;
+                    padding-left: .2rem;
                 }
             }
 
@@ -1151,7 +1192,7 @@ img {
             }
         }
 
-        .logoContainer{
+        .logoContainer {
             display: none;
         }
 

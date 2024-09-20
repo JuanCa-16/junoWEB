@@ -51,7 +51,7 @@ function App() {
         <Route path="/" element={<Navigate to="/usuario/login" replace />} />
 
         {/* Rutas de autenticación sin Sidebar */}
-        <Route path="/usuario*" element={<AuthLayout/>} />
+        <Route path="/usuario/*" element={<AuthLayout/>} />
 
         {/* Rutas principales con Sidebar */}
         <Route path="/*" element={<MainLayout closeMenu={closeMenu} setCloseMenu={setCloseMenu} />} />

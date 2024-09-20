@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IoHome, IoCloseCircle } from "react-icons/io5"; 
 import { BsFillPeopleFill } from "react-icons/bs";
 import { FaCalendar } from "react-icons/fa";
@@ -9,9 +10,11 @@ import racha from '../imagenes/racha.png';
 import avatar1 from '../imagenes/ava1.png';
 import { FaMoon } from "react-icons/fa6";
 import { IoMdSunny } from "react-icons/io";
+import { IoExit } from "react-icons/io5";
 const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
 
     const location = useLocation();
+    const navigate = useNavigate();
     
     const handleCloseMenu = () => {
         const newState = !closeMenu;
@@ -44,9 +47,10 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
             </div>
 
             <div className={closeMenu ? "burgerContainer active a3" : "burgerContainer a3"}>
-                <div className="burgerTrigger" onClick={handleCloseMenu}>
-                    <FaMoon  className='img moon'/>
-                    <IoMdSunny className='img sun'/>
+                <div className="burgerTrigger">
+                    <FaMoon  className='img moon'  onClick={handleCloseMenu}/>
+                    <IoMdSunny className='img sun'  onClick={handleCloseMenu}/>
+                    <IoExit  className='img exit' onClick={() => navigate('/usuario/login')} />
                 </div>
             </div>
 

@@ -449,7 +449,17 @@ body {
     left: 50%;
   }
   .containerLoginUsuario.sign-up-mode::before {
-    bottom: 28%;
+    bottom: 40%;
     left: 50%;
+  }
+  .containerLoginUsuario .forms-container {
+    top: -20%;
+  }
+  .containerLoginUsuario.sign-up-mode .forms-container {
+    top: 0%;
+  }
+  .containerLoginUsuario.sign-up-mode .right-panel {
+    position: relative;
+    top: -55%;
   }
 }/*# sourceMappingURL=inicioU.css.map */

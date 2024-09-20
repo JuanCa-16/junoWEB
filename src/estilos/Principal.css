@@ -191,7 +191,7 @@ body {
   display: flex;
   align-items: center;
   max-width: 150vh;
-  box-shadow: var(--shadow) rgba(157, 50, 8, 0.6);
+  box-shadow: var(--shadow) var(--c4);
 }
 .container-custom .row-create-post .d-flex {
   flex-wrap: wrap;
@@ -280,7 +280,7 @@ body {
   border-radius: var(--border);
   align-items: center;
   max-width: 100%;
-  box-shadow: var(--shadow) rgba(157, 50, 8, 0.6);
+  box-shadow: var(--shadow) var(--c2);
 }
 .container-custom .user-name-post {
   font-size: 1.25rem;
