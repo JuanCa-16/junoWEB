@@ -61,10 +61,10 @@ body {
 .app {
   padding: 20px;
   background-color: var(--c3);
-  overflow: auto;
   flex-direction: column;
-  max-height: 100%;
   border-radius: 10px;
+  overflow: auto;
+  max-height: 100%;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer y Edge */
 }

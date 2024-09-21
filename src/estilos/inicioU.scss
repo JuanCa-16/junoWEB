@@ -565,7 +565,21 @@ body {
     }
 
     .containerLoginUsuario.sign-up-mode::before {
-        bottom: 28%;
+        bottom: 40%;
         left: 50%;
+    }
+
+    .containerLoginUsuario .forms-container{
+        top:-20%
+    }
+    .containerLoginUsuario.sign-up-mode{
+        .forms-container{
+            top: 0%;
+        }
+
+        .right-panel{
+            position: relative;
+            top: -55%;
+        }
     }
 }

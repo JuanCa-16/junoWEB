@@ -65,14 +65,14 @@
 
 body {
   font-family: "Mukta", sans-serif;
-  background-color: rgb(236, 243, 243);
+  //background-color: rgb(236, 243, 243);
   font-size: 1rem;
   min-height: 100%;
   margin: 0;
 }
 
 .container-custom {
-  background-color: #ecf1f585;
+  background-color: var(--c5);
   padding: 20px;
   border-radius: 8px;
   overflow: auto;
@@ -300,7 +300,7 @@ body {
     display: flex;
     align-items: center;
     max-width: 150vh;
-    box-shadow:var(--shadow) rgba(157, 50, 8, 0.6);
+    box-shadow:var(--shadow) var(--c4);
 
     .d-flex {
       flex-wrap: wrap;
@@ -409,7 +409,7 @@ body {
     border-radius: var(--border);
     align-items: center;
     max-width: 100%;
-    box-shadow: var(--shadow) rgba(157, 50, 8, 0.6);
+    box-shadow: var(--shadow) var(--c2);
 
   }
 

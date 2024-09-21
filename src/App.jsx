@@ -8,6 +8,7 @@ import PerfilPer from './paginas/perfilPersonal';
 import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
+import Editar from './paginas/editarPerfil';
 import ForgotPassword from './paginas/forgotPassword';
 import ResetPassword from './paginas/resetPassword';
 
@@ -25,6 +26,7 @@ function MainLayout({ closeMenu, setCloseMenu }) {
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/analisis" element={<Analisis />} />
           <Route path="/perfil" element={<PerfilPer/>} />
+          <Route path="/editar-perfil" element={<Editar/>} />
         </Routes>
       </div>
     </div>
@@ -57,7 +59,7 @@ function App() {
         <Route path="/" element={<Navigate to="/usuario/login" replace />} />
 
         {/* Rutas de autenticación sin Sidebar */}
-        <Route path="/usuario*" element={<AuthLayout/>} />
+        <Route path="/usuario/*" element={<AuthLayout/>} />
 
         {/* Rutas principales con Sidebar */}
         <Route path="/*" element={<MainLayout closeMenu={closeMenu} setCloseMenu={setCloseMenu} />} />

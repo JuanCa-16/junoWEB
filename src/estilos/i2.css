@@ -145,10 +145,15 @@ img {
 .sidebar .burgerContainer {
   grid-area: a3;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
+}
+.sidebar .burgerContainer .burgerTrigger {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 .sidebar .burgerContainer .burgerTrigger .img {
   width: 0.8rem;
@@ -157,6 +162,9 @@ img {
   padding: 0;
   margin: 0;
   color: var(--c4);
+}
+.sidebar .burgerContainer .burgerTrigger .exit {
+  width: 1.1rem;
 }
 .sidebar .burgerContainer .burgerTrigger .sun {
   display: none;
@@ -265,9 +273,15 @@ img {
 .sidebar.active .rachaContainer .profileContents h3.texto3 {
   color: var(--textoO3);
 }
+.sidebar.active .burgerContainer .burgerTrigger {
+  display: flex;
+}
 .sidebar.active .burgerContainer .burgerTrigger .img {
   width: 1rem;
   color: var(--o5);
+}
+.sidebar.active .burgerContainer .burgerTrigger .exit {
+  width: 1.1rem;
 }
 .sidebar.active .burgerContainer .burgerTrigger .sun {
   display: flex;
@@ -315,6 +329,9 @@ img {
   grid-area: main;
   background-color: var(--o3);
   color: var(--textoO3);
+}
+.info.active .container-custom {
+  background-color: var(--o1);
 }
 .info.active .container-custom .post-display-col {
   background-color: var(--o2);
@@ -411,7 +428,7 @@ img {
 .info.active .container-custom .btn-general {
   transition: background-color 0.3s ease;
   width: 100%;
-  padding: 1rem;
+  padding: 0.3rem;
 }
 .info.active .container-custom .btn-emotion.feliz.active {
   background-color: var(--feliz);
@@ -473,18 +490,34 @@ img {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
 }
-.info.active .container-custom .btn-emotion {
-  transition: background-color 0.3s ease;
-  width: 100%;
-  padding: 1rem;
+.info.active .container-custom .row-create-post {
+  background-color: var(--o2);
+  color: var(--textoO2);
+  padding: 10px;
+  border-radius: var(--border);
+  display: flex;
+  align-items: center;
+  max-width: 150vh;
+  box-shadow: var(--shadow) var(--o5);
+}
+.info.active .container-custom .row-create-post .d-flex {
+  flex-wrap: wrap;
 }
 .info.active .container-custom textarea.custom-textarea {
   background-color: var(--o5);
-  color: var(--textoO4);
+  border: none;
+  width: 100%;
+  padding: 10px;
+  color: inherit;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  box-shadow: var(--shadow) rgba(157, 50, 8, 0.2);
 }
 .info.active .container-custom textarea.custom-textarea:focus {
-  background-color: var(--o2);
-  color: var(--textoO1);
+  background-color: var(--o4);
+  border: none;
+  box-shadow: none;
 }
 .info.active .icon {
   color: var(--o5);
@@ -536,6 +569,15 @@ img {
 .info.active .app input::placeholder {
   color: var(--o1);
 }
+.info.active .gridPersonal .containerPerfil button {
+  background-color: var(--o4);
+  color: var(--textoO4);
+  border-radius: var(--border2);
+}
+.info.active .gridPersonal .containerPerfil button:hover {
+  background-color: var(--o5);
+  color: var(--textoO5);
+}
 .info.active .gridPersonal .rachaContainer {
   background-color: var(--o1);
   box-shadow: var(--shadow) var(--o4);
@@ -545,6 +587,18 @@ img {
 }
 .info.active .gridPersonal .rachaContainer .profileContents h3.texto3 {
   color: var(--textoO3);
+}
+.info.active .gridPersonal .infoPer button {
+  background-color: var(--c1);
+  width: 100%;
+  border: none;
+  padding: 0.3rem 0;
+  color: var(--textc1);
+  border-radius: var(--border2);
+}
+.info.active .gridPersonal .infoPer button:hover {
+  background-color: var(--c2);
+  color: var(--textc2);
 }
 .info.active .gridPersonal .infoPer h2 {
   background-color: var(--o1);
@@ -578,11 +632,13 @@ img {
 }
 .info.active .gridPersonal .estadisticas .filter.selected {
   background-color: var(--o4);
-  color: var(--textoO4); /* Texto negro en el botón seleccionado */
+  color: var(--textoO4);
+  /* Texto negro en el botón seleccionado */
 }
 .info.active .gridPersonal .estadisticas .filter:hover {
   background-color: var(--c5);
-  color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+  color: var(--textc5);
+  /* Texto negro en el botón al pasar el mouse */
 }
 .info.active .gridPersonal .estadisticas .Feliz.selected {
   background-color: var(--feliz);
@@ -648,11 +704,13 @@ img {
 }
 .info.active .container-analisis .filter.selected {
   background-color: var(--o4);
-  color: var(--textoO4); /* Texto negro en el botón seleccionado */
+  color: var(--textoO4);
+  /* Texto negro en el botón seleccionado */
 }
 .info.active .container-analisis .filter:hover {
   background-color: var(--c5);
-  color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+  color: var(--textc5);
+  /* Texto negro en el botón al pasar el mouse */
 }
 .info.active .container-analisis .Feliz.selected {
   background-color: var(--feliz);
@@ -702,6 +760,49 @@ img {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
 }
+.info.active .conteiner-editar-perfil button {
+  background-color: var(--o5);
+  color: var(--textoO5);
+  border-radius: var(--border2);
+}
+.info.active .conteiner-editar-perfil button:hover {
+  background-color: var(--o1);
+  color: var(--textoO1);
+}
+.info.active .conteiner-editar-perfil .editarPerfil {
+  background-color: var(--o2);
+  box-shadow: var(--shadow) var(--o3);
+  /* Estilo para el placeholder (texto inicial) */
+}
+.info.active .conteiner-editar-perfil .editarPerfil input[type=date] {
+  color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+}
+.info.active .conteiner-editar-perfil .editarPerfil input[type=date]::-moz-placeholder {
+  padding-left: 0.5rem;
+  color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+}
+.info.active .conteiner-editar-perfil .editarPerfil input[type=date]::placeholder {
+  padding-left: 0.5rem;
+  color: var(--textoO4); /* Cambia este valor por el color que prefieras */
+}
+.info.active .conteiner-editar-perfil .editarPerfil p {
+  color: var(--textoO2);
+  margin: 0;
+}
+.info.active .conteiner-editar-perfil .editarPerfil input {
+  background-color: var(--o4);
+}
+.info.active .conteiner-editar-perfil .editarPerfil input::-moz-placeholder {
+  color: var(--texto4);
+}
+.info.active .conteiner-editar-perfil .editarPerfil input::placeholder {
+  color: var(--texto4);
+}
+.info.active .conteiner-editar-perfil .editarPerfil .txt {
+  grid-area: txt;
+  color: var(--textc2);
+  padding-top: 0.5rem;
+}
 
 .grid-container {
   display: grid;
@@ -741,7 +842,7 @@ img {
     grid-area: sidebar;
     background-color: var(--c1);
     display: grid;
-    grid-template-columns: 4% 10% 2% auto 10% 3%;
+    grid-template-columns: 10% 10% 2% auto 10% 3%;
     grid-template-rows: 3rem;
     grid-template-areas: "a3 a1 . a4 a2 .";
     margin: 0;
@@ -814,12 +915,20 @@ img {
   .sidebar .burgerContainer {
     grid-area: a3;
     display: flex;
+    flex-direction: center;
     justify-content: center;
     align-items: center;
     padding: 0;
     margin: 0;
     height: auto;
     width: 100%;
+  }
+  .sidebar .burgerContainer .burgerTrigger {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
   }
   .sidebar .burgerContainer .burgerTrigger .img {
     width: 1rem;
@@ -828,6 +937,15 @@ img {
     padding: 0;
     margin: 0;
     color: var(--c4);
+  }
+  .sidebar .burgerContainer .burgerTrigger .exit {
+    width: 2rem;
+    height: auto;
+    padding-left: 0.2rem;
+  }
+  .sidebar .burgerContainer .burgerTrigger .moon {
+    width: 2rem;
+    height: auto;
   }
   .sidebar .contentsContainer {
     grid-area: a4;
@@ -926,6 +1044,15 @@ img {
   .sidebar.active .burgerContainer .burgerTrigger .img {
     width: 1rem;
     color: var(--o5);
+  }
+  .sidebar.active .burgerContainer .burgerTrigger .exit {
+    width: 2rem;
+    height: auto;
+    padding-left: 0.2rem;
+  }
+  .sidebar.active .burgerContainer .burgerTrigger .sun {
+    width: 2rem;
+    height: auto;
   }
   .sidebar.active .contentsContainer ul {
     background-color: var(--o3);
