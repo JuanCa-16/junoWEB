@@ -7,12 +7,15 @@
 
 .tela {
   display: flex;
+  background-color: #885c5c;
 }
 
 .toolbar {
+  text-wrap: black;
 }
 
 .rbc-toolbar {
+  background-color: #885c5c;
 }
 
 
@@ -54,11 +57,13 @@
 .rbc-toolbar button.rbc-active{
   background-color: #625656;
   border-color: #ffffff;
+  
 }
 /*lineas */
 .rbc-month-view{
   border-color: #000000;
   border-width: 2px;
+  background-color: #885c5c;
 }
 .rbc-month-row+ .rbc-month-row {
   border-color: #000000;
@@ -72,18 +77,20 @@
 .rbc-header{
   color: #000000ee;
   border-color: #00000073;
+  background-color:#46313d ;
 }
 .rbc-header + .rbc-header{
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
   border-color: #00000073;
+  
 }
 .rbc-off-range-bg{
-  background-color: #df9b70de;
+  background-color: #46313d;
 }
 .rbc-today{
-  background-color: #e3884fde;
+  background-color: #483333;
 }
 .rbc-button-link{
     margin: 5px;
