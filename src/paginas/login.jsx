@@ -3,7 +3,6 @@ import Select from 'react-select';
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/inicioU.scss';
 
-
 const genderOptions = [
   { value: 'Masculino', label: 'Masculino' },
   { value: 'Femenino', label: 'Femenino' },
@@ -108,7 +107,7 @@ const Login = () => {
             <input type="submit" value="Inicia sesión" className="btn solid" />
 
             <div className="text-center mt-3">
-              <a href="/principal" className="forgot-password-link">
+              <a href="/usuario/forgot-password" className="forgot-password-link">
                 ¿Olvidaste tu contraseña?
               </a>
             </div>

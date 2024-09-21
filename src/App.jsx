@@ -9,6 +9,9 @@ import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
 import Editar from './paginas/editarPerfil';
+import ForgotPassword from './paginas/forgotPassword';
+import ResetPassword from './paginas/resetPassword';
+
 import { useState } from 'react';
 
 // Layout para las páginas principales con Sidebar
@@ -34,10 +37,13 @@ function AuthLayout() {
     <div className="auth-container">
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </div>
   );
 }
+
 
 function App() {
   const [closeMenu, setCloseMenu] = useState(() => {
