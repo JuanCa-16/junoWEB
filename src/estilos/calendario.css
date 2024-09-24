@@ -3,11 +3,13 @@
   height: 80vh;
   margin: 0 auto;
   max-width: 1920px; 
+  
 }
 
 .tela {
   display: flex;
   background-color: #885c5c;
+  border-color: #000000;
 }
 
 .toolbar {
@@ -16,6 +18,9 @@
 
 .rbc-toolbar {
   background-color: #885c5c;
+  color: #000000;
+  display: flex;
+  font-size: 20px;
 }
 
 
@@ -51,6 +56,13 @@
 .rbc-toolbar button{
   color:  #000000;
   border: 1px solid  #000000;
+  transition: background-color 0.3s ease;
+  border-radius: 4px; 
+}
+
+.rbc-toolbar button:hover {
+  background-color: #6e4b3b; /* Color de fondo cuando el mouse está encima */
+  color: #ffffff;  
 }
 
 .rbc-toolbar button:active,
@@ -58,6 +70,12 @@
   background-color: #625656;
   border-color: #ffffff;
   
+}
+
+.rbc-event {
+  font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+  padding: 7px;     /* Agrega más espacio alrededor del contenido */
+  height: auto;      /* Permite que el evento sea más alto si es necesario */
 }
 /*lineas */
 .rbc-month-view{
@@ -110,6 +128,18 @@
   margin: 5px;
   font-size: 16px;
 }
+
+.rbc-show-more {
+  background-color: #905c5c; /* Color de fondo personalizado */
+  color: #ffffff;            /* Color del texto */
+  padding: 5px 10px;         /* Ajustar el padding */
+  border-radius: 4px;        /* Añadir bordes redondeados */
+  cursor: pointer;           /* Mostrar el cursor de mano */
+}
+.rbc-show-more:hover {
+  background-color: #6e4b3b; /* Cambiar el color de fondo al pasar el mouse */
+}
+
 
 .rbc-time-content,.rbc-time-content > .rbc-day-slot,.rbc-timeslot-group, .rbc-time-slot{
   color: #000000;
