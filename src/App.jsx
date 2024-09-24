@@ -11,6 +11,7 @@ import Sidebar from './componentes/sidebar';
 import Editar from './paginas/editarPerfil';
 import ForgotPassword from './paginas/forgotPassword';
 import ResetPassword from './paginas/resetPassword';
+import Racha from './paginas/racha';
 
 import { useState } from 'react';
 
@@ -27,6 +28,7 @@ function MainLayout({ closeMenu, setCloseMenu }) {
           <Route path="/analisis" element={<Analisis />} />
           <Route path="/perfil" element={<PerfilPer/>} />
           <Route path="/editar-perfil" element={<Editar/>} />
+          <Route path="/rachas" element={<Racha/>} />
         </Routes>
       </div>
     </div>

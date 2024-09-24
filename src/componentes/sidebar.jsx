@@ -35,7 +35,7 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
                 </div>
             </div>
 
-            <div className="rachaContainer a2">
+            <div className="rachaContainer a2" onClick={() => navigate('/rachas')}>
                 <img src={racha} alt="Racha"></img>
                 <div className="profileContents">
                     <div className="dias">
