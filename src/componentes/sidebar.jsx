@@ -36,7 +36,10 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
             </div>
 
             <div className="rachaContainer a2">
-                <img src={racha} alt="Racha"></img>
+                <Link to='/rachas'>
+                    <img src={racha} alt="Racha"></img>
+                </Link>
+                {/* <img src={racha} alt="Racha"></img> */}
                 <div className="profileContents">
                     <div className="dias">
                         <p className='texto1'>7</p> 

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 :root {
   --border: 20px;
   --border2: 1rem;
@@ -58,13 +57,12 @@ body {
   overflow: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
-  /* Filtros de análisis por edades */
-  /* Gráficos de barras */
-  /* Ciudades */
 }
+
 .container-analisis .app::-webkit-scrollbar {
   display: none; /* Chrome, Safari y Opera */
 }
+
 .container-analisis .section {
   background-color: var(--c1);
   border-radius: var(--border);
@@ -76,11 +74,13 @@ body {
   margin-bottom: 20px;
   padding: 1rem;
 }
+
 .container-analisis h2 {
   font-size: 24px;
   margin-bottom: 15px;
   color: var(--textc1);
 }
+
 .container-analisis .filter-container {
   gap: 10px;
   margin-bottom: 20px;
@@ -88,6 +88,7 @@ body {
   flex-wrap: wrap;
   color: var(--c1);
 }
+
 .container-analisis .filter {
   padding: 8px 12px;
   background-color: rgba(241, 237, 232, 0.6196078431);
@@ -97,67 +98,83 @@ body {
   transition: background-color 0.3s;
   color: var(--c1);
 }
+
 .container-analisis .filter.selected {
   background-color: var(--c5);
   color: var(--textc5); /* Texto negro en el botón seleccionado */
 }
+
 .container-analisis .filter:hover {
   background-color: var(--c5);
   color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
 }
+
 .container-analisis .Feliz.selected {
   background-color: var(--feliz);
   color: var(--txtfeliz);
 }
+
 .container-analisis .Feliz:hover {
   background-color: var(--feliz);
   color: var(--txtfeliz);
 }
+
 .container-analisis .Triste.selected {
   background-color: var(--triste);
   color: var(--txttriste);
 }
+
 .container-analisis .Triste:hover {
   background-color: var(--triste);
   color: var(--txttriste);
 }
+
 .container-analisis .Enojado.selected {
   background-color: var(--enojado);
   color: var(--txtenojado);
 }
+
 .container-analisis .Enojado:hover {
   background-color: var(--enojado);
   color: var(--txtenojado);
 }
+
 .container-analisis .Ansioso.selected {
   background-color: var(--ansioso);
   color: var(--txtansioso);
 }
+
 .container-analisis .Ansioso:hover {
   background-color: var(--ansioso);
   color: var(--txtansioso);
 }
+
 .container-analisis .Motivado.selected {
   background-color: var(--motivado);
   color: var(--txtmotivado);
 }
+
 .container-analisis .Motivado:hover {
   background-color: var(--motivado);
   color: var(--txtmotivado);
 }
+
 .container-analisis .Aburrido.selected {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
 }
+
 .container-analisis .Aburrido:hover {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
 }
+
 .container-analisis .bar-chart {
   background-color: #F7DACD;
   padding: 30px;
   border-radius: var(--border2);
 }
+
 .container-analisis .bar-chart-placeholder {
   height: 200px;
   display: flex;
@@ -167,48 +184,62 @@ body {
   border-radius: var(--border2);
   color: #4A3C31;
 }
+
 .container-analisis .cities {
   background-color: var(--c3);
   color: var(--textc3);
 }
+
 .container-analisis .city-container {
   display: flex;
   gap: 20px;
-  display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
   margin-bottom: 20px;
   color: var(--textc3);
 }
+
 .container-analisis .city {
   background-color: rgba(217, 216, 214, 0.8549019608);
   padding: 10px 20px;
   border-radius: var(--border);
   font-weight: bold;
-  cursor: default;
   border: none;
   color: #192229; /* Texto negro en el botón de ciudades */
+  cursor: default; /* Cambio de cursor pointer a default */
+  pointer-events: none; /* Deshabilitar clics y efectos de hover */
 }
+
+/* Eliminar los efectos de hover */
+.container-analisis .city-container .city:hover {
+  background-color: rgba(217, 216, 214, 0.8549019608); /* Mantener el color original */
+}
+
 .container-analisis .city-container .city:first-child {
   background-color: #f0e68c;
   font-weight: bold;
   color: var(--c1);
 }
+
 .container-analisis .city-container .city:first-child.Feliz {
   background-color: var(--feliz);
 }
+
 .container-analisis .city-container .city:first-child.Triste {
   background-color: var(--triste);
 }
+
 .container-analisis .city-container .city:first-child.Enojado {
   background-color: var(--enojado);
 }
+
 .container-analisis .city-container .city:first-child.Ansioso {
   background-color: var(--ansioso);
 }
+
 .container-analisis .city-container .city:first-child.Motivado {
   background-color: var(--motivado);
 }
+
 .container-analisis .city-container .city:first-child.Aburrido {
   background-color: var(--aburrido);
-}/*# sourceMappingURL=analisis.css.map */
+}

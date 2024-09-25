@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../estilos/Amigos.css';
 
 function User({ name, onAdd }) {
@@ -59,16 +59,13 @@ function App() {
 
   const handleRejectRequest = (name) => {
     setRequests(requests.filter(request => request !== name));
+    setUserList([...userList, name]);  // Add rejected user back to userList
   };
 
   // Filter out friends from userList and requests from userList
   const filteredUsers = userList.filter(user =>
     user.toLowerCase().includes(search.toLowerCase()) &&
     !friends.includes(user)  // Exclude friends from the user list
-  );
-
-  const filteredRequests = requests.filter(request =>
-    request.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -82,7 +79,9 @@ function App() {
           onChange={handleSearchChange}
           className="search-bar"
         />
-        {filteredUsers.length > 0 ? (
+        {search.length === 0 ? (
+          <p className="empty-message">Ingresa el nombre del usuario que deseas buscar</p>
+        ) : filteredUsers.length > 0 ? (
           filteredUsers.map((user, index) => (
             <User key={index} name={user} onAdd={handleAddFriend} />
           ))
@@ -104,8 +103,8 @@ function App() {
 
       <div className="requests-section">
         <h2>Solicitudes</h2>
-        {filteredRequests.length > 0 ? (
-          filteredRequests.map((request, index) => (
+        {requests.length > 0 ? (
+          requests.map((request, index) => (
             <FriendRequest 
               key={index} 
               name={request} 

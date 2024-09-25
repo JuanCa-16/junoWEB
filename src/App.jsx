@@ -9,6 +9,7 @@ import Perfil from './paginas/perfil';
 import Login from './paginas/login';
 import Sidebar from './componentes/sidebar';
 import Editar from './paginas/editarPerfil';
+import Rachas from './paginas/rachas'
 import ForgotPassword from './paginas/forgotPassword';
 import ResetPassword from './paginas/resetPassword';
 
@@ -27,6 +28,7 @@ function MainLayout({ closeMenu, setCloseMenu }) {
           <Route path="/analisis" element={<Analisis />} />
           <Route path="/perfil" element={<PerfilPer/>} />
           <Route path="/editar-perfil" element={<Editar/>} />
+          <Route path="/rachas" element={<Rachas/>} />
         </Routes>
       </div>
     </div>
