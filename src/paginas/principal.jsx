@@ -187,7 +187,7 @@ const Principal = () => {
       </Row>
 
       {/* Mostrar las publicaciones debajo del formulario */}
-      <Row className="mt-5 ms-1">
+      <Row className="mt-5 ">
         {posts.length === 0 ? (
           <Col xs={12} className="bg-posts">
             <span className="no-posts-text">
