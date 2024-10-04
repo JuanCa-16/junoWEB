@@ -11,16 +11,32 @@ import avatar1 from '../imagenes/ava1.png';
 import { FaMoon } from "react-icons/fa6";
 import { IoMdSunny } from "react-icons/io";
 import { IoExit } from "react-icons/io5";
-const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
+import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
+const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    
     
     const handleCloseMenu = () => {
         const newState = !closeMenu;
         setCloseMenu(newState);
         localStorage.setItem('sidebarClosed', newState);
     };
+
+    const salir = (e) => {
+        // Prevenir que se actulize la pag al enviar el formulario
+        e.preventDefault()
+
+        // Eliminamos el token y el rol del localStorage
+        localStorage.removeItem("token")
+        toast.success("Cierre de Sesion Exitoso")
+        
+        navigate('/usuario/login');
+        
+
+        
+    }
 
     useEffect(() => {
         // Realiza alguna acción cuando cambie la ruta
@@ -31,7 +47,7 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
             <div className="profileContainer a1">
                 <img src={avatar1} alt="Avatar"></img>
                 <div className="profileContents">
-                    <h3 className='name'>Juan Camilo</h3>
+                    <h3 className='name'>{infoU.nombre}</h3>
                 </div>
             </div>
 
@@ -53,7 +69,7 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu }) => {
                 <div className="burgerTrigger">
                     <FaMoon  className='img moon'  onClick={handleCloseMenu}/>
                     <IoMdSunny className='img sun'  onClick={handleCloseMenu}/>
-                    <IoExit  className='img exit' onClick={() => navigate('/usuario/login')} />
+                    <IoExit  className='img exit' onClick={(e) => salir(e)} />
                 </div>
             </div>
 

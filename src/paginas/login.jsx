@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/inicioU.scss';
-
+import {useNavigate} from 'react-router-dom';
 const genderOptions = [
   { value: 'Masculino', label: 'Masculino' },
   { value: 'Femenino', label: 'Femenino' },
 ];
 
 const Login = () => {
+
+  const navigate = useNavigate()
+
   const [signUpMode, setsignUpMode] = useState(false); // Estado para controlar el modo
   const [showPassword, setShowPassword] = useState(false); // Visibilidad de contra
   const [email, setEmail] = useState(''); // Estado para el email
@@ -47,14 +50,38 @@ const Login = () => {
     });
   };
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       showToast('Por favor, completa todos los campos antes de iniciar sesión.');
     } else {
-      console.log('Iniciar sesión:', email, password);
+      const usuario = { // Crear usuario aquí
+        correo_electronico: email,
+        contraseña: password
+      };
+  
+      const res = await fetch(`http://localhost:5000/usuarios/login`, {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: { 'Content-Type': "application/json" }
+      });
+  
+      const data = await res.json();
+  
+      if (data.llave) {
+        toast.success("Inicio Exitoso")
+        localStorage.setItem("token", data.llave);
+        setTimeout(() => {
+          navigate('/principal');
+      }, 500); 
+      
+      } else {
+        toast.error(data.error);
+        console.log(data.error);
+      }
     }
   };
+  
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
@@ -67,7 +94,7 @@ const Login = () => {
 
   return (
     <div className={`containerLoginUsuario ${signUpMode ? 'sign-up-mode' : ''}`}>
-      
+
       <Toaster position="bottom-center" reverseOrder={false} />
 
       <div className="forms-container">
