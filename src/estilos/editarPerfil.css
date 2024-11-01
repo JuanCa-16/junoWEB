@@ -81,6 +81,7 @@ body {
   border-radius: var(--border);
   box-shadow: var(--shadow) var(--c3);
   display: flex;
+  padding: 0 1rem;
   flex-direction: column;
   width: 100%;
   max-width: 100%;
@@ -111,15 +112,20 @@ body {
   padding-left: 0.5rem;
   color: var(--textc2); /* Cambia este valor por el color que prefieras */
 }
-.conteiner-editar-perfil .editarPerfil .form {
+.conteiner-editar-perfil .editarPerfil .infoP .form {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 33% 33% 33%;
   grid-template-rows: auto;
-  grid-template-areas: "txt txt" "img nom" "ape fecha" "mail clave" "tel gen" "ciu ciu" "env env";
+  grid-template-areas: "txt txt txt" "nom ape usu" "mail fecha tel" "gen ciu env";
   gap: 20px;
   align-items: center;
   justify-content: center;
   padding: 0 1.2rem;
+}
+.conteiner-editar-perfil .editarPerfil .infoC .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .conteiner-editar-perfil .editarPerfil p {
   color: var(--textc2);
@@ -127,19 +133,21 @@ body {
 }
 .conteiner-editar-perfil .editarPerfil input {
   background-color: var(--c3);
-  padding: 0.2rem;
+  padding: 1rem;
   border: none;
   width: 100%;
   height: 2.5rem;
   border-radius: var(--border2);
+  color: var(--textc2);
 }
 .conteiner-editar-perfil .editarPerfil input::-moz-placeholder {
   color: var(--textc2);
-  padding-left: 0.5rem;
 }
 .conteiner-editar-perfil .editarPerfil input::placeholder {
   color: var(--textc2);
-  padding-left: 0.5rem;
+}
+.conteiner-editar-perfil .editarPerfil .regresar {
+  margin-top: 1rem;
 }
 .conteiner-editar-perfil .editarPerfil .txt {
   grid-area: txt;
@@ -154,6 +162,9 @@ body {
 }
 .conteiner-editar-perfil .editarPerfil .nom {
   grid-area: nom;
+}
+.conteiner-editar-perfil .editarPerfil .usu {
+  grid-area: usu;
 }
 .conteiner-editar-perfil .editarPerfil .ape {
   grid-area: ape;
@@ -178,11 +189,23 @@ body {
 }
 .conteiner-editar-perfil .editarPerfil .btn-enviar {
   grid-area: env;
+  padding-top: 1rem;
 }
 
-@media (max-width: 700px) {
-  .conteiner-editar-perfil .editarPerfil .form {
+@media (max-width: 400px) {
+  .conteiner-editar-perfil .editarPerfil .infoP .form {
     display: flex;
     flex-direction: column;
+  }
+  .conteiner-editar-perfil .editarPerfil .infoC .form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 700px) {
+  .conteiner-editar-perfil .editarPerfil .infoP .form {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: "txt txt" "nom ape" "usu mail" "fecha tel" "gen ciu" "env env";
   }
 }/*# sourceMappingURL=editarPerfil.css.map */

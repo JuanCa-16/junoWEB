@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/inicioU.scss';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const genderOptions = [
   { value: 'Masculino', label: 'Masculino' },
   { value: 'Femenino', label: 'Femenino' },
@@ -18,6 +18,8 @@ const Login = () => {
   const [password, setPassword] = useState(''); // Estado para la contraseña
 
   const [registerName, setRegisterName] = useState(''); // Estado para el nombre
+  const [registerApellido, setRegisterApellido] = useState(''); // Estado para el Apellido
+  const [registerUser, setRegisterUser] = useState(''); // Estado para el Usuario
   const [registerEmail, setRegisterEmail] = useState(''); // Estado para el email de registro
   const [registerPassword, setRegisterPassword] = useState(''); // Estado para la contraseña de registro
   const [registerDate, setRegisterDate] = useState(''); // Estado para la fecha de nacimiento
@@ -59,36 +61,68 @@ const Login = () => {
         correo_electronico: email,
         contraseña: password
       };
-  
+
       const res = await fetch(`http://localhost:5000/usuarios/login`, {
         method: 'POST',
         body: JSON.stringify(usuario),
         headers: { 'Content-Type': "application/json" }
       });
-  
+
       const data = await res.json();
-  
+
       if (data.llave) {
         toast.success("Inicio Exitoso")
         localStorage.setItem("token", data.llave);
         setTimeout(() => {
           navigate('/principal');
-      }, 500); 
-      
+        }, 500);
+
       } else {
         toast.error(data.error);
         console.log(data.error);
       }
     }
   };
-  
 
-  const handleRegisterSubmit = (e) => {
+
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    if (!registerName || !registerEmail || !registerPassword || !registerDate || !registerPhone || !registerGender || !registerCity) {
+    if (!registerName || !registerApellido || !registerUser || !registerEmail || !registerPassword || !registerDate || !registerPhone || !registerGender || !registerCity) {
       showToast('Por favor, completa todos los campos antes de registrarte.');
     } else {
-      console.log('Registrarse:', registerName, registerEmail, registerPassword, registerDate, registerPhone, registerGender, registerCity);
+      const usuario = { // Crear usuario aquí
+        correo_electronico: registerEmail,
+        nombre_usuario: registerUser,
+        nombre_real: registerName,
+        apellidos: registerApellido,
+        fecha_nacimiento: registerDate,
+        telefono: registerPhone,
+        ciudad: registerCity,
+        contraseña: registerPassword,
+        sexo: registerGender,
+        hora_alerta: "09:00:00"
+      };
+      console.log('Registrarse:', registerName, registerApellido, registerUser, registerEmail, registerPassword, registerDate, registerPhone, registerGender, registerCity);
+
+      const res = await fetch(`http://localhost:5000/usuarios`, {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: { 'Content-Type': "application/json" }
+      });
+
+      const data = await res.json();
+
+      if (data.llave) {
+        toast.success("Registro Exitoso, Bienvenido")
+        localStorage.setItem("token", data.llave);
+        setTimeout(() => {
+          navigate('/principal');
+        }, 500);
+
+      } else {
+        toast.error(data.error);
+        console.log(data.error);
+      }
     }
   };
 
@@ -147,10 +181,32 @@ const Login = () => {
               <i className="fas fa-user"></i>
               <input
                 type="text"
-                placeholder="Nombre completo"
+                placeholder="Nombre"
                 value={registerName}
                 onChange={(e) => setRegisterName(e.target.value)}
               />
+
+            </div>
+
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="Apellido"
+                value={registerApellido}
+                onChange={(e) => setRegisterApellido(e.target.value)}
+              />
+            </div>
+
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="Nombre Usuario"
+                value={registerUser}
+                onChange={(e) => setRegisterUser(e.target.value)}
+              />
+
             </div>
 
             <div className="input-field">
@@ -179,8 +235,8 @@ const Login = () => {
               <Select
                 options={genderOptions}
                 placeholder="Selecciona tu género"
-                value={registerGender}
-                onChange={(option) => setRegisterGender(option)}
+                value={genderOptions.find(option => option.value === registerGender)} // para que muestre el valor seleccionado
+                onChange={(option) => setRegisterGender(option.value)} // guarda solo el valor
                 classNamePrefix="custom-select"
               />
             </div>

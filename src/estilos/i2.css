@@ -807,7 +807,7 @@ img {
 .grid-container {
   display: grid;
   gap: 0px;
-  grid-template-columns: 13.5rem auto;
+  grid-template-columns: 15rem auto;
   grid-template-rows: 100vh;
   grid-template-areas: "sidebar main";
 }
