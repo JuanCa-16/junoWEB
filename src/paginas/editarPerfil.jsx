@@ -101,46 +101,53 @@ const EditarPerfil = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+    
         // Formatear los nombres antes de enviarlos
         usuario.nombre_real = formatName(usuario.nombre_real);
         usuario.apellidos = formatName(usuario.apellidos);
-
-         // Traer el id del usuario que está logueado
+    
+        // Traer el id del usuario que está logueado
         const response = await fetch('http://localhost:5000/usuarios/estalogin', {
             method: 'GET',
             headers: { token: localStorage.getItem('token') }
         });
-
+    
         const info = await response.json();
         if (response.status !== 200) {
             console.log('No se pudo obtener los datos del usuario');
+            toast.error('No se pudo obtener los datos del usuario.'); // Muestra un mensaje de error
             return; // Salir si hay un error
         }
-
+    
         const userEmail = info.correo; // Guardar el email
-
-        //Peticion para actulizar
+    
+        // Petición para actualizar
         const res = await fetch(`http://localhost:5000/usuarios/${userEmail}`, {
             method: 'PUT',
-            body: JSON.stringify(usuario), //Para que lo detecte como string
+            body: JSON.stringify(usuario), // Para que lo detecte como string
             headers: { 'Content-Type': "application/json" } // Para que rellene los campos
         });
-
-        const data = await res.json()
-
-        //Se elimina el token antiguo, se agrega el nuevo
-        if (data) {
-            localStorage.removeItem("token")
+    
+        // Manejar la respuesta de actualización
+        if (res.ok) {
+            const data = await res.json();
+    
+            // Se elimina el token antiguo, se agrega el nuevo
+            localStorage.removeItem("token");
             localStorage.setItem("token", data.llave);
             toast.success(data.message);
+            
+            // Redirigir al perfil
             setTimeout(() => {
                 navigate('/perfil');
             }, 500);
         } else {
+            const data = await res.json(); // Obtener datos del error
             console.log(data.message);
-            toast.error(data.error);
+            toast.error(data.error || 'Error al actualizar los datos.'); // Muestra un mensaje de error
         }
     };
+    
 
     const [clave, setClave] = useState({
         contraseña: '',
