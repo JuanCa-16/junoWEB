@@ -2,27 +2,77 @@
   width: 100%;
   height: 80vh;
   margin: 0 auto;
-  max-width: 1920px; 
-  
+  max-width: 1920px;
+  border-radius: 10px;
 }
 
 .tela {
   display: flex;
   background-color: #885c5c;
   border-color: #000000;
+  border-radius: 10px;
 }
 
-.toolbar {
-  text-wrap: black;
-}
-
-.rbc-toolbar {
-  background-color: #885c5c;
-  color: #000000;
+.toolbar-container {
   display: flex;
-  font-size: 20px;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+.mesAno {
+  flex: 1; /* Usar flex para que tome espacio disponible */
+  color: #000000;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.dirtop {
+  flex: 2; /* Usar flex para distribuir espacio */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 50px;
+}
+
+.btn {
+  background-color: #46313d;
+  color: rgb(255, 255, 255);
+  border: none; /* Sin borde */
+  border-radius: 10px;
+  padding: 1rem; /* Cambiar a rem para mejor responsividad */
+  font-size: 1rem; /* Cambiar a rem para mejor responsividad */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Cambiar el color de fondo al pasar el cursor sobre el botón */
+.btn:hover {
+  background-color: #634455;
+}
+
+/* Estilo específico para el botón de dropdown */
+.dropdown-toggle {
+  background-color: #46313d;
+  border-radius: 10px;
+}
+
+.dropdown-toggle:hover {
+  background-color: #634455;
+}
+
+/* Tamaño del icono del botón */
+.bi {
+  font-size: 1rem; /* Cambiar a rem */
+}
+
+.toolbar-navegation button {
+  margin-right: 0.5rem; /* Usar rem */
+}
 
 .modal {
   position: fixed;
@@ -39,165 +89,230 @@
 
 .modal-content {
   background-color: aliceblue;
-  padding: 20px;
+  padding: 1rem; /* Cambiar a rem */
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.081);
   z-index: 10000;
-  width: 80%; 
-  max-width: 500px; 
-  height: auto; 
-  max-height: 90%; 
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  max-height: 90%;
   overflow-y: auto;
 }
 
-.rbc-btn-group > button{
+.rbc-btn-group > button {
   border: 0;
 }
-.rbc-toolbar button{
-  color:  #000000;
-  border: 1px solid  #000000;
+
+.rbc-toolbar button {
+  color: #000000;
+  border: 1px solid #000000;
   transition: background-color 0.3s ease;
-  border-radius: 4px; 
+  border-radius: 4px;
 }
 
 .rbc-toolbar button:hover {
-  background-color: #6e4b3b; /* Color de fondo cuando el mouse está encima */
-  color: #ffffff;  
+  background-color: #6e4b3b;
+  color: #ffffff;
 }
 
 .rbc-toolbar button:active,
-.rbc-toolbar button.rbc-active{
+.rbc-toolbar button.rbc-active {
   background-color: #625656;
   border-color: #ffffff;
-  
 }
 
 .rbc-event {
-  font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
-  padding: 7px;     /* Agrega más espacio alrededor del contenido */
-  height: auto;      /* Permite que el evento sea más alto si es necesario */
+  font-size: 1.2rem;
+  padding: 7px;
+  height: auto;
+  text-align: center;
 }
-/*lineas */
-.rbc-month-view{
+
+/* Líneas */
+.rbc-month-view {
   border-color: #000000;
   border-width: 2px;
   background-color: #885c5c;
+  border-radius: 10px;
 }
-.rbc-month-row+ .rbc-month-row {
+
+.rbc-month-row + .rbc-month-row {
   border-color: #000000;
   border-width: 2px;
 }
+
 .rbc-day-bg + .rbc-day-bg {
   border-color: #000000;
   border-width: 2px;
 }
-/*Mes*/
-.rbc-header{
+
+/* Mes */
+.rbc-header {
   color: #000000ee;
   border-color: #00000073;
-  background-color:#46313d ;
-}
-.rbc-header + .rbc-header{
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  border-color: #00000073;
-  
-}
-.rbc-off-range-bg{
   background-color: #46313d;
-}
-.rbc-today{
-  background-color: #483333;
-}
-.rbc-button-link{
-    margin: 5px;
-    font-size: 20px;
-    color: #000000;
+  border-radius: 10px;
+  margin: 2px;
 }
 
-.rbc-off-range .rbc-button-link{
+.rbc-header + .rbc-header {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: #00000073;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.rbc-off-range-bg {
+  background-color: #46313d;
+}
+
+.rbc-today {
+  background-color: #483333;
+}
+
+.rbc-button-link {
+  margin: 5px;
+  font-size: 1.2rem; /* Cambiar a rem */
+  color: #000000;
+}
+
+.rbc-off-range .rbc-button-link {
   color: #ffffff;
 }
-.rbc-now .rbc-button-link{
+
+.rbc-now .rbc-button-link {
   background-color: #e62727de;
   color: #ffffff;
   border-radius: 2px;
   padding-left: 2px;
   padding-right: 2px;
   margin: 5px;
-  font-size: 16px;
+  font-size: 1rem; /* Cambiar a rem */
 }
 
 .rbc-show-more {
-  background-color: #905c5c; /* Color de fondo personalizado */
-  color: #ffffff;            /* Color del texto */
-  padding: 5px 10px;         /* Ajustar el padding */
-  border-radius: 4px;        /* Añadir bordes redondeados */
-  cursor: pointer;           /* Mostrar el cursor de mano */
+  background-color: #905c5c;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
 .rbc-show-more:hover {
-  background-color: #6e4b3b; /* Cambiar el color de fondo al pasar el mouse */
+  background-color: #6e4b3b;
 }
 
-
-.rbc-time-content,.rbc-time-content > .rbc-day-slot,.rbc-timeslot-group, .rbc-time-slot{
+.rbc-time-content,
+.rbc-time-content > .rbc-day-slot,
+.rbc-timeslot-group,
+.rbc-time-slot {
   color: #000000;
   border-color: #00000036;
 }
-.rbc-day-slot .rbc-time-slot{
+
+.rbc-day-slot .rbc-time-slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   border-top: 1px solid #000000;
 }
-/*Agenda*/
-.rbc-agenda-content, .rbc-agenda-view{
+
+/* Agenda */
+.rbc-agenda-content,
+.rbc-agenda-view {
   color: #ffffff;
 }
-.rbc-agenda-date-cell, .rbc-agenda-time-cell{
+
+.rbc-agenda-date-cell,
+.rbc-agenda-time-cell {
   background-color: #48343c;
 }
-.rbc-agenda-event-cell{
+
+.rbc-agenda-event-cell {
   border-radius: 20px;
   font-weight: bold;
   color: #ffffff;
 }
 
+/* Personaliza la apariencia del DatePicker */
+.react-datepicker {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.react-datepicker__header {
+  background-color: #007bff;
+  color: white;
+}
+
+.react-datepicker__current-month {
+  font-weight: bold;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e0e0e0;
+}
+
 /* Estilos responsivos */
-
-
 @media (max-width: 1024px) {
   .calendar-container {
-    height: 75vh; 
+    height: 75vh;
   }
 
   .rbc-toolbar {
-    font-size: 18px;
+    font-size: 1.5rem; /* Cambiar a rem */
   }
 }
 
-
 @media (max-width: 768px) {
   .calendar-container {
-    width: 100%; 
-    height: 70vh; 
+    width: 100%;
+    height: 70vh;
   }
 
   .modal-content {
-    width: 90%; 
-    max-width: 400px; 
+    width: 90%;
+    max-width: 400px;
   }
 
+  .btn {
+    padding: 0.5rem; /* Cambiar a rem */
+    font-size: 0.9rem; /* Cambiar a rem */
+  }
 
+  .mesAno {
+    font-size: 1.2rem; /* Cambiar a rem */
+  }
+}
 
 @media (max-width: 480px) {
   .calendar-container {
     height: 60vh;
   }
 
-.modal-content {
-    width: 95%; 
-    max-width: 350px; 
-    padding: 15px; 
+  .modal-content {
+    width: 95%;
+    max-width: 350px;
+    padding: 1rem; /* Cambiar a rem */
   }
-}
+
+  .btn {
+    padding: 0.5rem; /* Cambiar a rem */
+    font-size: 0.8rem; /* Cambiar a rem */
+  }
+
+  .mesAno {
+    font-size: 1rem; /* Cambiar a rem */
+  }
 }
 
