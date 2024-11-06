@@ -1,67 +1,89 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import perfil from '../imagenes/ava1.png';
 import racha from '../imagenes/racha.png';
-import { useState } from 'react';
 import { MdLocationOn } from "react-icons/md";
 import BarChartComponent from '../componentes/BarChart';
-import { Button, ButtonGroup, Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import avatar1 from '../imagenes/ava1.png';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../estilos/respaldoPrincipal.css";
 import '../estilos/perfil.scss';
 import '../estilos/analisis.css';
 import felizM from '../imagenes/felizMujer.png';
-const perfilPersonal = () => {
 
+const PerfilPersonal = () => {
     const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [posts, setPosts] = useState([]);
     const [selectedEmotion, setSelectedEmotion] = useState('Feliz');
     const [selectedEmotionAge, setSelectedEmotionAge] = useState('Todas');
     const emotionsText = ['Todas', 'Feliz', 'Triste', 'Enojado', 'Ansioso', 'Motivado', 'Aburrido'];
+    
+    const emotions = [
+        { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
+        { emoji:<img src={felizM} alt="Triste" className="emoji-img" />, label: 'Triste' },
+        { emoji:<img src={felizM} alt="Enojado" className="emoji-img" />, label: 'Enojado' },
+        { emoji:<img src={felizM} alt="Ansioso" className="emoji-img" />, label: 'Ansioso' },
+        { emoji:<img src={felizM} alt="Motivado" className="emoji-img" />, label: 'Motivado' },
+    ];
+
+    // Obtener datos del usuario (nombre y correo) al cargar el perfil
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/usuarios/estalogin', {
+                    method: 'GET',
+                    headers: { token: localStorage.getItem('token') }
+                });
+                const data = await response.json();
+                if (response.status === 200) {
+                    setUsername(data.nombre);
+                    setUserEmail(data.correo);
+                } else {
+                    console.error('No se pudo obtener los datos del usuario');
+                }
+            } catch (error) {
+                console.error('Error al obtener los datos del usuario:', error);
+            }
+        };
+        fetchUserData();
+    }, []);
+
+    // Obtener publicaciones del usuario
+    useEffect(() => {
+        const fetchUserPosts = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/publicaciones/usuario/${userEmail}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setPosts(data);
+                } else {
+                    console.error('No se encontraron publicaciones para este usuario');
+                }
+            } catch (error) {
+                console.error('Error al obtener publicaciones del usuario:', error);
+            }
+        };
+
+        if (userEmail) {
+            fetchUserPosts();
+        }
+    }, [userEmail]);
+
     const handleEmotionClickAge = (emotion) => {
         setSelectedEmotionAge(emotion);
     };
-    const emotions = [
-        { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
-        { emoji:<img src={felizM} alt="Feliz2" className="emoji-img" />, label: 'Triste' },
-        { emoji:<img src={felizM} alt="Feliz3" className="emoji-img" />, label: 'Enojado' },
-        { emoji:<img src={felizM} alt="Feliz4" className="emoji-img" />, label: 'Ansioso' },
-        { emoji:<img src={felizM} alt="Feliz5" className="emoji-img" />, label: 'Motivado' },
-    ];
-    
 
-    const [posts, setPosts] = useState([
-        {
-            username: "Juan",
-            emotion: "Feliz",
-            text: "Hoy me siento muy contento porque el sol está brillando y todo parece ir bien.",
-        },
-        {
-            username: "Ana",
-            emotion: "Triste",
-            text: "No estoy pasando por un buen momento. Siento que todo está en mi contra.",
-        },
-        {
-            username: "Luis",
-            emotion: "Motivado",
-            text: "Estoy emocionado por el nuevo proyecto en el que estoy trabajando. ¡Siento que puedo lograr grandes cosas!",
-        },
-        {
-            username: "Sofia",
-            emotion: "Ansioso",
-            text: "Tengo un poco de nervios por la presentación que tengo mañana. Espero que todo salga bien.",
-        },
-    ]);
     return (
         <div className='gridPersonal'>
-
             <div className="containerPerfil a1">
                 <div className='imgDiv'>
                     <img src={perfil} alt="perfil" className='img' />
                 </div>
-
                 <div className="rachaContainer">
-                    <img src={racha} alt="Racha"></img>
+                    <img src={racha} alt="Racha" />
                     <div className="profileContents">
                         <div className="dias">
                             <p className='texto1'>7</p>
@@ -70,16 +92,14 @@ const perfilPersonal = () => {
                         <h1 className='texto3'>FELICES</h1>
                     </div>
                 </div>
-
                 <div className="editar">
                     <button onClick={() => navigate('/editar-perfil')}>Editar Perfil</button>
                 </div>
-
             </div>
 
             <div className="infoPer a3">
                 <div className="parte1">
-                    <h2>Juan Camilo Henao</h2>
+                    <h2>{username}</h2>
                     <div className="general">
                         <div className="emotions-container">
                             {emotions.map((emotion, index) => (
@@ -94,12 +114,12 @@ const perfilPersonal = () => {
                         </div>
                         {selectedEmotion && (
                             <div id="emotion-text">5 publicaciones de tipo {selectedEmotion}</div>
-                        )}</div>
+                        )}
+                    </div>
                 </div>
                 <div className="ubicacion">
                     <MdLocationOn className='icono' />
-                    <span>Te encuentras en:  </span>
-                    <span>Tulua, Colombia</span>
+                    <span>Te encuentras en: Tulua, Colombia</span>
                 </div>
             </div>
 
@@ -120,17 +140,13 @@ const perfilPersonal = () => {
             </div>
 
             <div className="publicaciones a5">
-                <Row className=" ms-1">
+                <Row className="ms-1">
                     {posts.length === 0 ? (
                         <Col xs={12} className="bg-posts">
                             <span className="no-posts-text">
                                 Aún no hay publicaciones disponibles
                             </span>
-                            <img
-                                src="/logos.png"
-                                alt="logo"
-                                className="logo-transparent"
-                            />
+                            <img src="/logos.png" alt="logo" className="logo-transparent" />
                             <span className="mt-3">
                                 Crea tu primera historia en el diario!
                             </span>
@@ -140,21 +156,16 @@ const perfilPersonal = () => {
                             <Col xs={12} key={index} className="post-display-col mb-3 p-3">
                                 <div className="d-flex">
                                     <div className="user-info d-flex flex-column align-items-start">
-                                        <img
-                                            src={avatar1}
-                                            alt="Avatar"
-                                            className="img-fluid rounded-circle"
-                                        />
+                                        <img src={avatar1} alt="Avatar" className="img-fluid rounded-circle" />
                                     </div>
-
                                     <div className="custom-div-post d-flex flex-column align-items-start m-2">
                                         <div className="d-flex align-items-center">
                                             <span className="user-name-post ms-2 mb-2">{post.username}</span>
-                                            <span className={`emotion-badge ms-2 mb-2 ${post.emotion.toLowerCase()}`}>
-                                                {post.emotion}
+                                            <span className={`emotion-badge ms-2 mb-2 ${post.emocion_asociada.toLowerCase()}`}>
+                                                {post.emocion_asociada}
                                             </span>
                                         </div>
-                                        <p className="post-text mt-3">{post.text}</p>
+                                        <p className="post-text mt-3">{post.contenido}</p>
                                     </div>
                                 </div>
                             </Col>
@@ -163,7 +174,7 @@ const perfilPersonal = () => {
                 </Row>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default perfilPersonal
+export default PerfilPersonal;
