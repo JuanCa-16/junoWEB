@@ -3,11 +3,14 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../estilos/inicioU.scss'; 
-
+import { useParams } from 'react-router-dom';
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
+
+  const { token } = useParams();  // Capturamos el token de la URL
+  console.log(token)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,37 +30,28 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3002/api/reset-password', { password });
-      
-      // Mostrar mensaje de éxito
-      toast.success(response.data.message, {
-        duration: 4000,
-        style: {
-          border: '1px solid #4CAF50',
-          padding: '16px',
-          color: '#006400',
-          background: '#dff2d8',
+      const response = await fetch(`http://localhost:5000/usuarios/reset-password/${token}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({"contraseña": password }),
       });
 
-      // Si la contraseña se restablece correctamente, redirige al login
-      if (response.data.message === 'Contraseña restablecida correctamente') {
+      const data = await response.json();
+      console.log(data);
+      if (data) {
+        toast.success(data.message);
         setTimeout(() => {
-          navigate('/usuario/login');
-        }, 2000); // Redirigir después de 2 segundos
+          navigate('/usarios/login');
+        }, 500);
+      } else {
+        toast.error(data.error);
       }
     } catch (error) {
-      console.error(error);
-      toast.error('Error al restablecer la contraseña', {
-        duration: 4000,
-        style: {
-          border: '1px solid #ff4d4d',
-          padding: '16px',
-          color: '#b30000',
-          background: '#ffe6e6',
-        },
-      });
-    }
+      console.error('Error al enviar solicitud:', error);
+      toast.error('Error al enviar solicitud');
+    } 
   };
 
   return (
