@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 import '../estilos/inicioU.scss';
@@ -25,8 +25,29 @@ const Login = () => {
   const [registerDate, setRegisterDate] = useState(''); // Estado para la fecha de nacimiento
   const [registerPhone, setRegisterPhone] = useState(''); // Estado para el teléfono
   const [registerGender, setRegisterGender] = useState(null); // Estado para el género
-  const [registerCity, setRegisterCity] = useState(''); // Estado para la ciudad
+  const [registerCity, setRegisterCity] = useState(null); // Estado para la ciudad seleccionada
+  const [cityOptions, setCityOptions] = useState([]); // Estado para las opciones de ciudades
 
+  // Obtener ciudades desde la API
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await fetch('https://api-colombia.com/api/v1/City');
+        const data = await response.json();
+        const options = data.map((city) => ({
+          value: city.id, // Puedes usar el id o el nombre, dependiendo de tus necesidades
+          label: city.name,
+        }));
+        setCityOptions(options);
+      } catch (error) {
+        console.error('Error al obtener las ciudades:', error);
+        toast.error('No se pudieron cargar las ciudades. Inténtalo más tarde.');
+      }
+    };
+    fetchCities();
+  }, []);
+
+  // Funciones para manejar formularios
   const handleSignUpClick = () => {
     setsignUpMode(true); // Activa modo Sign Up
   };
@@ -241,13 +262,15 @@ const Login = () => {
               />
             </div>
 
+            {/* Selector de ciudad */}
             <div className="input-field">
               <i className="fas fa-city"></i>
-              <input
-                type="text"
-                placeholder="Ciudad, País"
-                value={registerCity}
-                onChange={(e) => setRegisterCity(e.target.value)}
+              <Select
+                options={cityOptions}
+                placeholder="Selecciona tu ciudad"
+                value={cityOptions.find((option) => option.value === registerCity)}
+                onChange={(option) => setRegisterCity(option.value)}
+                classNamePrefix="custom-select"
               />
             </div>
 
