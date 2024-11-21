@@ -12,6 +12,7 @@ import '../estilos/perfil.scss';
 import '../estilos/analisis.css';
 import felizM from '../imagenes/felizMujer.png';
 
+
 const PerfilPersonal = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
