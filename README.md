@@ -1,7 +1,3 @@
-¡Entendido! Aquí tienes un **README.md** enfocado exclusivamente en el front-end de JUNO:  
-
----
-
 # 🌟 JUNO: Bienestar Emocional (Frontend) 🌟  
 
 Bienvenido al repositorio del **frontend** de **JUNO**, una aplicación diseñada para promover el bienestar emocional a través de un diario interactivo y herramientas de análisis personal.  
