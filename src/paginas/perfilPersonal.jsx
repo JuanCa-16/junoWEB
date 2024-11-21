@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import perfil from '../imagenes/ava1.png';
 import racha from '../imagenes/racha.png';
 import { MdLocationOn } from "react-icons/md";
-import BarChartComponent from '../componentes/BarChart';
+import BarChartPerfil from '../componentes/barChartPerfil';// Importa el nuevo componente
 import { Row, Col } from "react-bootstrap";
 import avatar1 from '../imagenes/ava1.png';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,17 +19,14 @@ const PerfilPersonal = () => {
     const [posts, setPosts] = useState([]);
     const [selectedEmotion, setSelectedEmotion] = useState('Feliz');
     const [selectedEmotionAge, setSelectedEmotionAge] = useState('Todas');
+    const [emotionStats, setEmotionStats] = useState([]); // Nuevo estado para las estadísticas
+
     const emotionsText = ['Todas', 'Feliz', 'Triste', 'Enojado', 'Ansioso', 'Motivado', 'Aburrido'];
-    
     const emotions = [
         { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
-        { emoji:<img src={felizM} alt="Triste" className="emoji-img" />, label: 'Triste' },
-        { emoji:<img src={felizM} alt="Enojado" className="emoji-img" />, label: 'Enojado' },
-        { emoji:<img src={felizM} alt="Ansioso" className="emoji-img" />, label: 'Ansioso' },
-        { emoji:<img src={felizM} alt="Motivado" className="emoji-img" />, label: 'Motivado' },
+        // Agrega más emociones aquí si es necesario
     ];
 
-    // Obtener datos del usuario (nombre y correo) al cargar el perfil
     useEffect(() => {
         const fetchUserData = async () => {
             try {
@@ -51,7 +48,6 @@ const PerfilPersonal = () => {
         fetchUserData();
     }, []);
 
-    // Obtener publicaciones del usuario
     useEffect(() => {
         const fetchUserPosts = async () => {
             try {
@@ -59,6 +55,16 @@ const PerfilPersonal = () => {
                 if (response.ok) {
                     const data = await response.json();
                     setPosts(data);
+                    // Actualizar estadísticas de emociones
+                    const stats = data.reduce((acc, post) => {
+                        acc[post.emocion_asociada] = (acc[post.emocion_asociada] || 0) + 1;
+                        return acc;
+                    }, {});
+                    const statsArray = Object.keys(stats).map(emotion => ({
+                        emocion: emotion,
+                        cantidad: stats[emotion],
+                    }));
+                    setEmotionStats(statsArray);
                 } else {
                     console.error('No se encontraron publicaciones para este usuario');
                 }
@@ -136,7 +142,7 @@ const PerfilPersonal = () => {
                         </button>
                     ))}
                 </div>
-                <BarChartComponent selectedEmotion={selectedEmotionAge} />
+                <BarChartPerfil selectedEmotion={selectedEmotionAge} emotionStats={emotionStats} />
             </div>
 
             <div className="publicaciones a5">

@@ -1,46 +1,86 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Bar } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+} from 'chart.js';
 
-const data = [
-    { ageRange: '1-5', Feliz: 12, Triste: 8, Enojado: 5, Ansioso: 3, Motivado: 6, Aburrido: 2 },
-    { ageRange: '6-10', Feliz: 15, Triste: 10, Enojado: 7, Ansioso: 4, Motivado: 10, Aburrido: 5 },
-    { ageRange: '10-15', Feliz: 14, Triste: 9, Enojado: 6, Ansioso: 8, Motivado: 12, Aburrido: 3 },
-    { ageRange: '15-20', Feliz: 18, Triste: 12, Enojado: 9, Ansioso: 10, Motivado: 15, Aburrido: 4 },
-    { ageRange: '20-25', Feliz: 16, Triste: 11, Enojado: 8, Ansioso: 9, Motivado: 14, Aburrido: 7 },
-    { ageRange: '26+', Feliz: 14, Triste: 10, Enojado: 7, Ansioso: 8, Motivado: 13, Aburrido: 6 },
-];
+// Registrar los componentes y escalas
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
-function BarChartComponent({ selectedEmotion }) {
-    return (
-        <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="ageRange" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                {/* Muestra solo la barra de la emoción seleccionada */}
-                {(selectedEmotion === 'Todas' || selectedEmotion === 'Feliz') && (
-                    <Bar dataKey="Feliz" fill="#f4d35e" />
-                )}
-                {(selectedEmotion === 'Todas' || selectedEmotion === 'Triste') && (
-                    <Bar dataKey="Triste" fill="#7289da" />
-                )}
-                {(selectedEmotion === 'Todas' || selectedEmotion === 'Enojado') && (
-                    <Bar dataKey="Enojado" fill="#d9534f" />
-                )}
-                {(selectedEmotion === 'Todas' || selectedEmotion === 'Ansioso') && (
-                    <Bar dataKey="Ansioso" fill="#e9967a" />
-                )}
-                {(selectedEmotion === 'Todas' || selectedEmotion === 'Motivado') && (
-                    <Bar dataKey="Motivado" fill="#88c399" />
-                )}
-                {(selectedEmotion === 'Todas' || selectedEmotion === 'Aburrido') && (
-                    <Bar dataKey="Aburrido" fill="#495057" />
-                )}
-            </BarChart>
-        </ResponsiveContainer>
-    );
+function BarChartComponent({ data }) {
+    if (!data || data.length === 0) {
+        return <p>No hay datos disponibles para mostrar.</p>;
+    }
+
+    // Extraer rangos de edad únicos y emociones únicas
+    const ageRanges = [...new Set(data.map(item => item.rango_edad))];
+
+    // Ordenar los rangos de edad de menor a mayor basándose en el primer número del rango
+    const sortedAgeRanges = ageRanges.sort((a, b) => {
+        const getFirstNumber = range => parseInt(range.split('-')[0]);
+        return getFirstNumber(a) - getFirstNumber(b);
+    });
+
+    const emotions = [...new Set(data.map(item => item.emocion))];
+
+    // Crear un dataset para cada emoción
+    const datasets = emotions.map(emotion => {
+        const emotionData = sortedAgeRanges.map(range => {
+            const matchingEntry = data.find(
+                item => item.rango_edad === range && item.emocion === emotion
+            );
+            return matchingEntry ? matchingEntry.cantidad : 0;
+        });
+
+        return {
+            label: emotion,
+            data: emotionData,
+            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue(`--${emotion.toLowerCase()}`).trim() || 'rgba(75, 192, 192, 0.6)',
+        };
+    });
+
+    const chartData = {
+        labels: sortedAgeRanges, // Los rangos de edad como etiquetas en el eje X, ahora ordenados
+        datasets,
+    };
+
+    const options = {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Cantidad',
+                },
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Rango de edad',
+                },
+            },
+        },
+        animation: {
+            duration: 500, // Animación más rápida (500 ms)
+            easing: 'easeOutQuad', // Efecto de animación suave
+        },
+    };
+
+    return <Bar data={chartData} options={options} />;
 }
 
 export default BarChartComponent;
