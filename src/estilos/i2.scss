@@ -428,7 +428,7 @@ img {
         //fondo POSTS
         .post-display-col {
             background-color: var(--o2);
-            box-shadow: var(--shadow) var(--o3);
+            box-shadow: var(--shadow) var(--o5);
         }
 
         //barra seleccionada
@@ -653,6 +653,16 @@ img {
                 box-shadow: none;
             }
         }
+
+        .btn-cargar-mas {
+            background-color: var(--o4);
+            color: white;
+            border-radius: 25px;
+            box-shadow: var(--shadow) var(--o5);
+            &:hover {
+              background-color: var(--c3);
+            }
+          }
 
     }
 

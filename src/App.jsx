@@ -13,9 +13,91 @@ import ResetPassword from './paginas/resetPassword';
 import Rachas from './paginas/rachas'
 
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from "react-hot-toast"; // Importa react-hot-toast
+import axios from "axios"; // Puedes usar fetch o axios
 
 // Layout para las páginas principales con Sidebar
 function MainLayout({ closeMenu, setCloseMenu, info }) {
+  // Función para obtener la hora de alerta y mostrar notificaciones
+  const verificarAlerta = async () => {
+    try {
+        const correo = info.correo; // Asegúrate de que info contiene el correo del usuario
+        if (!correo) return;
+
+
+        const respuesta = await axios.get(`http://localhost:5000/alertas/${correo}`);
+        const { mostrarAlerta, frase, emocion } = respuesta.data;
+        console.log(respuesta.data);
+
+        if (mostrarAlerta) {
+          toast((t) => (
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                {/* Icono de campana a la izquierda */}
+                <span style={{ fontSize: "30px", marginRight: 10 }}>🔔</span>
+        
+                {/* Contenedor vertical para la imagen, título y frase */}
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                    {/* Imagen */}
+                    <img
+                        src="/logos.png"
+                        alt="Logo Juno"
+                        style={{ width: 90, height: 90, marginBottom: 10 }}
+                    />
+                    
+                    {/* Título */}
+                    <p style={{ fontWeight: "bold", margin: 0 }}>¡Alerta diaria!</p>
+        
+                    {/* Frase */}
+                    <p style={{ margin: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>{frase}</p>
+                </div>
+        
+                {/* Botón de cierre centrado */}
+                <button 
+                    onClick={() => toast.dismiss(t.id)} 
+                    style={{
+                        marginLeft: 10, 
+                        display: 'flex', 
+                        justifyContent: 'center', 
+                        alignItems: 'center', 
+                        height: '50px', 
+                        width: '70px', 
+                        borderRadius: '40%',
+                        border: 'none',
+                        background: '#d9534f', 
+                        fontWeight: 'bold',
+                        fontSize: '12px'
+                    }}
+                    onMouseEnter={(e) => e.target.style.background = '#ee2d27'} // Color de fondo al pasar el ratón
+                    onMouseLeave={(e) => e.target.style.background = '#d9534f'} // Color de fondo cuando se quita el ratón
+                >
+                    Cerrar
+                </button>
+              </div>
+          ), {
+              style: {
+                  backgroundColor: emocion === "Feliz" ? "#F4D35E" : "#e0a854",
+                  color: "#333",
+                  padding: "20px 30px",   // Aumenta el tamaño de la alerta
+                  fontSize: "21px",        // Ajusta el tamaño del texto
+                  maxWidth: "600px",       // Limita el ancho máximo
+                  borderRadius: "15px",    // Redondeo de bordes
+                  boxShadow: "0px 4px 12px rgba(0,0,0,0.1)", // Agrega sombra
+              },
+
+              duration: Infinity,
+          });
+      }
+    } catch (error) {
+        console.error("Error al verificar la alerta:", error);
+    }
+};
+
+
+  // Hook para verificar alertas periódicamente
+  useEffect(() => {
+    const intervalo = setInterval(verificarAlerta, 60000); // Verifica cada 60 segundos
+    return () => clearInterval(intervalo); // Limpia el intervalo al desmontar el componente
+  }, []);
   
   return (
     <div className="App principal grid-container">
@@ -157,6 +239,7 @@ function App() {
           </ProtectedRoute>
         } />
       </Routes>
+      <Toaster position="top-center" />
     </Router>
   );
 }

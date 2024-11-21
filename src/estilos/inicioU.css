@@ -55,9 +55,9 @@ html {
 
 body {
   font-family: "Mukta", sans-serif;
+  min-height: 100%;
   --background-color: rgb(236, 243, 243);
   font-size: 1rem;
-  min-height: 100%;
   margin: 0;
 }
 
@@ -70,6 +70,7 @@ body {
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow: hidden;
   /* .social-media{
       display: 46px;
       justify-content: center;
@@ -219,7 +220,7 @@ body {
   outline: none;
   border-radius: 49px;
   cursor: pointer;
-  color: var(--c2);
+  color: #cabeca;
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
@@ -356,6 +357,7 @@ body {
   opacity: 0;
 }
 .containerLoginUsuario.sign-up-mode form.sign-up-form {
+  transform: translateY(-80px);
   z-index: 2;
   opacity: 1;
 }
@@ -376,11 +378,12 @@ body {
     transition: 2s ease-in-out;
   }
   .containerLoginUsuario .signin-signup {
-    width: 100%;
+    width: 90%;
+    height: 100%;
     left: 50%;
-    top: 95%;
+    top: 115%;
     transform: translate(-50%, -100%);
-    transition: 1s 0.8s ease-in-out;
+    transition: 1.4s 0.8s ease-in-out;
   }
   .containerLoginUsuario .panels-container {
     grid-template-columns: 1fr;
@@ -447,6 +450,13 @@ body {
     position: relative;
     padding: 1.5rem;
   }
+  .containerLoginUsuario .signin-signup {
+    width: 100%;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -100%);
+    transition: 1.4s 0.8s ease-in-out;
+  }
   .containerLoginUsuario form {
     padding: 0 1.5rem;
   }
@@ -464,7 +474,7 @@ body {
     left: 50%;
   }
   .containerLoginUsuario.sign-up-mode::before {
-    bottom: 40%;
+    bottom: 32%;
     left: 50%;
   }
   .containerLoginUsuario .forms-container {

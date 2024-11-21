@@ -190,7 +190,7 @@ body {
   display: flex;
   align-items: center;
   max-width: 150vh;
-  box-shadow: var(--shadow) var(--c4);
+  box-shadow: var(--shadow) rgb(74, 0, 0);
 }
 .container-custom .row-create-post .d-flex {
   flex-wrap: wrap;
@@ -279,7 +279,7 @@ body {
   border-radius: var(--border);
   align-items: center;
   max-width: 100%;
-  box-shadow: var(--shadow) var(--c2);
+  box-shadow: var(--shadow) rgb(74, 0, 0);
 }
 .container-custom .user-name-post {
   font-size: 1.25rem;
@@ -310,4 +310,13 @@ body {
 }
 .container-custom .emotion-badge.aburrido {
   background-color: var(--aburrido);
+}
+.container-custom .btn-cargar-mas {
+  background-color: var(--c1);
+  color: white;
+  border-radius: 25px;
+  box-shadow: var(--shadow) rgb(74, 0, 0);
+}
+.container-custom .btn-cargar-mas:hover {
+  background-color: var(--c2);
 }/*# sourceMappingURL=Principal.css.map */

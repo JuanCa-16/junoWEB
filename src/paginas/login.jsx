@@ -150,7 +150,7 @@ const Login = () => {
   return (
     <div className={`containerLoginUsuario ${signUpMode ? 'sign-up-mode' : ''}`}>
 
-      <Toaster position="bottom-center" reverseOrder={false} />
+      <Toaster reverseOrder={false} />
 
       <div className="forms-container">
         <div className="signin-signup">

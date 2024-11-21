@@ -25,6 +25,9 @@ const Principal = () => {
   const [openAlert, setOpenAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
+  // Estado para manejar el número de publicaciones visible
+  const [visiblePostsCount, setVisiblePostsCount] = useState(5);
+
   // Obtener el nombre de usuario y correo electrónico desde el backend
   useEffect(() => {
     const fetchUserData = async () => {
@@ -313,7 +316,7 @@ const Principal = () => {
             )}
           </Col>
         ) : (
-          filteredPosts.slice().reverse().map((post, index) => (
+          filteredPosts.slice().reverse().slice(0, visiblePostsCount).map((post, index) => (
             <Col xs={12} key={index} className="post-display-col mb-3 p-3">
               <div className="d-flex">
                 <div className="user-info d-flex flex-column align-items-start">
@@ -337,6 +340,19 @@ const Principal = () => {
             </Col>
           ))
         )}
+      </Row>
+      {/* Botón para cargar más publicaciones */}
+      <Row className="mt-3">
+        <Col xs={12} className="d-flex justify-content-center">
+          {visiblePostsCount < filteredPosts.length && (
+            <Button
+              className="btn-cargar-mas rounded-md"
+              onClick={() => setVisiblePostsCount(visiblePostsCount + 5)}
+            >
+              Cargar más
+            </Button>
+          )}
+        </Col>
       </Row>
 
       {/* Snackbar para mostrar alertas */}
