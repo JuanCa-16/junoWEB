@@ -11,6 +11,7 @@ import Editar from './paginas/editarPerfil';
 import Rachas from './paginas/rachas';
 import ForgotPassword from './paginas/forgotPassword';
 import ResetPassword from './paginas/resetPassword';
+import Racha from './paginas/racha';
 
 import { useEffect, useState } from 'react';
 
@@ -26,9 +27,9 @@ function MainLayout({ closeMenu, setCloseMenu, info }) {
           <Route path="/amigos" element={<Amigos />} />
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/analisis" element={<Analisis />} />
-          <Route path="/perfil" element={<PerfilPer />} />
-          <Route path="/editar-perfil" element={<Editar />} />
-          <Route path="/rachas" element={<Rachas />} />
+          <Route path="/perfil" element={<PerfilPer/>} />
+          <Route path="/editar-perfil" element={<Editar/>} />
+          <Route path="/rachas" element={<Racha/>} />
         </Routes>
       </div>
     </div>

@@ -299,8 +299,8 @@ const Principal = () => {
       </Row>
 
       {/* Mostrar las publicaciones debajo del formulario */}
-      <Row className="mt-5 ">
-        {filteredPosts.length === 0 ? (
+      <Row className="mt-5">
+        {posts.length === 0 ? (
           <Col xs={12} className="bg-posts">
             {selectedBtnSelect === "Amigos" ? (
               <span className="no-posts-text">No tienes amigos aún</span>
