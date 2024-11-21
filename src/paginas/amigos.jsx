@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { toast, Toaster } from 'react-hot-toast';
 import '../estilos/Amigos.css';
 
 function User({ name, onAdd }) {
@@ -193,13 +195,12 @@ function App() {
     }
   };
 
-
-  // Filter out friends from userList and requests from userList
   const filteredUsers = userList.filter(user =>
     user.nombre_usuario.toLowerCase().includes(search.toLowerCase()) &&
     !friends.includes(user.nombre_usuario) &&
     user.nombre_usuario !== username
   );
+
   return (
     <div className="app">
       <Toaster position="top-right" />
