@@ -95,6 +95,15 @@ function Analisis() {
                     ) : (
                         <p>No hay datos disponibles para esta emoción.</p>
                     )}
+                    {rankedCities.map((cityData, index) => (
+                        <div
+                            key={index}
+                            className={`city ${selectedEmotionCity} ${selectedCity === cityData.city ? 'selected' : ''}`}
+                            onClick={() => handleCityClick(cityData.city)}
+                        >
+                            #{index + 1} {cityData.city} - {cityData.score} personas
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
