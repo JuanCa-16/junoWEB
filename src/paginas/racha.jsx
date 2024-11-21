@@ -30,7 +30,7 @@ function Racha() {
 
             {/* Div para los avatares a desbloquear */}
             <div className="avatares-desbloquear">
-                <span>Avatares a desbloquear</span>
+                <span>Avatares a </span>
                 <div className="avatar-container">
                     <div className="avatar desbloqueado">7</div>
                     <div className="avatar">14</div>
