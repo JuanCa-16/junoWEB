@@ -193,10 +193,6 @@ function App() {
     }
   };
 
-  const handleRejectRequest = (name) => {
-    setRequests(requests.filter(request => request !== name));
-    setUserList([...userList, name]);  // Add rejected user back to userList
-  };
 
   // Filter out friends from userList and requests from userList
   const filteredUsers = userList.filter(user =>
@@ -204,10 +200,6 @@ function App() {
     !friends.includes(user.nombre_usuario) &&
     user.nombre_usuario !== username
   );
-    user.toLowerCase().includes(search.toLowerCase()) &&
-    !friends.includes(user)  // Exclude friends from the user list
-  );
-
   return (
     <div className="app">
       <Toaster position="top-right" />
