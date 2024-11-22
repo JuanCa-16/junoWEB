@@ -24,6 +24,11 @@ const PerfilPersonal = () => {
     const emotionsText = ['Todas', 'Feliz', 'Triste', 'Enojado', 'Ansioso', 'Motivado', 'Aburrido'];
     const emotions = [
         { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
+        { emoji: <img src={felizM} alt="Triste" className="emoji-img" />, label: 'Triste' },
+        { emoji: <img src={felizM} alt="Enojado" className="emoji-img" />, label: 'Enojado' },
+        { emoji: <img src={felizM} alt="Ansioso" className="emoji-img" />, label: 'Ansioso' },
+        { emoji: <img src={felizM} alt="Motivado" className="emoji-img" />, label: 'Motivado' },
+        { emoji: <img src={felizM} alt="Aburrido" className="emoji-img" />, label: 'Aburrido' }
         // Agrega más emociones aquí si es necesario
     ];
 
