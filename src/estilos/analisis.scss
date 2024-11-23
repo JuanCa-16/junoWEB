@@ -257,6 +257,261 @@ body {
         }
     }
 
+    .gender-filter {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+    .gender-filter label {
+        margin-right: 10px;
+        color: var(--textc1);
+        font-weight: bold;
+      }
+      
+    .gender-filter select {
+        padding: 8px 12px;
+        background-color: rgba(241, 237, 232, 0.6196078431);
+        border-radius: var(--border2);
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        color: var(--c1);
+      }
+      
+    .gender-filter select:hover {
+        background-color: var(--c5);
+        color: var(--textc5);
+      }
+      
+    .gender-filter select:focus {
+        outline: none;
+        box-shadow: 0 0 5px var(--c5);
+      }
+      
+      /* Sección de las ciudades - Títulos */
+    .top-cities-section h3 {
+        color: var(--textc1);
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      
+      /* Contenedor de las ciudades */
+    .top-cities-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      /* Estilo para cada ciudad en la lista */
+    .top-cities-section ul li {
+        background-color: var(--c3);
+        color: var(--textc3);
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: var(--border2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--shadow) rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      
+      /* Efecto hover para las ciudades */
+     .top-cities-section ul li:hover {
+        transform: scale(1.02);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      
+      /* Estilo para la ciudad en el primer lugar */
+    .top-cities-section ul li:first-child {
+        background-color: var(--feliz); /* Puedes ajustar este color */
+        color: var(--txtfeliz); /* Texto resaltado */
+        font-weight: bold;
+        border: 2px solid var(--txtfeliz); /* Borde para destacar */
+      }
+      
+      /* Ícono o marcador de ranking */
+    .top-cities-section ul li::before {
+        content: "";
+        margin-right: 10px;
+        font-size: 18px;
+        color: black;
+      }
+      
+      /* Flexibilidad para mostrar los datos */
+     .top-cities-section ul li strong {
+        margin-right: 10px;
+        color: var(--textc3);
+      }
+      
+      /* Botones de filtro para emociones */
+     .top-cities-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      
+     .top-cities-filter button {
+        padding: 8px 12px;
+        background-color: rgba(241, 237, 232, 0.6196078431);
+        border-radius: var(--border2);
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s;
+        color: var(--c1);
+      }
+      
+      .top-cities-filter button.selected {
+        background-color: var(--c5);
+        color: var(--textc5);
+      }
+      
+      .top-cities-filter button:hover {
+        background-color: var(--c5);
+        color: var(--textc5);
+      }
+      
+      .top-cities-section {
+        margin-top: 20px;
+        background-color: var(--c2);
+        border-radius: var(--border);
+        padding: 1rem;
+      }
+      
+      .top-cities-section h3 {
+        color: var(--textc1);
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      
+      .city-list {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .city-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--c3);
+        color: var(--textc3);
+        padding: 10px 15px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        transition: transform 0.2s;
+      }
+      
+      .city-list li:first-child {
+        background-color: var(--feliz); /* Cambiar este color según la emoción seleccionada */
+        color: var(--txtfeliz);
+      }
+      
+      .city-list li:first-child.Triste {
+        background-color: var(--triste);
+        color: var(--txttriste);
+      }
+      
+      .city-list li:first-child.Enojado {
+        background-color: var(--enojado);
+        color: var(--txtenojado);
+      }
+      
+      .city-list li:first-child.Ansioso {
+        background-color: var(--ansioso);
+        color: var(--txtansioso);
+      }
+      
+      .city-list li:first-child.Motivado {
+        background-color: var(--motivado);
+        color: var(--txtmotivado);
+      }
+      
+      .city-list li:first-child.Aburrido {
+        background-color: var(--aburrido);
+        color: var(--txtaburrido);
+      }
+      
+      .city-list li:hover {
+        transform: translateY(-2px);
+        background-color: var(--c4);
+        color: var(--textc4);
+      }
+      
+      .filter-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .filter {
+        padding: 8px 12px;
+        background-color: rgba(241, 237, 232, 0.8);
+        border-radius: 10px;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s;
+      }
+      
+      .filter:hover {
+        background-color: var(--c5);
+        color: var(--textc5);
+      }
+      
+      .filter.selected {
+        background-color: var(--c5);
+        color: var(--textc5);
+      }
+      
+      .filter.Feliz.selected {
+        background-color: var(--feliz);
+        color: var(--txtfeliz);
+      }
+      
+      .filter.Triste.selected {
+        background-color: var(--triste);
+        color: var(--txttriste);
+      }
+      
+      .filter.Enojado.selected {
+        background-color: var(--enojado);
+        color: var(--txtenojado);
+      }
+      
+      /* Ciudad número 1 según la emoción */
+       .top-cities-section ul li.Feliz {
+        background-color: var(--feliz);
+        color: var(--txtfeliz);
+      }
+      
+      .top-cities-section ul li.Triste {
+        background-color: var(--triste);
+        color: var(--txttriste);
+      }
+      
+       .top-cities-section ul li.Enojado {
+        background-color: var(--enojado);
+        color: var(--txtenojado);
+      }
+      
+       .top-cities-section ul li.Ansioso {
+        background-color: var(--ansioso);
+        color: var(--txtansioso);
+      }
+      
+      .top-cities-section ul li.Motivado {
+        background-color: var(--motivado);
+        color: var(--txtmotivado);
+      }
+      
+      .top-cities-section ul li.Aburrido {
+        background-color: var(--aburrido);
+        color: var(--txtaburrido);
+      }
+
     // .city.selected {
     //     background-color: #C8B9A6;
     //     color: #192229; /* Texto negro en el botón de ciudad seleccionado */

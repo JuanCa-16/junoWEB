@@ -61,6 +61,15 @@ body {
   /* Filtros de análisis por edades */
   /* Gráficos de barras */
   /* Ciudades */
+  /* Sección de las ciudades - Títulos */
+  /* Contenedor de las ciudades */
+  /* Estilo para cada ciudad en la lista */
+  /* Efecto hover para las ciudades */
+  /* Estilo para la ciudad en el primer lugar */
+  /* Ícono o marcador de ranking */
+  /* Flexibilidad para mostrar los datos */
+  /* Botones de filtro para emociones */
+  /* Ciudad número 1 según la emoción */
 }
 .container-analisis .app::-webkit-scrollbar {
   display: none; /* Chrome, Safari y Opera */
@@ -217,13 +226,11 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-
 .container-analisis .gender-filter label {
   margin-right: 10px;
   color: var(--textc1);
   font-weight: bold;
 }
-
 .container-analisis .gender-filter select {
   padding: 8px 12px;
   background-color: rgba(241, 237, 232, 0.6196078431);
@@ -233,33 +240,25 @@ body {
   transition: background-color 0.3s;
   color: var(--c1);
 }
-
 .container-analisis .gender-filter select:hover {
   background-color: var(--c5);
   color: var(--textc5);
 }
-
 .container-analisis .gender-filter select:focus {
   outline: none;
   box-shadow: 0 0 5px var(--c5);
 }
-
-/* Sección de las ciudades - Títulos */
 .container-analisis .top-cities-section h3 {
   color: var(--textc1);
   font-size: 20px;
   margin-bottom: 15px;
   font-weight: bold;
 }
-
-/* Contenedor de las ciudades */
 .container-analisis .top-cities-section ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-/* Estilo para cada ciudad en la lista */
 .container-analisis .top-cities-section ul li {
   background-color: var(--c3);
   color: var(--textc3);
@@ -273,43 +272,32 @@ body {
   font-size: 16px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
-/* Efecto hover para las ciudades */
 .container-analisis .top-cities-section ul li:hover {
   transform: scale(1.02);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-
-/* Estilo para la ciudad en el primer lugar */
 .container-analisis .top-cities-section ul li:first-child {
   background-color: var(--feliz); /* Puedes ajustar este color */
   color: var(--txtfeliz); /* Texto resaltado */
   font-weight: bold;
   border: 2px solid var(--txtfeliz); /* Borde para destacar */
 }
-
-/* Ícono o marcador de ranking */
 .container-analisis .top-cities-section ul li::before {
   content: "";
   margin-right: 10px;
   font-size: 18px;
   color: black;
 }
-
-/* Flexibilidad para mostrar los datos */
 .container-analisis .top-cities-section ul li strong {
   margin-right: 10px;
   color: var(--textc3);
 }
-
-/* Botones de filtro para emociones */
 .container-analisis .top-cities-filter {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
 }
-
 .container-analisis .top-cities-filter button {
   padding: 8px 12px;
   background-color: rgba(241, 237, 232, 0.6196078431);
@@ -319,36 +307,30 @@ body {
   transition: background-color 0.3s;
   color: var(--c1);
 }
-
 .container-analisis .top-cities-filter button.selected {
   background-color: var(--c5);
   color: var(--textc5);
 }
-
 .container-analisis .top-cities-filter button:hover {
   background-color: var(--c5);
   color: var(--textc5);
 }
-
 .container-analisis .top-cities-section {
   margin-top: 20px;
   background-color: var(--c2);
   border-radius: var(--border);
   padding: 1rem;
 }
-
 .container-analisis .top-cities-section h3 {
   color: var(--textc1);
   font-size: 20px;
   margin-bottom: 15px;
 }
-
-.city-list {
+.container-analisis .city-list {
   list-style: none;
   padding: 0;
 }
-
-.city-list li {
+.container-analisis .city-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -359,50 +341,41 @@ body {
   margin-bottom: 10px;
   transition: transform 0.2s;
 }
-
-.city-list li:first-child {
+.container-analisis .city-list li:first-child {
   background-color: var(--feliz); /* Cambiar este color según la emoción seleccionada */
   color: var(--txtfeliz);
 }
-
-.city-list li:first-child.Triste {
+.container-analisis .city-list li:first-child.Triste {
   background-color: var(--triste);
   color: var(--txttriste);
 }
-
-.city-list li:first-child.Enojado {
+.container-analisis .city-list li:first-child.Enojado {
   background-color: var(--enojado);
   color: var(--txtenojado);
 }
-
-.city-list li:first-child.Ansioso {
+.container-analisis .city-list li:first-child.Ansioso {
   background-color: var(--ansioso);
   color: var(--txtansioso);
 }
-
-.city-list li:first-child.Motivado {
+.container-analisis .city-list li:first-child.Motivado {
   background-color: var(--motivado);
   color: var(--txtmotivado);
 }
-
-.city-list li:first-child.Aburrido {
+.container-analisis .city-list li:first-child.Aburrido {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
 }
-
-.city-list li:hover {
+.container-analisis .city-list li:hover {
   transform: translateY(-2px);
   background-color: var(--c4);
   color: var(--textc4);
 }
-
 .container-analisis .filter-container {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-
-.filter {
+.container-analisis .filter {
   padding: 8px 12px;
   background-color: rgba(241, 237, 232, 0.8);
   border-radius: 10px;
@@ -410,59 +383,47 @@ body {
   border: none;
   transition: background-color 0.3s;
 }
-
-.filter:hover {
+.container-analisis .filter:hover {
   background-color: var(--c5);
   color: var(--textc5);
 }
-
-.filter.selected {
+.container-analisis .filter.selected {
   background-color: var(--c5);
   color: var(--textc5);
 }
-
-.filter.Feliz.selected {
+.container-analisis .filter.Feliz.selected {
   background-color: var(--feliz);
   color: var(--txtfeliz);
 }
-
-.filter.Triste.selected {
+.container-analisis .filter.Triste.selected {
   background-color: var(--triste);
   color: var(--txttriste);
 }
-
-.filter.Enojado.selected {
+.container-analisis .filter.Enojado.selected {
   background-color: var(--enojado);
   color: var(--txtenojado);
 }
-
-/* Ciudad número 1 según la emoción */
 .container-analisis .top-cities-section ul li.Feliz {
   background-color: var(--feliz);
   color: var(--txtfeliz);
 }
-
 .container-analisis .top-cities-section ul li.Triste {
   background-color: var(--triste);
   color: var(--txttriste);
 }
-
 .container-analisis .top-cities-section ul li.Enojado {
   background-color: var(--enojado);
   color: var(--txtenojado);
 }
-
 .container-analisis .top-cities-section ul li.Ansioso {
   background-color: var(--ansioso);
   color: var(--txtansioso);
 }
-
 .container-analisis .top-cities-section ul li.Motivado {
   background-color: var(--motivado);
   color: var(--txtmotivado);
 }
-
 .container-analisis .top-cities-section ul li.Aburrido {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
-}
+}/*# sourceMappingURL=analisis.css.map */
