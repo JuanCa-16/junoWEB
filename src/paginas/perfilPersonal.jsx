@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import perfil from '../imagenes/ava1.png';
 import racha from '../imagenes/racha.png';
 import { MdLocationOn } from "react-icons/md";
-import BarChartPerfil from '../componentes/barChartPerfil';// Importa el nuevo componente
+import BarChartPerfil from '../componentes/BarChartPerfil';// Importa el nuevo componente
 import { Row, Col } from "react-bootstrap";
 import avatar1 from '../imagenes/ava1.png';
 import "bootstrap/dist/css/bootstrap.min.css";
