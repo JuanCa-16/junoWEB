@@ -12,7 +12,8 @@ import { FaMoon } from "react-icons/fa6";
 import { IoMdSunny } from "react-icons/io";
 import { IoExit } from "react-icons/io5";
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
-const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU }) => {
+
+const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU, rachaFelizCount }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -55,8 +56,8 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU }) => {
                 <img src={racha} alt="Racha"></img>
                 <div className="profileContents">
                     <div className="dias">
-                        <p className='texto1'>7</p> 
-                        <p className='texto2'>días</p> 
+                        <p className='texto1'>{rachaFelizCount}</p> 
+                        <p className='texto2'>Días</p> 
                     </div>
                     <h3 className='texto3'>FELICES</h3> 
                 </div>
