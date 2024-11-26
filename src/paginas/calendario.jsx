@@ -116,6 +116,8 @@ const Calendario = () => {
     const [eventos, setEventos] = useState([]);
     const [correoUsuario, setCorreoUsuario] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
+    const [currentView, setCurrentView] = useState('month'); // Estado de vista actual
+    const [currentDate, setCurrentDate] = useState(moment().toDate()); // Estado de fecha actual
 
     useEffect(() => {
         const fetchUsuario = async () => {
@@ -153,9 +155,13 @@ const Calendario = () => {
     }, [correoUsuario]);
 
     const handleEventClick = (event) => {
-        console.log('Evento seleccionado:', event); // Debug
+        if (event.title.includes('Racha Diaria')) {
+            alert('No puedes editar la Racha Diaria.');
+            return;  // Evita que el evento sea editable
+        }
         setEventoSelecionado(event);
         setModalVisible(true);
+        
     };
 
     const handleEventClose = () => {
@@ -168,20 +174,35 @@ const Calendario = () => {
         setModalVisible(true);
     };
 
+    const handleDrillDown = (date) => {
+        setCurrentView('agenda'); // Cambia manualmente a la vista de agenda
+        setCurrentDate(date); // Cambia a la fecha seleccionada
+    };
+    
+
     const handleAddOrUpdateEvent = async (eventData) => {
         const eventoConCorreo = { ...eventData, correo_usuario: correoUsuario };
-
-        if (!eventoConCorreo.title || !eventoConCorreo.emocion) {
+    
+        if (!eventoConCorreo.title || !eventoConCorreo.emocion || !eventoConCorreo.desc) {
             alert('Por favor, completa todos los campos obligatorios.');
             return;
         }
-
+    
         try {
             if (eventoSelecionado?.id) {
+                // Si hay un evento seleccionado, actualiza el evento
                 const response = await axios.put(`http://localhost:5000/calendario/${eventoSelecionado.id}`, eventoConCorreo);
                 setEventos(eventos.map((event) => (event.id === eventoSelecionado.id ? response.data : event)));
             } else {
+                // Si no hay un evento seleccionado, crea uno nuevo
                 const response = await axios.post('http://localhost:5000/calendario/eventos', eventoConCorreo);
+                
+                // Si el backend devuelve un error de "racha ya registrada", muestra un mensaje
+                if (response.status === 400) {
+                    alert(response.data.message);
+                    return;
+                }
+    
                 setEventos([...eventos, response.data]); // Añadir el nuevo evento
             }
         } catch (error) {
@@ -193,6 +214,7 @@ const Calendario = () => {
             setEventoSelecionado(null);
         }
     };
+    
 
     const estiloEvento = (evento) => {
         const colorMap = {
@@ -216,15 +238,20 @@ const Calendario = () => {
             <Calendar
                 localizer={localizer}
                 events={eventos}
+                date={currentDate}
+                view={currentView}
+                onNavigate={(date) => setCurrentDate(date)}
+                onView={(view) => setCurrentView(view)}
+                onDrillDown={handleDrillDown}
                 key={eventos.length}
                 onSelectEvent={handleEventClick}
                 onSelectSlot={handleSelectSlot}
                 eventPropGetter={estiloEvento}
                 selectable
+                defaultDate={moment().toDate()}
                 components={{
                     toolbar: CustomToolbar,
                 }}
-                defaultDate={moment().toDate()}
                 defaultView="month"
                 style={{ height: '100%', width: '100%' }}
                 messages={{
