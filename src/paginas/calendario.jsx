@@ -23,17 +23,32 @@ const EventModal = ({ evento, onClose, onSave }) => {
     });
 
     // useEffect para actualizar el estado cuando cambie el evento
-    useEffect(() => {
+        useEffect(() => {
         if (evento) {
             setEventData({
                 title: evento.title || '',
                 desc: evento.descripcion || '', // Asegúrate de que esta propiedad sea la correcta
                 emocion: evento.emocion || '',
-                start: new Date(evento.start), // Asegúrate de que sea un objeto Date
-                end: new Date(evento.end),     // Asegúrate de que sea un objeto Date
+                start: new Date(evento.start), // Convertir a Date
+                end: new Date(evento.end), // Convertir a Date
+            });
+        } else {
+            setEventData({
+                title: '',
+                desc: '',
+                emocion: '',
+                start: new Date(),
+                end: new Date(),
             });
         }
     }, [evento]);
+
+    const handleDateChange = (date, field) => {
+        setEventData({
+            ...eventData,
+            [field]: moment(date).toDate(), // Aseguramos la consistencia de fechas
+        });
+    };
 
     const handleSave = () => {
         if (onSave) {
@@ -85,7 +100,7 @@ const EventModal = ({ evento, onClose, onSave }) => {
                         <DatePicker
                             className="form-control"
                             selected={eventData.start}
-                            onChange={(date) => setEventData({ ...eventData, start: date })}
+                            onChange={(date) => handleDateChange(date, 'start')}
                             showTimeSelect
                             dateFormat="Pp"
                         />
@@ -95,7 +110,7 @@ const EventModal = ({ evento, onClose, onSave }) => {
                         <DatePicker
                             className="form-control"
                             selected={eventData.end}
-                            onChange={(date) => setEventData({ ...eventData, end: date })}
+                            onChange={(date) => handleDateChange(date, 'end')}
                             showTimeSelect
                             dateFormat="Pp"
                         />
@@ -109,6 +124,7 @@ const EventModal = ({ evento, onClose, onSave }) => {
         </div>
     );
 };
+
 
 const Calendario = () => {
     const localizer = momentLocalizer(moment);
@@ -139,14 +155,22 @@ const Calendario = () => {
         fetchUsuario();
     }, []);
 
-    const fetchEventos = async () => {
-        try {
-            const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
-            setEventos(response.data);
-        } catch (error) {
-            console.error('Error al cargar los eventos:', error);
-        }
-    };
+const fetchEventos = async () => {
+    try {
+        const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
+        const eventosValidos = response.data
+            .map((event) => ({
+                ...event,
+                start: moment.utc(event.start).local().toDate(), // De UTC a local
+                end: moment.utc(event.end).local().toDate(),
+            }))
+            .filter((event) => event.start < event.end); // Filtrar eventos inválidos
+
+        setEventos(eventosValidos); // Actualizar el estado con los eventos válidos
+    } catch (error) {
+        console.error('Error al cargar los eventos:', error);
+    }
+};
 
     useEffect(() => {
         if (correoUsuario) {
@@ -181,7 +205,10 @@ const Calendario = () => {
     
 
     const handleAddOrUpdateEvent = async (eventData) => {
-        const eventoConCorreo = { ...eventData, correo_usuario: correoUsuario };
+        const eventoConCorreo = { ...eventData, correo_usuario: correoUsuario,
+            start: moment(eventData.start).utc().format(), // Enviar como UTC
+            end: moment(eventData.end).utc().format(),     // Enviar como UTC
+        };
     
         if (!eventoConCorreo.title || !eventoConCorreo.emocion || !eventoConCorreo.desc) {
             alert('Por favor, completa todos los campos obligatorios.');
@@ -243,7 +270,7 @@ const Calendario = () => {
                 onNavigate={(date) => setCurrentDate(date)}
                 onView={(view) => setCurrentView(view)}
                 onDrillDown={handleDrillDown}
-                key={eventos.length}
+                key={`${eventos.length}-${currentView}`}
                 onSelectEvent={handleEventClick}
                 onSelectSlot={handleSelectSlot}
                 eventPropGetter={estiloEvento}
@@ -252,6 +279,7 @@ const Calendario = () => {
                 components={{
                     toolbar: CustomToolbar,
                 }}
+                
                 defaultView="month"
                 style={{ height: '100%', width: '100%' }}
                 messages={{
