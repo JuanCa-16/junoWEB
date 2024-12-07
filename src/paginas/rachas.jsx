@@ -3,9 +3,6 @@ import rachaImg from '../imagenes/racha.png';
 import '../estilos/rachas.scss';
 import axios from 'axios';
 
-
-
-
 function Rachas() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModalHoraOpen, setIsModalHoraOpen] = useState(false);
@@ -19,7 +16,8 @@ function Rachas() {
     const [emocionHoy, setEmocionHoy] = useState('Feliz');
     const [horaAlerta, setHoraAlerta] = useState('07:00');
     const [isEditable, setIsEditable] = useState(true); // Estado para controlar si los modales son editables
-    const [rachaFelizCount, setRachaFelizCount] = useState(0);
+    const [rachaMaxima, setRachaMaxima] = useState(0);  // Racha máxima de días consecutivos
+    const [rachaActual, setRachaActual] = useState(0);  // Racha actual de días consecutivos
 
     const coloresEmociones = {
         Triste: '#7289da',
@@ -65,13 +63,36 @@ function Rachas() {
             // Verifica si la respuesta es la esperada (un array de eventos)
             if (Array.isArray(response.data)) {
                 const eventos = response.data;
-                
+    
                 // Filtra solo los eventos que son de 'Racha Diaria' y con 'emocion' igual a 'Feliz'
                 const rachasFelices = eventos.filter(evento => 
                     evento.title && evento.title.includes('Racha Diaria') && evento.emocion && evento.emocion.toLowerCase() === 'feliz'
                 );
+                
+                // Ordenar los eventos por fecha (de más reciente a más antiguo)
+                rachasFelices.sort((a, b) => new Date(a.start) - new Date(b.start));
     
-                setRachaFelizCount(rachasFelices.length); // Establece el contador de días felices
+                // Contar los días consecutivos
+                let maxConsecutiveDays = 0;
+                let currentStreak = 1; // Comienza contando el primer día como 1
+                for (let i = 1; i < rachasFelices.length; i++) {
+                    const prevDate = new Date(rachasFelices[i - 1].start);
+                    const currentDate = new Date(rachasFelices[i].start);
+    
+                    // Verifica si la diferencia entre las fechas es de un solo día
+                    if (currentDate - prevDate === 24 * 60 * 60 * 1000) { // 24 horas en milisegundos
+                        currentStreak++; // Si son consecutivos, incrementa la racha
+                    } else {
+                        // Si no son consecutivos, restablece la racha y verifica si es la mayor
+                        maxConsecutiveDays = Math.max(maxConsecutiveDays, currentStreak);
+                        currentStreak = 1; // Resetea la racha
+                    }
+                }
+    
+                // Asegúrate de actualizar la racha máxima después de recorrer todos los eventos
+                maxConsecutiveDays = Math.max(maxConsecutiveDays, currentStreak);
+    
+                setRachaFelizCount(maxConsecutiveDays); // Establece el contador de rachas consecutivas
             } else {
                 console.error('La respuesta no es un arreglo de eventos', response.data);
             }
@@ -79,18 +100,89 @@ function Rachas() {
             console.error('Error al contar los eventos:', error);
         }
     };
+
+    const contarRachas = (eventos) => {
+        const eventosFelices = eventos.filter(evento => 
+            evento.title.includes('Racha Diaria') && evento.emocion.toLowerCase() === 'feliz'
+        );
+
+        if (eventosFelices.length === 0) return;
+
+        // Ordena los eventos por fecha
+        eventosFelices.sort((a, b) => new Date(a.start) - new Date(b.start));
+
+        let maxRacha = 0;
+        let rachaActual = 1;
+        let ultimaFecha = new Date(eventosFelices[0].start);
+
+        eventosFelices.forEach((evento, index) => {
+            const fechaEvento = new Date(evento.start);
+            const diferenciaDias = (fechaEvento - ultimaFecha) / (1000 * 3600 * 24);  // Diferencia en días
+
+            if (diferenciaDias === 1) {
+                rachaActual++;  // Si es consecutivo, aumenta la racha actual
+            } else {
+                maxRacha = Math.max(maxRacha, rachaActual);  // Actualiza la racha máxima si es necesario
+                rachaActual = 1;  // Reinicia la racha actual
+            }
+
+            ultimaFecha = fechaEvento;
+        });
+
+        maxRacha = Math.max(maxRacha, rachaActual);  // Verifica la última racha
+
+        setRachaMaxima(maxRacha);
+        setRachaActual(rachaActual);
+    };
+
+    // Obtener los eventos del usuario y contar las rachas
+    useEffect(() => {
+        const fetchEventos = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
+                if (Array.isArray(response.data)) {
+                    contarRachas(response.data);
+                }
+            } catch (error) {
+                console.error('Error al obtener los eventos:', error);
+            }
+        };
+
+        if (correoUsuario) {
+            fetchEventos();
+        }
+    }, [correoUsuario]);
     
     useEffect(() => {
         const fechaHoy = new Date().toISOString().split('T')[0]; // Solo la fecha (sin hora)
-        const fechaUltimaRacha = localStorage.getItem('fechaUltimaRacha');
-
-        // Si la fecha guardada en localStorage es la misma que hoy, desactiva la edición de los modales
-        if (fechaUltimaRacha === fechaHoy) {
-            setIsEditable(false);
-        } else {
-            setIsEditable(true);
+        
+        const fetchRachaDiaria = async () => {
+            try {
+                // Realiza una solicitud para obtener los eventos del usuario
+                const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
+                
+                // Verifica si hay algún evento de "Racha Diaria" para hoy
+                const eventosRachaHoy = response.data.filter(evento => 
+                    evento.title.includes('Racha Diaria') && 
+                    new Date(evento.start).toISOString().split('T')[0] === fechaHoy
+                );
+                
+                if (eventosRachaHoy.length > 0) {
+                    // Si ya existe un evento para hoy, deshabilita la edición
+                    setIsEditable(false);
+                } else {
+                    // Si no existe evento de "Racha Diaria" para hoy, permite la edición
+                    setIsEditable(true);
+                }
+            } catch (error) {
+                console.error('Error al verificar los eventos de Racha Diaria:', error);
+            }
+        };
+    
+        if (correoUsuario) {
+            fetchRachaDiaria();
         }
-    }, []);
+    }, [correoUsuario]);
 
     useEffect(() => {
         // Recuperar los valores de localStorage si existen
@@ -159,6 +251,7 @@ function Rachas() {
     
             // Actualiza el contador de días felices
             contarEventosFeliz();
+            setIsEditable(false); // Bloquea la edición del modal
     
         } catch (error) {
             // Si el error es 400, significa que ya se registró la racha diaria
@@ -174,28 +267,66 @@ function Rachas() {
     
     
     // Modifica el botón "Enviar" para que llame a esta función
-    const handleEnviar = () => {
-        setIsEditable(false); // Bloquea la edición de los modales
-        handleCrearEvento();  // Crea el evento
+    const handleEnviar = async () => {
+        
     
-        // Guardar la emoción y hora en localStorage
-        localStorage.setItem('emocionHoy', emocionHoy);
-        localStorage.setItem('horaAlerta', horaAlerta);
-        const fechaHoy = new Date().toISOString().split('T')[0]; // Solo la fecha (sin hora)
-        localStorage.setItem('fechaUltimaRacha', fechaHoy);
+        // Consultar al backend para verificar si ya existe un evento de Racha Diaria para hoy
+        const fechaHoy = new Date().toISOString().split('T')[0]; // Solo la fecha sin hora
+        try {
+            const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
+            const eventos = response.data;
+    
+            // Filtrar para ver si ya existe un evento de "Racha Diaria" para hoy
+            const eventoExistente = eventos.some(evento => 
+                evento.title.includes('Racha Diaria') && 
+                evento.emocion.toLowerCase() === 'feliz' &&
+                new Date(evento.start).toISOString().split('T')[0] === fechaHoy
+            );
+    
+            if (eventoExistente) {
+                // Si ya existe el evento, bloqueamos la edición y mostramos un mensaje
+                alert("Ya has registrado tu racha diaria para hoy.");
+                return;
+            }
+    
+            // Si no existe, permitimos la creación del evento
+            handleCrearEvento();
+            
+            // Guardar la emoción y hora en localStorage
+            localStorage.setItem('emocionHoy', emocionHoy);
+            localStorage.setItem('horaAlerta', horaAlerta);
+            localStorage.setItem('fechaUltimaRacha', fechaHoy);
+            
+        } catch (error) {
+            console.error('Error al verificar eventos:', error);
+            alert('Hubo un problema al verificar los eventos. Intenta nuevamente.');
+            setIsEditable(true); // Rehabilitar la edición en caso de error
+        }
     };
 
     return (
         <div className="container-rachas-pag">
-            <div className="racha">
-                <div className="icono-racha">
-                    <img src={rachaImg} alt="Fuego" />
-                </div>
-                <div className="texto-racha">
-                    <h2>{rachaFelizCount} Días</h2>
-                    <span>FELIZ</span>
-                </div>
-            </div>
+        <div className="rachas-contenedor">
+    <div className="racha">
+        <div className="icono-racha">
+            <img src={rachaImg} alt="Fuego" />
+        </div>
+        <div className="texto-racha">
+            <h2>{rachaActual} Días</h2> {/* Contador para la racha actual */}
+            <span>Racha Actual</span>
+        </div>
+    </div>
+
+    <div className="racha-maxima">
+        <div className="icono-racha">
+            <img src={rachaImg} alt="Fuego" />
+        </div>
+        <div className="texto-racha">
+            <h2>{rachaMaxima} Días</h2> {/* Contador para la racha máxima */}
+            <span>Racha Máxima</span>
+        </div>
+    </div>
+</div>
 
             <div className="emocion-hoy">
                 <div className="emocion">
