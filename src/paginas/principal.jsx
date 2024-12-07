@@ -6,6 +6,7 @@ import "../estilos/Principal.scss";
 import { FaPencil } from "react-icons/fa6";
 import avatar1 from '../imagenes/ava1.png';
 import { Snackbar, Alert } from "@mui/material";
+import toast, { Toaster } from "react-hot-toast"; // Importa react-hot-toast
 
 const Principal = () => {
   const [selectedBtnSelect, setSelectedBtnSelect] = useState("Todos");
@@ -126,6 +127,29 @@ const Principal = () => {
   };
 
   const handlePublishClick = async () => {
+    const sensitiveWords = ["matar", "odio","asesinar","asesinarme","armas"]; // Lista de palabras sensibles
+
+    const depresionAlert = [
+      "suicidio", "depresión", "suicidar", "acabar mi vida", "suicidarme", "dead", 
+      "matarme", "degoyarme", "ahorcarme", "cortarme", "desangrarme", 
+      "morir", "no quiero vivir", "terminar todo", "vacío", "sin esperanza", 
+      "triste", "desesperado", "inútil", "fracaso", "quiero desaparecer", 
+      "dolor", "insomnio", "autoagresión", "autolesión", "herirme", "odio mi vida", 
+      "muerte", "rendirme", "nadie me entiende", "nadie me quiere", 
+      "estoy solo", "estoy perdida", "ya no puedo más", "ya no aguanto más", 
+      "adiós para siempre", "quiero dormir para siempre", "cansado de todo"
+    ];
+    
+    // Validar si el texto contiene alguna palabra sensible
+    const containsSensitiveWords = sensitiveWords.some((word) =>
+      postText.toLowerCase().includes(word)
+    );
+
+    const containsDepressionWords = depresionAlert.some((word) =>
+      postText.toLowerCase().includes(word)
+    );
+
+
     if (!selectedEmotionPost) {
       setAlertMessage("Selecciona una emoción de cómo te sientes para poder publicar");
       setOpenAlert(true);
@@ -134,6 +158,84 @@ const Principal = () => {
 
     if (postText.length === 0) {
       setAlertMessage("Escribe algo antes de publicar, ¡venga yo sé que puedes!");
+      setOpenAlert(true);
+      return;
+    }
+
+    if (containsDepressionWords) {
+          toast((t) => (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              {/* Icono de campana a la izquierda */}
+              <span style={{ fontSize: "30px", marginRight: 10 }}>🧠</span>
+      
+              {/* Contenedor vertical para la imagen, título y frase */}
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                  {/* Imagen */}
+                  <img
+                      src="/logos.png"
+                      alt="Logo Juno"
+                      style={{ width: 90, height: 90, marginBottom: 10 }}
+                  />
+                  
+                  {/* Título */}
+                  <p style={{ fontWeight: "bold", margin: 0 }}>En Juno, <span style={{ fontSize: "1.5em", color: "#ec7c26" }}>TU</span> nos importas</p>
+      
+                  {/* Frase */}
+                  <p style={{ margin: 0, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>No esperes a que sea demasiado tarde para buscar ayuda, nuestro equipo esta dispuesto a escucharte y brindarte el apoyo que necesites, <span style={{fontSize: "1.2em", fontWeight: "bold"}}>¡No estas solo!</span></p>
+                  {/* Texto adicional con enlace */}
+                  <p style={{ marginTop: 10, textAlign: 'center' }}>
+                    Tenemos un regalo para ti:{" "}
+                    <a 
+                      href="https://www.minsalud.gov.co/salud/publica/SMental/Paginas/salud-mental-y-convivencia-social.aspx" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ color: "#ec7c26", textDecoration: "none", fontWeight: "bold" }}
+                    >
+                      haz clic aquí
+                    </a>
+                  </p>
+              </div>
+      
+              {/* Botón de cierre centrado */}
+              <button 
+                  onClick={() => toast.dismiss(t.id)} 
+                  style={{
+                      marginLeft: 10, 
+                      display: 'flex', 
+                      justifyContent: 'center', 
+                      alignItems: 'center', 
+                      height: '40px', 
+                      width: '150px', 
+                      borderRadius: '40%',
+                      border: 'none',
+                      background: '#d9534f', 
+                      fontWeight: 'bold',
+                      fontSize: '12px'
+                  }}
+                  onMouseEnter={(e) => e.target.style.background = '#ee2d27'} // Color de fondo al pasar el ratón
+                  onMouseLeave={(e) => e.target.style.background = '#d9534f'} // Color de fondo cuando se quita el ratón
+              >
+                  Cerrar
+              </button>
+            </div>
+        ), {
+            style: {
+                backgroundColor: "#4a192c",
+                color: "#dcae8f",
+                padding: "20px 30px",   // Aumenta el tamaño de la alerta
+                fontSize: "21px",        // Ajusta el tamaño del texto
+                maxWidth: "600px",       // Limita el ancho máximo
+                borderRadius: "15px",    // Redondeo de bordes
+                boxShadow: "0px 4px 12px rgba(0,0,0,0.1)", // Agrega sombra
+            },
+
+            duration: Infinity,
+        });
+      return;
+    }
+
+    if (containsSensitiveWords) {
+      setAlertMessage("Tu publicación contiene palabras sensibles. Por favor, revisa el contenido.");
       setOpenAlert(true);
       return;
     }
