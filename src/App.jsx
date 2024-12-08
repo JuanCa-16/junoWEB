@@ -11,13 +11,14 @@ import Editar from './paginas/editarPerfil';
 import ForgotPassword from './paginas/forgotPassword';
 import ResetPassword from './paginas/resetPassword';
 import Rachas from './paginas/rachas'
+import Foto from './paginas/fotoPerfil'
 
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from "react-hot-toast"; // Importa react-hot-toast
 import axios from "axios"; // Puedes usar fetch o axios
 
 // Layout para las páginas principales con Sidebar
-function MainLayout({ closeMenu, setCloseMenu, info }) {
+function MainLayout({ closeMenu, setCloseMenu, info, infoFoto }) {
   // Función para obtener la hora de alerta y mostrar notificaciones
   const verificarAlerta = async () => {
     try {
@@ -101,7 +102,7 @@ function MainLayout({ closeMenu, setCloseMenu, info }) {
   
   return (
     <div className="App principal grid-container">
-      <Sidebar closeMenu={closeMenu} setCloseMenu={setCloseMenu} infoU = {info}/>
+      <Sidebar closeMenu={closeMenu} setCloseMenu={setCloseMenu} infoU = {info} infoF = {infoFoto}/>
       <div className={closeMenu === false ? "info" : "info active"}>
         <Routes>
           <Route path="/principal" element={<Principal />} />
@@ -111,6 +112,7 @@ function MainLayout({ closeMenu, setCloseMenu, info }) {
           <Route path="/perfil" element={<PerfilPer/>} />
           <Route path="/editar-perfil" element={<Editar/>} />
           <Route path="/rachas" element={<Rachas/>} />
+          <Route path="/editarFoto" element={<Foto/>} />
         </Routes>
       </div>
     </div>
@@ -165,7 +167,7 @@ function AuthLayout() {
   );
 }
 
-const ProtectedRoute = ({ setInfoU, children }) => {
+const ProtectedRoute = ({ setInfoU, setInfoUfoto, children }) => {
   const [isAuth, setIsAuth] = useState(null);
   
   const tokenJWT = localStorage.getItem('token');
@@ -185,6 +187,16 @@ const ProtectedRoute = ({ setInfoU, children }) => {
       if (data.token) {
         setInfoU(data); // Aquí se utiliza setInfoU correctamente
         setIsAuth(true);
+
+        const userEmail = data.correo;
+
+        const response = await fetch(`http://localhost:5000/perfil//idfoto/${userEmail}`);
+            const data2 = await response.json();
+            if (response.ok) {
+                setInfoUfoto(data2.referencia_foto); 
+            } else {
+                console.error('Error:', data2.error);
+            }
       } else {
         setIsAuth(false);
       }
@@ -196,7 +208,7 @@ const ProtectedRoute = ({ setInfoU, children }) => {
 
   useEffect(() => {
     estaAutenticado();
-  }, [tokenJWT, setInfoU]); // Asegúrate de incluir setInfoU como dependencia
+  }, [tokenJWT, setInfoU, setInfoUfoto]); // Asegúrate de incluir setInfoU como dependencia
 
   // Mostrar loader mientras se verifica la autenticación
   if (isAuth === null) {
@@ -217,9 +229,13 @@ function App() {
   });
 
   const [info, setInfo] = useState(null);
+  const [infoFoto, setInfoFoto] = useState(null);
 
   const setInfoU = (i) => {
     setInfo(i);
+  };
+  const setInfoUfoto = (i) => {
+    setInfoFoto(i);
   };
 
   return (
@@ -234,8 +250,8 @@ function App() {
 
         {/* Rutas principales con Sidebar */}
         <Route path="/*" element={
-          <ProtectedRoute setInfoU={setInfoU}>
-            <MainLayout closeMenu={closeMenu} setCloseMenu={setCloseMenu} info={info} />
+          <ProtectedRoute setInfoU={setInfoU} setInfoUfoto={setInfoUfoto}>
+            <MainLayout closeMenu={closeMenu} setCloseMenu={setCloseMenu} info={info} infoFoto={infoFoto}/>
           </ProtectedRoute>
         } />
       </Routes>

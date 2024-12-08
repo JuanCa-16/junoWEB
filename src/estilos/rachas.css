@@ -46,30 +46,41 @@
 .container-rachas-pag ::-webkit-scrollbar {
   display: none;
 }
-.container-rachas-pag .racha {
+.container-rachas-pag .rachas-contenedor {
+  display: flex;
+  justify-content: center; /* Centra las rachas horizontalmente */
+  align-items: center; /* Alinea verticalmente */
+  width: 100%;
+  gap: 0; /* Elimina el espacio entre rachas */
+  margin-bottom: 0;
+}
+.container-rachas-pag .rachas-contenedor .racha, .container-rachas-pag .rachas-contenedor .racha-maxima {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
+  margin-right: 40px; /* Ajusta el valor según sea necesario */
   background-color: var(--c3);
   border-radius: var(--border);
+  width: 45%; /* Ajusta el ancho para cada racha */
+  box-shadow: var(--shadow);
 }
-.container-rachas-pag .racha .icono-racha img {
+.container-rachas-pag .rachas-contenedor .racha .icono-racha img, .container-rachas-pag .rachas-contenedor .racha-maxima .icono-racha img {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
-.container-rachas-pag .racha .texto-racha {
+.container-rachas-pag .rachas-contenedor .racha .texto-racha, .container-rachas-pag .rachas-contenedor .racha-maxima .texto-racha {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.container-rachas-pag .racha .texto-racha h2 {
+.container-rachas-pag .rachas-contenedor .racha .texto-racha h2, .container-rachas-pag .rachas-contenedor .racha-maxima .texto-racha h2 {
   font-size: 24px;
   color: var(--textc3);
   margin: 0;
 }
-.container-rachas-pag .racha .texto-racha span {
+.container-rachas-pag .rachas-contenedor .racha .texto-racha span, .container-rachas-pag .rachas-contenedor .racha-maxima .texto-racha span {
   font-size: 18px;
   color: var(--feliz);
 }

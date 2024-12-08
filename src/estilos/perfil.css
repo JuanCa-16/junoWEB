@@ -324,6 +324,9 @@ body {
   background-color: var(--c1);
   box-shadow: var(--shadow) var(--c2);
 }
+.gridPersonal .imgDiv img {
+  margin-bottom: 0.2rem;
+}
 
 @media (max-width: 750px) {
   .gridPersonal {

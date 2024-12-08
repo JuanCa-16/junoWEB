@@ -13,10 +13,47 @@ import { IoMdSunny } from "react-icons/io";
 import { IoExit } from "react-icons/io5";
 import toast, { Toaster } from 'react-hot-toast'; // Importamos toast y Toaster
 
-const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU, rachaFelizCount }) => {
+const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU, infoF, rachaFelizCount }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    
+    const [fotoPerfil, setFotoPerfil] = useState(null); // Estado para guardar la referencia de la foto
+
+    const fetchFotoPerfil = async () => {
+        try {
+
+             // Traer el id del usuario que está logueado
+            const traerCorreo = await fetch('http://localhost:5000/usuarios/estalogin', {
+                method: 'GET',
+                headers: { token: localStorage.getItem('token') }
+            });
+
+            const info = await traerCorreo.json();
+            if (traerCorreo.status !== 200) {
+                console.log('No se pudo obtener los datos del usuario');
+                return; // Salir si hay un error
+            }
+
+            const userEmail = info.correo; // Guardar el email
+
+            const response = await fetch(`http://localhost:5000/perfil//idfoto/${userEmail}`);
+            const data = await response.json();
+            if (response.ok) {
+                setFotoPerfil(data.referencia_foto); // Asignamos la referencia de la foto
+                console.log(fotoPerfil)
+            } else {
+                console.error('Error:', data.error);
+            }
+        } catch (error) {
+            console.error('Error al obtener la foto de perfil:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchFotoPerfil(); // Llamada al backend al montar el componente
+        console.log(infoF)
+    }, [infoF]);
     
     
     const handleCloseMenu = () => {
@@ -46,7 +83,7 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU, rachaFelizCount })
     return (
         <div className={closeMenu ? "sidebar active" : "sidebar"}>
             <div className="profileContainer a1">
-                <img src={avatar1} alt="Avatar"></img>
+                <img src={fotoPerfil} alt="Avatar"></img>
                 <div className="profileContents">
                     <h3 className='name'>{infoU.nombre}</h3>
                 </div>

@@ -102,6 +102,8 @@ body {
     scrollbar-width: none;
     -ms-overflow-style: none;
 
+    
+
     .containerPerfil {
         grid-area: a1;
         width: 100%;
@@ -399,6 +401,13 @@ body {
         .post-display-col {
             background-color: var(--c1);
             box-shadow: var(--shadow) var(--c2);
+        }
+    }
+
+    .imgDiv{
+        
+        img{
+            margin-bottom: .2rem;
         }
     }
 

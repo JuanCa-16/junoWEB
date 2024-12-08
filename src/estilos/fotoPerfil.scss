@@ -1,0 +1,95 @@
+:root {
+    --border: 20px;
+    --border2: 1rem;
+    --shadow: 1px 1px 3px .5px;
+
+    /* Colores de fondo claros */
+    --c1: #46313d;
+    --c2: #5f404d;
+    --c3: #845d5f;
+    --c4: #b77e78;
+    --c5: #dcae8f;
+
+    /* Colores de fondo oscuros */
+    --o1: #1a0e15;
+    --o2: #2d1a22;
+    --o3: #4e2f30;
+    --o4: #6e4b3b;
+    --o5: #8f6c4f;
+
+    /* Colores de texto ajustados */
+    --textc1: #dcae8f;
+    --textc2: #dcae8f;
+    --textc3: #dcae8f;
+    --textc4: #46313d;
+    --textc5: #46313d;
+
+    --feliz: #f4d35e;
+    --txtfeliz: #654e04;
+}
+
+
+
+.container-fotos {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+        width: auto;
+        height: 15vh;
+    }
+
+    button {
+        background-color: var(--c4);
+        border: none;
+        border-radius: var(--border);
+        padding: .2rem 1rem;
+        color: var(--textc4);
+    }
+
+    .titulo {
+        color: var(--c1);
+    }
+
+    .name {
+        color: var(--textc3);
+        font-size: 1.5rem;
+    }
+
+    .seccion-fotos {
+
+        padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: flex-start;
+        height: auto;
+        gap: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+
+    }
+
+    .profileContainer {
+        padding: 1rem;
+        border-radius: var(--border2);
+        background-color: var(--c1);
+
+    }
+
+    .profileContainer.deshabilitado {
+        opacity: 0.5;
+        /* O cualquier estilo para mostrar que está deshabilitado */
+        pointer-events: none;
+        /* Impide cualquier interacción */
+    }
+
+    .profileContainer.activo {
+        opacity: 1;
+        /* Asegura que las fotos habilitadas sean visibles */
+    }
+
+}

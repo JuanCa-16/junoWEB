@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import perfil from '../imagenes/ava1.png';
 import racha from '../imagenes/racha.png';
 import { MdLocationOn } from "react-icons/md";
 import BarChartPerfil from '../componentes/BarChartPerfil';// Importa el nuevo componente
@@ -87,11 +86,50 @@ const PerfilPersonal = () => {
         setSelectedEmotionAge(emotion);
     };
 
+
+    const [fotoPerfil, setFotoPerfil] = useState(null); // Estado para guardar la referencia de la foto
+
+    const fetchFotoPerfil = async () => {
+        try {
+
+             // Traer el id del usuario que está logueado
+            const traerCorreo = await fetch('http://localhost:5000/usuarios/estalogin', {
+                method: 'GET',
+                headers: { token: localStorage.getItem('token') }
+            });
+
+            const info = await traerCorreo.json();
+            if (traerCorreo.status !== 200) {
+                console.log('No se pudo obtener los datos del usuario');
+                return; // Salir si hay un error
+            }
+
+            const userEmail = info.correo; // Guardar el email
+
+            const response = await fetch(`http://localhost:5000/perfil//idfoto/${userEmail}`);
+            const data = await response.json();
+            if (response.ok) {
+                setFotoPerfil(data.referencia_foto); // Asignamos la referencia de la foto
+                console.log(fotoPerfil)
+            } else {
+                console.error('Error:', data.error);
+            }
+        } catch (error) {
+            console.error('Error al obtener la foto de perfil:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchFotoPerfil(); // Llamada al backend al montar el componente
+        
+    }, []);
+
     return (
         <div className='gridPersonal'>
             <div className="containerPerfil a1">
                 <div className='imgDiv'>
-                    <img src={perfil} alt="perfil" className='img' />
+                    <img src={fotoPerfil}  onClick={() => navigate('/editarFoto')} alt="perfil" className='img' />
+                    <button onClick={() => navigate('/editarFoto')}>Editar Foto</button>
                 </div>
                 <div className="rachaContainer">
                     <img src={racha} alt="Racha" />
