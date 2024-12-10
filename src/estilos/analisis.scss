@@ -1,525 +1,525 @@
 :root {
-    // --c1: #eeddd3;
-    // --c2: #cf7225;
-    // --c3: #e8d1c5;
-    // --c4: #9d3208bc;
-    // --c5: #fff1e6;
+  // --c1: #eeddd3;
+  // --c2: #cf7225;
+  // --c3: #e8d1c5;
+  // --c4: #9d3208bc;
+  // --c5: #fff1e6;
 
-    // --o1: #192229;
-    // --o2: #212E36;
-    // --o3: #2A3B47;
-    // --o4: #A0A7AD;
-    // --o5: #C8CDD0;
+  // --o1: #192229;
+  // --o2: #212E36;
+  // --o3: #2A3B47;
+  // --o4: #A0A7AD;
+  // --o5: #C8CDD0;
 
-    --border: 20px;
-    --border2: 1rem;
-    --shadow: 1px 1px 3px .5px;
+  --border: 20px;
+  --border2: 1rem;
+  --shadow: 1px 1px 3px .5px;
 
-    /* Colores de fondo claros */
-    --c1: #46313d;
-    --c2: #5f404d;
-    --c3: #845d5f;
-    --c4: #b77e78;
-    --c5: #dcae8f;
+  /* Colores de fondo claros */
+  --c1: #46313d;
+  --c2: #5f404d;
+  --c3: #845d5f;
+  --c4: #b77e78;
+  --c5: #dcae8f;
 
-    /* Colores de fondo oscuros */
-    --o1: #1a0e15;
-    --o2: #2d1a22;
-    --o3: #4e2f30;
-    --o4: #6e4b3b;
-    --o5: #8f6c4f;
+  /* Colores de fondo oscuros */
+  --o1: #1a0e15;
+  --o2: #2d1a22;
+  --o3: #4e2f30;
+  --o4: #6e4b3b;
+  --o5: #8f6c4f;
 
-    /* Colores de texto ajustados */
-    --textc1: #dcae8f;
-    --textc2: #dcae8f;
-    --textc3: #dcae8f;
-    --textc4: #46313d;
-    --textc5: #46313d;
+  /* Colores de texto ajustados */
+  --textc1: #dcae8f;
+  --textc2: #dcae8f;
+  --textc3: #dcae8f;
+  --textc4: #46313d;
+  --textc5: #46313d;
 
-    --textoO1: #8f6c4f;
-    --textoO2: #8f6c4f;
-    --textoO3: #8f6c4f;
-    --textoO4: #1a0e15;
-    --textoO5: #1a0e15;
+  --textoO1: #8f6c4f;
+  --textoO2: #8f6c4f;
+  --textoO3: #8f6c4f;
+  --textoO4: #1a0e15;
+  --textoO5: #1a0e15;
 
-    --feliz: #f4d35e;
-    --triste: #7289da;
-    --enojado: #d9534f;
-    --ansioso: #e9967a;
-    --motivado: #88c399;
-    --aburrido: #495057;
+  --feliz: #f4d35e;
+  --triste: #7289da;
+  --enojado: #d9534f;
+  --ansioso: #e9967a;
+  --motivado: #88c399;
+  --aburrido: #495057;
 
-    --txtfeliz: #654e04;
-    --txttriste: #092380;
-    --txtenojado: #5b1209;
-    --txtansioso: #532407;
-    --txtmotivado: #072505;
-    --txtaburrido: #0e1a27;
+  --txtfeliz: #654e04;
+  --txttriste: #092380;
+  --txtenojado: #5b1209;
+  --txtansioso: #532407;
+  --txtmotivado: #072505;
+  --txtaburrido: #0e1a27;
 
-    --eliminar: #d9534f;
-    --aceptar: #856f2a;
+  --eliminar: #d9534f;
+  --aceptar: #856f2a;
 }
 
 body {
-    font-family: "Mukta", sans-serif;
-    background-color: rgb(236, 243, 243);
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
+  font-family: "Mukta", sans-serif;
+  background-color: rgb(236, 243, 243);
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .container-analisis {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    overflow: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; 
 
-    .app::-webkit-scrollbar {
-        display: none; /* Chrome, Safari y Opera */
-    }
+  .app::-webkit-scrollbar {
+      display: none; /* Chrome, Safari y Opera */
+  }
 
-    .section {
-        background-color: var(--c1);
-        border-radius: var(--border);
-        margin-bottom: 30px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: .5rem;
-        margin-bottom: 20px;
-        padding: 1rem;
-    }
+  .section {
+      background-color: var(--c1);
+      border-radius: var(--border);
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 20px;
+      padding: 1rem;
+  }
 
-    h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
-        color: var(--textc1);
-    }
+  h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: var(--textc1);
+  }
 
-    /* Filtros de análisis por edades */
-    .filter-container {
-        gap: 10px;
-        margin-bottom: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        color: var(--c1);
-        
-    }
-
-    .filter {
-        padding: 8px 12px;
-        background-color: #f1ede89e;
-        border-radius: var(--border2);
-        cursor: pointer;
-        border: none;
-        transition: background-color 0.3s;
-        color: var(--c1);
-    }
-
-    .filter.selected {
-        background-color: var(--c5);
-        color: var(--textc5); /* Texto negro en el botón seleccionado */
-    }
-
-    .filter:hover {
-        background-color: var(--c5);
-        color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
-    }
-
-    .Feliz.selected{
-        background-color: var(--feliz);
-        color: var(--txtfeliz);
-    }
-
-    .Feliz:hover{
-        background-color: var(--feliz);
-        color: var(--txtfeliz);
-    }
-
-    .Triste.selected{
-        background-color: var(--triste);
-        color: var(--txttriste);
-    }
-
-    .Triste:hover {
-        background-color: var(--triste);
-        color: var(--txttriste);
-    }
-
-    .Enojado.selected{
-        background-color: var(--enojado);
-        color: var(--txtenojado);
-    }
-
-    .Enojado:hover {
-        background-color: var(--enojado);
-        color: var(--txtenojado);
-    }
-
-    .Ansioso.selected {
-        background-color: var(--ansioso);
-        color: var(--txtansioso);
-    }
-
-    .Ansioso:hover {
-        background-color: var(--ansioso);
-        color: var(--txtansioso);
-    }
-
-    .Motivado.selected {
-        background-color: var(--motivado);
-        color: var(--txtmotivado);
-    }
-
-    .Motivado:hover {
-        background-color: var(--motivado);
-        color: var(--txtmotivado);
-    }
-
-    .Aburrido.selected{
-        background-color: var(--aburrido);
-        color: var(--txtaburrido);
-    }
-
-    .Aburrido:hover{
-        background-color: var(--aburrido);
-        color: var(--txtaburrido);
-    }
-
-    /* Gráficos de barras */
-    .bar-chart {
-        background-color: #F7DACD;
-        padding: 30px;
-        border-radius: var(--border2);
-    }
-
-    .bar-chart-placeholder {
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 2px dashed #C8B9A6;
-        border-radius: var(--border2);
-        color: #4A3C31;
-    }
-
-    /* Ciudades */
-    .cities {
-        background-color: var(--c3);
-        color: var(--textc3);
-    }
-
-    .city-container {
-        display: flex;
-        gap: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: .5rem;
-        margin-bottom: 20px;
-        color: var(--textc3);
-    }
-
-    .city {
-        background-color: #d9d8d6da;
-        padding: 10px 20px;
-        border-radius: var(--border);
-        font-weight: bold;
-        cursor: default;
-        border: none;
-        color: #192229; /* Texto negro en el botón de ciudades */
-    }
-
-    .city-container .city:first-child {
-        background-color: #f0e68c;
-        font-weight: bold;
-        color: var(--c1);
-
-        &.Feliz{
-            background-color: var(--feliz);
-        }
-        &.Triste{
-            background-color: var(--triste);
-        }
-        &.Enojado{
-            background-color: var(--enojado);
-        }
-        &.Ansioso{
-            background-color: var(--ansioso);
-        }
-        &.Motivado{
-            background-color: var(--motivado);
-        }
-        &.Aburrido{
-            background-color: var(--aburrido);
-        }
-    }
-
-    .gender-filter {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-      }
+  /* Filtros de análisis por edades */
+  .filter-container {
+      gap: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      color: var(--c1);
       
-    .gender-filter label {
-        margin-right: 10px;
-        color: var(--textc1);
-        font-weight: bold;
+  }
+
+  .filter {
+      padding: 8px 12px;
+      background-color: #f1ede89e;
+      border-radius: var(--border2);
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+      color: var(--c1);
+  }
+
+  .filter.selected {
+      background-color: var(--c5);
+      color: var(--textc5); /* Texto negro en el botón seleccionado */
+  }
+
+  .filter:hover {
+      background-color: var(--c5);
+      color: var(--textc5); /* Texto negro en el botón al pasar el mouse */
+  }
+
+  .Feliz.selected{
+      background-color: var(--feliz);
+      color: var(--txtfeliz);
+  }
+
+  .Feliz:hover{
+      background-color: var(--feliz);
+      color: var(--txtfeliz);
+  }
+
+  .Triste.selected{
+      background-color: var(--triste);
+      color: var(--txttriste);
+  }
+
+  .Triste:hover {
+      background-color: var(--triste);
+      color: var(--txttriste);
+  }
+
+  .Enojado.selected{
+      background-color: var(--enojado);
+      color: var(--txtenojado);
+  }
+
+  .Enojado:hover {
+      background-color: var(--enojado);
+      color: var(--txtenojado);
+  }
+
+  .Ansioso.selected {
+      background-color: var(--ansioso);
+      color: var(--txtansioso);
+  }
+
+  .Ansioso:hover {
+      background-color: var(--ansioso);
+      color: var(--txtansioso);
+  }
+
+  .Motivado.selected {
+      background-color: var(--motivado);
+      color: var(--txtmotivado);
+  }
+
+  .Motivado:hover {
+      background-color: var(--motivado);
+      color: var(--txtmotivado);
+  }
+
+  .Aburrido.selected{
+      background-color: var(--aburrido);
+      color: var(--txtaburrido);
+  }
+
+  .Aburrido:hover{
+      background-color: var(--aburrido);
+      color: var(--txtaburrido);
+  }
+
+  /* Gráficos de barras */
+  .bar-chart {
+      background-color: #F7DACD;
+      padding: 30px;
+      border-radius: var(--border2);
+  }
+
+  .bar-chart-placeholder {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px dashed #C8B9A6;
+      border-radius: var(--border2);
+      color: #4A3C31;
+  }
+
+  /* Ciudades */
+  .cities {
+      background-color: var(--c3);
+      color: var(--textc3);
+  }
+
+  .city-container {
+      display: flex;
+      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 20px;
+      color: var(--textc3);
+  }
+
+  .city {
+      background-color: #d9d8d6da;
+      padding: 10px 20px;
+      border-radius: var(--border);
+      font-weight: bold;
+      cursor: default;
+      border: none;
+      color: #192229; /* Texto negro en el botón de ciudades */
+  }
+
+  .city-container .city:first-child {
+      background-color: #f0e68c;
+      font-weight: bold;
+      color: var(--c1);
+
+      &.Feliz{
+          background-color: var(--feliz);
       }
-      
-    .gender-filter select {
-        padding: 8px 12px;
-        background-color: rgba(241, 237, 232, 0.6196078431);
-        border-radius: var(--border2);
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        color: var(--c1);
+      &.Triste{
+          background-color: var(--triste);
       }
-      
-    .gender-filter select:hover {
-        background-color: var(--c5);
-        color: var(--textc5);
+      &.Enojado{
+          background-color: var(--enojado);
       }
-      
-    .gender-filter select:focus {
-        outline: none;
-        box-shadow: 0 0 5px var(--c5);
+      &.Ansioso{
+          background-color: var(--ansioso);
       }
-      
-      /* Sección de las ciudades - Títulos */
+      &.Motivado{
+          background-color: var(--motivado);
+      }
+      &.Aburrido{
+          background-color: var(--aburrido);
+      }
+  }
+
+  .gender-filter {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+  .gender-filter label {
+      margin-right: 10px;
+      color: var(--textc1);
+      font-weight: bold;
+    }
+    
+  .gender-filter select {
+      padding: 8px 12px;
+      background-color: rgba(241, 237, 232, 0.6196078431);
+      border-radius: var(--border2);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      color: var(--c1);
+    }
+    
+  .gender-filter select:hover {
+      background-color: var(--c5);
+      color: var(--textc5);
+    }
+    
+  .gender-filter select:focus {
+      outline: none;
+      box-shadow: 0 0 5px var(--c5);
+    }
+    
+    /* Sección de las ciudades - Títulos */
+  .top-cities-section h3 {
+      color: var(--textc1);
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    /* Contenedor de las ciudades */
+  .top-cities-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    /* Estilo para cada ciudad en la lista */
+  .top-cities-section ul li {
+      background-color: var(--c3);
+      color: var(--textc3);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: var(--border2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow) rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    /* Efecto hover para las ciudades */
+   .top-cities-section ul li:hover {
+      transform: scale(1.02);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Estilo para la ciudad en el primer lugar */
+  .top-cities-section ul li:first-child {
+      background-color: var(--feliz); /* Puedes ajustar este color */
+      color: var(--txtfeliz); /* Texto resaltado */
+      font-weight: bold;
+      border: 2px solid var(--txtfeliz); /* Borde para destacar */
+    }
+    
+    /* Ícono o marcador de ranking */
+  .top-cities-section ul li::before {
+      content: "";
+      margin-right: 10px;
+      font-size: 18px;
+      color: black;
+    }
+    
+    /* Flexibilidad para mostrar los datos */
+   .top-cities-section ul li strong {
+      margin-right: 10px;
+      color: var(--textc3);
+    }
+    
+    /* Botones de filtro para emociones */
+   .top-cities-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+   .top-cities-filter button {
+      padding: 8px 12px;
+      background-color: rgba(241, 237, 232, 0.6196078431);
+      border-radius: var(--border2);
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+      color: var(--c1);
+    }
+    
+    .top-cities-filter button.selected {
+      background-color: var(--c5);
+      color: var(--textc5);
+    }
+    
+    .top-cities-filter button:hover {
+      background-color: var(--c5);
+      color: var(--textc5);
+    }
+    
+    .top-cities-section {
+      margin-top: 20px;
+      background-color: var(--c2);
+      border-radius: var(--border);
+      padding: 1rem;
+    }
+    
     .top-cities-section h3 {
-        color: var(--textc1);
-        font-size: 20px;
-        margin-bottom: 15px;
-        font-weight: bold;
-      }
-      
-      /* Contenedor de las ciudades */
-    .top-cities-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      /* Estilo para cada ciudad en la lista */
-    .top-cities-section ul li {
-        background-color: var(--c3);
-        color: var(--textc3);
-        padding: 10px 15px;
-        margin-bottom: 10px;
-        border-radius: var(--border2);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: var(--shadow) rgba(0, 0, 0, 0.2);
-        font-size: 16px;
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-      
-      /* Efecto hover para las ciudades */
-     .top-cities-section ul li:hover {
-        transform: scale(1.02);
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      }
-      
-      /* Estilo para la ciudad en el primer lugar */
-    .top-cities-section ul li:first-child {
-        background-color: var(--feliz); /* Puedes ajustar este color */
-        color: var(--txtfeliz); /* Texto resaltado */
-        font-weight: bold;
-        border: 2px solid var(--txtfeliz); /* Borde para destacar */
-      }
-      
-      /* Ícono o marcador de ranking */
-    .top-cities-section ul li::before {
-        content: "";
-        margin-right: 10px;
-        font-size: 18px;
-        color: black;
-      }
-      
-      /* Flexibilidad para mostrar los datos */
-     .top-cities-section ul li strong {
-        margin-right: 10px;
-        color: var(--textc3);
-      }
-      
-      /* Botones de filtro para emociones */
-     .top-cities-filter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-      
-     .top-cities-filter button {
-        padding: 8px 12px;
-        background-color: rgba(241, 237, 232, 0.6196078431);
-        border-radius: var(--border2);
-        cursor: pointer;
-        border: none;
-        transition: background-color 0.3s;
-        color: var(--c1);
-      }
-      
-      .top-cities-filter button.selected {
-        background-color: var(--c5);
-        color: var(--textc5);
-      }
-      
-      .top-cities-filter button:hover {
-        background-color: var(--c5);
-        color: var(--textc5);
-      }
-      
-      .top-cities-section {
-        margin-top: 20px;
-        background-color: var(--c2);
-        border-radius: var(--border);
-        padding: 1rem;
-      }
-      
-      .top-cities-section h3 {
-        color: var(--textc1);
-        font-size: 20px;
-        margin-bottom: 15px;
-      }
-      
-      .city-list {
-        list-style: none;
-        padding: 0;
-      }
-      
-      .city-list li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--c3);
-        color: var(--textc3);
-        padding: 10px 15px;
-        border-radius: 15px;
-        margin-bottom: 10px;
-        transition: transform 0.2s;
-      }
-      
-      .city-list li:first-child {
-        background-color: var(--feliz); /* Cambiar este color según la emoción seleccionada */
-        color: var(--txtfeliz);
-      }
-      
-      .city-list li:first-child.Triste {
-        background-color: var(--triste);
-        color: var(--txttriste);
-      }
-      
-      .city-list li:first-child.Enojado {
-        background-color: var(--enojado);
-        color: var(--txtenojado);
-      }
-      
-      .city-list li:first-child.Ansioso {
-        background-color: var(--ansioso);
-        color: var(--txtansioso);
-      }
-      
-      .city-list li:first-child.Motivado {
-        background-color: var(--motivado);
-        color: var(--txtmotivado);
-      }
-      
-      .city-list li:first-child.Aburrido {
-        background-color: var(--aburrido);
-        color: var(--txtaburrido);
-      }
-      
-      .city-list li:hover {
-        transform: translateY(-2px);
-        background-color: var(--c4);
-        color: var(--textc4);
-      }
-      
-      .filter-container {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      
-      .filter {
-        padding: 8px 12px;
-        background-color: rgba(241, 237, 232, 0.8);
-        border-radius: 10px;
-        cursor: pointer;
-        border: none;
-        transition: background-color 0.3s;
-      }
-      
-      .filter:hover {
-        background-color: var(--c5);
-        color: var(--textc5);
-      }
-      
-      .filter.selected {
-        background-color: var(--c5);
-        color: var(--textc5);
-      }
-      
-      .filter.Feliz.selected {
-        background-color: var(--feliz);
-        color: var(--txtfeliz);
-      }
-      
-      .filter.Triste.selected {
-        background-color: var(--triste);
-        color: var(--txttriste);
-      }
-      
-      .filter.Enojado.selected {
-        background-color: var(--enojado);
-        color: var(--txtenojado);
-      }
-      
-      /* Ciudad número 1 según la emoción */
-       .top-cities-section ul li.Feliz {
-        background-color: var(--feliz);
-        color: var(--txtfeliz);
-      }
-      
-      .top-cities-section ul li.Triste {
-        background-color: var(--triste);
-        color: var(--txttriste);
-      }
-      
-       .top-cities-section ul li.Enojado {
-        background-color: var(--enojado);
-        color: var(--txtenojado);
-      }
-      
-       .top-cities-section ul li.Ansioso {
-        background-color: var(--ansioso);
-        color: var(--txtansioso);
-      }
-      
-      .top-cities-section ul li.Motivado {
-        background-color: var(--motivado);
-        color: var(--txtmotivado);
-      }
-      
-      .top-cities-section ul li.Aburrido {
-        background-color: var(--aburrido);
-        color: var(--txtaburrido);
-      }
+      color: var(--textc1);
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .city-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .city-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--c3);
+      color: var(--textc3);
+      padding: 10px 15px;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      transition: transform 0.2s;
+    }
+    
+    .city-list li:first-child {
+      background-color: var(--feliz); /* Cambiar este color según la emoción seleccionada */
+      color: var(--txtfeliz);
+    }
+    
+    .city-list li:first-child.Triste {
+      background-color: var(--triste);
+      color: var(--txttriste);
+    }
+    
+    .city-list li:first-child.Enojado {
+      background-color: var(--enojado);
+      color: var(--txtenojado);
+    }
+    
+    .city-list li:first-child.Ansioso {
+      background-color: var(--ansioso);
+      color: var(--txtansioso);
+    }
+    
+    .city-list li:first-child.Motivado {
+      background-color: var(--motivado);
+      color: var(--txtmotivado);
+    }
+    
+    .city-list li:first-child.Aburrido {
+      background-color: var(--aburrido);
+      color: var(--txtaburrido);
+    }
+    
+    .city-list li:hover {
+      transform: translateY(-2px);
+      background-color: var(--c4);
+      color: var(--textc4);
+    }
+    
+    .filter-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .filter {
+      padding: 8px 12px;
+      background-color: rgba(241, 237, 232, 0.8);
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    
+    .filter:hover {
+      background-color: var(--c5);
+      color: var(--textc5);
+    }
+    
+    .filter.selected {
+      background-color: var(--c5);
+      color: var(--textc5);
+    }
+    
+    .filter.Feliz.selected {
+      background-color: var(--feliz);
+      color: var(--txtfeliz);
+    }
+    
+    .filter.Triste.selected {
+      background-color: var(--triste);
+      color: var(--txttriste);
+    }
+    
+    .filter.Enojado.selected {
+      background-color: var(--enojado);
+      color: var(--txtenojado);
+    }
+    
+    /* Ciudad número 1 según la emoción */
+     .top-cities-section ul li.Feliz {
+      background-color: var(--feliz);
+      color: var(--txtfeliz);
+    }
+    
+    .top-cities-section ul li.Triste {
+      background-color: var(--triste);
+      color: var(--txttriste);
+    }
+    
+     .top-cities-section ul li.Enojado {
+      background-color: var(--enojado);
+      color: var(--txtenojado);
+    }
+    
+     .top-cities-section ul li.Ansioso {
+      background-color: var(--ansioso);
+      color: var(--txtansioso);
+    }
+    
+    .top-cities-section ul li.Motivado {
+      background-color: var(--motivado);
+      color: var(--txtmotivado);
+    }
+    
+    .top-cities-section ul li.Aburrido {
+      background-color: var(--aburrido);
+      color: var(--txtaburrido);
+    }
 
-    // .city.selected {
-    //     background-color: #C8B9A6;
-    //     color: #192229; /* Texto negro en el botón de ciudad seleccionado */
-    // }
+  // .city.selected {
+  //     background-color: #C8B9A6;
+  //     color: #192229; /* Texto negro en el botón de ciudad seleccionado */
+  // }
 
-    // .city:hover {
-    //     background-color: #D4C5A8;
-    //     color: #192229; /* Texto negro en el botón de ciudad al pasar el mouse */
-    // }
+  // .city:hover {
+  //     background-color: #D4C5A8;
+  //     color: #192229; /* Texto negro en el botón de ciudad al pasar el mouse */
+  // }
 }
 

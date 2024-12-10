@@ -305,6 +305,12 @@ function Rachas() {
             // Actualiza el contador de días felices
             contarEventosFeliz();
             setIsEditable(false); // Bloquea la edición del modal
+
+
+            const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
+        if (Array.isArray(response.data)) {
+            contarRachas(response.data); // Recalcular rachas con los nuevos datos
+        }
     
         } catch (error) {
             // Si el error es 400, significa que ya se registró la racha diaria
@@ -368,7 +374,7 @@ function Rachas() {
             }
     
             // Si no existe, permitimos la creación del evento
-            handleCrearEvento();
+            await handleCrearEvento();
     
             // Guardar la emoción en localStorage
             localStorage.setItem('emocionHoy', emocionHoy);
@@ -445,7 +451,7 @@ function Rachas() {
         </div>
 
         <div className="hora-alerta">
-            <div className="alerta">Hora de Alerta</div>
+            <div className="alerta">Hora de tu frase diaria</div>
             <div className="hora-container">
                 <div className="hora" onClick={toggleModalHora}>
                     {horaAlerta}

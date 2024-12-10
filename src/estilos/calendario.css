@@ -269,6 +269,14 @@
   background-color: #e0e0e0;
 }
 
+
+.react-datepicker__navigation {
+  top: -1vh !important; /* Ajusta este valor según necesites */
+}
+.react-datepicker {
+  z-index: 1000;
+}
+
 /* Estilos responsivos */
 @media (max-width: 1024px) {
   .calendar-container {

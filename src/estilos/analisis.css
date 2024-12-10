@@ -427,3 +427,56 @@ body {
   background-color: var(--aburrido);
   color: var(--txtaburrido);
 }/*# sourceMappingURL=analisis.css.map */
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 900px; /* Ajusta el tamaño máximo del gráfico */
+  height: 500px; /* Altura del contenedor para mantener proporción */
+}
+
+.download-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--c2);
+  color: var(--textc1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  max-width: 200px; /* Botón más pequeño */
+}
+
+.download-button:hover {
+  background-color: var(--c5);
+  color: var(--textc5);
+}
+
+@media (max-width: 768px) {
+  .chart-wrapper {
+      height: 300px; /* Reducir la altura en pantallas pequeñas */
+  }
+
+  .download-button {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-wrapper {
+      height: 200px; /* Reducir aún más en pantallas pequeñas */
+  }
+
+  .download-button {
+      width: 100%;
+  }
+}

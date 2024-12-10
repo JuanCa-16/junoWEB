@@ -314,6 +314,14 @@
     }
 }
 
+:global(.custom-datepicker .react-datepicker__navigation--previous) {
+    border-color: transparent transparent #00ff00 transparent; /* Verde */
+  }
+  
+  :global(.custom-datepicker .react-datepicker__navigation--next) {
+    border-color: transparent transparent transparent #00ff00; /* Verde */
+  }
+
 /* Diseño responsive utilizando grid */
 @media (max-width: 768px) {
     .container-rachas-pag {
