@@ -209,6 +209,7 @@
 
 .rbc-show-more:hover {
   background-color: #6e4b3b;
+  /* Mantiene el desplazamiento */
 }
 
 .rbc-time-content,
@@ -217,7 +218,15 @@
 .rbc-time-slot {
   color: #000000;
   border-color: #00000036;
+  overflow: scroll;  /* Mantiene el desplazamiento */
+  scrollbar-width: none;
 }
+
+.rbc-calendar .rbc-time-view::-webkit-scrollbar {
+  display: none; /* Para Chrome, Safari, Edge */
+
+}
+
 
 .rbc-day-slot .rbc-time-slot {
   display: flex;
@@ -225,8 +234,8 @@
   align-items: center;
   height: 100%;
   border-top: 1px solid #000000;
-}
 
+}
 /* Agenda */
 .rbc-agenda-content,
 .rbc-agenda-view {
