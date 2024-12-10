@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import rachaImg from '../imagenes/racha.png';
 import '../estilos/rachas.scss';
 import axios from 'axios';
+import toast from "react-hot-toast";
 
 function Rachas() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,6 +17,7 @@ function Rachas() {
     const [emocionHoy, setEmocionHoy] = useState('Feliz');
     const [horaAlerta, setHoraAlerta] = useState('07:00');
     const [isEditable, setIsEditable] = useState(true); // Estado para controlar si los modales son editables
+    const [rachaFelizCount, setRachaFelizCount] = useState(0);
     const [rachaMaxima, setRachaMaxima] = useState(0);  // Racha máxima de días consecutivos
     const [rachaActual, setRachaActual] = useState(0);  // Racha actual de días consecutivos
 
@@ -40,31 +42,82 @@ function Rachas() {
 
     // Función para guardar la emoción seleccionada
     const handleSaveEmocion = () => {
+        localStorage.setItem('emocionHoy', eventData.emocion);
+        
         setEmocionHoy(eventData.emocion);
         toggleModal();
     };
 
     // Función para guardar la hora seleccionada
-    const handleSaveHora = () => {
-        const [hours, minutes] = horaAlerta.split(':');
-        const newStartDate = new Date(eventData.start);
-        newStartDate.setHours(hours, minutes);
-        setEventData({
-            ...eventData,
-            start: newStartDate,
-        });
-        toggleModalHora();
+    const handleSaveHora = async () => {
+        try {
+            // Envía la solicitud para actualizar la hora
+            const response = await axios.put(
+                `http://localhost:5000/usuarios/${correoUsuario}/hora-alerta`,
+                { hora_alerta: horaAlerta }
+            );
+    
+            // Si la respuesta es exitosa
+            if (response.status === 200) {
+                toast.success("Hora de alerta actualizada correctamente", {
+                    position: "top-center",
+                    duration: 5000,
+                    style: {
+                        padding: "20px",
+                        fontSize: "18px",
+                        borderRadius: "10px",
+                        background: "#4caf50",
+                        color: "#fff",
+                    },
+                });
+            } else {
+                toast.error("No se pudo actualizar la hora de alerta", {
+                    position: "top-center",
+                    duration: 5000,
+                    style: {
+                        padding: "20px",
+                        fontSize: "18px",
+                        borderRadius: "10px",
+                        background: "#f44336",
+                        color: "#fff",
+                    },
+                });
+            }
+    
+            // Cierra el modal después de actualizar
+            toggleModalHora();
+    
+            // Guarda la hora en el localStorage
+            localStorage.setItem("horaAlerta", horaAlerta);
+        } catch (error) {
+            console.error("Error al actualizar la hora de alerta:", error);
+    
+            // Muestra un mensaje de error al usuario
+            toast.error("Hubo un error al guardar la hora de alerta", {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#f44336",
+                    color: "#fff",
+                },
+            });
+    
+            // Opcional: Cierra el modal incluso si hubo un error
+            toggleModalHora();
+        }
     };
+    
     // Función para contar los eventos felices
     const contarEventosFeliz = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
             
-            // Verifica si la respuesta es la esperada (un array de eventos)
             if (Array.isArray(response.data)) {
                 const eventos = response.data;
     
-                // Filtra solo los eventos que son de 'Racha Diaria' y con 'emocion' igual a 'Feliz'
                 const rachasFelices = eventos.filter(evento => 
                     evento.title && evento.title.includes('Racha Diaria') && evento.emocion && evento.emocion.toLowerCase() === 'feliz'
                 );
@@ -72,27 +125,24 @@ function Rachas() {
                 // Ordenar los eventos por fecha (de más reciente a más antiguo)
                 rachasFelices.sort((a, b) => new Date(a.start) - new Date(b.start));
     
-                // Contar los días consecutivos
                 let maxConsecutiveDays = 0;
-                let currentStreak = 1; // Comienza contando el primer día como 1
+                let currentStreak = 0;
                 for (let i = 1; i < rachasFelices.length; i++) {
-                    const prevDate = new Date(rachasFelices[i - 1].start);
-                    const currentDate = new Date(rachasFelices[i].start);
+                    const prevDate = new Date(rachasFelices[i - 1].start).setHours(0, 0, 0, 0); // Solo fecha
+                    const currentDate = new Date(rachasFelices[i].start).setHours(0, 0, 0, 0); // Solo fecha
     
-                    // Verifica si la diferencia entre las fechas es de un solo día
-                    if (currentDate - prevDate === 24 * 60 * 60 * 1000) { // 24 horas en milisegundos
-                        currentStreak++; // Si son consecutivos, incrementa la racha
+                    if (currentDate - prevDate === 24 * 60 * 60 * 1000) {
+                        currentStreak++;
                     } else {
-                        // Si no son consecutivos, restablece la racha y verifica si es la mayor
                         maxConsecutiveDays = Math.max(maxConsecutiveDays, currentStreak);
-                        currentStreak = 1; // Resetea la racha
+                        currentStreak = 1;
                     }
                 }
     
-                // Asegúrate de actualizar la racha máxima después de recorrer todos los eventos
                 maxConsecutiveDays = Math.max(maxConsecutiveDays, currentStreak);
     
-                setRachaFelizCount(maxConsecutiveDays); // Establece el contador de rachas consecutivas
+                // Actualiza el estado con el valor de la racha
+                setRachaFelizCount(maxConsecutiveDays); 
             } else {
                 console.error('La respuesta no es un arreglo de eventos', response.data);
             }
@@ -102,35 +152,41 @@ function Rachas() {
     };
 
     const contarRachas = (eventos) => {
+        // Filtrar solo los eventos con 'Racha Diaria' y emoción 'Feliz'
         const eventosFelices = eventos.filter(evento => 
             evento.title.includes('Racha Diaria') && evento.emocion.toLowerCase() === 'feliz'
         );
-
+    
         if (eventosFelices.length === 0) return;
-
-        // Ordena los eventos por fecha
+    
+        // Ordenar los eventos por fecha (sin tener en cuenta la hora)
         eventosFelices.sort((a, b) => new Date(a.start) - new Date(b.start));
-
+    
         let maxRacha = 0;
-        let rachaActual = 1;
-        let ultimaFecha = new Date(eventosFelices[0].start);
-
-        eventosFelices.forEach((evento, index) => {
-            const fechaEvento = new Date(evento.start);
-            const diferenciaDias = (fechaEvento - ultimaFecha) / (1000 * 3600 * 24);  // Diferencia en días
-
+        let rachaActual = 1; // Comienza con el primer evento contando como un día de racha
+        let ultimaFecha = new Date(eventosFelices[0].start).setHours(0, 0, 0, 0); // Solo la fecha, sin hora
+    
+        // Recorrer los eventos
+        eventosFelices.forEach((evento) => {
+            const fechaEvento = new Date(evento.start).setHours(0, 0, 0, 0); // Solo la fecha, sin hora
+            const diferenciaDias = (fechaEvento - ultimaFecha) / (1000 * 3600 * 24); // Diferencia en días
+    
+            // Si la diferencia es de un día, se considera como consecutivo
             if (diferenciaDias === 1) {
-                rachaActual++;  // Si es consecutivo, aumenta la racha actual
+                rachaActual++; // Incrementa la racha actual
             } else {
-                maxRacha = Math.max(maxRacha, rachaActual);  // Actualiza la racha máxima si es necesario
-                rachaActual = 1;  // Reinicia la racha actual
+                maxRacha = Math.max(maxRacha, rachaActual); // Actualiza la racha máxima
+                rachaActual = 1; // Reinicia la racha
             }
-
+    
+            // Actualiza la fecha de la última racha
             ultimaFecha = fechaEvento;
         });
-
-        maxRacha = Math.max(maxRacha, rachaActual);  // Verifica la última racha
-
+    
+        // Verifica la última racha después de recorrer todos los eventos
+        maxRacha = Math.max(maxRacha, rachaActual);
+    
+        // Actualiza los estados o valores según sea necesario
         setRachaMaxima(maxRacha);
         setRachaActual(rachaActual);
     };
@@ -244,10 +300,7 @@ function Rachas() {
     
         try {
             // Intentar crear el evento
-            const response = await axios.post('http://localhost:5000/calendario/eventos', evento);
-    
-            // Si la respuesta es exitosa, mostramos el mensaje del backend (mensaje de éxito)
-            alert(response.data.message);
+            await axios.post('http://localhost:5000/calendario/eventos', evento);
     
             // Actualiza el contador de días felices
             contarEventosFeliz();
@@ -268,11 +321,26 @@ function Rachas() {
     
     // Modifica el botón "Enviar" para que llame a esta función
     const handleEnviar = async () => {
-        
+        if (!correoUsuario) {
+            // Si correoUsuario no está definido, muestra un error
+            toast.error("No se pudo obtener la información del usuario. Intenta nuevamente.", {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#f44336",
+                    color: "#fff",
+                },
+            });
+            return;
+        }
     
-        // Consultar al backend para verificar si ya existe un evento de Racha Diaria para hoy
         const fechaHoy = new Date().toISOString().split('T')[0]; // Solo la fecha sin hora
+    
         try {
+            // Consultar al backend para verificar si ya existe un evento de Racha Diaria para hoy
             const response = await axios.get(`http://localhost:5000/calendario/eventos/${correoUsuario}`);
             const eventos = response.data;
     
@@ -284,25 +352,58 @@ function Rachas() {
             );
     
             if (eventoExistente) {
-                // Si ya existe el evento, bloqueamos la edición y mostramos un mensaje
-                alert("Ya has registrado tu racha diaria para hoy.");
+                // Si ya existe el evento, mostramos una notificación y detenemos el flujo
+                toast.error("Ya has registrado tu racha diaria para hoy.", {
+                    position: "top-center",
+                    duration: 5000,
+                    style: {
+                        padding: "20px",
+                        fontSize: "18px",
+                        borderRadius: "10px",
+                        background: "#d17328",
+                        color: "#fff",
+                    },
+                });
                 return;
             }
     
             // Si no existe, permitimos la creación del evento
             handleCrearEvento();
-            
-            // Guardar la emoción y hora en localStorage
+    
+            // Guardar la emoción en localStorage
             localStorage.setItem('emocionHoy', emocionHoy);
-            localStorage.setItem('horaAlerta', horaAlerta);
             localStorage.setItem('fechaUltimaRacha', fechaHoy);
-            
+    
+            // Mostrar notificación de éxito
+            toast.success("¡Racha diaria registrada con éxito!", {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#4caf50",
+                    color: "#fff",
+                },
+            });
         } catch (error) {
             console.error('Error al verificar eventos:', error);
-            alert('Hubo un problema al verificar los eventos. Intenta nuevamente.');
-            setIsEditable(true); // Rehabilitar la edición en caso de error
+    
+            // Mostrar una notificación de error
+            toast.error("Hubo un problema al verificar los eventos. Intenta nuevamente.", {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#f44336",
+                    color: "#fff",
+                },
+            });
         }
     };
+
 
     return (
         <div className="container-rachas-pag">
@@ -328,123 +429,87 @@ function Rachas() {
     </div>
 </div>
 
-            <div className="emocion-hoy">
-                <div className="emocion">
-                    <div className="txt-emocion">Hoy me siento</div>
-                    <div
-                        className="etiqueta-feliz"
-                        style={{
-                            backgroundColor: coloresEmociones[emocionHoy],
-                            color: 'black',
-                        }}
-                        onClick={toggleModal}
-                    >
-                        {emocionHoy}
-                    </div>
-                </div>
+    <div className="emocion-hoy">
+        <div className="emocion">
+            <div className="txt-emocion">Hoy me siento</div>
+            <div
+                className="etiqueta-feliz"
+                style={{
+                    backgroundColor: coloresEmociones[emocionHoy],
+                    color: 'black',
+                }}
+                onClick={toggleModal}
+            >
+                {emocionHoy}
+            </div>
+        </div>
 
-                <div className="hora-alerta">
-                    <div className="alerta">Hora de tu recordatorio</div>
-                    <div className="hora-container">
-                        <div
-                            className="hora"
-                            onClick={toggleModalHora}
-                        >
-                            {horaAlerta}
-                        </div>
-                        {/* Botón "Enviar" al lado de la hora */}
-                        <button className="btn btn-success" onClick={handleEnviar}>
-                            Enviar
-                        </button>
-                    </div>
+        <div className="hora-alerta">
+            <div className="alerta">Hora de Alerta</div>
+            <div className="hora-container">
+                <div className="hora" onClick={toggleModalHora}>
+                    {horaAlerta}
                 </div>
             </div>
+        </div>
+
+        {/* Botón "Enviar" en un contenedor separado */}
+        <div className="btn-container">
+            <button className="btn btn-success" onClick={handleEnviar}>
+                Enviar
+            </button>
+        </div>
+    </div>
 
             <div className="txt-av-desbloquear">Avatares a desbloquear</div>
             <div className="avatares-desbloquear">
-                {/* Avatares aquí */}
-                <div className="txt-av-desbloquear">Avatares a desbloquear</div>
-            <div className="avatares-desbloquear">
+                
                 {/* Avatar de 7 días */}
                 <div className="avatar-container">
                     <div className="avatar-content">
-                        <div className="avatar desbloqueado">
                             <div className="icono-racha">
-                                <img src="/avatar7.png" className="image" alt="Avatar 7" />
+                                <img src="/gatoFeliz.png" className="image" alt="Avatar 7" />
                             </div>
-                        </div>
                         <div className="texto-avatar">
-                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 7 días</h3>
-                            <p>¡Una semana de sonrisas! Cada pequeño paso cuenta. ¡Sigue brillando! 🌟</p>
+                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 3 días</h3>
+                            <h5>¡3 días de sonrisas! Cada pequeño paso cuenta. ¡Sigue brillando! 🌟</h5>
                         </div>
                     </div>
                     {/* Avatar de 14 días */}
                     <div className="avatar-content">
-                        <div className="avatar desbloqueado">
                             <div className="icono-racha">
-                                <img src="/avatar14.png" className="image" alt="Avatar 14" />
+                                <img src="/perroFeliz.png" className="image" alt="Avatar 14" />
                             </div>
-                        </div>
                         <div className="texto-avatar">
-                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 14 días</h3>
-                            <p>Dos semanas de alegría acumulada. ¡Estás creando un hábito positivo y poderoso! 😊</p>
+                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 5 días</h3>
+                            <h5>casi una semana de alegría acumulada. ¡Estás creando un hábito positivo y poderoso! 😊</h5>
                         </div>
                     </div>
                 </div>
                 {/* Avatar de 21 días */}
                 <div className="avatar-container">
                     <div className="avatar-content">
-                        <div className="avatar desbloqueado">
                             <div className="icono-racha">
-                                <img src="/avatar21.png" className="image" alt="Avatar 21" />
+                                <img src="/conejoFeliz.png" className="image" alt="Avatar 21" />
                             </div>
-                        </div>
                         <div className="texto-avatar">
-                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 21 días</h3>
-                            <p>¡21 días de felicidad! Estás en el camino correcto para transformar tus días. 🌈</p>
+                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 5 días</h3>
+                            <h5>¡Cinco días de felicidad! Estás en el camino correcto para transformar tus días. 🌈</h5>
                         </div>
                     </div>
                     {/* Avatar de 28 días */}
                     <div className="avatar-content">
-                        <div className="avatar desbloqueado">
                             <div className="icono-racha">
-                                <img src="/avatar28.png" className="image" alt="Avatar 28" />
+                                <img src="/vacaFeliz.png" className="image" alt="Avatar 28" />
                             </div>
-                        </div>
                         <div className="texto-avatar">
-                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 28 días</h3>
-                            <p>¡Un mes de momentos felices! La constancia te lleva más lejos de lo que imaginas. 💪✨</p>
-                        </div>
-                    </div>
-                </div>
-                {/* Avatar de 35 días */}
-                <div className="avatar-container">
-                    <div className="avatar-content">
-                        <div className="avatar desbloqueado">
-                            <div className="icono-racha">
-                                <img src="/avatar35.png" className="image" alt="Avatar 35" />
-                            </div>
-                        </div>
-                        <div className="texto-avatar">
-                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 35 días</h3>
-                            <p>Más de un mes de felicidad. ¡Sigue alimentando tu alma con buenas vibras! 🌻</p>
-                        </div>
-                    </div>
-                    {/* Avatar de 42 días */}
-                    <div className="avatar-content">
-                        <div className="avatar desbloqueado">
-                            <div className="icono-racha">
-                                <img src="/avatar42.png" className="image" alt="Avatar 42" />
-                            </div>
-                        </div>
-                        <div className="texto-avatar">
-                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 42 días</h3>
-                            <p>¡42 días de alegría ininterrumpida! Cada día cuenta y tu energía positiva crece. 🌟</p>
+                            <h3>Desbloquea este avatar cuando hayas alcanzado una racha de felicidad de 10 días</h3>
+                            <h5>¡10 días felices! La constancia te lleva más lejos de lo que imaginas. 💪✨</h5>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+
 
             {/* Modal para seleccionar la emoción */}
             {isModalOpen && (

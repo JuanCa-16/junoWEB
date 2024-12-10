@@ -10,8 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import axios from 'axios';
+import toast from "react-hot-toast";
 
-moment.locale('es');
+moment.locale('es-CO');
 
 const EventModal = ({ evento, onClose, onSave }) => {
     const [eventData, setEventData] = useState({
@@ -180,12 +181,21 @@ const fetchEventos = async () => {
 
     const handleEventClick = (event) => {
         if (event.title.includes('Racha Diaria')) {
-            alert('No puedes editar la Racha Diaria.');
+            toast.error('No puedes editar la Racha Diaria.', {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#d17328",
+                    color: "#fff",
+                },
+            });
             return;  // Evita que el evento sea editable
         }
         setEventoSelecionado(event);
         setModalVisible(true);
-        
     };
 
     const handleEventClose = () => {
@@ -210,32 +220,104 @@ const fetchEventos = async () => {
             end: moment(eventData.end).utc().format(),     // Enviar como UTC
         };
     
-        if (!eventoConCorreo.title || !eventoConCorreo.emocion || !eventoConCorreo.desc) {
-            alert('Por favor, completa todos los campos obligatorios.');
-            return;
-        }
+
+        
+
+    if (!eventoConCorreo.title || !eventoConCorreo.emocion || !eventoConCorreo.desc) {
+        toast((t) => (
+            <div style={{ display: "flex", alignItems: "center" }}>
+                {/* Icono de advertencia */}
+                <span style={{ fontSize: "30px", marginRight: "10px" }}>⚠️</span>
+                <span>Por favor, completa todos los campos obligatorios.</span>
+            </div>
+        ), {
+            position: "top-center",
+            duration: 2000,
+            style: {
+                padding: "20px",
+                fontSize: "18px",
+                borderRadius: "10px",
+                background: "#ff9800", // Amarillo para advertencia
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+            },
+        });
+        return;
+    }
+    try {
+        if (eventoSelecionado?.id) {
+            // Si hay un evento seleccionado, actualiza el evento
+            const response = await axios.put(`http://localhost:5000/calendario/${eventoSelecionado.id}`, eventoConCorreo);
+            
+            // Actualiza el evento en el estado
+            setEventos(eventos.map((event) => (event.id === eventoSelecionado.id ? response.data : event)));
     
-        try {
-            if (eventoSelecionado?.id) {
-                // Si hay un evento seleccionado, actualiza el evento
-                const response = await axios.put(`http://localhost:5000/calendario/${eventoSelecionado.id}`, eventoConCorreo);
-                setEventos(eventos.map((event) => (event.id === eventoSelecionado.id ? response.data : event)));
-            } else {
-                // Si no hay un evento seleccionado, crea uno nuevo
-                const response = await axios.post('http://localhost:5000/calendario/eventos', eventoConCorreo);
-                
-                // Si el backend devuelve un error de "racha ya registrada", muestra un mensaje
-                if (response.status === 400) {
-                    alert(response.data.message);
-                    return;
-                }
+            // Muestra notificación de éxito para la actualización
+            toast.success("Evento actualizado correctamente", {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#4caf50", // Verde para éxito
+                    color: "#fff",
+                },
+            });
     
-                setEventos([...eventos, response.data]); // Añadir el nuevo evento
+        } else {
+            // Si no hay un evento seleccionado, crea uno nuevo
+            const response = await axios.post('http://localhost:5000/calendario/eventos', eventoConCorreo);
+            
+            // Si el backend devuelve un error de "racha ya registrada", muestra un mensaje de error
+            if (response.status === 400) {
+                toast.error(response.data.message, {
+                    position: "top-center",
+                    duration: 5000,
+                    style: {
+                        padding: "20px",
+                        fontSize: "18px",
+                        borderRadius: "10px",
+                        background: "#f44336", // Rojo para error
+                        color: "#fff",
+                    },
+                });
+                return;
             }
-        } catch (error) {
-            console.error('Error al procesar el evento:', error);
-            alert('Hubo un problema al guardar el evento. Intenta nuevamente.');
-        } finally {
+    
+            // Añadir el nuevo evento al estado
+            setEventos([...eventos, response.data]);
+    
+            // Muestra notificación de éxito al crear el evento
+            toast.success("Evento creado correctamente", {
+                position: "top-center",
+                duration: 5000,
+                style: {
+                    padding: "20px",
+                    fontSize: "18px",
+                    borderRadius: "10px",
+                    background: "#4caf50", // Verde para éxito
+                    color: "#fff",
+                },
+            });
+        }
+    } catch (error) {
+        console.error('Error al procesar el evento:', error);
+    
+        // Mostrar error al usuario
+        toast.error("Hubo un problema al guardar el evento. Intenta nuevamente.", {
+            position: "top-center",
+            duration: 5000,
+            style: {
+                padding: "20px",
+                fontSize: "18px",
+                borderRadius: "10px",
+                background: "#f44336", // Rojo para error
+                color: "#fff",
+            },
+        });
+    } finally {
             fetchEventos();  // Actualizar lista completa de eventos
             setModalVisible(false);
             setEventoSelecionado(null);

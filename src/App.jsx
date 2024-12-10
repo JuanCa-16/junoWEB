@@ -93,13 +93,94 @@ function MainLayout({ closeMenu, setCloseMenu, info, infoFoto }) {
     }
 };
 
-
   // Hook para verificar alertas periódicamente
   useEffect(() => {
     const intervalo = setInterval(verificarAlerta, 60000); // Verifica cada 60 segundos
     return () => clearInterval(intervalo); // Limpia el intervalo al desmontar el componente
   }, []);
   
+  
+  let isRunning = false;
+  
+  const verificarRachaDiaria = async () => {
+    if (isRunning) return;
+    isRunning = true;
+  
+    try {
+      const correo = info.correo;
+      if (!correo) return;
+  
+      const eventos = (await axios.get(`http://localhost:5000/calendario/eventos/${correo}`)).data;
+  
+      const eventoRachaRegistrado = eventos.some(evento =>
+        evento.title.includes('Racha Diaria') &&
+        new Date(evento.fechaini).toDateString() === new Date().toDateString()
+      );
+  
+      if (eventoRachaRegistrado) {
+        console.log("Racha diaria ya registrada hoy, no mostrar alerta.");
+        return;
+      }
+  
+      toast((t) => (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <span style={{ fontSize: "30px", marginRight: 10 }}>📝</span>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+            <img src="/logos.png" alt="Logo Juno" style={{ width: 90, height: 90, marginBottom: 10 }} />
+            <p style={{ fontWeight: "bold", margin: 0 }}>¡No olvides registrar tu racha diaria!</p>
+          </div>
+          <button 
+              onClick={() => toast.dismiss(t.id)} 
+              style={{
+                  marginLeft: 10, 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center', 
+                  height: '50px', 
+                  width: '70px', 
+                  borderRadius: '40%',
+                  border: 'none',
+                  background: '#d9534f', 
+                  fontWeight: 'bold',
+                  fontSize: '12px'
+              }}
+              onMouseEnter={(e) => e.target.style.background = '#ee2d27'} 
+              onMouseLeave={(e) => e.target.style.background = '#d9534f'} 
+          >
+              Cerrar
+          </button>
+        </div>
+      ), {
+        style: {
+          backgroundColor: "#F4D35E",
+          color: "#333",
+          padding: "20px 30px",   
+          fontSize: "21px",        
+          maxWidth: "600px",       
+          borderRadius: "15px",    
+          boxShadow: "0px 4px 12px rgba(0,0,0,0.1)", 
+        },
+        duration: Infinity,
+      });
+    } catch (error) {
+      console.error("Error al verificar la racha diaria:", error);
+      if (error.response) {
+        console.error("Error response:", error.response.data);
+      } else {
+        console.error("Error sin respuesta:", error.message);
+      }
+    } finally {
+      isRunning = false;
+    }
+  };
+
+  // Hook para verificar la racha diaria cada 5 minutos
+  useEffect(() => {
+    const intervalo1 = setInterval(verificarRachaDiaria, 300000); // 5 minutos (300,000 ms)
+    verificarRachaDiaria(); // Verifica inmediatamente al montar el componente
+    return () => clearInterval(intervalo1); // Limpia el intervalo al desmontar el componente
+  }, []);
+
   return (
     <div className="App principal grid-container">
       <Sidebar closeMenu={closeMenu} setCloseMenu={setCloseMenu} infoU = {info} infoF = {infoFoto}/>
@@ -118,6 +199,9 @@ function MainLayout({ closeMenu, setCloseMenu, info, infoFoto }) {
     </div>
   );
 }
+
+
+
 
 // Layout para las páginas de autenticación
 function AuthLayout() {
