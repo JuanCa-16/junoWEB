@@ -96,22 +96,20 @@ const EventModal = ({ evento, onClose, onSave }) => {
                             <option value="Motivado">Motivado</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label>Inicio:</label>
+                    <div className="custom-datepicker-wrapper">
+                    <label>Inicio:</label>
                         <DatePicker
-                            className="form-control"
                             selected={eventData.start}
                             onChange={(date) => handleDateChange(date, 'start')}
                             showTimeSelect
                             dateFormat="Pp"
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Fin:</label>
+                    <div className="custom-datepicker-wrapper">
+                    <label>Fin:</label>
                         <DatePicker
-                            className="form-control"
-                            selected={eventData.end}
-                            onChange={(date) => handleDateChange(date, 'end')}
+                            selected={eventData.start}
+                            onChange={(date) => handleDateChange(date, 'start')}
                             showTimeSelect
                             dateFormat="Pp"
                         />
