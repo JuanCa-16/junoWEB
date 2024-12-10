@@ -209,6 +209,7 @@
 
 .rbc-show-more:hover {
   background-color: #6e4b3b;
+  /* Mantiene el desplazamiento */
 }
 
 .rbc-time-content,
