@@ -115,61 +115,120 @@ body {
         padding: 1rem;
         gap: 1rem;
 
-        .rachaContainer {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            background-color: var(--c3);
-            border-radius: var(--border2);
-            //margin: 0.5rem;
-            box-shadow: var(--shadow) var(--c4);
+       .rachaContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--c3); /* Color inicial */
+    border-radius: var(--border2);
+    box-shadow: var(--shadow) var(--c4);
+    cursor: pointer; /* Cambiar el cursor a mano */
 
-            img {
-                margin-top: 0.5rem;
-                height: 4rem;
-            }
+    img {
+        margin-top: 0.5rem;
+        height: 4rem;
+    }
 
-            .profileContents {
-                padding: 0.3rem 0 0 .5rem;
+    .profileContents {
+        padding: 0.3rem 0 0 .5rem;
 
-                p {
-                    font-size: 1.5rem;
-                }
-
-
-                .dias {
-                    display: flex;
-                    gap: 0.4rem;
-                }
-
-                p.texto1 {
-                    margin: 0;
-                    padding: 0;
-                    font-weight: 500;
-                    line-height: 1;
-                }
-
-                p.texto2 {
-                    margin: 0;
-                    padding: 0;
-                    font-weight: 500;
-                    line-height: 1;
-                }
-
-                h1.texto3 {
-                    margin: 0;
-                    padding: 0 0 0.7rem 0;
-
-                    font-weight: 700;
-                    line-height: 1;
-                    color: var(--textc3);
-
-                }
-            }
-
+        p {
+            font-size: 1.5rem;
         }
+
+        .dias {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        p.texto1 {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        p.texto2 {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        h1.texto3 {
+            margin: 0;
+            padding: 0 0 0.7rem 0;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--textc3);
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+        transition: transform 0.3s ease; /* Transición suave */
+        background-color: var(--c2); /* Color de fondo al hacer hover */
+    }
+}
+.rachaContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--c3); /* Color inicial */
+    border-radius: var(--border2);
+    box-shadow: var(--shadow) var(--c4);
+    cursor: pointer; /* Cambiar el cursor a mano */
+
+    img {
+        margin-top: 0.5rem;
+        height: 4rem;
+    }
+
+    .profileContents {
+        padding: 0.3rem 0 0 .5rem;
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        .dias {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        p.texto1 {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        p.texto2 {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        h1.texto3 {
+            margin: 0;
+            padding: 0 0 0.7rem 0;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--textc3);
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+        transition: transform 0.3s ease; /* Transición suave */
+        background-color: var(--c2); /* Color de fondo al hacer hover */
+    }
+}
 
         button{
             background-color: var(--c1);

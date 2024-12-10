@@ -93,10 +93,10 @@ const Sidebar = React.memo(({ closeMenu, setCloseMenu, infoU, infoF, rachaFelizC
                 <img src={racha} alt="Racha"></img>
                 <div className="profileContents">
                     <div className="dias">
-                        <p className='texto1'>{rachaFelizCount}</p> 
-                        <p className='texto2'>Días</p> 
+                        <p className='texto1'></p> 
+                        <h4 className='texto2'>Tu</h4> 
                     </div>
-                    <h3 className='texto3'>FELICES</h3> 
+                    <h3 className='texto3'>Racha</h3> 
                 </div>
             </div>
 

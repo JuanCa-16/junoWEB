@@ -22,14 +22,14 @@ const PerfilPersonal = () => {
 
     const emotionsText = ['Todas', 'Feliz', 'Triste', 'Enojado', 'Ansioso', 'Motivado', 'Aburrido'];
     const emotions = [
-        { emoji: <img src={felizM} alt="Feliz" className="emoji-img" />, label: 'Feliz' },
-        { emoji: <img src={felizM} alt="Triste" className="emoji-img" />, label: 'Triste' },
-        { emoji: <img src={felizM} alt="Enojado" className="emoji-img" />, label: 'Enojado' },
-        { emoji: <img src={felizM} alt="Ansioso" className="emoji-img" />, label: 'Ansioso' },
-        { emoji: <img src={felizM} alt="Motivado" className="emoji-img" />, label: 'Motivado' },
-        { emoji: <img src={felizM} alt="Aburrido" className="emoji-img" />, label: 'Aburrido' }
+        { emoji: <img src="/feliz.png" alt="Feliz" className="emoji-img" />, label: 'Feliz' },
+        { emoji: <img src="/triste.png" alt="Triste" className="emoji-img" />, label: 'Triste' },
+        { emoji: <img src="/enojado.png" alt="Enojado" className="emoji-img" />, label: 'Enojado' },
+        { emoji: <img src="/ansioso.png" alt="Ansioso" className="emoji-img" />, label: 'Ansioso' },
+        { emoji: <img src="/motivado.png" alt="Motivado" className="emoji-img" />, label: 'Motivado' },
+        { emoji: <img src="/aburrido.png" alt="Aburrido" className="emoji-img" />, label: 'Aburrido' }
         // Agrega más emociones aquí si es necesario
-    ];
+];
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -124,6 +124,10 @@ const PerfilPersonal = () => {
         
     }, []);
 
+    const handleRedirectToRachaPage = () => {
+        navigate('/rachas'); // Redirige a la página de rachas
+    };
+    
     return (
         <div className='gridPersonal'>
             <div className="containerPerfil a1">
@@ -131,14 +135,13 @@ const PerfilPersonal = () => {
                     <img src={fotoPerfil}  onClick={() => navigate('/editarFoto')} alt="perfil" className='img' />
                     <button onClick={() => navigate('/editarFoto')}>Editar Foto</button>
                 </div>
-                <div className="rachaContainer">
+                <div className="rachaContainer" onClick={handleRedirectToRachaPage}>
                     <img src={racha} alt="Racha" />
                     <div className="profileContents">
                         <div className="dias">
-                            <p className='texto1'>7</p>
-                            <p className='texto2'>días</p>
+                            <p className='texto2'>Tu</p>
                         </div>
-                        <h1 className='texto3'>FELICES</h1>
+                        <h1 className='texto3'>Racha</h1>
                     </div>
                 </div>
                 <div className="editar">
