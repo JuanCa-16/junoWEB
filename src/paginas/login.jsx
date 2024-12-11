@@ -35,7 +35,7 @@ const Login = () => {
         const response = await fetch('https://api-colombia.com/api/v1/City');
         const data = await response.json();
         const options = data.map((city) => ({
-          value: city.id, // Puedes usar el id o el nombre, dependiendo de tus necesidades
+          value: city.name, // Puedes usar el id o el nombre, dependiendo de tus necesidades
           label: city.name,
         }));
         setCityOptions(options);
