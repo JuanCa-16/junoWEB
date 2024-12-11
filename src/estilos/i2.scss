@@ -1059,6 +1059,16 @@ img {
     min-height: 100vh;
     padding: 0rem;
 }
+@media(min-width: 1500px) {
+    .grid-container {
+        display: grid;
+        gap: 0px;
+        grid-template-columns: 17rem auto;
+        grid-template-rows: 100vh;
+        grid-template-areas:
+            "sidebar main";
+    }
+}
 
 @media (max-width: 700px) {
 
